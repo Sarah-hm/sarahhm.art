@@ -1,0 +1,39 @@
+*{
+margin:0;
+padding:0;
+font-family: sans-serif
+}
+
+header{
+    z-index:999;
+    background-color:rgba(0,0,0,0.8); 
+    color:white;
+    padding:1%;
+    height:5vh;
+}
+
+h2{ 
+font-size:100%;
+}
+menu {
+    padding:1%;
+    background-color:white;
+    max-width:20%;
+    height:100vh;
+}
+
+.website-pages-cluster{
+    padding-top:5%; 
+    padding-bottom:inherit;
+}
+
+menu li{
+    list-style-type:none;
+    margin-top:0.25%;
+
+}
+
+a{
+text-decoration:none;
+color:black;
+}
