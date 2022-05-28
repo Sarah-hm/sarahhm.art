@@ -5,17 +5,20 @@ font-family: sans-serif
 }
 
 header{
-    z-index:999;
-    background-color:rgba(0,0,0,0.8); 
+    /* z-index:999; */
+    background-color:rgba(50,50,50,0.95); 
     color:white;
     padding:1%;
-    height:5vh;
+    /* height:5vh; */
+    top:0px;
+    position:sticky;
 }
 
 h2{ 
 font-size:100%;
 }
 menu {
+    z-index:-1;
     padding:1%;
     background-color:white;
     max-width:20%;
@@ -29,11 +32,38 @@ menu {
 
 menu li{
     list-style-type:none;
-    margin-top:0.25%;
-
+    vertical-align:baseline;
+    padding-top:0.5%;
+    padding-bottom:0.5%;
 }
 
-a{
+/* #cart-pages a, 
+#fashion-pages a{
+    padding-top:1%;
+    padding-bottom:1%;
+} */
+
+menu a{
+    padding: 1%;
+}
+
+menu a:link{
 text-decoration:none;
+color:rgb(0,0,0);
+transition: all 0.5s ease-out;
+}
+menu a:visited{
 color:black;
+}
+menu a:hover{
+color:rgb(150,150,150);
+}
+menu a:active{
+background-color:rgba(50,50,50,0.95);
+color:white;
+}
+
+span {
+    font-size:70%;
+    text-decoration: wavy;
 }
