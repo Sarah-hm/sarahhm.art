@@ -30,6 +30,10 @@ menu {
     padding-bottom:inherit;
 }
 
+menu h3 { 
+    padding: 1.5%;
+}
+
 menu li{
     list-style-type:none;
     vertical-align:baseline;
@@ -37,33 +41,37 @@ menu li{
     padding-bottom:0.5%;
 }
 
-/* #cart-pages a, 
-#fashion-pages a{
-    padding-top:1%;
-    padding-bottom:1%;
-} */
-
 menu a{
-    padding: 1%;
+    padding: 1.5%;
 }
 
-menu a:link{
+menu .website-pages-cluster a:link{
 text-decoration:none;
 color:rgb(0,0,0);
-transition: all 0.5s ease-out;
+transition: all 1s ease-out;
 }
-menu a:visited{
+menu .website-pages-cluster a:visited{
 color:black;
 }
-menu a:hover{
-color:rgb(150,150,150);
+menu .website-pages-cluster a:hover{
+    background-color:rgba(50,50,50,0.95);
+    color:white;
 }
-menu a:active{
+menu .website-pages-cluster a:active{
 background-color:rgba(50,50,50,0.95);
 color:white;
 }
 
-span {
+menu a span {
     font-size:70%;
     text-decoration: wavy;
+}
+
+#social-media-links{
+    display:flex;
+   ;
+}
+
+#social-media-links li{ 
+padding:3%;
 }
