@@ -6,11 +6,9 @@ font-family: sans-serif
 
 header{
     /* z-index:999; */
-    
     background-color:rgba(50,50,50,0.95); 
     color:white;
     padding:1%;
- padding-left:3%;
     /* height:5vh; */
     top:0px;
     position:sticky;
@@ -20,15 +18,12 @@ h2{
 font-size:100%;
 }
 menu {
-    position:fixed;
-    left:2%;
     z-index:-1;
     padding:1%;
     background-color:white;
     max-width:20%;
     height:100vh;
 }
-
 
 .website-pages-cluster{
     padding-top:5%; 
@@ -79,20 +74,4 @@ menu a span {
 
 #social-media-links li{ 
 padding:2%;
-}
-
-.projects {
-position:absolute;
-width:70%;
-right:0px;
-margin:2%;
-}
-
-.projectsHeader{ 
-   display:flex; 
-   align-items:baseline; 
-}
-
-.projectsHeader h4{ 
-    font-size: 70%;
 }
