@@ -5,7 +5,7 @@ font-family: sans-serif
 }
 
 header{
-    /* z-index:999; */
+    display:block;
     background-color:rgba(50,50,50,0.95); 
     color:white;
     padding:1%;
@@ -17,7 +17,11 @@ header{
 h2{ 
 font-size:100%;
 }
-menu {
+
+.navigationWindow{
+    display:flex;
+}
+.menu {
     z-index:-1;
     padding:1%;
     background-color:white;
@@ -30,41 +34,40 @@ menu {
     padding-bottom:inherit;
 }
 
-menu h3 { 
+.menu h3 { 
     padding: 1.5%;
 }
 
-menu li{
+.menu li{
     list-style-type:none;
     vertical-align:baseline;
     padding-top:0.5%;
     padding-bottom:0.5%;
 }
 
-menu a{
+.menu a{
     padding: 1.5%;
 }
 
-menu .website-pages-cluster a:link{
+.menu .website-pages-cluster a:link{
 text-decoration:none;
 color:rgb(0,0,0);
 transition: all 1s ease-out;
 }
-menu .website-pages-cluster a:visited{
+.menu .website-pages-cluster a:visited{
 color:black;
 }
-menu .website-pages-cluster a:hover{
+.menu .website-pages-cluster a:hover{
     background-color:rgba(50,50,50,0.95);
     color:white;
 }
-menu .website-pages-cluster a:active{
+.menu .website-pages-cluster a:active{
 background-color:rgba(50,50,50,0.95);
 color:white;
 }
 
-menu a span {
+.menu a span {
     font-size:70%;
-    text-decoration: wavy;
 }
 
 #social-media-links{
@@ -74,4 +77,25 @@ menu a span {
 
 #social-media-links li{ 
 padding:2%;
+}
+
+.page {
+    background-color:pink;
+    position:relative; 
+}
+
+.projectDescriptions{
+    display:flex;
+}
+
+.projectDescriptionsSection{
+    padding:2%;
+}
+
+.projectDescriptionsSection p{
+    margin-bottom:1.5%;
+}
+
+.boldParagraph{
+    font-weight:bold;
 }
