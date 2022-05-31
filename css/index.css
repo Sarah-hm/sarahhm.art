@@ -19,13 +19,14 @@ font-size:100%;
 }
 
 .navigationWindow{
-    display:flex;
-}
+    width:100%;
+    display:inline-flex; 
+}   
+
 .menu {
-    z-index:-1;
     padding:1%;
     background-color:white;
-    max-width:20%;
+    max-width:30%;
     height:100vh;
 }
 
@@ -45,28 +46,32 @@ font-size:100%;
     padding-bottom:0.5%;
 }
 
-.menu a{
-    padding: 1.5%;
+.page-button {
+    padding:1.5%;
+    text-decoration:none;
+    color:rgb(0,0,0);
+    transition: all 1s ease-out;
+    border-style:none;
+    background:none;
+    cursor:pointer;
+    padding-right:30%;
+    margin:auto;
+    text-align:left;
+    font-size:90%;
 }
 
-.menu .website-pages-cluster a:link{
-text-decoration:none;
-color:rgb(0,0,0);
-transition: all 1s ease-out;
+.info-button{ 
+    font-size:110%;
+  
 }
-.menu .website-pages-cluster a:visited{
-color:black;
-}
-.menu .website-pages-cluster a:hover{
+
+.page-button:hover{
     background-color:rgba(50,50,50,0.95);
     color:white;
 }
-.menu .website-pages-cluster a:active{
-background-color:rgba(50,50,50,0.95);
-color:white;
-}
 
-.menu a span {
+
+.page-button span {
     font-size:70%;
 }
 
@@ -79,9 +84,21 @@ color:white;
 padding:2%;
 }
 
+/* .article-window{
+    overflow:hidden;
+} */
+
 .page {
-    background-color:pink;
-    position:relative; 
+    width:70%;
+    /* background-color:pink; */
+    display:flex;
+    flex-wrap:wrap;
+    /* justify-content:center; */
+}
+
+.projectsHeader{
+    padding-left:3%;
+    padding-top:3%;
 }
 
 .projectDescriptions{
@@ -98,4 +115,15 @@ padding:2%;
 
 .boldParagraph{
     font-weight:bold;
+}
+
+.page .coverImg {
+    /* width:100%; */
+align-self:center;
+}
+
+.page .coverImg img{
+    height:80vh;
+    margin:auto;
+    padding:auto;
 }
