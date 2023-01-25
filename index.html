@@ -5,25 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarah Hm</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.jpg">
     <link rel="stylesheet" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
 <header>
-    <h1>Sarah Hm</h1>
-    <h2>multidisciplinary artist</h2>
+    <div class="header-names">
+        <h1>Sarah Hm</h1>
+        <h2>multidisciplinary artist</h2>
+    </div>
+    <img src="img/favicon.jpg" alt="A pixelized picture of my face">
 </header>
 
 <div class="navigationWindow">
     <div class="menu">
+
+      <ul class = "website-pages-cluster" id="data-patterns-pages">
+        <h3>Data Patterns</h3>
+        <li> <button class="page-button" id="data-pattern-01-button">Collaborative garment creation between human and machine<span> 2022</span></button></li>
+        <li> <button class="page-button" id="data-pattern-02-button">Data_scapes: interactive research on the materiality of (mis)information fashion <span> 2022</span></button></li>
+        <li> <button class="page-button" id="data-pattern-03-button">Data_scapes: exploration of data and (mis)information collection <span> 2022</span></button></li>
+        <li> <button class="page-button" id="data-pattern-04-button">Development of the Genevieve corpus<span> 2023</span></button></li>
+    </ul>    
+
         <ul class = "website-pages-cluster" id="cart-pages">
         <h3>Computation Arts works</h3>
         <li> <button class="page-button" id="rideaux-de-mom-button">Les rideaux de ma mère<span> 2022</span></button></li>
         <li> <button class="page-button" id="femme-button">Femme <span> 2022</span></button></li>
-        <li> <button class="page-button" id="ad-vitam-aeternam-button">Aeffect <span> 2021</span></button></li>
-        <li> <button class="page-button" id="the-undef-archive-button">The [undefined] Archive <span> 2022</span></button></li>
+        <li> <button class="page-button" id="aeffect-button">Aeffect <span> 2021</span></button></li>
+        <!-- <li> <button class="page-button" id="the-undef-archive-button">The [undefined] Archive <span> 2022</span></button></li> -->
         <li> <button class="page-button" id="ad-vitam-aeternam-button">Let u = aLand<span> 2021</span></button></li>
-        <li> <button class="page-button" id="263-button">263 final? <span> 2021</span></button></li>
+        <!-- <li> <button class="page-button" id="263-button">263 final? <span> 2021</span></button></li> -->
     </ul>
     
     <ul class="website-pages-cluster" id="fashion-pages">
@@ -43,8 +57,8 @@
      </ul>
     
      <ul id="social-media-links">
-        <li> <a href="https://www.facebook.com/sarah.hm.526" target=”_blank”><img src="flaticon/facebook.png" alt="facebook logo and link" width="25px"></a></li>
-        <li> <a href="https://www.instagram.com/sarahhm.jpg/" target=”_blank”><img src="flaticon/instagram.png" alt="Instagram logo and link" width="25px"></a></li>
+        <li> <a href="https://www.facebook.com/sarah.hm.526" target=”_blank”><img src="img/facebook.png" alt="facebook logo and link" width="25px"></a></li>
+        <li> <a href="https://www.instagram.com/sarahhm.jpg/" target=”_blank”><img src="img/instagram.png" alt="Instagram logo and link" width="25px"></a></li>
         </ul>
     </div>  
 
@@ -57,7 +71,7 @@
             </div>
     
             <div class="coverImg">
-                <img src="projects\ad-vitam-aeternam\ad-vitam-aeternam-cover.png" alt="cover Image of Ad Vitam Aeternam">
+                <img src="projects/ad-vitam-aeternam/ad-vitam-aeternam-cover.png" alt="cover Image of Ad Vitam Aeternam">
             </div>
         
             <div class="projectDescriptions">

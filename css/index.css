@@ -5,13 +5,14 @@ font-family: sans-serif
 }
 
 header{
-    display:block;
+    display:flex;
     background-color:rgba(50,50,50,0.95); 
     color:white;
     padding:1%;
     /* height:5vh; */
     top:0px;
     position:sticky;
+    justify-content:space-between;
 }
 
 h2{ 
@@ -26,7 +27,7 @@ font-size:100%;
 .menu {
     padding:1%;
     background-color:white;
-    max-width:30%;
+    width:15vw;
     height:100vh;
 }
 
@@ -63,6 +64,10 @@ font-size:100%;
 .info-button{ 
     font-size:110%;
   
+}
+
+.page-button{
+    width:100%;
 }
 
 .page-button:hover{
