@@ -59,15 +59,12 @@ font-size:100%;
     margin:auto;
     text-align:left;
     font-size:90%;
+    width:100%;
 }
 
 .info-button{ 
     font-size:110%;
   
-}
-
-.page-button{
-    width:100%;
 }
 
 .page-button:hover{
