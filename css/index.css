@@ -4,16 +4,6 @@ padding:0;
 font-family: sans-serif
 }
 
-button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
-
 header{
     display:flex;
     background-color:rgba(50,50,50,0.95); 
@@ -76,7 +66,7 @@ font-size:100%;
     padding-bottom:0.5%;
 }
 
-.page-button, #contact-button a {
+.page-button {
     padding:1.5%;
     text-decoration:none;
     color:rgb(0,0,0);
@@ -96,7 +86,7 @@ font-size:100%;
   
 }
 
-.page-button:hover, #contact-button a:hover{
+.page-button:hover{
     background-color:rgba(50,50,50,0.95);
     color:white;
 }
