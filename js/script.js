@@ -1,3 +1,5 @@
+
+// Jquery needs to be implemented in vanilla but here it is for right now
 $(document).ready(function(){
 
 
@@ -14,11 +16,33 @@ $("#about-button").click(function(){
     $(".header-img").toggleClass("header-img-opened")
 })
 
-
-
 // Mail to sarah.hm@hotmail.ca when contact is clicked
 $("#contact-button").click(function(){
     window.location.href=`mailto:sarah.hm@hotmail.ca`
 })
 
 })
+
+window.onload = (event) => {
+
+  document.querySelectorAll(".page-button").forEach(function(element){
+   element.addEventListener('click', (e)=> {
+
+    let pages = document.querySelectorAll(".page");
+    console.log(pages)
+
+    document.querySelectorAll(".page").forEach(function(el){
+        el.classList.add("page-closed");
+    })
+
+    let pageID = e.target.getAttribute('data-att');
+    console.log(pageID)
+    document.querySelector(`#${pageID}`).classList.toggle("page-closed")
+
+
+    
+  })
+})
+    
+
+ }
