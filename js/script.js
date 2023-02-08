@@ -10,11 +10,11 @@ $(".pages-cluster-title").click(function(){
 
 // Open about section when about button is open
 
-$("#about-button").click(function(){
-    // $("#about-section").toggleClass("about-section-opened")
-    $("header").toggleClass("header-opened");
-    $(".header-img").toggleClass("header-img-opened")
-})
+// $("#about-button").click(function(){
+//     // $("#about-section").toggleClass("about-section-opened")
+//     $("header").toggleClass("header-opened");
+//     $(".header-img").toggleClass("header-img-opened")
+// })
 
 // Mail to sarah.hm@hotmail.ca when contact is clicked
 $("#contact-button").click(function(){
@@ -24,6 +24,20 @@ $("#contact-button").click(function(){
 })
 
 window.onload = (event) => {
+
+document.querySelector("#about-button").addEventListener(`click`, () => {
+    document.querySelector("header").classList.toggle("header-opened");
+    document.querySelector(".header-img").classList.toggle("header-img-opened")
+    document.querySelector("#about-section").style = "display:block"
+
+})
+
+document.querySelector("#about-close-btn").addEventListener(`click`,function(){
+    document.querySelector("header").classList.remove("header-opened")
+    document.querySelector(".header-img").classList.remove("header-img-opened") 
+    document.querySelector("#about-section").style = "display:none"
+})
+
 
   document.querySelectorAll(".page-button").forEach(function(element){
    element.addEventListener('click', (e)=> {

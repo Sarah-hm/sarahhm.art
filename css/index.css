@@ -17,10 +17,6 @@ header{
     transition: all 1s;
 }
 
-.header-opened{
-    height:100vh;
-    font-size: 2rem;
-}
 
 h2{ 
 font-size:100%;
@@ -28,7 +24,18 @@ font-size:100%;
 
 .header-img{
     height:10vh;
-    transition:all 1s;
+    transition: height 1s;
+    transform-origin: top right;
+    position: fixed; 
+    top: 3vh; 
+    right: 3vw; 
+}
+
+/* ABOUT SECTION / HEADER OPENED */
+
+.header-opened{
+    height:100vh;
+    font-size: 2rem;
 }
 
 .header-img-opened{
@@ -36,12 +43,21 @@ font-size:100%;
 }
 
 #about-section{
+    display:none;
     z-index:200;
     height:0vh;
     background-color:rgba(50,50,50,0.95); 
     color:white;
     transition: all 2s ease-in-out;
 
+}
+
+#about-close-btn{
+font-size: 50px;
+position: fixed; 
+top: 90%; 
+left: 2vw; 
+cursor:pointer;
 }
 
 .about-section-opened{
@@ -146,14 +162,14 @@ padding:2%;
     /* background-color:pink; */
     display:flex;
     flex-wrap:wrap;
-    left:35vh;
+    left:20vw;
     /* justify-content:center; */
-    transition: left 1s ease-in-out;
+    transition: left 1.5s ease-in-out;
 }
 
 .page-closed{
     position:absolute; 
-    left: -100vh;
+    left: -100vw;
 
 }
 
