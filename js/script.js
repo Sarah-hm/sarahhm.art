@@ -26,9 +26,14 @@ $("#contact-button").click(function(){
 window.onload = (event) => {
 
 document.querySelector("#about-button").addEventListener(`click`, () => {
-    document.querySelector("header").classList.toggle("header-opened");
-    document.querySelector(".header-img").classList.toggle("header-img-opened")
-    document.querySelector("#about-section").style = "display:block"
+
+    
+
+
+    // Opening the header larger as an about section, not fully working
+    // document.querySelector("header").classList.toggle("header-opened");
+    // document.querySelector(".header-img").classList.toggle("header-img-opened")
+    // document.querySelector("#about-section").style = "display:flex"
 
 })
 
