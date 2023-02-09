@@ -276,7 +276,7 @@ width:90vw;
     max-height:20vw; 
 }
 
-#let-u-be-land-img img{
+#let-u-be-land-img img, #data-scapes-01-page img{
         display: block;
         max-width:90%;
         max-height:30%;
