@@ -204,3 +204,14 @@ align-self:center;
     margin:auto;
     padding:auto;
 }
+
+/* PROJECT SPECIFIC CSS */
+
+#aeffect-page{
+    flex-direction: column; 
+}
+
+#aeffect-final-report{
+    margin: 2%; 
+  
+}
