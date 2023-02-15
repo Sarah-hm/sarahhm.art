@@ -146,6 +146,10 @@ cursor:pointer;
     color:inherit;
 }
 
+a {
+    text-decoration: none;
+}
+
 .info-button{ 
     font-size:110%;
   
@@ -223,9 +227,8 @@ padding:2%;
 }
 
 .page .coverImg {
-    /* width:100%; */
 align-self:center;
-width:90vw;
+width:80vw;
 }
 
 .page .coverImg img{
@@ -235,11 +238,14 @@ width:90vw;
 }
 
 /* PROJECT SPECIFIC CSS */
-
-
-
 #welcome-page{
     font-size: 125%; 
+}
+
+#femme-2022-video{ 
+    position:static; 
+    right: 40vw; 
+    transform: translate(50%);
 }
 
 .frProjectDescription{
@@ -294,20 +300,15 @@ width:90vw;
     display:none;
 }
 
-
-@media screen and (max-width: 800px) {
-
-  }
-
   @media (pointer:none), (pointer:coarse) {
 
     #mobile-message{
-        display:block;
+        display:inline;
         position:fixed; 
-        top:0px;
-        left:0px;
+        top:0px; 
+        left:0px; 
         z-index:999; 
-        width:100%; 
+        /* width:100vw;  */
         height:100vh; 
         background-color:rgba(0,0,0);
         color:white;
@@ -316,7 +317,7 @@ width:90vw;
         }
     
         #mobile-message p{
-            padding:50vh;
+            margin-top:50vh;
         }
 }
 
