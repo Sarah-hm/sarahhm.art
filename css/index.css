@@ -148,6 +148,7 @@ cursor:pointer;
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .info-button{ 
