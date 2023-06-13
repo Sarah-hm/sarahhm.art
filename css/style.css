@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+/* Affects the entire page */
+#page-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Affectes all the titles from home screen */
+.titles h1 {
+  font-weight: 700;
+  font-size: 7.5rem;
+  line-height: 7.5rem;
+  margin: 0;
+}
+
+/* Only affects the titles with submenu/subsection */
+#title-name,
+#title-desc,
+#title-cart,
+#title-fashion,
+#title-polisci {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(0, 0, 0);
+  transition: all 0.5s ease-in;
+}
+
+#title-name:hover,
+#title-desc:hover,
+#title-cart:hover,
+#title-fashion:hover,
+#title-polisci:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 1);
+  color: rgb(255, 255, 255);
+}
