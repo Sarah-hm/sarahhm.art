@@ -10,6 +10,9 @@
   justify-content: space-between;
   flex-direction: column;
   height: 100vh;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.4s;
+  -webkit-transition: 0.4s;
 }
 
 /* Affectes all the titles from home screen */
@@ -21,24 +24,45 @@
 }
 
 /* Only affects the titles with submenu/subsection */
-#title-name,
-#title-desc,
-#title-cart,
-#title-fashion,
-#title-polisci {
+/* light mode */
+.light-mode#title-name,
+.light-mode#title-desc,
+.light-mode#title-cart,
+.light-mode#title-fashion,
+.light-mode#title-polisci {
   background-color: rgba(0, 0, 0, 0);
   color: rgb(0, 0, 0);
   transition: all 0.5s ease-in;
 }
-
-#title-name:hover,
-#title-desc:hover,
-#title-cart:hover,
-#title-fashion:hover,
-#title-polisci:hover {
+/* light mode hover */
+.light-mode#title-name:hover,
+.light-mode#title-desc:hover,
+.light-mode#title-cart:hover,
+.light-mode#title-fashion:hover,
+.light-mode#title-polisci:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 1);
   color: rgb(255, 255, 255);
+}
+/* Dark mode */
+.dark-mode#title-name,
+.dark-mode#title-desc,
+.dark-mode#title-cart,
+.dark-mode#title-fashion,
+.dark-mode#title-polisci {
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
+  transition: all 0.5s ease-in;
+}
+/* dark mode hover */
+.dark-mode#title-name:hover,
+.dark-mode#title-desc:hover,
+.dark-mode#title-cart:hover,
+.dark-mode#title-fashion:hover,
+.dark-mode#title-polisci:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgb(0, 0, 0);
 }
 
 /* dark mode toggle button CSS (w3 school) */
