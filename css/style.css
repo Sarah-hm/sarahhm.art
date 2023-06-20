@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
+:root {
+  --darkModeAnimationTime: 0.4s;
+}
+
 * {
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
@@ -27,12 +31,13 @@
 /* light mode */
 .light-mode#title-name,
 .light-mode#title-desc,
+.light-mode#title-in,
 .light-mode#title-cart,
 .light-mode#title-fashion,
 .light-mode#title-polisci {
   background-color: rgba(0, 0, 0, 0);
   color: rgb(0, 0, 0);
-  transition: all 0.5s ease-in;
+  transition: all 0.4s ease-in;
 }
 /* light mode hover */
 .light-mode#title-name:hover,
@@ -47,12 +52,13 @@
 /* Dark mode */
 .dark-mode#title-name,
 .dark-mode#title-desc,
+.dark-mode#title-in,
 .dark-mode#title-cart,
 .dark-mode#title-fashion,
 .dark-mode#title-polisci {
   background-color: rgba(255, 255, 255, 0);
   color: rgb(255, 255, 255);
-  transition: all 0.5s ease-in;
+  transition: all 0.4s ease-in;
 }
 /* dark mode hover */
 .dark-mode#title-name:hover,
