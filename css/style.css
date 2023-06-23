@@ -6,6 +6,14 @@
 
 * {
   font-family: "Atkinson Hyperlegible", sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+#page-container {
+  display: flex;
+  background-color: lime;
 }
 
 /* Affects the entire page */
@@ -13,66 +21,84 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  width: 80%;
   height: 100vh;
   background-color: rgb(255, 255, 255);
   transition: background-color 0.4s;
   -webkit-transition: 0.4s;
 }
 
+/* ======== MENU ======== */
+#menu {
+  /* position:absolute;  */
+  width: 20%;
+  height: 100%;
+  border-right: 1.5px black solid;
+}
+
+#menu-subsection.menu-subsection-closed {
+  width: 0%;
+}
+#menu-subsection.menu-subsection-opened {
+  width: 20%;
+}
+
 /* Affectes all the titles from home screen */
 .titles h1 {
   font-weight: 700;
-  font-size: 7.5rem;
-  line-height: 7.5rem;
+  /* font-size: 7.5rem; */
+  /* font-size: 5vh; */
+  /* line-height: 8rem; */
   margin: 0;
 }
 
-/* Only affects the titles with submenu/subsection */
+/* ==== TITLES css ====  */
 /* light mode */
-.light-mode#title-name,
-.light-mode#title-desc,
-.light-mode#title-in,
-.light-mode#title-cart,
-.light-mode#title-fashion,
-.light-mode#title-polisci {
-  background-color: rgba(0, 0, 0, 0);
+.light-mode.titles {
+  /* background-color: rgba(0, 0, 0, 0); */
+  background-image: linear-gradient(to left, black 50%, white 50%);
   color: rgb(0, 0, 0);
-  transition: all 0.4s ease-in;
+  transition: all 0.2s ease-in;
+  background-size: 200% 100%;
+  -webkit-transition: background-position 0.4s;
+  -moz-transition: background-position 0.4s;
 }
 /* light mode hover */
-.light-mode#title-name:hover,
-.light-mode#title-desc:hover,
-.light-mode#title-cart:hover,
-.light-mode#title-fashion:hover,
-.light-mode#title-polisci:hover {
+.light-mode.hovering-titles:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 1);
   color: rgb(255, 255, 255);
+  background-position: -100% 0;
 }
 /* Dark mode */
-.dark-mode#title-name,
-.dark-mode#title-desc,
-.dark-mode#title-in,
-.dark-mode#title-cart,
-.dark-mode#title-fashion,
-.dark-mode#title-polisci {
-  background-color: rgba(255, 255, 255, 0);
+.dark-mode.titles {
+  background-image: linear-gradient(to left, white 50%, black 50%);
+  transition: all 0.2s ease-in;
+  background-size: 200% 100%;
+  -webkit-transition: background-position 0.4s;
+  -moz-transition: background-position 0.4s;
   color: rgb(255, 255, 255);
-  transition: all 0.4s ease-in;
 }
 /* dark mode hover */
-.dark-mode#title-name:hover,
-.dark-mode#title-desc:hover,
-.dark-mode#title-cart:hover,
-.dark-mode#title-fashion:hover,
-.dark-mode#title-polisci:hover {
+.dark-mode.hovering-titles:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 1);
   color: rgb(0, 0, 0);
+  background-position: -100% 0;
 }
 
-/* dark mode toggle button CSS (w3 school) */
+/* ==== SUBSECTION css ==== */
 
+.subsection {
+  height: 0vh;
+  transition: height 0.4s ease-in;
+}
+
+.subsection-opened {
+  height: 20vh;
+}
+
+/* ==== DARK MODE TOGGLE ==== */
+/* dark mode toggle button CSS (w3 school) */
 /* dark mode button */
 #dark-mode-toggle-btn {
   position: fixed;
@@ -80,7 +106,6 @@
   right: 1%;
   top: 2vh;
 }
-
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -88,14 +113,12 @@
   width: 60px;
   height: 34px;
 }
-
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 /* The slider */
 .slider {
   position: absolute;
@@ -109,7 +132,6 @@
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -121,27 +143,22 @@
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
 input:checked + .slider {
   background-color: white;
 }
-
 input:focus + .slider {
   box-shadow: 0 0 2px black;
 }
-
 input:checked + .slider:before {
   background-color: black;
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
-
 .slider.round:before {
   border-radius: 50%;
 }
