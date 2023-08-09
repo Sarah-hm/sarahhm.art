@@ -1,17 +1,36 @@
 class Project {
-  constructor(title, subtitle, year) {
+  constructor(doc, title, subtitle, year) {
     this.title = title;
     this.subtitle = subtitle;
     this.year = year;
     // this.media[("one", "two", "three")];
 
-    this.htmlBody = document.body;
+    this.doc = doc;
+
+    this.printTitle();
+    this.printSubtitle();
+    this.printYear();
   }
 
-  setTitle() {
-    const para = document.createElement("p");
-    const node = document.createTextNode(title);
-    para.appendChild(node);
-    this.htmlBody.appendChild(para);
+  printTitle() {
+    this.para = document.createElement("p");
+    this.para.classList.add("prj-title");
+    this.doc.appendChild(this.para);
+
+    this.doc.querySelector(".prj-title").innerHTML = this.title;
+  }
+
+  printSubtitle() {
+    this.para = document.createElement("p");
+    this.para.classList.add("prj-subtitle");
+    this.doc.appendChild(this.para);
+    this.doc.querySelector(".prj-subtitle").innerHTML = this.subtitle;
+  }
+
+  printYear() {
+    this.para = document.createElement("p");
+    this.para.classList.add("prj-year");
+    this.doc.appendChild(this.para);
+    this.doc.querySelector(".prj-year").innerHTML = `${this.year}`;
   }
 }
