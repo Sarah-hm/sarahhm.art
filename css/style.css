@@ -36,11 +36,18 @@
   border-right: 1.5px black solid;
 }
 
-#menu-subsection.menu-subsection-closed {
+#submenu {
+  transition: background-position 0.2s ease-in;
+  -webkit-transition: background-position 0.2s;
+  -moz-transition: background-position 0.2s;
+}
+
+#submenu.submenu-closed {
   width: 0%;
 }
-#menu-subsection.menu-subsection-opened {
+#submenu.submenu-opened {
   width: 20%;
+  border-right: 1.5px black solid;
 }
 
 /* Affectes all the titles from home screen */

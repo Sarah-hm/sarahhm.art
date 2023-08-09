@@ -25,10 +25,6 @@ window.onload = (event) => {
         titles[i].classList.remove("light-mode");
         titles[i].classList.add("dark-mode");
       }
-
-      for (let i = 0; i < subsections.length; i++) {
-        //  Make subsection follow dark mode
-      }
     } else {
       console.log("light mode");
       //LIGHT MODE IS TURNED ON
