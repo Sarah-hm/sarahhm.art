@@ -12,6 +12,7 @@
 
 body {
   background-color: var(--green-color);
+  overflow: hidden; /* Hide scrollbars */
 }
 
 ::selection {
@@ -77,6 +78,7 @@ header {
   background-color: white;
   z-index: 3;
   position: fixed;
+  cursor: move;
   /* top: 50%;
   left: 50%; */
   /* display: none; */

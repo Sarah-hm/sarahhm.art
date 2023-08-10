@@ -4,13 +4,16 @@ $(document).ready(function () {
     //====display homepage website popups====
 
     const navMenuBtns = document.getElementsByClassName("nav-menu-btn");
+
+    const websitePopups = document.querySelector(".website-popup");
     const navMenuPrjPopup = document.getElementById("website-projects-popup");
     const navMenuAboutPopup = document.getElementById("website-about-popup");
     const navMenuContactPopup = document.getElementById(
       "website-contact-popup"
     );
-    const websitePopups = document.querySelector(".website-popup");
-
+    const popupCloseBtns = document.getElementsByClassName(
+      "website-popup-close-btn"
+    );
     // console.log(Object.keys(navMenuBtns));
     //Turn object like array into an array from : https://java2blog.com/typeerror-foreach-is-not-function-javascript/#:~:text=foreach%20is%20not%20a%20function%20occurs%20when%20we%20call%20foreach,array%20like%20object%20to%20array.
 
@@ -40,6 +43,31 @@ $(document).ready(function () {
       });
     });
 
+    Object.keys(popupCloseBtns).forEach((key) => {
+      popupCloseBtns[key].addEventListener("click", () => {
+        switch (popupCloseBtns[key].id) {
+          case "projects-popup-close-btn":
+            //open projects pop-up
+            recalculatePosition(navMenuPrjPopup);
+            navMenuPrjPopup.classList.toggle("popup-closed");
+            break;
+          case "about-popup-close-btn":
+            //opens about pop-up
+            recalculatePosition(navMenuAboutPopup);
+            navMenuAboutPopup.classList.toggle("popup-closed");
+            break;
+          case "contact-popup-close-btn":
+            // opens contact pop-up
+            recalculatePosition(navMenuContactPopup);
+            navMenuContactPopup.classList.toggle("popup-closed");
+            break;
+          default:
+            console.log("not a button");
+            break;
+        }
+      });
+    });
+
     // == Recalculate position within viewport everytime popup opens
     function recalculatePosition(popup) {
       let width = window.innerWidth;
@@ -57,6 +85,9 @@ $(document).ready(function () {
     // Make the DIV element draggable:
 
     dragElement(document.getElementById("map"));
+    dragElement(document.getElementById("website-projects-popup"));
+    dragElement(document.getElementById("website-contact-popup"));
+    dragElement(document.getElementById("website-about-popup"));
 
     function dragElement(elmnt) {
       var pos1 = 0,
