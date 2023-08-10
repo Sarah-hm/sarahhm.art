@@ -1,20 +1,26 @@
 [
   {
-    "id": "project1",
+    "id": "shm-prj-project1",
     "title": "Project 1",
     "subtitle": "subtitle",
-    "year": 2020
+    "year": "2020",
+    "media": ["medium", "medium", "medium"],
+    "keywords": ["keywords", "keywords", "keywords"],
+    "websiteLink": "www.sarahhm.art",
+    "description": ["desc1", "desc2", "desc3"],
+    "visual_documentation": ["img/facebook.png", "img/instagram.png"],
+    "link_documentation": ["https://github.com/Sarah-hm/sarahhm.art"]
   },
   {
     "id": "project2",
     "title": "John G",
     "subtitle": "subtitle",
-    "year": 2020
+    "year": "2020"
   },
   {
     "id": "project3",
     "title": "Bala T",
     "subtitle": "subtitle",
-    "year": 2020
+    "year": "2020"
   }
 ]
