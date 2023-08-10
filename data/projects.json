@@ -12,13 +12,14 @@
     "link_documentation": ["https://github.com/Sarah-hm/sarahhm.art"]
   },
   {
-    "id": "project2",
+    "id": "shm-prj-project2",
     "title": "John G",
     "subtitle": "subtitle",
-    "year": "2020"
+    "year": "2020",
+    "visual_documentation": ["img/facebook.png", "img/instagram.png"]
   },
   {
-    "id": "project3",
+    "id": "shm-prj-project3",
     "title": "Bala T",
     "subtitle": "subtitle",
     "year": "2020"

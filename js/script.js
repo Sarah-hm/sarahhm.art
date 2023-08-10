@@ -1,67 +1,106 @@
-
 // Jquery needs to be implemented in vanilla but here it is for right now
-$(document).ready(function(){
+$(document).ready(function () {
+  window.addEventListener("load", (event) => {
+    //====display homepage website popups====
 
+    const navMenuBtns = document.getElementsByClassName("nav-menu-btn");
+    const navMenuPrjPopup = document.getElementById("website-projects-popup");
+    const navMenuAboutPopup = document.getElementById("website-about-popup");
+    const navMenuContactPopup = document.getElementById(
+      "website-contact-popup"
+    );
+    const websitePopups = document.querySelector(".website-popup");
 
-// Hamburger menu for projects section
-$(".pages-cluster-title").click(function(){
-    $(this).parent().find(".project-lists").toggleClass("menuSectionOpened")
-})
+    // console.log(Object.keys(navMenuBtns));
+    //Turn object like array into an array from : https://java2blog.com/typeerror-foreach-is-not-function-javascript/#:~:text=foreach%20is%20not%20a%20function%20occurs%20when%20we%20call%20foreach,array%20like%20object%20to%20array.
 
-// Open about section when about button is open
+    Object.keys(navMenuBtns).forEach((key) => {
+      console.log(key + " - " + navMenuBtns[key]);
+      navMenuBtns[key].addEventListener("click", () => {
+        switch (navMenuBtns[key].id) {
+          case "nav-menu-prj-btn":
+            //open projects pop-up
+            recalculatePosition(navMenuPrjPopup);
+            navMenuPrjPopup.classList.toggle("popup-closed");
+            break;
+          case "nav-menu-abt-btn":
+            //opens about pop-up
+            recalculatePosition(navMenuAboutPopup);
+            navMenuAboutPopup.classList.toggle("popup-closed");
+            break;
+          case "nav-menu-cntct-btn":
+            // opens contact pop-up
+            recalculatePosition(navMenuContactPopup);
+            navMenuContactPopup.classList.toggle("popup-closed");
+            break;
+          default:
+            console.log("not a button");
+            break;
+        }
+      });
+    });
 
-// $("#about-button").click(function(){
-//     // $("#about-section").toggleClass("about-section-opened")
-//     $("header").toggleClass("header-opened");
-//     $(".header-img").toggleClass("header-img-opened")
-// })
+    // == Recalculate position within viewport everytime popup opens
+    function recalculatePosition(popup) {
+      let width = window.innerWidth;
+      let height = window.innerHeight;
 
-// Mail to sarah.hm@hotmail.ca when contact is clicked
-$("#contact-button").click(function(){
-    window.location.href=`mailto:sarah.hm@hotmail.ca`
-})
+      let xpos = Math.floor(Math.random() * width);
+      let ypos = Math.floor(Math.random() * height);
 
-})
+      popup.style.left = `${xpos}px`;
+      popup.style.top = `${ypos}px`;
+    }
 
-window.onload = (event) => {
+    // ==== draggable map =====
+    //Code taken from w3 schools: https://www.w3schools.com/howto/howto_js_draggable.asp
+    // Make the DIV element draggable:
 
-document.querySelector("#about-button").addEventListener(`click`, () => {
+    dragElement(document.getElementById("map"));
 
-    
+    function dragElement(elmnt) {
+      var pos1 = 0,
+        pos2 = 0,
+        pos3 = 0,
+        pos4 = 0;
+      if (document.getElementById(elmnt.id + "header")) {
+        // if present, the header is where you move the DIV from:
+        document.getElementById(elmnt.id + "header").onmousedown =
+          dragMouseDown;
+      } else {
+        // otherwise, move the DIV from anywhere inside the DIV:
+        elmnt.onmousedown = dragMouseDown;
+      }
 
+      function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+      }
 
-    // Opening the header larger as an about section, not fully working
-    // document.querySelector("header").classList.toggle("header-opened");
-    // document.querySelector(".header-img").classList.toggle("header-img-opened")
-    // document.querySelector("#about-section").style = "display:flex"
+      function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // set the element's new position:
+        elmnt.style.top = elmnt.offsetTop - pos2 + "px";
+        elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+      }
 
-})
-
-document.querySelector("#about-close-btn").addEventListener(`click`,function(){
-    document.querySelector("header").classList.remove("header-opened")
-    document.querySelector(".header-img").classList.remove("header-img-opened") 
-    document.querySelector("#about-section").style = "display:none"
-})
-
-
-  document.querySelectorAll(".page-button").forEach(function(element){
-   element.addEventListener('click', (e)=> {
-
-    let pages = document.querySelectorAll(".page");
-    console.log(pages)
-
-    document.querySelectorAll(".page").forEach(function(el){
-        el.classList.add("page-closed");
-    })
-
-    let pageID = e.target.getAttribute('data-att');
-    console.log(pageID)
-    document.querySelector(`#${pageID}`).classList.toggle("page-closed")
-
-
-    
-  })
-})
-    
-
- }
+      function closeDragElement() {
+        // stop moving when mouse button is released:
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+    }
+  });
+});
