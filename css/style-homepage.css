@@ -3,6 +3,7 @@
 :root {
   /* --green-color: rgb(0, 206, 9); */
   --green-color: rgb(0, 230, 0);
+  --color-transition-time: 0.1s;
 }
 
 * {
@@ -63,7 +64,7 @@ header {
   text-align: center;
   font-family: sans-serif;
   font-size: 1rem;
-  transition: background-color 0.1s;
+  transition: background-color var(--color-transition-time);
 }
 
 .nav-menu-btn:hover {
@@ -74,8 +75,9 @@ header {
   border-left: solid black 2px;
 }
 
+/* === WEBSITE POPUP GENERAL === */
 .website-popup {
-  /* min-width: 20%; */
+  min-width: 20%;
   max-width: 40%;
   min-height: 30vh;
   background-color: white;
@@ -124,6 +126,11 @@ header {
   /* display: flex; */
 }
 /* PROJECT popup */
+
+#website-projects-popup {
+  width: 25vw;
+}
+
 .prj-popup-title {
   padding: 0.2vw;
   text-align: right;
@@ -154,18 +161,68 @@ header {
 /* ABOUT popup */
 
 /* CONTACT popup */
+#website-contact-popup,
+#website-instagram-popup {
+  width: 15vw;
+}
 
-#website-contact-popup {
-  min-width: 15vw;
+#contact-popup-body,
+#ig-popup-body {
+  width: 75%;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 10vw; */
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.contact-image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact-popup-body img,
+#ig-popup-body img {
+  padding: 5%;
+  width: 75%;
+  margin: auto 0;
+}
+
+/* #ig-popup-body img:hover,
+#contact-popup-body img:hover {
+  border-radius: 40px;
+  background-color: var(--green-color);
+} */
+
+.contact-link {
+  text-align: center;
+  /* margin: 0 auto; */
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 1%;
+  padding-top: 3%;
+}
+
+.contact-link:hover {
+  background-color: var(--green-color);
+  outline: solid black 2px;
 }
 
 #contact-email-copy-section {
-  padding-top: 5%;
   padding-bottom: 5%;
 }
 
 #contact-email-copy-section button {
   width: 100%;
+  border: black solid 2px;
+  transition: background-color var(--color-transition-time);
+}
+
+#contact-email-copy-section button:hover {
+  background-color: var(--green-color);
 }
 
 #contact-email-copy-section button:hover {
@@ -210,36 +267,6 @@ header {
   opacity: 1;
 }
 /* ig */
-#contact-popup-body,
-#ig-popup-body {
-  width: 50%;
-  padding: 2%;
-  display: flex;
-  flex-wrap: wrap;
-  /* width: 10vw; */
-  flex-direction: column;
-  margin: 0 auto;
-}
-
-#contact-popup-body img,
-#ig-popup-body img {
-  padding: 5%;
-  width: 100%;
-  margin: auto 0;
-}
-
-.contact-link {
-  text-align: center;
-  /* margin: 0 auto; */
-  text-decoration: none;
-  font-weight: bold;
-  color: black;
-  padding: 1%;
-}
-
-.contact-link:hover {
-  background-color: var(--green-color);
-}
 
 /* map */
 #map {
