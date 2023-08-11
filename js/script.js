@@ -25,6 +25,9 @@ window.onload = (event) => {
   const popupCloseBtns = document.getElementsByClassName(
     "website-popup-close-btn"
   );
+
+  const emailCopyBtn = document.getElementById("email-tooltip");
+  const toolTipText = document.getElementById("tooltiptext");
   // console.log(Object.keys(navMenuBtns));
   //Turn object like array into an array from : https://java2blog.com/typeerror-foreach-is-not-function-javascript/#:~:text=foreach%20is%20not%20a%20function%20occurs%20when%20we%20call%20foreach,array%20like%20object%20to%20array.
 
@@ -124,6 +127,15 @@ window.onload = (event) => {
     popup.style.top = `${ypos}px`;
   }
 
+  // email popup: change tool tip text when clicked
+  emailCopyBtn.addEventListener("click", () => {
+    let OriginalText = toolTipText.innerHTML;
+    console.log(OriginalText);
+    toolTipText.innerHTML = "Copied to clipboard!";
+    setTimeout(() => {
+      toolTipText.innerHTML = OriginalText;
+    }, 750);
+  });
   // ==== draggable map =====
 
   // Make map zoom in/out when scroll
