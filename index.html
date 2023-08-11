@@ -6,46 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sarah Hm</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.jpg" />
-    <!-- <link rel="stylesheet" href="css/index.css" /> -->
     <link rel="stylesheet" href="css/style-homepage.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/script.js"></script>
   </head>
   <body>
-    <body>
-      <header>
-        <div id="website-title-container">
-          <h1 id="website-title">Sarah Hontoy-Major,</h1>
-          <h2 id="website-subtitle">transdisciplinary artist and designer</h2>
-        </div>
-        <div id="nav-menu">
-          <button class="nav-menu-btn" id="nav-menu-prj-btn">projects</button>
-          <button class="nav-menu-btn" id="nav-menu-abt-btn">about</button>
-          <button class="nav-menu-btn" id="nav-menu-cntct-btn">contact</button>
-        </div>
-      </header>
-      <div class="website-popup popup-closed" id="website-projects-popup">
-        <div class="website-popup-header">
-          <button class="website-popup-close-btn" id="projects-popup-close-btn">
-            x
-          </button>
-        </div>
+    <header>
+      <div id="website-title-container">
+        <h1 id="website-title">Sarah Hontoy-Major,</h1>
+        <h2 id="website-subtitle">transdisciplinary artist and designer</h2>
       </div>
-      <div class="website-popup popup-closed" id="website-about-popup">
-        <div class="website-popup-header">
-          <button class="website-popup-close-btn" id="about-popup-close-btn">
-            x
-          </button>
-        </div>
+      <div id="nav-menu">
+        <button class="nav-menu-btn" id="nav-menu-prj-btn">projects</button>
+        <button class="nav-menu-btn" id="nav-menu-abt-btn">about</button>
+        <button class="nav-menu-btn" id="nav-menu-cntct-btn">contact</button>
       </div>
-      <div class="website-popup popup-closed" id="website-contact-popup">
-        <div class="website-popup-header">
-          <button class="website-popup-close-btn" id="contact-popup-close-btn">
-            x
-          </button>
-        </div>
+    </header>
+    <div class="website-popup popup-closed" id="website-projects-popup">
+      <div class="website-popup-header">
+        <button class="website-popup-close-btn" id="projects-popup-close-btn">
+          x
+        </button>
+        <h3 class="website-popup-header-title">projects</h3>
       </div>
-      <div id="map" draggable="true"></div>
-    </body>
+      <div class="website-popup-body" id="projects-popup-body">
+        <ul id="projects-popup-list"></ul>
+      </div>
+    </div>
+    <div class="website-popup popup-closed" id="website-about-popup">
+      <div class="website-popup-header">
+        <button class="website-popup-close-btn" id="about-popup-close-btn">
+          x
+        </button>
+        <h3 class="website-popup-header-title">about</h3>
+      </div>
+      <div class="website-popup-body">
+        <p>
+          Proin quis nibh vel dui ullamcorper interdum at a lorem. Integer
+          ultrices nunc eget urna facilisis, eget commodo sapien pellentesque.
+          Nam laoreet varius dui in faucibus. Nulla nulla augue, consequat non
+          mollis eu, blandit vel metus. Cras dignissim enim non congue faucibus.
+          Morbi ac diam vel nisi cursus egestas in at augue. Pellentesque
+          sagittis faucibus dolor ut egestas. Maecenas faucibus posuere nulla,
+          ac pretium elit iaculis in. Praesent ut ornare lectus, id bibendum
+          metus. Proin eu consectetur quam, at bibendum tellus. In rhoncus non
+          massa bibendum scelerisque. Donec sapien neque, accumsan nec augue ut,
+          dictum cursus sem. Vivamus diam neque, luctus at varius aliquet,
+          tincidunt nec quam. Aliquam nibh massa, dapibus id finibus a, viverra
+          quis massa. In gravida venenatis congue.
+        </p>
+      </div>
+    </div>
+    <div class="website-popup popup-closed" id="website-contact-popup">
+      <div class="website-popup-header">
+        <button class="website-popup-close-btn" id="contact-popup-close-btn">
+          x
+        </button>
+        <h3 class="website-popup-header-title">contact</h3>
+      </div>
+      <div class="website-popup-body"></div>
+    </div>
+    <div id="map" draggable="true"></div>
   </body>
 </html>

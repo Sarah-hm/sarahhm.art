@@ -1,8 +1,8 @@
 window.onload = (event) => {
-  console.log("hello");
   fetch("data/projects.json")
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       //push all the data in their own object
 
       //make if statement to know if the document has a project (gas a meta data called project)

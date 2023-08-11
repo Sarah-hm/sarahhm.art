@@ -21,8 +21,8 @@ body {
 }
 
 header {
-  width: 40%;
-  min-width: 400px;
+  width: 40vw;
+  min-width: 600px;
   min-height: 15vh;
   background-color: white;
   z-index: 10;
@@ -67,27 +67,87 @@ header {
 .nav-menu-btn:hover {
   background-color: var(--green-color);
 }
-#nav-menu-about-btn {
+#nav-menu-abt-btn {
   border-right: solid black 2px;
   border-left: solid black 2px;
 }
 
 .website-popup {
-  min-width: 300px;
+  min-width: 20%;
+  max-width: 40%;
   min-height: 30vh;
   background-color: white;
   z-index: 3;
   position: fixed;
   cursor: move;
-  /* top: 50%;
-  left: 50%; */
-  /* display: none; */
+  border: solid black 2px;
+  outline: solid white 0.5px;
+  overflow: hidden;
+  resize: both;
 }
 
 .popup-closed {
   display: none;
 }
 
+.website-popup-header {
+  height: 5vh;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+}
+.website-popup-close-btn {
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  border: inset 2px white;
+  background-color: white;
+  color: black;
+}
+
+.website-popup-close-btn:hover {
+  background-color: var(--green-color);
+  border: inset 2px var(--green-color);
+  cursor: pointer;
+}
+
+.website-popup-header-title {
+  color: white;
+  background-color: black;
+  font-weight: bold;
+}
+
+.website-popup-body p {
+  width: 100%;
+  padding: 2%;
+}
+
+.prj-popup-title {
+  padding: 0.2vw;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+.prj-popup-title a {
+  text-decoration: none;
+  color: black;
+}
+
+.prj-popup-title a:visited {
+  text-decoration: none;
+  color: grey;
+}
+
+.prj-popup-title:hover {
+  text-align: right;
+  font-size: 1.5rem;
+  background-color: var(--green-color);
+  cursor: pointer;
+}
+
+.prj-popup-title sup {
+  font-size: 0.8rem;
+}
 /* map */
 #map {
   width: 200vw;
