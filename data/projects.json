@@ -1,23 +1,58 @@
 [
   {
-    "id": "shm-prj-project1",
-    "url": "project1.html",
-    "title": "Project 1",
-    "subtitle": "subtitle",
-    "year": "2020",
-    "media": ["medium", "medium", "medium"],
-    "keywords": ["keywords", "keywords", "keywords"],
-    "websiteLink": "www.sarahhm.art",
+    "id": "shm-prj-data_scapes",
+    "url": "data-scapes.html",
+    "title": "Data_Scapes",
+    "subtitle": "alpha 2023",
+    "year": "ongoing",
+    "media": [
+      "php",
+      "avascript (TBC d3.js)",
+      "svj.js",
+      "leafly.js",
+      "crowd-sourced geographical data"
+    ],
+    "keywords": [
+      "pattern seeking",
+      "pattern making",
+      "generative art",
+      "networked materiality"
+    ],
+    "websiteLink": "https://hybrid.concordia.ca/s_hontoy/data_scapes/website/map.php",
     "description": ["desc1", "desc2", "desc3"],
-    "visual_documentation": ["img/facebook.png", "img/instagram.png"],
+    "visual_documentation": ["img/instagram.png"],
     "link_documentation": ["https://github.com/Sarah-hm/sarahhm.art"]
   },
   {
-    "id": "shm-prj-project2",
-    "title": "John G",
-    "subtitle": "subtitle",
-    "year": "2020",
-    "visual_documentation": ["img/facebook.png", "img/instagram.png"]
+    "id": "shm-prj-sheins-cabinet",
+    "url": "sheins-cabinet.html",
+    "title": "Shein’s Cabinet of Curiosities ",
+    "subtitle": "and why the algorithm thought you’d like it (*previously called data_scapes)",
+    "year": "2022",
+    "media": [
+      "Google Chrome Extension (html, css, js)",
+      "personal testimonies"
+    ],
+    "keywords": [
+      "data collection",
+      "pattern inference",
+      "data literacy",
+      "networked materiality",
+      "personal narratives"
+    ],
+    "websiteLink": "https://sarah-hm.github.io/data-scapes/google-extension/download-datascapes.html",
+    "description": [
+      "Giant corporations and retailers like Shein use powerful algorithms that collect personal information from users and clients to infer on products produced in real time. They then specifically target some for you when you visit their website based on what they believe you will like and purchase.",
+      "As a way of reflecting on what companies like these know about us through extraction of personal data, scroll through Shein’s product pages and find the most curious products that are offered to you. On the product’s detail page, use the Shein’s Cabinet chrome extension to write a short prompt of your choosing. ",
+      "Why do you think this product was targetted to you? Where or when would you wear it? What is it meant for?",
+      "Downloading this google extension on your own machine will grant you access to all journal entries. ",
+      "Presented at fourth space (2022) as part of _scapes project mediation"
+    ],
+    "visual_documentation": ["img/instagram.png"],
+    "link_documentation": [
+      "https://github.com/Sarah-hm/data-scapes/tree/main/google-extension",
+      "https://drive.google.com/file/d/1WPp7BhPEkQTQXcOVzG4jaYy8SRnFM1gb/view?usp=drive_link"
+    ]
   },
   {
     "id": "shm-prj-project3",
