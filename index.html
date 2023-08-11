@@ -21,6 +21,7 @@
         <button class="nav-menu-btn" id="nav-menu-cntct-btn">contact</button>
       </div>
     </header>
+    <!-- PROJECT popup -->
     <div class="website-popup popup-closed" id="website-projects-popup">
       <div class="website-popup-header">
         <button class="website-popup-close-btn" id="projects-popup-close-btn">
@@ -32,6 +33,7 @@
         <ul id="projects-popup-list"></ul>
       </div>
     </div>
+    <!-- ABOUT popup -->
     <div class="website-popup popup-closed" id="website-about-popup">
       <div class="website-popup-header">
         <button class="website-popup-close-btn" id="about-popup-close-btn">
@@ -56,17 +58,68 @@
         </p>
       </div>
     </div>
+    <!-- CONTACT EMAIL POPUP -->
     <div class="website-popup popup-closed" id="website-contact-popup">
       <div class="website-popup-header">
         <button class="website-popup-close-btn" id="contact-popup-close-btn">
           x
         </button>
         <h3 class="website-popup-header-title">contact</h3>
+        <!-- The button used to copy the text -->
       </div>
-      <div class="website-popup-body">
-        <iframe></iframe>
+      <div class="website-popup-body" id="contact-popup-body">
+        <a href="mailto: sarah.hm@hotmail.ca" target="_blank">
+          <img
+            src="img/email.png"
+            alt="Sarahhm.jpg's isntagram link"
+            width="10%"
+          />
+        </a>
+        <a
+          class="contact-link"
+          href="mailto: sarah.hm@hotmail.ca"
+          target="_blank"
+        >
+          sarah.hm@hotmail.ca</a
+        >
+        <button onclick="copyEmailToClipboard()">
+          Copy email to clipboard
+        </button>
+      </div>
+    </div>
+    <!-- INSTAGRAM POPUP -->
+    <div class="website-popup popup-closed" id="website-instagram-popup">
+      <div class="website-popup-header">
+        <button class="website-popup-close-btn" id="instagram-popup-close-btn">
+          x
+        </button>
+        <h3 class="website-popup-header-title">Instagram</h3>
+      </div>
+      <div class="website-popup-body" id="ig-popup-body">
+        <a href="https://www.instagram.com/sarahhm.jpg/" target="_blank">
+          <img
+            src="img/instagram.png"
+            alt="Sarahhm.jpg's isntagram link"
+            width="10%"
+          />
+        </a>
+        <a
+          class="contact-link"
+          href="https://www.instagram.com/sarahhm.jpg/"
+          target="_blank"
+        >
+          @sarahhm.jpg</a
+        >
       </div>
     </div>
     <div id="map" draggable="true"></div>
+    <script>
+      // COPY EMAIL TO CLIPBOARD
+      function copyEmailToClipboard() {
+        const email = "sarah.hm@hotmail.ca";
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(email);
+      }
+    </script>
   </body>
 </html>

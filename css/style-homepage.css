@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 :root {
   /* --green-color: rgb(0, 206, 9); */
   --green-color: rgb(0, 230, 0);
@@ -7,12 +9,12 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 body {
   background-color: var(--green-color);
-  overflow: hidden; /* Hide scrollbars */
+  /* overflow: hidden; Hide scrollbars */
 }
 
 ::selection {
@@ -25,7 +27,7 @@ header {
   min-width: 600px;
   min-height: 15vh;
   background-color: white;
-  z-index: 10;
+  z-index: 2;
   position: fixed;
   top: 1vw;
   left: 1vw;
@@ -73,7 +75,7 @@ header {
 }
 
 .website-popup {
-  min-width: 20%;
+  /* min-width: 20%; */
   max-width: 40%;
   min-height: 30vh;
   background-color: white;
@@ -91,7 +93,7 @@ header {
 }
 
 .website-popup-header {
-  height: 5vh;
+  height: 2rem;
   background-color: black;
   display: flex;
   justify-content: space-between;
@@ -117,11 +119,11 @@ header {
   font-weight: bold;
 }
 
-.website-popup-body p {
+.website-popup-body {
   width: 100%;
-  padding: 2%;
+  /* display: flex; */
 }
-
+/* PROJECT popup */
 .prj-popup-title {
   padding: 0.2vw;
   text-align: right;
@@ -148,6 +150,46 @@ header {
 .prj-popup-title sup {
   font-size: 0.8rem;
 }
+
+/* ABOUT popup */
+
+/* CONTACT popup */
+
+#website-contact-popup {
+  min-width: 15vw;
+}
+/* ig */
+#contact-popup-body,
+#ig-popup-body {
+  width: 50%;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 10vw; */
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+#contact-popup-body img,
+#ig-popup-body img {
+  padding: 5%;
+  width: 100%;
+  margin: auto 0;
+}
+
+.contact-link {
+  text-align: center;
+  /* margin: 0 auto; */
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 1%;
+}
+
+.contact-link:hover {
+  background-color: var(--green-color);
+}
+
 /* map */
 #map {
   width: 200vw;

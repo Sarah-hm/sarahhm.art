@@ -1,7 +1,6 @@
 window.onload = (event) => {
   // ==== Load projects in the projects' list ====
   let projectsList = document.getElementById("projects-popup-list");
-
   fetch("data/projects.json")
     .then((response) => response.json())
     .then((data) => {
@@ -17,10 +16,12 @@ window.onload = (event) => {
 
   //====display homepage website popups====
   const navMenuBtns = document.getElementsByClassName("nav-menu-btn");
+  const websitePopups = document.getElementsByClassName("website-popup");
 
   const navMenuPrjPopup = document.getElementById("website-projects-popup");
   const navMenuAboutPopup = document.getElementById("website-about-popup");
   const navMenuContactPopup = document.getElementById("website-contact-popup");
+  const navMenuIgPopup = document.getElementById("website-instagram-popup");
   const popupCloseBtns = document.getElementsByClassName(
     "website-popup-close-btn"
   );
@@ -32,19 +33,21 @@ window.onload = (event) => {
     navMenuBtns[key].addEventListener("click", () => {
       switch (navMenuBtns[key].id) {
         case "nav-menu-prj-btn":
-          //open projects pop-up
+          //toggle projects pop-up
           recalculatePosition(navMenuPrjPopup);
           navMenuPrjPopup.classList.toggle("popup-closed");
           break;
         case "nav-menu-abt-btn":
-          //opens about pop-up
+          //toggle about pop-up
           recalculatePosition(navMenuAboutPopup);
           navMenuAboutPopup.classList.toggle("popup-closed");
           break;
         case "nav-menu-cntct-btn":
-          // opens contact pop-up
+          // toggle contact + instagram pop-up
           recalculatePosition(navMenuContactPopup);
           navMenuContactPopup.classList.toggle("popup-closed");
+          recalculatePosition(navMenuIgPopup);
+          navMenuIgPopup.classList.toggle("popup-closed");
           break;
         default:
           console.log("not a button");
@@ -53,23 +56,54 @@ window.onload = (event) => {
     });
   });
 
+  // == puts clicked popup on the top of z-index ==
+  let popupZindex = "4";
+  Object.keys(websitePopups).forEach((key) => {
+    websitePopups[key].addEventListener("mousedown", () => {
+      let newZindex = popupZindex++;
+      switch (websitePopups[key].id) {
+        case "website-projects-popup":
+          //puts projects pop-up on top
+          navMenuPrjPopup.style.zIndex = newZindex;
+          break;
+        case "website-about-popup":
+          //puts about pop-up on top
+          navMenuAboutPopup.style.zIndex = newZindex;
+          break;
+        case "website-contact-popup":
+          //puts about pop-up on top
+          navMenuContactPopup.style.zIndex = newZindex;
+          break;
+        case "website-instagram-popup":
+          //puts about pop-up on top
+          navMenuIgPopup.style.zIndex = newZindex;
+          break;
+        default:
+          console.log("not a button");
+          break;
+      }
+    });
+  });
+
+  // == Close popup when clicking on X button ==
   Object.keys(popupCloseBtns).forEach((key) => {
     popupCloseBtns[key].addEventListener("click", () => {
       switch (popupCloseBtns[key].id) {
         case "projects-popup-close-btn":
-          //open projects pop-up
-          recalculatePosition(navMenuPrjPopup);
+          //close projects pop-up
           navMenuPrjPopup.classList.toggle("popup-closed");
           break;
         case "about-popup-close-btn":
-          //opens about pop-up
-          recalculatePosition(navMenuAboutPopup);
+          //close about pop-up
           navMenuAboutPopup.classList.toggle("popup-closed");
           break;
         case "contact-popup-close-btn":
-          // opens contact pop-up
-          recalculatePosition(navMenuContactPopup);
+          // close contact pop-up
           navMenuContactPopup.classList.toggle("popup-closed");
+          break;
+        case "instagram-popup-close-btn":
+          // close instagram pop-up
+          navMenuIgPopup.classList.toggle("popup-closed");
           break;
         default:
           console.log("not a button");
@@ -91,12 +125,19 @@ window.onload = (event) => {
   }
 
   // ==== draggable map =====
+
+  // Make map zoom in/out when scroll
+  document.addEventListener("scroll", (event) => {
+    console.log(event);
+  });
+
   //Code taken from w3 schools: https://www.w3schools.com/howto/howto_js_draggable.asp
   // Make the element draggable:
   dragElement(document.getElementById("map"));
   dragElement(document.getElementById("website-projects-popup"));
   dragElement(document.getElementById("website-contact-popup"));
   dragElement(document.getElementById("website-about-popup"));
+  dragElement(navMenuIgPopup);
 
   function dragElement(elmnt) {
     var pos1 = 0,
