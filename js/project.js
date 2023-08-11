@@ -21,7 +21,7 @@ class Project {
     this.linkDoc = linkDoc;
     // this.media[("one", "two", "three")];
 
-    this.doc = document.body;
+    this.doc = document.getElementbyId("project-container");
 
     this.printTitle();
     this.printSubtitle();

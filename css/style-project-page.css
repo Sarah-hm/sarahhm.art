@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  /* --green-color: rgb(0, 206, 9); */
+  --green-color: rgb(0, 230, 0);
+  --color-transition-time: 0.1s;
+}
+
+#project-container {
+  height: 70vh;
+  background-color: white;
+  color: black;
+  border-top: black solid 2px;
+}

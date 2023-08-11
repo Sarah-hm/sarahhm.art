@@ -15,6 +15,10 @@ window.onload = (event) => {
     .catch((error) => console.error(error));
 
   //====display homepage website popups====
+  const websiteTitleContainer = document.getElementsByClassName(
+    "website-title-container"
+  );
+
   const navMenuBtns = document.getElementsByClassName("nav-menu-btn");
   const websitePopups = document.getElementsByClassName("website-popup");
 
@@ -136,6 +140,14 @@ window.onload = (event) => {
       toolTipText.innerHTML = OriginalText;
     }, 750);
   });
+
+  //redirect to index.html when clicking website title container
+  Object.keys(websiteTitleContainer).forEach((key) => {
+    websiteTitleContainer[key].addEventListener("click", () => {
+      window.location.href = "/index.html";
+    });
+  });
+
   // ==== draggable map =====
 
   // Make map zoom in/out when scroll

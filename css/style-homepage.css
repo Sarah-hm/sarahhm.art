@@ -23,6 +23,7 @@ body {
   /* color: var(--green-color); */
 }
 
+/* ==== HEADER ==== */
 header {
   width: 40vw;
   min-width: 600px;
@@ -35,6 +36,10 @@ header {
   display: grid;
   border: solid black 2px;
   outline: solid white 0.5px;
+}
+
+.website-title-container {
+  cursor: pointer;
 }
 
 #nav-menu {
