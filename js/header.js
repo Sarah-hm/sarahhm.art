@@ -46,8 +46,6 @@ class Header {
     );
     this.navMenuImgPopup = document.getElementById("website-img-popup");
 
-    this.dragElement(this.navMenuPrjPopup);
-
     this.addListeners();
   }
 
@@ -325,35 +323,6 @@ class Header {
     this.imgLink.innerHTML = `<img src="img/instagram.png" alt="Sarahhm.jpg's instagram link" "/>`;
   }
 
-  dragElement(elmnt) {
-    this.pos1 = 0;
-    this.pos2 = 0;
-    this.pos3 = elmnt.clientX;
-    this.pos4 = elmnt.clientY;
-
-    document.addEventListener("mouseup", this.closeDragElement());
-    document.addEventListener("mousemove", this.elementDrag(elmnt));
-  }
-
-  elementDrag(elmnt) {
-    // this.e = e || window.event;
-    // this.e.preventDefault();
-    // calculate the new cursor position:
-    this.pos1 = this.pos3 - elmnt.clientX;
-    this.pos2 = this.pos4 - elmnt.clientY;
-    this.pos3 = elmnt.clientX;
-    this.pos4 = elmnt.clientY;
-    // set the element's new position:
-    elmnt.style.top = elmnt.offsetTop - this.pos2 + "px";
-    elmnt.style.left = elmnt.offsetLeft - this.pos1 + "px";
-  }
-
-  closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-
   addListeners() {
     // Open popups when clicking on nav menu
     Object.keys(this.navMenuBtns).forEach((key) => {
@@ -419,6 +388,7 @@ class Header {
 
     //Adds to zindex everytime you click a popup
     this.popupZindex = "4";
+    this.dragging = false;
     Object.keys(this.websitePopups).forEach((key) => {
       this.websitePopups[key].addEventListener("mousedown", () => {
         this.newZindex = this.popupZindex++;
@@ -426,6 +396,10 @@ class Header {
           case "website-projects-popup":
             //puts projects pop-up on top
             this.navMenuPrjPopup.style.zIndex = this.newZindex;
+            this.dragging = true;
+            this.offsetX = clientX - dragElement.getBoundingClientRect().left;
+            this.offsetY = clientY - dragElement.getBoundingClientRect().top;
+            // this.websitePopups[key].style.cursor = "grabbing";
             break;
           case "website-about-popup":
             //puts about pop-up on top
@@ -454,8 +428,8 @@ class Header {
   // == Recalculate position within viewport everytime popup opens
   recalculatePosition(popup) {
     console.log(popup);
-    this.width = window.innerWidth;
-    this.height = window.innerHeight;
+    this.width = window.innerWidth * 0.6;
+    this.height = window.innerHeight * 0.6;
 
     this.xpos = Math.floor(Math.random() * this.width);
     this.ypos = Math.floor(Math.random() * this.height);

@@ -4,23 +4,19 @@ window.onload = (event) => {
     .then((data) => {
       //create a nav menu with all the projects in the JSON file
       new Header(data, document);
+
+      dragElement(document.getElementById("website-projects-popup"));
+      dragElement(document.getElementById("website-contact-popup"));
+      dragElement(document.getElementById("website-img-popup"));
+      dragElement(document.getElementById("website-about-popup"));
+      dragElement(document.getElementById("website-instagram-popup"));
+
+      dragElement(document.getElementById("map"));
     })
     .catch((error) => console.error(error));
 
-  // ==== draggable map =====
-
-  // Make map zoom in/out when scroll
-  document.addEventListener("scroll", (event) => {
-    console.log(event);
-  });
-
   //Code taken from w3 schools: https://www.w3schools.com/howto/howto_js_draggable.asp
   // Make the element draggable:
-  dragElement(document.getElementById("map"));
-  // dragElement(document.getElementById("website-projects-popup"));
-  // dragElement(document.getElementById("website-contact-popup"));
-  // dragElement(document.getElementById("website-about-popup"));
-  // dragElement(navMenuIgPopup);
 
   function dragElement(elmnt) {
     var pos1 = 0,
