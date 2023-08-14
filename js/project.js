@@ -1,6 +1,6 @@
 class Project {
   constructor(
-    prjContainer,
+    websiteHeader,
     title,
     subtitle,
     year,
@@ -22,7 +22,11 @@ class Project {
     this.linkDoc = linkDoc;
     // this.media[("one", "two", "three")];
 
-    this.prjContainer = prjContainer;
+    this.websiteHeader = websiteHeader;
+
+    this.prjContainer = document.createElement("div");
+    this.prjContainer.setAttribute("id", "project-container");
+    this.websiteHeader.appendChild(this.prjContainer);
 
     this.printTitle();
     this.printSubtitle();

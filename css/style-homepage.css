@@ -206,12 +206,6 @@ header {
   margin: auto 0;
 }
 
-/* #ig-popup-body img:hover,
-#contact-popup-body img:hover {
-  border-radius: 40px;
-  background-color: var(--green-color);
-} */
-
 .contact-link {
   text-align: center;
   /* margin: 0 auto; */

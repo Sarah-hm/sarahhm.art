@@ -6,15 +6,43 @@
   --color-transition-time: 0.1s;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-top: black 2px solid;
+  border-left: black 2px solid;
+  border-bottom: black 2px solid;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+  cursor: pointer;
+}
+
 #project-container {
   height: 70vh;
   background-color: white;
   color: black;
   border-top: black solid 2px;
   padding-left: 1rem;
+  padding-right: 2rem;
   padding-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
+  height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .prj-title {
@@ -27,7 +55,6 @@
   padding-bottom: 0.5rem;
   font-style: italic;
   font-size: 1.25rem;
-  width: 50%;
 }
 .prj-year {
   padding-bottom: 0.5rem;
@@ -35,11 +62,13 @@
   width: 25%;
 }
 
-#project-container ul {
+.prj-media-ul,
+.prj-keywords-ul {
   padding-bottom: 1rem;
 }
 
-#project-container li {
+.prj-media-ul li,
+.prj-keywords-ul li {
   display: inline;
 }
 

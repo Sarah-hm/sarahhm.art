@@ -51,6 +51,7 @@ class Header {
 
   printWebTitle() {
     this.header = document.createElement("header");
+    this.header.setAttribute("id", "website-header");
     this.doc.appendChild(this.header);
 
     this.div = document.createElement("div");
