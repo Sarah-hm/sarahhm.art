@@ -27,12 +27,12 @@ window.onload = (event) => {
       //create a nav menu with all the projects in the JSON file
       new Header(data, doc);
       // === put the project in the list of the projects' poup window ===
-      for (let i = 0; i < data.length; i++) {
-        let newPrj = document.createElement("li");
-        newPrj.classList.add("prj-popup-title");
-        projectsList.appendChild(newPrj);
-        newPrj.innerHTML = `<a href = ${data[i].url}><sup> ${data[i].year} </sup>${data[i].title}</a>`;
-      }
+      // for (let i = 0; i < data.length; i++) {
+      //   let newPrj = document.createElement("li");
+      //   newPrj.classList.add("prj-popup-title");
+      //   projectsList.appendChild(newPrj);
+      //   newPrj.innerHTML = `<a href = ${data[i].url}><sup> ${data[i].year} </sup>${data[i].title}</a>`;
+      // }
     })
     .catch((error) => console.error(error));
 
@@ -142,15 +142,15 @@ window.onload = (event) => {
     popup.style.top = `${ypos}px`;
   }
 
-  // email popup: change tool tip text when clicked
-  emailCopyBtn.addEventListener("click", () => {
-    let OriginalText = toolTipText.innerHTML;
-    console.log(OriginalText);
-    toolTipText.innerHTML = "Copied to clipboard!";
-    setTimeout(() => {
-      toolTipText.innerHTML = OriginalText;
-    }, 750);
-  });
+  // // email popup: change tool tip text when clicked
+  // emailCopyBtn.addEventListener("click", () => {
+  //   let OriginalText = toolTipText.innerHTML;
+  //   console.log(OriginalText);
+  //   toolTipText.innerHTML = "Copied to clipboard!";
+  //   setTimeout(() => {
+  //     toolTipText.innerHTML = OriginalText;
+  //   }, 750);
+  // });
 
   // ==== draggable map =====
 
@@ -162,10 +162,10 @@ window.onload = (event) => {
   //Code taken from w3 schools: https://www.w3schools.com/howto/howto_js_draggable.asp
   // Make the element draggable:
   dragElement(document.getElementById("map"));
-  dragElement(document.getElementById("website-projects-popup"));
-  dragElement(document.getElementById("website-contact-popup"));
-  dragElement(document.getElementById("website-about-popup"));
-  dragElement(navMenuIgPopup);
+  // dragElement(document.getElementById("website-projects-popup"));
+  // dragElement(document.getElementById("website-contact-popup"));
+  // dragElement(document.getElementById("website-about-popup"));
+  // dragElement(navMenuIgPopup);
 
   function dragElement(elmnt) {
     var pos1 = 0,

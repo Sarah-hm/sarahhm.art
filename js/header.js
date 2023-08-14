@@ -4,6 +4,10 @@ class Header {
       title: "Sarah Hontoy-Major,",
       subtitle: "transdisciplinary artist and designer",
     };
+    this.about = {
+      text: " Proin quis nibh vel dui ullamcorper interdum at a lorem. Integer ultrices nunc eget urna facilisis, eget commodo sapien pellentesque. Nam laoreet varius dui in faucibus. Nulla nulla augue, consequat non",
+      img: "img/ma-face.jpg",
+    };
     this.projects = {};
     this.data = data;
     this.doc = document.body;
@@ -15,14 +19,6 @@ class Header {
     this.navMenuBtns = document.getElementsByClassName("nav-menu-btn");
     this.websitePopups = document.getElementsByClassName("website-popup");
 
-    this.navMenuPrjPopup = document.getElementById("website-projects-popup");
-    this.navMenuAboutPopup = document.getElementById("website-about-popup");
-    this.navMenuContactPopup = document.getElementById("website-contact-popup");
-    this.navMenuIgPopup = document.getElementById("website-instagram-popup");
-    this.popupCloseBtns = document.getElementsByClassName(
-      "website-popup-close-btn"
-    );
-
     this.emailCopyBtn = document.getElementById("email-tooltip");
     this.toolTipText = document.getElementById("tooltiptext");
 
@@ -30,21 +26,27 @@ class Header {
     this.titleRedirect();
 
     this.printNavMenu();
+
     this.printPrjBtn();
     this.printAbtBtn();
     this.printCntcBtn();
 
-    this.openNavPopups();
-    // this.printBtns();
-    // this.printSubtitle();
-    // this.printYear();
+    this.createPrjPopup();
+    this.createAbtPopup();
+    this.createImgPopup();
+    this.createCntcPopup();
+    this.createIgPopup();
 
-    // this.printMedia();
-    // this.printKeywords();
-    // this.printWebsiteLink();
-    // this.printDescription();
-    // // this.printVisualDoc();
-    // this.printLinkDoc();
+    this.navMenuPrjPopup = document.getElementById("website-projects-popup");
+    this.navMenuAboutPopup = document.getElementById("website-about-popup");
+    this.navMenuContactPopup = document.getElementById("website-contact-popup");
+    this.navMenuIgPopup = document.getElementById("website-instagram-popup");
+    this.popupCloseBtns = document.getElementsByClassName(
+      "website-popup-close-btn"
+    );
+    this.navMenuImgPopup = document.getElementById("website-img-popup");
+
+    this.addListeners();
   }
 
   printWebTitle() {
@@ -105,116 +107,263 @@ class Header {
     this.btn.insertAdjacentText("afterbegin", "contact");
   }
 
-  openNavPopups() {}
+  createPrjPopup() {
+    this.div = document.createElement("div");
+    this.div.classList.add("website-popup");
+    this.div.classList.add("popup-closed");
+    this.div.setAttribute("id", "website-projects-popup");
+    this.doc.appendChild(this.div);
 
-  printSubtitle() {
+    this.divHeader = document.createElement("div");
+    this.divHeader.classList.add("website-popup-header");
+    this.div.appendChild(this.divHeader);
+
+    this.closeBtn = document.createElement("button");
+    this.closeBtn.classList.add("website-popup-close-btn");
+    this.closeBtn.setAttribute("id", "projects-popup-close-btn");
+    this.divHeader.appendChild(this.closeBtn);
+    this.closeBtn.insertAdjacentText("afterbegin", "x");
+
+    this.popupTitle = document.createElement("h3");
+    this.popupTitle.classList.add("website-popup-header-title");
+    this.divHeader.appendChild(this.popupTitle);
+    this.popupTitle.insertAdjacentText("afterbegin", "projects");
+
+    this.popupBody = document.createElement("div");
+    this.popupBody.classList.add("website-popup-body");
+    this.popupBody.setAttribute("id", "projects-popup-body");
+    this.div.appendChild(this.popupBody);
+
+    this.list = document.createElement("ul");
+    this.list.setAttribute("id", "projects-popup-list");
+    this.popupBody.appendChild(this.list);
+
+    for (let i = 0; i < this.data.length; i++) {
+      this.newPrj = document.createElement("li");
+      this.newPrj.classList.add("prj-popup-title");
+      this.list.appendChild(this.newPrj);
+      this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
+    }
+  }
+
+  createAbtPopup() {
+    this.div = document.createElement("div");
+    this.div.classList.add("website-popup");
+    this.div.classList.add("popup-closed");
+    this.div.setAttribute("id", "website-about-popup");
+    this.doc.appendChild(this.div);
+
+    this.divHeader = document.createElement("div");
+    this.divHeader.classList.add("website-popup-header");
+    this.div.appendChild(this.divHeader);
+
+    this.closeBtn = document.createElement("button");
+    this.closeBtn.classList.add("website-popup-close-btn");
+    this.closeBtn.setAttribute("id", "about-popup-close-btn");
+    this.divHeader.appendChild(this.closeBtn);
+    this.closeBtn.insertAdjacentText("afterbegin", "x");
+
+    this.popupTitle = document.createElement("h3");
+    this.popupTitle.classList.add("website-popup-header-title");
+    this.divHeader.appendChild(this.popupTitle);
+    this.popupTitle.insertAdjacentText("afterbegin", "about");
+
+    this.popupBody = document.createElement("div");
+    this.popupBody.classList.add("website-popup-body");
+    this.popupBody.setAttribute("id", "about-popup-body");
+    this.div.appendChild(this.popupBody);
+
     this.para = document.createElement("p");
-    this.para.classList.add("prj-subtitle");
-    this.prjContainer.appendChild(this.para);
-    this.para.insertAdjacentText("afterbegin", this.subtitle);
+    this.popupBody.appendChild(this.para);
+    this.para.insertAdjacentText("afterbegin", this.about.text);
   }
 
-  printYear() {
-    this.para = document.createElement("p");
-    this.para.classList.add("prj-year");
-    this.prjContainer.appendChild(this.para);
-    this.para.insertAdjacentText("afterbegin", this.year);
-  }
-
-  printMedia() {
-    // open a div that stores all media with an ul
-    this.ul = document.createElement("ul");
-    this.ul.classList.add("prj-media-ul");
-    this.prjContainer.appendChild(this.ul);
-    this.ul.innerHTML = `<h4>Media: </h4>`;
-
-    for (this.i = 0; this.i < this.media.length; this.i++) {
-      //print single medium as a li
-      this.li = document.createElement("li");
-      this.li.classList.add("prj-media-li");
-      this.ul.appendChild(this.li);
-
-      this.medium = document.createTextNode(`${this.media[this.i]}, `);
-
-      this.li.appendChild(this.medium);
-    }
-  }
-
-  printKeywords() {
-    // open a div that stores all keywords with an ul
-
-    this.ul = document.createElement("ul");
-    this.ul.classList.add("prj-keywords-ul");
-    this.prjContainer.appendChild(this.ul);
-    this.ul.innerHTML = `<h4>Keywords: </h4>`;
-
-    for (this.i = 0; this.i < this.keywords.length; this.i++) {
-      //print single medium as a li
-      this.li = document.createElement("li");
-      this.li.classList.add("prj-keywords-li");
-      this.ul.appendChild(this.li);
-      this.keyword = document.createTextNode(`${this.keywords[this.i]}, `);
-      this.li.appendChild(this.keyword);
-    }
-  }
-
-  //create button for links to the project-website
-  printWebsiteLink() {
+  createImgPopup() {
     this.div = document.createElement("div");
-    this.div.classList.add("prj-websiteLink-btn");
-    this.prjContainer.appendChild(this.div);
+    this.div.classList.add("website-popup");
+    this.div.classList.add("popup-closed");
+    this.div.setAttribute("id", "website-img-popup");
+    this.doc.appendChild(this.div);
 
-    this.link = `<a href = "${this.websiteLink}" target = "_blank"> Access project website</a>`;
-    this.div.insertAdjacentHTML("afterbegin", this.link);
+    this.divHeader = document.createElement("div");
+    this.divHeader.classList.add("website-popup-header");
+    this.div.appendChild(this.divHeader);
+
+    this.closeBtn = document.createElement("button");
+    this.closeBtn.classList.add("website-popup-close-btn");
+    this.closeBtn.setAttribute("id", "img-popup-close-btn");
+    this.divHeader.appendChild(this.closeBtn);
+    this.closeBtn.insertAdjacentText("afterbegin", "x");
+
+    this.popupTitle = document.createElement("h3");
+    this.popupTitle.classList.add("website-popup-header-title");
+    this.divHeader.appendChild(this.popupTitle);
+    this.popupTitle.insertAdjacentText("afterbegin", "sarahhm.jpg");
+
+    this.popupBody = document.createElement("div");
+    this.popupBody.classList.add("website-popup-body");
+    this.popupBody.setAttribute("id", "img-popup-body");
+    this.div.appendChild(this.popupBody);
+
+    this.img = document.createElement("img");
+    this.img.setAttribute("src", `img/sarahhm.jpg`);
+    this.img.setAttribute("id", "about-img");
+    this.popupBody.appendChild(this.img);
   }
 
-  printDescription() {
-    // open a div that stores all description with an ul
+  createCntcPopup() {
     this.div = document.createElement("div");
-    this.div.classList.add("prj-desc-div");
-    this.prjContainer.appendChild(this.div);
-    this.div.innerHTML = `<h4>Statement: </h4>`;
+    this.div.classList.add("website-popup");
+    this.div.classList.add("popup-closed");
+    this.div.setAttribute("id", "website-contact-popup");
+    this.doc.appendChild(this.div);
 
-    for (this.i = 0; this.i < this.desc.length; this.i++) {
-      //print descriptions as paragraphs
-      this.para = document.createElement("p");
-      this.para.classList.add("prj-desc-para");
-      this.div.appendChild(this.para);
-      this.descPara = document.createTextNode(`${this.desc[this.i]}`);
-      this.para.appendChild(this.descPara);
-    }
+    this.divHeader = document.createElement("div");
+    this.divHeader.classList.add("website-popup-header");
+    this.div.appendChild(this.divHeader);
+
+    this.closeBtn = document.createElement("button");
+    this.closeBtn.classList.add("website-popup-close-btn");
+    this.closeBtn.setAttribute("id", "contact-popup-close-btn");
+    this.divHeader.appendChild(this.closeBtn);
+    this.closeBtn.insertAdjacentText("afterbegin", "x");
+
+    this.popupTitle = document.createElement("h3");
+    this.popupTitle.classList.add("website-popup-header-title");
+    this.divHeader.appendChild(this.popupTitle);
+    this.popupTitle.insertAdjacentText("afterbegin", "contact");
+
+    this.popupBody = document.createElement("div");
+    this.popupBody.classList.add("website-popup-body");
+    this.popupBody.setAttribute("id", "contact-popup-body");
+    this.div.appendChild(this.popupBody);
+
+    this.txtLink = document.createElement("a");
+    this.txtLink.classList.add("contact-link");
+    this.txtLink.setAttribute("href", "mailto: sarah.hm@hotmail.ca");
+    this.txtLink.setAttribute("target", "_blank");
+    this.popupBody.appendChild(this.txtLink);
+    this.txtLink.innerHTML = "sarah.hm@hotmail.ca";
+
+    this.imgLink = document.createElement("a");
+    this.imgLink.setAttribute("href", "mailto: sarah.hm@hotmail.ca");
+    this.imgLink.setAttribute("target", "_blank");
+    this.popupBody.appendChild(this.imgLink);
+    this.imgLink.innerHTML = `<img src="img/email.png" alt="Sarah Hontoy-Major's email link"/>`;
+
+    this.emailCopySec = document.createElement("div");
+    this.emailCopySec.setAttribute("id", "contact-email-copy-section");
+    this.popupBody.appendChild(this.emailCopySec);
+
+    this.copyBtn = document.createElement("button");
+    this.copyBtn.setAttribute("id", "email-tooltip");
+    this.emailCopySec.appendChild(this.copyBtn);
+    this.copyBtn.innerHTML = "Copy email";
+
+    this.copyTooltip = document.createElement("span");
+    this.copyTooltip.setAttribute("id", "tooltiptext");
+    this.copyBtn.appendChild(this.copyTooltip);
+    this.copyTooltip.innerHTML = "Copy to clipboard";
+
+    this.copyBtn.addEventListener("click", () => {
+      this.email = "sarah.hm@hotmail.ca";
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(this.email);
+      // email popup: change tool tip text when clicked
+      this.OriginalText = this.copyTooltip.innerHTML;
+      console.log(this.OriginalText);
+      this.copyTooltip.innerHTML = "Copied to clipboard!";
+      setTimeout(() => {
+        this.copyTooltip.innerHTML = this.OriginalText;
+      }, 750);
+    });
+
+    // this.copyBtn.
+  }
+  createIgPopup() {
+    this.div = document.createElement("div");
+    this.div.classList.add("website-popup");
+    this.div.classList.add("popup-closed");
+    this.div.setAttribute("id", "website-instagram-popup");
+    this.doc.appendChild(this.div);
+
+    this.divHeader = document.createElement("div");
+    this.divHeader.classList.add("website-popup-header");
+    this.div.appendChild(this.divHeader);
+
+    this.closeBtn = document.createElement("button");
+    this.closeBtn.classList.add("website-popup-close-btn");
+    this.closeBtn.setAttribute("id", "instagram-popup-close-btn");
+    this.divHeader.appendChild(this.closeBtn);
+    this.closeBtn.insertAdjacentText("afterbegin", "x");
+
+    this.popupTitle = document.createElement("h3");
+    this.popupTitle.classList.add("website-popup-header-title");
+    this.divHeader.appendChild(this.popupTitle);
+    this.popupTitle.insertAdjacentText("afterbegin", "@sarahhm.jpg");
+
+    this.popupBody = document.createElement("div");
+    this.popupBody.classList.add("website-popup-body");
+    this.popupBody.setAttribute("id", "ig-popup-body");
+    this.div.appendChild(this.popupBody);
+
+    this.txtLink = document.createElement("a");
+    this.txtLink.classList.add("contact-link");
+    this.txtLink.setAttribute("target", "_blank");
+    this.txtLink.setAttribute("href", "https://www.instagram.com/sarahhm.jpg");
+    this.popupBody.appendChild(this.txtLink);
+    this.txtLink.innerHTML = "@sarahhm.jpg";
+
+    this.imgLink = document.createElement("a");
+    this.imgLink.setAttribute("target", "_blank");
+    this.imgLink.setAttribute("href", "https://www.instagram.com/sarahhm.jpg");
+    this.imgLink.classList.add("contact-image-link");
+    this.popupBody.appendChild(this.imgLink);
+    this.imgLink.innerHTML = `<img src="img/instagram.png" alt="Sarahhm.jpg's instagram link" "/>`;
   }
 
-  //Add images to slideshow (or video*)
-  printVisualDoc() {
-    // open a div that stores all keywords with an ul
-    this.div = document.createElement("div");
-    this.div.classList.add("prj-visualDoc-div");
-    this.prjContainer.appendChild(this.div);
-
-    for (this.i = 0; this.i < this.visualDoc.length; this.i++) {
-      //print single medium as a li
-      this.img = document.createElement("img");
-      this.img.src = `${this.visualDoc[this.i]}`;
-      this.img.classList.add("prj-visualDoc-img");
-      this.div.appendChild(this.img);
-    }
+  addListeners() {
+    Object.keys(this.navMenuBtns).forEach((key) => {
+      this.navMenuBtns[key].addEventListener("click", () => {
+        switch (this.navMenuBtns[key].id) {
+          case "nav-menu-prj-btn":
+            //toggle projects pop-up
+            console.log(this.navMenuPrjPopup);
+            this.recalculatePosition(this.navMenuPrjPopup);
+            this.navMenuPrjPopup.classList.toggle("popup-closed");
+            break;
+          case "nav-menu-abt-btn":
+            //toggle about pop-up
+            this.recalculatePosition(this.navMenuAboutPopup);
+            this.navMenuAboutPopup.classList.toggle("popup-closed");
+            this.recalculatePosition(this.navMenuImgPopup);
+            this.navMenuImgPopup.classList.toggle("popup-closed");
+            break;
+          case "nav-menu-cntct-btn":
+            // toggle contact + instagram pop-up
+            this.recalculatePosition(this.navMenuContactPopup);
+            this.navMenuContactPopup.classList.toggle("popup-closed");
+            this.recalculatePosition(this.navMenuIgPopup);
+            this.navMenuIgPopup.classList.toggle("popup-closed");
+            break;
+          default:
+            console.log("not a button");
+            break;
+        }
+      });
+    });
   }
 
-  //create buttons for extra external documentation
-  printLinkDoc() {
-    this.div = document.createElement("div");
-    this.div.classList.add("prj-link-documentation-div");
-    this.prjContainer.appendChild(this.div);
+  // == Recalculate position within viewport everytime popup opens
+  recalculatePosition(popup) {
+    console.log(popup);
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
 
-    for (this.i = 0; this.i < this.linkDoc.length; this.i++) {
-      this.div = document.createElement("div");
-      this.div.classList.add("prj-visual-documentation-btn");
-      this.prjContainer.appendChild(this.div);
-      this.link = `<a href = "${this.linkDoc[this.i]}">${
-        this.linkDoc[this.i]
-      }</a>`;
-      this.div.insertAdjacentHTML("afterbegin", this.link);
-    }
+    this.xpos = Math.floor(Math.random() * this.width);
+    this.ypos = Math.floor(Math.random() * this.height);
+
+    popup.style.left = `${this.xpos}px`;
+    popup.style.top = `${this.ypos}px`;
   }
 }
