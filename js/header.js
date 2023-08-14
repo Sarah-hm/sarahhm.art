@@ -17,7 +17,6 @@ class Header {
     );
 
     this.navMenuBtns = document.getElementsByClassName("nav-menu-btn");
-    this.websitePopups = document.getElementsByClassName("website-popup");
 
     this.emailCopyBtn = document.getElementById("email-tooltip");
     this.toolTipText = document.getElementById("tooltiptext");
@@ -37,6 +36,7 @@ class Header {
     this.createCntcPopup();
     this.createIgPopup();
 
+    this.websitePopups = document.getElementsByClassName("website-popup");
     this.navMenuPrjPopup = document.getElementById("website-projects-popup");
     this.navMenuAboutPopup = document.getElementById("website-about-popup");
     this.navMenuContactPopup = document.getElementById("website-contact-popup");
@@ -45,6 +45,8 @@ class Header {
       "website-popup-close-btn"
     );
     this.navMenuImgPopup = document.getElementById("website-img-popup");
+
+    this.dragElement(this.navMenuPrjPopup);
 
     this.addListeners();
   }
@@ -280,6 +282,7 @@ class Header {
 
     // this.copyBtn.
   }
+
   createIgPopup() {
     this.div = document.createElement("div");
     this.div.classList.add("website-popup");
@@ -322,7 +325,37 @@ class Header {
     this.imgLink.innerHTML = `<img src="img/instagram.png" alt="Sarahhm.jpg's instagram link" "/>`;
   }
 
+  dragElement(elmnt) {
+    this.pos1 = 0;
+    this.pos2 = 0;
+    this.pos3 = elmnt.clientX;
+    this.pos4 = elmnt.clientY;
+
+    document.addEventListener("mouseup", this.closeDragElement());
+    document.addEventListener("mousemove", this.elementDrag(elmnt));
+  }
+
+  elementDrag(elmnt) {
+    // this.e = e || window.event;
+    // this.e.preventDefault();
+    // calculate the new cursor position:
+    this.pos1 = this.pos3 - elmnt.clientX;
+    this.pos2 = this.pos4 - elmnt.clientY;
+    this.pos3 = elmnt.clientX;
+    this.pos4 = elmnt.clientY;
+    // set the element's new position:
+    elmnt.style.top = elmnt.offsetTop - this.pos2 + "px";
+    elmnt.style.left = elmnt.offsetLeft - this.pos1 + "px";
+  }
+
+  closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+
   addListeners() {
+    // Open popups when clicking on nav menu
     Object.keys(this.navMenuBtns).forEach((key) => {
       this.navMenuBtns[key].addEventListener("click", () => {
         switch (this.navMenuBtns[key].id) {
@@ -345,6 +378,70 @@ class Header {
             this.navMenuContactPopup.classList.toggle("popup-closed");
             this.recalculatePosition(this.navMenuIgPopup);
             this.navMenuIgPopup.classList.toggle("popup-closed");
+            break;
+          default:
+            console.log("not a button");
+            break;
+        }
+      });
+    });
+
+    // Close popups when clicking on X header of popup
+    Object.keys(this.popupCloseBtns).forEach((key) => {
+      this.popupCloseBtns[key].addEventListener("click", () => {
+        switch (this.popupCloseBtns[key].id) {
+          case "projects-popup-close-btn":
+            //close projects pop-up
+            this.navMenuPrjPopup.classList.toggle("popup-closed");
+            break;
+          case "about-popup-close-btn":
+            //close about pop-up
+            this.navMenuAboutPopup.classList.toggle("popup-closed");
+            break;
+          case "img-popup-close-btn":
+            // close instagram pop-up
+            this.navMenuImgPopup.classList.toggle("popup-closed");
+            break;
+          case "contact-popup-close-btn":
+            // close contact pop-up
+            this.navMenuContactPopup.classList.toggle("popup-closed");
+            break;
+          case "instagram-popup-close-btn":
+            // close instagram pop-up
+            this.navMenuIgPopup.classList.toggle("popup-closed");
+            break;
+          default:
+            console.log("not a button");
+            break;
+        }
+      });
+    });
+
+    //Adds to zindex everytime you click a popup
+    this.popupZindex = "4";
+    Object.keys(this.websitePopups).forEach((key) => {
+      this.websitePopups[key].addEventListener("mousedown", () => {
+        this.newZindex = this.popupZindex++;
+        switch (this.websitePopups[key].id) {
+          case "website-projects-popup":
+            //puts projects pop-up on top
+            this.navMenuPrjPopup.style.zIndex = this.newZindex;
+            break;
+          case "website-about-popup":
+            //puts about pop-up on top
+            this.navMenuAboutPopup.style.zIndex = this.newZindex;
+            break;
+          case "website-img-popup":
+            //puts about pop-up on top
+            this.navMenuImgPopup.style.zIndex = this.newZindex;
+            break;
+          case "website-contact-popup":
+            //puts about pop-up on top
+            this.navMenuContactPopup.style.zIndex = this.newZindex;
+            break;
+          case "website-instagram-popup":
+            //puts about pop-up on top
+            this.navMenuIgPopup.style.zIndex = this.newZindex;
             break;
           default:
             console.log("not a button");
