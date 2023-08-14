@@ -1,19 +1,5 @@
 window.onload = (event) => {
-  // ==== Load projects in the projects' list ====
-  let projectsList = document.getElementById("projects-popup-list");
-  fetch("data/projects.json")
-    .then((response) => response.json())
-    .then((data) => {
-      // === put the project in the list of the projects' poup window ===
-      for (let i = 0; i < data.length; i++) {
-        let newPrj = document.createElement("li");
-        newPrj.classList.add("prj-popup-title");
-        projectsList.appendChild(newPrj);
-        newPrj.innerHTML = `<a href = ${data[i].url}><sup> ${data[i].year} </sup>${data[i].title}</a>`;
-      }
-    })
-    .catch((error) => console.error(error));
-
+  const doc = document;
   //====display homepage website popups====
   const websiteTitleContainer = document.getElementsByClassName(
     "website-title-container"
@@ -32,11 +18,36 @@ window.onload = (event) => {
 
   const emailCopyBtn = document.getElementById("email-tooltip");
   const toolTipText = document.getElementById("tooltiptext");
+
+  // ==== Load projects in the projects' list ====
+  let projectsList = document.getElementById("projects-popup-list");
+  fetch("data/projects.json")
+    .then((response) => response.json())
+    .then((data) => {
+      //create a nav menu with all the projects in the JSON file
+      new Header(data, doc);
+      // === put the project in the list of the projects' poup window ===
+      for (let i = 0; i < data.length; i++) {
+        let newPrj = document.createElement("li");
+        newPrj.classList.add("prj-popup-title");
+        projectsList.appendChild(newPrj);
+        newPrj.innerHTML = `<a href = ${data[i].url}><sup> ${data[i].year} </sup>${data[i].title}</a>`;
+      }
+    })
+    .catch((error) => console.error(error));
+
   // console.log(Object.keys(navMenuBtns));
   //Turn object like array into an array from : https://java2blog.com/typeerror-foreach-is-not-function-javascript/#:~:text=foreach%20is%20not%20a%20function%20occurs%20when%20we%20call%20foreach,array%20like%20object%20to%20array.
 
+  //redirect to index.html when clicking website title container
+  Object.keys(websiteTitleContainer).forEach((key) => {
+    websiteTitleContainer[key].addEventListener("click", () => {
+      console.log("clicked");
+      window.location.href = "/index.html";
+    });
+  });
+
   Object.keys(navMenuBtns).forEach((key) => {
-    console.log(key + " - " + navMenuBtns[key]);
     navMenuBtns[key].addEventListener("click", () => {
       switch (navMenuBtns[key].id) {
         case "nav-menu-prj-btn":
@@ -139,13 +150,6 @@ window.onload = (event) => {
     setTimeout(() => {
       toolTipText.innerHTML = OriginalText;
     }, 750);
-  });
-
-  //redirect to index.html when clicking website title container
-  Object.keys(websiteTitleContainer).forEach((key) => {
-    websiteTitleContainer[key].addEventListener("click", () => {
-      window.location.href = "/index.html";
-    });
   });
 
   // ==== draggable map =====

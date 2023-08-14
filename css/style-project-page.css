@@ -11,4 +11,71 @@
   background-color: white;
   color: black;
   border-top: black solid 2px;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.prj-title {
+  padding-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.prj-subtitle {
+  padding-bottom: 0.5rem;
+  font-style: italic;
+  font-size: 1.25rem;
+  width: 50%;
+}
+.prj-year {
+  padding-bottom: 0.5rem;
+  flex-wrap: nowrap;
+  width: 25%;
+}
+
+#project-container ul {
+  padding-bottom: 1rem;
+}
+
+#project-container li {
+  display: inline;
+}
+
+.prj-websiteLink-btn {
+  cursor: pointer;
+  outline: inherit;
+  background-color: rgb(255, 255, 255);
+  padding: 1%;
+  margin: 0 auto;
+  width: 90%;
+  color: black;
+  border: none;
+  border: solid black 2px;
+  text-decoration: none;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1rem;
+  transition: background-color var(--color-transition-time);
+}
+
+.prj-websiteLink-btn a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.prj-websiteLink-btn a:visited {
+  text-decoration: none;
+  color: gray;
+  font-weight: bold;
+}
+
+.prj-websiteLink-btn:hover {
+  background-color: var(--green-color);
+}
+
+.prj-desc-div {
+  padding-top: 1rem;
 }

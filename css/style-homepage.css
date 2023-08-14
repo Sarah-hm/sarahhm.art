@@ -50,9 +50,10 @@ header {
   align-self: flex-end;
 }
 
-#website-title,
-#website-subtitle {
-  padding: 1%;
+.website-title,
+.website-subtitle {
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .nav-menu-btn {

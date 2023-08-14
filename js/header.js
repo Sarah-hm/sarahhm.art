@@ -1,47 +1,111 @@
-class Project {
-  constructor(
-    prjContainer,
-    title,
-    subtitle,
-    year,
-    media,
-    keywords,
-    websiteLink,
-    desc,
-    visualDoc,
-    linkDoc
-  ) {
-    this.title = title;
-    this.subtitle = subtitle;
-    this.year = year;
-    this.media = media;
-    this.keywords = keywords;
-    this.websiteLink = websiteLink;
-    this.desc = desc;
-    this.visualDoc = visualDoc;
-    this.linkDoc = linkDoc;
-    // this.media[("one", "two", "three")];
+class Header {
+  constructor(data) {
+    this.websiteTitle = {
+      title: "Sarah Hontoy-Major,",
+      subtitle: "transdisciplinary artist and designer",
+    };
+    this.projects = {};
+    this.data = data;
+    this.doc = document.body;
 
-    this.prjContainer = prjContainer;
+    this.websiteTitleContainer = document.getElementsByClassName(
+      "website-title-container"
+    );
 
-    this.printTitle();
-    this.printSubtitle();
-    this.printYear();
+    this.navMenuBtns = document.getElementsByClassName("nav-menu-btn");
+    this.websitePopups = document.getElementsByClassName("website-popup");
 
-    this.printMedia();
-    this.printKeywords();
-    this.printWebsiteLink();
-    this.printDescription();
-    // this.printVisualDoc();
-    this.printLinkDoc();
+    this.navMenuPrjPopup = document.getElementById("website-projects-popup");
+    this.navMenuAboutPopup = document.getElementById("website-about-popup");
+    this.navMenuContactPopup = document.getElementById("website-contact-popup");
+    this.navMenuIgPopup = document.getElementById("website-instagram-popup");
+    this.popupCloseBtns = document.getElementsByClassName(
+      "website-popup-close-btn"
+    );
+
+    this.emailCopyBtn = document.getElementById("email-tooltip");
+    this.toolTipText = document.getElementById("tooltiptext");
+
+    this.printWebTitle();
+    this.titleRedirect();
+
+    this.printNavMenu();
+    this.printPrjBtn();
+    this.printAbtBtn();
+    this.printCntcBtn();
+
+    this.openNavPopups();
+    // this.printBtns();
+    // this.printSubtitle();
+    // this.printYear();
+
+    // this.printMedia();
+    // this.printKeywords();
+    // this.printWebsiteLink();
+    // this.printDescription();
+    // // this.printVisualDoc();
+    // this.printLinkDoc();
   }
 
-  printTitle() {
-    this.para = document.createElement("p");
-    this.para.classList.add("prj-title");
-    this.prjContainer.appendChild(this.para);
-    this.para.insertAdjacentText("afterbegin", this.title);
+  printWebTitle() {
+    this.header = document.createElement("header");
+    this.doc.appendChild(this.header);
+
+    this.div = document.createElement("div");
+    this.div.classList.add("website-title-container");
+    this.header.appendChild(this.div);
+
+    this.title = document.createElement("h1");
+    this.title.classList.add("website-title");
+    this.div.appendChild(this.title);
+    this.title.insertAdjacentText("afterbegin", this.websiteTitle.title);
+
+    this.subtitle = document.createElement("h2");
+    this.subtitle.classList.add("website-subtitle");
+    this.div.appendChild(this.subtitle);
+    this.subtitle.insertAdjacentText("afterbegin", this.websiteTitle.subtitle);
   }
+
+  titleRedirect() {
+    //redirect to index.html when clicking website title container
+    Object.keys(this.websiteTitleContainer).forEach((key) => {
+      this.websiteTitleContainer[key].addEventListener("click", () => {
+        window.location.href = "/index.html";
+      });
+    });
+  }
+
+  printNavMenu() {
+    this.div = document.createElement("div");
+    this.div.setAttribute("id", "nav-menu");
+    this.header.appendChild(this.div);
+  }
+
+  printPrjBtn() {
+    this.btn = document.createElement("button");
+    this.btn.classList.add("nav-menu-btn");
+    this.btn.setAttribute("id", "nav-menu-prj-btn");
+    document.getElementById("nav-menu").appendChild(this.btn);
+    this.btn.insertAdjacentText("afterbegin", "projects");
+  }
+
+  printAbtBtn() {
+    this.btn = document.createElement("button");
+    this.btn.classList.add("nav-menu-btn");
+    this.btn.setAttribute("id", "nav-menu-abt-btn");
+    document.getElementById("nav-menu").appendChild(this.btn);
+    this.btn.insertAdjacentText("afterbegin", "about");
+  }
+
+  printCntcBtn() {
+    this.btn = document.createElement("button");
+    this.btn.classList.add("nav-menu-btn");
+    this.btn.setAttribute("id", "nav-menu-cntct-btn");
+    document.getElementById("nav-menu").appendChild(this.btn);
+    this.btn.insertAdjacentText("afterbegin", "contact");
+  }
+
+  openNavPopups() {}
 
   printSubtitle() {
     this.para = document.createElement("p");
