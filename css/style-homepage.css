@@ -125,6 +125,12 @@ header {
   color: white;
   background-color: black;
   font-weight: bold;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .website-popup-body {

@@ -208,6 +208,7 @@ class Header {
 
     this.img = document.createElement("img");
     this.img.setAttribute("src", `img/sarahhm.jpg`);
+    this.img.setAttribute("draggable", `false`);
     this.img.setAttribute("id", "about-img");
     this.popupBody.appendChild(this.img);
   }
@@ -331,7 +332,6 @@ class Header {
         switch (this.navMenuBtns[key].id) {
           case "nav-menu-prj-btn":
             //toggle projects pop-up
-            console.log(this.navMenuPrjPopup);
             this.recalculatePosition(this.navMenuPrjPopup);
             this.navMenuPrjPopup.classList.toggle("popup-closed");
             break;
@@ -389,37 +389,107 @@ class Header {
 
     //Adds to zindex everytime you click a popup
     this.popupZindex = "4";
-    this.dragging = false;
+
     Object.keys(this.websitePopups).forEach((key) => {
       this.websitePopups[key].addEventListener("mousedown", () => {
         this.newZindex = this.popupZindex++;
         switch (this.websitePopups[key].id) {
           case "website-projects-popup":
             //puts projects pop-up on top
+            this.navMenuPrjPopup.mouseDown = true;
             this.navMenuPrjPopup.style.zIndex = this.newZindex;
-            this.dragging = true;
-            this.offsetX = clientX - dragElement.getBoundingClientRect().left;
-            this.offsetY = clientY - dragElement.getBoundingClientRect().top;
             // this.websitePopups[key].style.cursor = "grabbing";
             break;
           case "website-about-popup":
             //puts about pop-up on top
+            this.navMenuAboutPopup.mouseDown = true;
             this.navMenuAboutPopup.style.zIndex = this.newZindex;
             break;
           case "website-img-popup":
             //puts about pop-up on top
+            this.navMenuImgPopup.mouseDown = true;
             this.navMenuImgPopup.style.zIndex = this.newZindex;
             break;
           case "website-contact-popup":
             //puts about pop-up on top
+            this.navMenuContactPopup.mouseDown = true;
             this.navMenuContactPopup.style.zIndex = this.newZindex;
             break;
           case "website-instagram-popup":
             //puts about pop-up on top
+            this.navMenuIgPopup.mouseDown = true;
             this.navMenuIgPopup.style.zIndex = this.newZindex;
             break;
           default:
-            console.log("not a button");
+            console.log("not a popup");
+            break;
+        }
+      });
+    });
+
+    document.addEventListener("mouseup", () => {
+      this.navMenuPrjPopup.mouseDown = false;
+      this.navMenuAboutPopup.mouseDown = false;
+      this.navMenuImgPopup.mouseDown = false;
+      this.navMenuContactPopup.mouseDown = false;
+      this.navMenuIgPopup.mouseDown = false;
+    });
+
+    document.addEventListener("mousemove", (event) => {
+      Object.keys(this.websitePopups).forEach((key) => {
+        switch (this.websitePopups[key].mouseDown) {
+          case true:
+            this.elRect = this.websitePopups[key].getBoundingClientRect();
+
+            console.log(this.elRect);
+            this.deltaX = this.elRect.width / 2;
+            this.deltaY = this.elRect.height * 0.1;
+
+            this.newX = event.clientX - this.deltaX;
+            this.newY = event.clientY - this.deltaY;
+
+            this.websitePopups[key].style.left = this.newX + "px";
+            this.websitePopups[key].style.top = this.newY + "px";
+
+            //Redraw line with the current Element's X, Y position (should be whenever the div moves, not only on mouse move)
+            this.newX = this.newX + this.elRect.width / 2;
+            this.newY = this.newY + this.elRect.height / 2;
+
+            this.x = this.newX;
+            this.y = this.newY;
+
+            console.log(this.websitePopups[key].id);
+            //puts projects pop-up on top
+            // this.navMenuPrjPopup.mouseDown = true;
+            // this.navMenuPrjPopup.style.zIndex = this.newZindex;
+            // this.websitePopups[key].style.cursor = "grabbing";
+            break;
+          case false:
+            console.log("false");
+
+            break;
+          // case "website-about-popup":
+          //   //puts about pop-up on top
+          //   this.navMenuAboutPopup.mouseDown = true;
+          //   this.navMenuAboutPopup.style.zIndex = this.newZindex;
+          //   break;
+          // case "website-img-popup":
+          //   //puts about pop-up on top
+          //   this.navMenuImgPopup.mouseDown = true;
+          //   this.navMenuImgPopup.style.zIndex = this.newZindex;
+          //   break;
+          // case "website-contact-popup":
+          //   //puts about pop-up on top
+          //   this.navMenuContactPopup.mouseDown = true;
+          //   this.navMenuContactPopup.style.zIndex = this.newZindex;
+          //   break;
+          // case "website-instagram-popup":
+          //   //puts about pop-up on top
+          //   this.navMenuIgPopup.mouseDown = true;
+          //   this.navMenuIgPopup.style.zIndex = this.newZindex;
+          //   break;
+          default:
+            console.log("not a popup");
             break;
         }
       });
@@ -428,13 +498,13 @@ class Header {
 
   // == Recalculate position within viewport everytime popup opens
   recalculatePosition(popup) {
-    console.log(popup);
     this.width = window.innerWidth * 0.6;
     this.height = window.innerHeight * 0.6;
 
     this.xpos = Math.floor(Math.random() * this.width);
     this.ypos = Math.floor(Math.random() * this.height);
 
+    console.log(this);
     popup.style.left = `${this.xpos}px`;
     popup.style.top = `${this.ypos}px`;
   }

@@ -5,35 +5,38 @@ window.onload = (event) => {
       //create a nav menu with all the projects in the JSON file
       new Header(data, document);
 
+      // If it's a project page:
       // Depending on the ID of the project, send the new project object and its data to the class
-      let projectID = document
-        .getElementById("project-container")
-        .getAttribute("project");
-      let websiteHeader = document.getElementById("website-header");
+      if (document.getElementById("project-container")) {
+        let projectID = document
+          .getElementById("project-container")
+          .getAttribute("project");
+        let websiteHeader = document.getElementById("website-header");
 
-      //    Send all projects to a new project class, and in the class populate a
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].id == projectID) {
-          new Project(
-            websiteHeader,
-            data[i].title,
-            data[i].subtitle,
-            data[i].year,
-            data[i].media,
-            data[i].keywords,
-            data[i].websiteLink,
-            data[i].description,
-            data[i].visual_documentation,
-            data[i].link_documentation
-          );
+        //    Send all projects to a new project class, and in the class populate a
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].id == projectID) {
+            new Project(
+              websiteHeader,
+              data[i].title,
+              data[i].subtitle,
+              data[i].year,
+              data[i].media,
+              data[i].keywords,
+              data[i].websiteLink,
+              data[i].description,
+              data[i].visual_documentation,
+              data[i].link_documentation
+            );
+          }
         }
       }
 
-      dragElement(document.getElementById("website-projects-popup"));
-      dragElement(document.getElementById("website-contact-popup"));
-      dragElement(document.getElementById("website-img-popup"));
-      dragElement(document.getElementById("website-about-popup"));
-      dragElement(document.getElementById("website-instagram-popup"));
+      // dragElement(document.getElementById("website-projects-popup"));
+      // dragElement(document.getElementById("website-contact-popup"));
+      // dragElement(document.getElementById("website-img-popup"));
+      // dragElement(document.getElementById("website-about-popup"));
+      // dragElement(document.getElementById("website-instagram-popup"));
 
       dragElement(document.getElementById("map"));
     })
