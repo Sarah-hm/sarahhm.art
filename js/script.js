@@ -32,12 +32,6 @@ window.onload = (event) => {
         }
       }
 
-      // dragElement(document.getElementById("website-projects-popup"));
-      // dragElement(document.getElementById("website-contact-popup"));
-      // dragElement(document.getElementById("website-img-popup"));
-      // dragElement(document.getElementById("website-about-popup"));
-      // dragElement(document.getElementById("website-instagram-popup"));
-
       // dragElement(document.getElementById("map"));
     })
     .catch((error) => console.error(error));

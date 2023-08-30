@@ -273,7 +273,7 @@
       {
         "type": "image",
         "source": "projects/ad-vitam-aeternam/ad-vitam-aeternam-cover.png",
-        "caption": "Silhouette"
+        "caption": ""
       },
       {
         "type": "image",
@@ -288,6 +288,56 @@
       {
         "type": "image",
         "source": "projects/ad-vitam-aeternam/img-03.png",
+        "caption": ""
+      }
+    ],
+    "link_documentation": []
+  },
+  {
+    "id": "shm-prj-jeu-denfant",
+    "url": "jeu-denfant.html",
+    "title": "Un jeu d'Enfant",
+    "subtitle": "Child's play ",
+    "year": "2020",
+    "media": [
+      "garments (tweed, silk chiffon linin, white shirting)",
+      "digital and analog patterns",
+      "computer assisted design softwares (photoshop, illustrator)"
+    ],
+    "keywords": [
+      "Eternal kindergarten",
+      "playful business chic",
+      "crayola (imposed)"
+    ],
+    "websiteLink": "",
+    "description": [
+      "As part of my last fashion design studies collection, we were tasked to produce a collection based on the theme <i>Crayola</i>. The brand’s bright colors and patterns inspired me to mirror in clothes the youthfulness I always refused to let go when introduced to adulthood.",
+      "Playful and childlike silhouettes were created with a juvenile short-skirt (skort) and overall, while handmade hama beads button, melted Crayola wax onto otherwise pristine white shirting fabric, and backpack clips completed an otherwise modern feminine look inspired by fashion’s most iconic cuts, namely Chanel’s four-pocket jacket."
+    ],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/un-jeu-denfant/jeu-denfant-silhouettes.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/un-jeu-denfant/jeu-denfant-img-01.png",
+        "caption": "boards"
+      },
+      {
+        "type": "image",
+        "source": "projects/un-jeu-denfant/jeu-denfant-img-02.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/un-jeu-denfant/jeu-denfant-img-03.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/un-jeu-denfant/jeu-denfant-img-04.png",
         "caption": ""
       }
     ],

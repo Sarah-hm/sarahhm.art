@@ -142,7 +142,8 @@ class Header {
     this.list.setAttribute("id", "projects-popup-list");
     this.popupBody.appendChild(this.list);
 
-    for (let i = 0; i < this.data.length; i++) {
+    // For the entire length of the projects.json data (minus the template available at the very end of the array)
+    for (let i = 0; i < this.data.length - 1; i++) {
       this.newPrj = document.createElement("li");
       this.newPrj.classList.add("prj-popup-title");
       this.list.appendChild(this.newPrj);
