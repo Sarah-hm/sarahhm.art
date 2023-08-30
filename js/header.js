@@ -5,7 +5,10 @@ class Header {
       subtitle: "transdisciplinary artist and designer",
     };
     this.about = {
-      text: " Proin quis nibh vel dui ullamcorper interdum at a lorem. Integer ultrices nunc eget urna facilisis, eget commodo sapien pellentesque. Nam laoreet varius dui in faucibus. Nulla nulla augue, consequat non",
+      text: [
+        "Sarah is a multidisciplinary, queer and neurodivergent, computational and tangible designer with a background in wearables, fashion design, 3 CAD and CAM, front and back end programming with a special interest on outlying narratives and material techniques. Their practice bridges our material and graspable world with the digital realm and its interfaces; how they impact each other in often unnoticed patterns. They strive to deconstruct the binary and linear hierarchies we maintain our dominant institutions in through queer and divergent story-telling. 'Invisible', digital, detexturized and averaged out data translate into tangible and graspable realities leaving outlying narratives out by design. These outcast stories are crucial to voice and physicalize to create a faithfully representative, sustainable, and reciprocal present and future cyberspace.",
+        "Current research assistant for the Indigenous Futures Research Center and Aboriginal Terriroty in Cyberspace in the Milieux Research Institute of Concordia University's Fine Arts Faculty, they are also a former research assistant for speculative fashion designer Ying Gao (École Supérieur de Mode de Montréal, UQAM), UQAM's Diament research chair on design for cyber mental health, and Vestechpro, an apparel research and innovation center affiliated with Marie-Victorin Fashion College.",
+      ],
       img: "img/ma-face.jpg",
     };
     this.projects = {};
@@ -174,9 +177,11 @@ class Header {
     this.popupBody.setAttribute("id", "about-popup-body");
     this.div.appendChild(this.popupBody);
 
-    this.para = document.createElement("p");
-    this.popupBody.appendChild(this.para);
-    this.para.insertAdjacentText("afterbegin", this.about.text);
+    for (this.i = 0; this.i < this.about.text.length; this.i++) {
+      this.para = document.createElement("p");
+      this.popupBody.appendChild(this.para);
+      this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
+    }
   }
 
   createImgPopup() {
@@ -441,7 +446,7 @@ class Header {
           case true:
             this.elRect = this.websitePopups[key].getBoundingClientRect();
 
-            console.log(this.elRect);
+            // console.log(this.elRect);
             this.deltaX = this.elRect.width / 2;
             this.deltaY = this.elRect.height * 0.1;
 
@@ -458,38 +463,12 @@ class Header {
             this.x = this.newX;
             this.y = this.newY;
 
-            console.log(this.websitePopups[key].id);
-            //puts projects pop-up on top
-            // this.navMenuPrjPopup.mouseDown = true;
-            // this.navMenuPrjPopup.style.zIndex = this.newZindex;
-            // this.websitePopups[key].style.cursor = "grabbing";
             break;
           case false:
-            console.log("false");
-
+            // console.log("false");
             break;
-          // case "website-about-popup":
-          //   //puts about pop-up on top
-          //   this.navMenuAboutPopup.mouseDown = true;
-          //   this.navMenuAboutPopup.style.zIndex = this.newZindex;
-          //   break;
-          // case "website-img-popup":
-          //   //puts about pop-up on top
-          //   this.navMenuImgPopup.mouseDown = true;
-          //   this.navMenuImgPopup.style.zIndex = this.newZindex;
-          //   break;
-          // case "website-contact-popup":
-          //   //puts about pop-up on top
-          //   this.navMenuContactPopup.mouseDown = true;
-          //   this.navMenuContactPopup.style.zIndex = this.newZindex;
-          //   break;
-          // case "website-instagram-popup":
-          //   //puts about pop-up on top
-          //   this.navMenuIgPopup.mouseDown = true;
-          //   this.navMenuIgPopup.style.zIndex = this.newZindex;
-          //   break;
           default:
-            console.log("not a popup");
+            // console.log("not a popup");
             break;
         }
       });
@@ -498,13 +477,31 @@ class Header {
 
   // == Recalculate position within viewport everytime popup opens
   recalculatePosition(popup) {
-    this.width = window.innerWidth * 0.6;
-    this.height = window.innerHeight * 0.6;
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
 
-    this.xpos = Math.floor(Math.random() * this.width);
-    this.ypos = Math.floor(Math.random() * this.height);
+    console.log(this.width);
+    this.maxWidth = this.width * 0.8;
+    this.minWidth = this.width * 0.2;
 
-    console.log(this);
+    console.log(this.maxWidth);
+    console.log(this.minWidth);
+
+    this.maxHeight = this.height * 0.7;
+    this.minHeight = this.height * 0.3;
+
+    this.xpos = Math.floor(
+      Math.random() * (this.maxWidth - this.minWidth) + this.minWidth
+    );
+    this.ypos = Math.floor(
+      Math.random() * (this.maxHeight - this.minHeight) + this.minHeight
+    );
+
+    console.log(
+      Math.floor(
+        Math.random() * (this.maxWidth - this.minWidth) + this.minWidth
+      )
+    );
     popup.style.left = `${this.xpos}px`;
     popup.style.top = `${this.ypos}px`;
   }

@@ -38,7 +38,7 @@ window.onload = (event) => {
       // dragElement(document.getElementById("website-about-popup"));
       // dragElement(document.getElementById("website-instagram-popup"));
 
-      dragElement(document.getElementById("map"));
+      // dragElement(document.getElementById("map"));
     })
     .catch((error) => console.error(error));
 

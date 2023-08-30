@@ -93,7 +93,7 @@ header {
   border: solid black 2px;
   outline: solid white 0.5px;
   overflow: hidden;
-  resize: both;
+  /* resize: both; */
 }
 
 .popup-closed {
@@ -147,6 +147,7 @@ header {
   padding: 0.2vw;
   text-align: right;
   font-size: 1.5rem;
+  list-style-type: none;
 }
 
 .prj-popup-title a {
@@ -172,13 +173,22 @@ header {
 
 /* ABOUT popup */
 
-/* img */
+#about-popup-body {
+  padding: 2%;
+}
+
+#about-popup-body p {
+  padding: 2%;
+}
+
+/* img popup */
 
 #website-img-popup {
   width: 25vw;
 }
+
 #about-img {
-  width: 100%;
+  width: 25vw;
   margin: 0 auto;
 }
 

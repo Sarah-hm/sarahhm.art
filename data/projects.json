@@ -21,7 +21,64 @@
     "websiteLink": "https://hybrid.concordia.ca/s_hontoy/data_scapes/website/map.php",
     "description": ["desc1", "desc2", "desc3"],
     "visual_documentation": ["img/instagram.png"],
-    "link_documentation": ["https://github.com/Sarah-hm/sarahhm.art"]
+    "link_documentation": [
+      {
+        "type": "github repository",
+        "source": "https://github.com/Sarah-hm/sarahhm.art"
+      }
+    ]
+  },
+  {
+    "id": "shm-prj-data-patterns",
+    "url": "data-patterns.html",
+    "title": "Data Patterns",
+    "subtitle": "A study of collaborative garment creation between human and machine",
+    "year": "2022",
+    "media": [
+      "garments (tulle, neoprene, scuba)",
+      "pattern making",
+      "AI generative art",
+      "Midjourney software"
+    ],
+    "keywords": [
+      "Human-computer Interaction",
+      "pattern making",
+      "generative art",
+      "collaborative methodologies"
+    ],
+    "websiteLink": "https://www.instagram.com/p/Cr1TbDRgs6K/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
+    "description": [
+      "Data patterns is an exploration of collaborative artistic methodologies between machines and humans. Ai processes have generally been designed to become humans’ workers, consequently antagonizing the machine and perceiving it as a replacement for, namely, artists’ and designers’ practices.",
+      "This philosophy has restrained the development of such creative methodologies; we fail to perceive them as an addition to the designer’s toolbox, but also as a collaborative agent for artistic practices. By (re)imagining heterodox and creative methodologies between human and machine, data patterns fosters critical and social imaginaries for the future of ‘AI art’ and the artist’s ever-evolving practice."
+    ],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/data-patterns/dataPatterns_thumbnail.jpg",
+        "caption": "Final product"
+      },
+      {
+        "type": "image",
+        "source": "projects/data-patterns/sarah.hm_technical_sewing_pattern_on_paper_measurements_hyper_r_25c4e476-65a8-43d2-967b-a30fbc41be31.PNG",
+        "caption": "Generated images using Midjourney software used to infer patterns and final garments"
+      },
+      {
+        "type": "image",
+        "source": "projects/data-patterns/sarah.hm_technical_sewing_pattern_on_paper_measurements_hyper_r_1921af7a-471c-4d43-b9ed-fc6dc50bfd21.PNG",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/data-patterns/sarah.hm_technical_sewing_pattern_on_paper_measurements_hyper_r_d474295e-8b03-4b42-8c4b-d5ee6e0f4ac1.PNG",
+        "caption": ""
+      }
+    ],
+    "link_documentation": [
+      {
+        "type": "final report",
+        "source": "projects/data-patterns/Report_Data-Patterns_Sarah-Hontoy-Major.pdf"
+      }
+    ]
   },
   {
     "id": "shm-prj-sheins-cabinet",
@@ -30,7 +87,7 @@
     "subtitle": "and why the algorithm thought you’d like it (*previously called data_scapes)",
     "year": "2022",
     "media": [
-      "Google Chrome Extension (html, css, js)",
+      "Google Chrome extension (html, css, js)",
       "personal testimonies"
     ],
     "keywords": [
@@ -48,10 +105,227 @@
       "Downloading this google extension on your own machine will grant you access to all journal entries. ",
       "Presented at fourth space (2022) as part of _scapes project mediation"
     ],
-    "visual_documentation": ["img/instagram.png"],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/sheins-cabinet/data-scapes-journal-screengrab01.png",
+        "caption": "Screenshots from the google extension's landing page and journal"
+      },
+      {
+        "type": "image",
+        "source": "projects/sheins-cabinet/data-scapes-journal-screengrab02.png",
+        "caption": ""
+      }
+    ],
     "link_documentation": [
-      "https://github.com/Sarah-hm/data-scapes/tree/main/google-extension",
-      "https://drive.google.com/file/d/1WPp7BhPEkQTQXcOVzG4jaYy8SRnFM1gb/view?usp=drive_link"
+      {
+        "type": "final report",
+        "source": "./projects/sheins-cabinet/data-pattern-misinformation-fashion.pdf"
+      }
+    ]
+  },
+  {
+    "id": "shm-prj-rideaux-de-mom",
+    "url": "rideaux-de-ma-mere.html",
+    "title": "Les rideaux de ma mère",
+    "subtitle": "My mom's curtains",
+    "year": "2022",
+    "media": [
+      "Vintage macrame curtains",
+      "hand crochet",
+      "nylon 12 3D impression",
+      "artificial gold leaves",
+      "hand stitches",
+      "rhino CAD software"
+    ],
+    "keywords": [
+      "CAD sculptural design",
+      "artisanal upcycling",
+      "couture",
+      "past present future methodologies"
+    ],
+    "websiteLink": "",
+    "description": [
+      "Femme is a short animation depicting an ambiguous female form, with her insides mounted on her head and shoulders. She is arched slightly inward, looking into the absence of her abdomen. Her larger-than-nature body is stripped of limbs, stuck between the walls of a 3D rendition of Concordia University’s agora. This sculpture is an ode to universal bodily autonomy and a consideration of body dysmorphia, the unscientific and socially constructed lack of institutional freedom people affected by either live through, and the mental discord it entails."
+    ],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/rideaux-de-mom/rideaux_01.jpg",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/rideaux-de-mom/rideaux_02.jpg",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/rideaux-de-mom/rideaux_03.jpg",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/rideaux-de-mom/rideaux_04.jpg",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/rideaux-de-mom/rideaux_05.jpg",
+        "caption": ""
+      }
+    ],
+    "link_documentation": []
+  },
+  {
+    "id": "shm-prj-femme",
+    "url": "femme.html",
+    "title": "Femme",
+    "subtitle": "",
+    "year": "2022",
+    "media": [
+      "Digital sculpture",
+      "Digital animation",
+      "Rhino CAD software",
+      "video editing software"
+    ],
+    "keywords": [
+      "CAD sculptural design",
+      "digital animation",
+      "bodily autonomy",
+      "body dysmorphia"
+    ],
+    "websiteLink": "",
+    "description": [
+      "Femme is a short animation depicting an ambiguous female form, with her insides mounted on her head and shoulders. She is arched slightly inward, looking into the absence of her abdomen. Her larger-than-nature body is stripped of limbs, stuck between the walls of a 3D rendition of Concordia University’s agora. This sculpture is an ode to universal bodily autonomy and a consideration of body dysmorphia, the unscientific and socially constructed lack of institutional freedom people affected by either live through, and the mental discord it entails."
+    ],
+    "visual_documentation": [
+      {
+        "type": "video",
+        "source": "projects/Femme_2022_optimized.mp4",
+        "videoType": "video/mp4",
+        "caption": ""
+      }
+    ],
+    "link_documentation": []
+  },
+  {
+    "id": "shm-prj-aeffect",
+    "url": "aeffect.html",
+    "title": "Æffect",
+    "subtitle": "A prototype for a contemplative wearable ",
+    "year": "2021",
+    "media": [
+      "Garment (organza, neoprene, vinyl coated knit)",
+      "electronics",
+      "arduino",
+      "somatic data"
+    ],
+    "keywords": [
+      "wearable",
+      "human-computer interaction",
+      "state shifting tangible interface",
+      "emotionnal responsive",
+      "tangible media"
+    ],
+    "websiteLink": "",
+    "description": [
+      "In our fast-paced society and beset by the challenges of pandemic facial coverings, our connection to both our own emotional condition and the condition of others has seemingly never been further from our conscious awareness. A portmanteau of visual effect and psychological affect, Æffect presents a prototype model for a physically dynamic, emotionally responsive wearable garment providing haptic feedback to its wearer to encourage greater introspection."
+    ],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "",
+        "caption": "Visual documentation coming soon"
+      }
+    ],
+    "link_documentation": [
+      {
+        "type": "final report",
+        "source": "projects/Aeffect/Æffect-Final-report.pdf"
+      },
+      {
+        "type": "artefact presentation",
+        "source": "projects/Aeffect/aeffect_final_artefact.pdf"
+      }
+    ]
+  },
+  {
+    "id": "shm-prj-ad-vitam-aeternam",
+    "url": "ad-vitam-aeternam.html",
+    "title": "Ad Vitam Aeternam",
+    "subtitle": "",
+    "year": "2020",
+    "media": ["Computer assisted design softwares (photoshop, illustrator)"],
+    "keywords": [
+      "fashion design concept",
+      "speculative design",
+      "sustainable design",
+      "living wearable",
+      "soft sculpture"
+    ],
+    "websiteLink": "",
+    "description": [
+      "Tasked to design an ‘unrealistic’ garment without material or commercial restrictions, I aimed to produce an environmentally sustainable concept that centers clothes’ life cycles and their striking ecological impact. From extensive research on sustainable manufacturing and production processes I had started in my internship at Vestechpro, an innovative apparel research center, I designed a speculative wearable that would allow a <i>giving back</i> rather than an ever-increasing <i>taking</i>; the fashion industry’s usual approach to production. ",
+      "<i>Ad vitam aeternam</i> is an exploration of what living and dressing within our situated materialities can look like; a manifest garment created from wood pulp housing living and growing local flora. The 3D printed structure , housing whichever floral species found where worn, could be assembled onto a body or be disposed outside to create a garden; a quite feasible and realistic way of wearing a flower pot."
+    ],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/ad-vitam-aeternam/ad-vitam-aeternam-cover.png",
+        "caption": "Silhouette"
+      },
+      {
+        "type": "image",
+        "source": "projects/ad-vitam-aeternam/img-01.png",
+        "caption": "Boards"
+      },
+      {
+        "type": "image",
+        "source": "projects/ad-vitam-aeternam/img-02.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/ad-vitam-aeternam/img-03.png",
+        "caption": ""
+      }
+    ],
+    "link_documentation": []
+  },
+  {
+    "id": "shm-prj-name",
+    "url": "name.html",
+    "title": "Project",
+    "subtitle": "Subtitle",
+    "year": "year",
+    "media": ["medium", "medium", "medium", "medium"],
+    "keywords": ["keyword", "keyword", "keyword", "keyword", "keyword"],
+    "websiteLink": "",
+    "description": ["desc"],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "",
+        "caption": ""
+      },
+      {
+        "type": "video",
+        "source": "",
+        "caption": ""
+      }
+    ],
+    "link_documentation": [
+      {
+        "type": "final report",
+        "source": "src",
+        "caption": ""
+      },
+      {
+        "type": "artefact presentation",
+        "source": "src",
+        "caption": ""
+      }
     ]
   }
 ]
