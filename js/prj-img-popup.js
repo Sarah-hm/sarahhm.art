@@ -1,8 +1,9 @@
 class ProjectImgPopup {
-  constructor(img, title, url, startX, startY) {
+  constructor(img, title, url, prjId, startX, startY) {
     this.img = img;
     this.title = title;
     this.url = url;
+    this.prj = prjId;
     this.doc = document.getElementById("homepage");
 
     // img width
@@ -16,8 +17,12 @@ class ProjectImgPopup {
 
   createPopup() {
     if (this.img != "") {
+      if (document.getElementById(this.prj)) {
+        document.getElementById(this.prj).remove();
+      }
       this.div = document.createElement("div");
       this.div.classList.add("project-img-popup");
+      this.div.setAttribute("id", this.prj);
       this.div.style.left = `${this.startX}px`;
       this.div.style.top = `${this.startY}px`;
       this.doc.appendChild(this.div);

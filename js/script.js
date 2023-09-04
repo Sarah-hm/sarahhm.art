@@ -60,10 +60,13 @@ window.onload = (event) => {
             if (prjUrl != previousPrjUrl) {
               previousPrjUrl = prjUrl;
               let imgUrl;
+              let imgTitle;
+              let prjId;
               Object.keys(data).forEach((key) => {
                 if (data[key].url === prjUrl) {
                   imgUrl = data[key].visual_documentation[0].source;
                   imgTitle = data[key].title;
+                  prjId = data[key].id;
                 }
               });
 
@@ -71,14 +74,14 @@ window.onload = (event) => {
               newX = newX + alpha;
               newY = newY + alpha;
 
-              if (newX >= window.innerWidth) {
+              if (newX >= window.innerWidth / 0.7) {
                 newX = 0;
               } else if (newY >= window.innerHeight) {
                 newY = 150;
               }
 
               //create a project img popup for every picture
-              new ProjectImgPopup(imgUrl, imgTitle, prjUrl, newX, newY);
+              new ProjectImgPopup(imgUrl, imgTitle, prjUrl, prjId, newX, newY);
             }
           });
         });
