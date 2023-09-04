@@ -85,7 +85,7 @@ header {
 .website-popup {
   min-width: 20%;
   max-width: 40%;
-  min-height: 30vh;
+  /* min-height: 30vh; */
   background-color: white;
   z-index: 3;
   position: fixed;
@@ -230,11 +230,14 @@ header {
   color: black;
   padding: 1%;
   padding-top: 3%;
+  box-shadow: 0px 0px 0px 0 var(--green-color);
+  transition: box-shadow 0.1s;
 }
 
 .contact-link:hover {
-  background-color: var(--green-color);
-  outline: solid black 2px;
+  cursor: pointer;
+  box-shadow: 5px 6px 0px 0 var(--green-color);
+  outline: solid black 0.5px;
 }
 
 #contact-email-copy-section {
@@ -243,16 +246,13 @@ header {
 
 #contact-email-copy-section button {
   width: 100%;
-  border: black solid 2px;
-  transition: background-color var(--color-transition-time);
-}
-
-#contact-email-copy-section button:hover {
-  background-color: var(--green-color);
+  box-shadow: 0px 0px 0px 0 var(--green-color);
+  transition: box-shadow 0.1s;
 }
 
 #contact-email-copy-section button:hover {
   cursor: pointer;
+  box-shadow: 5px 6px 0px 0 var(--green-color);
 }
 /* email */
 #email-tooltip {
@@ -297,7 +297,26 @@ header {
 /* CV popup */
 #website-cv-popup {
   width: 20vh;
-  height: 10vh;
+  height: 25vh;
+}
+#cv-popup-body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#cv-btn {
+  padding: 2%;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 0 var(--green-color);
+  transition: box-shadow 0.1s;
+  font-size: 1.5rem;
+}
+
+#cv-btn:hover {
+  box-shadow: 5px 6px 0px 0 var(--green-color);
 }
 
 /* map */
