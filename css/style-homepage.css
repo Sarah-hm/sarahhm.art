@@ -352,9 +352,6 @@ header {
 }
 
 .project-img-popup {
-  /* min-width: 20%;
-  max-width: 25%; */
-  /* max-height: 20vh; */
   background-color: white;
   z-index: 3;
   position: fixed;

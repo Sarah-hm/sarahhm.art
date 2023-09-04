@@ -20,7 +20,23 @@
     ],
     "websiteLink": "https://hybrid.concordia.ca/s_hontoy/data_scapes/website/map.php",
     "description": ["desc1", "desc2", "desc3"],
-    "visual_documentation": ["img/instagram.png"],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/data-scapes/data-scapes-01.png",
+        "caption": "Data-scapes' state as of 04/09/2023 calculated on Mercador projection"
+      },
+      {
+        "type": "image",
+        "source": "projects/data-scapes/data-scapes-02.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/data-scapes/data-scapes-03.png",
+        "caption": "Same image, zoomed on Tiohtià:ke/Mooniyang/Montréal"
+      }
+    ],
     "link_documentation": [
       {
         "type": "github repository",
@@ -93,7 +109,7 @@
     "keywords": [
       "data collection",
       "pattern inference",
-      "data literacy",
+      "folk ontologies",
       "networked materiality",
       "personal narratives"
     ],
@@ -201,10 +217,15 @@
     ],
     "visual_documentation": [
       {
-        "type": "video",
-        "source": "projects/Femme_2022_optimized.mp4",
-        "videoType": "video/mp4",
+        "type": "image",
+        "source": "projects/femme/femme-still.png",
         "caption": ""
+      },
+      {
+        "type": "video",
+        "source": "projects/femme/Femme_2022_optimized.mp4",
+        "videoType": "video/mp4",
+        "caption": "full video"
       }
     ],
     "link_documentation": []
