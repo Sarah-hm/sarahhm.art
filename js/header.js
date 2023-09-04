@@ -51,6 +51,13 @@ class Header {
     );
     this.navMenuImgPopup = document.getElementById("website-img-popup");
 
+    this.navMenuPrjPopup.open = false;
+    this.navMenuAboutPopup.open = false;
+    this.navMenuImgPopup.open = false;
+    this.navMenuCvPopup.open = false;
+    this.navMenuContactPopup.open = false;
+    this.navMenuIgPopup.open = false;
+
     this.addListeners();
   }
 
@@ -380,28 +387,71 @@ class Header {
       this.navMenuBtns[key].addEventListener("click", () => {
         switch (this.navMenuBtns[key].id) {
           case "nav-menu-prj-btn":
-            //toggle projects pop-up
-            this.recalculatePosition(this.navMenuPrjPopup);
-            this.navMenuPrjPopup.classList.toggle("popup-closed");
+            // close projects and all img popups
+            if (this.navMenuPrjPopup.open) {
+              this.closeProjectImgPopups();
+              this.navMenuPrjPopup.classList.add("popup-closed");
+              this.navMenuPrjPopup.open = false;
+            } else {
+              //toggle projects pop-up
+              this.recalculatePosition(this.navMenuPrjPopup);
+              this.navMenuPrjPopup.classList.remove("popup-closed");
+              this.navMenuPrjPopup.open = true;
+            }
             break;
           case "nav-menu-abt-btn":
-            //toggle about pop-up
-            this.recalculatePosition(this.navMenuAboutPopup);
-            this.navMenuAboutPopup.classList.toggle("popup-closed");
-            // Toggle self portrait
-            this.recalculatePosition(this.navMenuImgPopup);
-            this.navMenuImgPopup.classList.toggle("popup-closed");
-            // Toggle cv button
-            this.recalculatePosition(this.navMenuCvPopup);
-            this.navMenuCvPopup.classList.toggle("popup-closed");
+            // if any of the about popups (statement, img, cv) are open, close all of them
+            if (
+              this.navMenuAboutPopup.open ||
+              this.navMenuImgPopup.open ||
+              this.navMenuCvPopup.open
+            ) {
+              this.navMenuAboutPopup.classList.add("popup-closed");
+              this.navMenuImgPopup.classList.add("popup-closed");
+              this.navMenuCvPopup.classList.add("popup-closed");
+              this.navMenuAboutPopup.open = false;
+              this.navMenuImgPopup.open = false;
+              this.navMenuCvPopup.open = false;
+            }
+            // if they are all closed, open all of them (and recalculate position)
+            else {
+              // about
+              this.recalculatePosition(this.navMenuAboutPopup);
+              this.navMenuAboutPopup.classList.remove("popup-closed");
+              this.navMenuAboutPopup.open = true;
+              // self-portrait
+              this.recalculatePosition(this.navMenuImgPopup);
+              this.navMenuImgPopup.classList.remove("popup-closed");
+              this.navMenuImgPopup.open = true;
+              //cv
+              this.recalculatePosition(this.navMenuCvPopup);
+              this.navMenuCvPopup.classList.remove("popup-closed");
+              this.navMenuCvPopup.open = true;
+            }
+
             break;
           case "nav-menu-cntct-btn":
-            // toggle contact popup
-            this.recalculatePosition(this.navMenuContactPopup);
-            this.navMenuContactPopup.classList.toggle("popup-closed");
-            // Toggle ig popup
-            this.recalculatePosition(this.navMenuIgPopup);
-            this.navMenuIgPopup.classList.toggle("popup-closed");
+            // if any of the about popups (statement, img, cv) are open, close all of them
+            if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
+              // contact
+              this.navMenuContactPopup.classList.add("popup-closed");
+              this.navMenuContactPopup.open = false;
+              // ig
+              this.navMenuIgPopup.classList.add("popup-closed");
+              this.navMenuIgPopup.open = false;
+            }
+            // if they are all closed, open all of them (and recalculate position)
+            else {
+              // contact (email)
+              this.recalculatePosition(this.navMenuContactPopup);
+              this.navMenuContactPopup.classList.remove("popup-closed");
+              this.navMenuContactPopup.open = true;
+              // ig
+              this.recalculatePosition(this.navMenuIgPopup);
+              this.navMenuIgPopup.classList.remove("popup-closed");
+              this.navMenuIgPopup.open = true;
+            }
+
             break;
           default:
             console.log("not a button");
@@ -416,27 +466,29 @@ class Header {
         switch (this.popupCloseBtns[key].id) {
           case "projects-popup-close-btn":
             //close projects pop-up
-            this.navMenuPrjPopup.classList.toggle("popup-closed");
+            this.navMenuPrjPopup.classList.add("popup-closed");
+            console.log("close");
+            this.closeProjectImgPopups();
             break;
           case "about-popup-close-btn":
             //close about pop-up
-            this.navMenuAboutPopup.classList.toggle("popup-closed");
+            this.navMenuAboutPopup.classList.add("popup-closed");
             break;
           case "img-popup-close-btn":
             // close instagram pop-up
-            this.navMenuImgPopup.classList.toggle("popup-closed");
+            this.navMenuImgPopup.classList.add("popup-closed");
             break;
           case "cv-popup-close-btn":
             // close instagram pop-up
-            this.navMenuCvPopup.classList.toggle("popup-closed");
+            this.navMenuCvPopup.classList.add("popup-closed");
             break;
           case "contact-popup-close-btn":
             // close contact pop-up
-            this.navMenuContactPopup.classList.toggle("popup-closed");
+            this.navMenuContactPopup.classList.add("popup-closed");
             break;
           case "instagram-popup-close-btn":
             // close instagram pop-up
-            this.navMenuIgPopup.classList.toggle("popup-closed");
+            this.navMenuIgPopup.classList.add("popup-closed");
             break;
           default:
             console.log("not a button");
@@ -572,5 +624,14 @@ class Header {
 
     popup.style.left = `${this.xpos}px`;
     popup.style.top = `${this.ypos}px`;
+  }
+
+  closeProjectImgPopups() {
+    this.prjImgPopups = document.getElementsByClassName("project-img-popup");
+    if (this.prjImgPopups.length > 0) {
+      Object.keys(this.prjImgPopups).forEach((key) => {
+        this.prjImgPopups[key].classList.add("popup-closed");
+      });
+    }
   }
 }

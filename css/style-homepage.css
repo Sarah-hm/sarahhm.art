@@ -107,16 +107,17 @@ header {
   justify-content: space-between;
   padding: 1%;
 }
-.website-popup-close-btn {
-  padding-left: 0.5vw;
-  padding-right: 0.5vw;
+.website-popup-close-btn,
+.project-img-popup-close-btn {
+  width: 20px;
+  height: 20px;
   border: inset 2px white;
   background-color: white;
   color: black;
 }
 
-.website-popup-close-btn:hover {
-  background-color: var(--green-color);
+.website-popup-close-btn:hover,
+.project-img-popup-close-btn:hover {
   border: inset 2px var(--green-color);
   cursor: pointer;
 }
@@ -190,6 +191,14 @@ header {
 #about-img {
   width: 25vw;
   margin: 0 auto;
+  /* Make unselectable, but savable */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
 }
 
 /* CONTACT popup */
