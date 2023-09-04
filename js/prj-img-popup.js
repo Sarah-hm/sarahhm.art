@@ -46,7 +46,6 @@ class ProjectImgPopup {
       this.div.appendChild(this.popupBody);
 
       this.imgLink = document.createElement("a");
-      this.imgLink.setAttribute("target", "_blank");
       this.imgLink.setAttribute("href", `${this.url}`);
       this.imgLink.classList.add("project-img-popup-div");
       this.popupBody.appendChild(this.imgLink);
