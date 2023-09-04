@@ -10,14 +10,12 @@ class ProjectImgPopup {
 
     this.startX = startX;
     this.startY = startY;
-    console.log(this.startX);
+    // console.log(this.startX);
     this.createPopup();
   }
 
   createPopup() {
     if (this.img != "") {
-      //   this.recalculatePosition();
-
       this.div = document.createElement("div");
       this.div.classList.add("project-img-popup");
       this.div.style.left = `${this.startX}px`;

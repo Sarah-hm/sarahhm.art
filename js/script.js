@@ -40,12 +40,14 @@ window.onload = (event) => {
         let startX = window.innerWidth / 3;
         let startY = window.innerHeight / 4;
 
-        const alpha = 40;
+        const alpha = 75;
 
         let newX = startX;
         let newY = startY;
 
         let previousPrjUrl = "";
+
+        let newStartX = startX;
         Object.keys(projectBtns).forEach((key) => {
           //add event listener on hover to create a new image popup window
           projectBtns[key].addEventListener("mouseover", () => {
@@ -67,6 +69,13 @@ window.onload = (event) => {
               //increase the position
               newX = newX + alpha;
               newY = newY + alpha;
+
+              if (newX >= window.innerWidth || newY >= window.innerHeight) {
+                newStartX = newStartX + 100;
+                newX = newStartX;
+                newY = 0;
+              }
+
               //create a project img popup for every picture
               new ProjectImgPopup(imgUrl, imgTitle, prjUrl, newX, newY);
             }
