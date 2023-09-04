@@ -481,15 +481,29 @@ class Header {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
 
-    console.log(this.width);
+    // console.log(popup.getAttribute("id"));
+
     this.maxWidth = this.width * 0.8;
     this.minWidth = this.width * 0.2;
 
-    console.log(this.maxWidth);
-    console.log(this.minWidth);
-
     this.maxHeight = this.height * 0.7;
     this.minHeight = this.height * 0.3;
+
+    switch (popup.getAttribute("id")) {
+      case "website-projects-popup":
+        this.maxWidth = this.width * 0.3;
+        this.minWidth = this.width * 0.1;
+
+        this.maxHeight = this.height * 0.4;
+        this.minHeight = this.height * 0.2;
+        break;
+      default:
+        this.maxWidth = this.width * 0.8;
+        this.minWidth = this.width * 0.2;
+
+        this.maxHeight = this.height * 0.7;
+        this.minHeight = this.height * 0.3;
+    }
 
     this.xpos = Math.floor(
       Math.random() * (this.maxWidth - this.minWidth) + this.minWidth

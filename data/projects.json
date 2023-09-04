@@ -344,6 +344,67 @@
     "link_documentation": []
   },
   {
+    "id": "shm-prj-monastique",
+    "url": "monastique.html",
+    "title": "Monastique",
+    "subtitle": "End of studies fashion collection",
+    "year": "2019",
+    "media": [
+      "garments (scuba, nylon, fusing)",
+      "digital and paper patterns",
+      "computer assisted design softwares",
+      "ultrasonic bonding machine (sonoBond)"
+    ],
+    "keywords": [
+      "material modification",
+      "advanced clothing technology",
+      "monastic gray (imposed)"
+    ],
+    "websiteLink": "",
+    "description": [
+      "Monastique,  an imposed theme for my end of degree collection, called for elegant minimalism, and inspired seemingly simple, yet technically complex, garment pieces. The solemn and sober shapes of the garment allowed for several material modifications and technical audacities to elevate the look elegantly. Manually laminated fabric and ultrasonic bonding were used to create a simili-leather look, while a loosened overlock gave way to handstitch look-alikes."
+    ],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/gris-monatique/monastique-01.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/gris-monatique/monastique-02.png",
+        "caption": "Boards"
+      },
+      {
+        "type": "image",
+        "source": "projects/gris-monatique/monastique-03.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/gris-monatique/monastique-04.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/gris-monatique/monastique-05.jpg",
+        "caption": "Final selected garment"
+      }
+    ],
+    "link_documentation": [
+      {
+        "type": "final report",
+        "source": "src",
+        "caption": ""
+      },
+      {
+        "type": "artefact presentation",
+        "source": "src",
+        "caption": ""
+      }
+    ]
+  },
+  {
     "id": "shm-prj-name",
     "url": "name.html",
     "title": "Project",

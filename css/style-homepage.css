@@ -303,8 +303,30 @@ header {
   z-index: 0;
   border: 1px solid #d3d3d3;
   text-align: center;
-  cursor: grab;
+  /* cursor: grab; */
   transform-origin: center;
   left: -50%;
   top: -50%;
+}
+
+/* ===== HOME PAGE ====== */
+
+/* HOMEPAGE */
+#homepage {
+  height: 100vh;
+  width: 100vw;
+}
+
+.project-img-popup {
+  position: fixed;
+}
+
+.website-project-img-popup-body {
+  display: flex;
+  justify-content: center;
+}
+
+.project-img-popup-div {
+  /* width: 100%;
+  height: 100%; */
 }
