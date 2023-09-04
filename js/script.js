@@ -73,11 +73,8 @@ window.onload = (event) => {
 
               if (newX >= window.innerWidth) {
                 newX = 0;
-                newY = 200;
               } else if (newY >= window.innerHeight) {
-                newStartX = newStartX + 200;
-                newX = newStartX;
-                newY = 200;
+                newY = 150;
               }
 
               //create a project img popup for every picture
