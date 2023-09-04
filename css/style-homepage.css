@@ -294,6 +294,12 @@ header {
 }
 /* ig */
 
+/* CV popup */
+#website-cv-popup {
+  width: 20vh;
+  height: 10vh;
+}
+
 /* map */
 #map {
   width: 100vw;

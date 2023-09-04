@@ -36,6 +36,7 @@ class Header {
     this.createPrjPopup();
     this.createAbtPopup();
     this.createImgPopup();
+    this.createCvPopup();
     this.createCntcPopup();
     this.createIgPopup();
 
@@ -43,6 +44,7 @@ class Header {
     this.navMenuPrjPopup = document.getElementById("website-projects-popup");
     this.navMenuAboutPopup = document.getElementById("website-about-popup");
     this.navMenuContactPopup = document.getElementById("website-contact-popup");
+    this.navMenuCvPopup = document.getElementById("website-cv-popup");
     this.navMenuIgPopup = document.getElementById("website-instagram-popup");
     this.popupCloseBtns = document.getElementsByClassName(
       "website-popup-close-btn"
@@ -219,6 +221,47 @@ class Header {
     this.popupBody.appendChild(this.img);
   }
 
+  createCvPopup() {
+    this.div = document.createElement("div");
+    this.div.classList.add("website-popup");
+    this.div.classList.add("popup-closed");
+    this.div.setAttribute("id", "website-cv-popup");
+    this.doc.appendChild(this.div);
+
+    this.divHeader = document.createElement("div");
+    this.divHeader.classList.add("website-popup-header");
+    this.div.appendChild(this.divHeader);
+
+    this.closeBtn = document.createElement("button");
+    this.closeBtn.classList.add("website-popup-close-btn");
+    this.closeBtn.setAttribute("id", "cv-popup-close-btn");
+    this.divHeader.appendChild(this.closeBtn);
+    this.closeBtn.insertAdjacentText("afterbegin", "x");
+
+    this.popupTitle = document.createElement("h3");
+    this.popupTitle.classList.add("website-popup-header-title");
+    this.divHeader.appendChild(this.popupTitle);
+    this.popupTitle.insertAdjacentText("afterbegin", "curriculum vitae");
+
+    this.popupBody = document.createElement("div");
+    this.popupBody.classList.add("website-popup-body");
+    this.popupBody.setAttribute("id", "cv-popup-body");
+    this.div.appendChild(this.popupBody);
+
+    this.link = document.createElement("a");
+    this.link.classList.add("cv-link");
+    this.link.setAttribute("href", "data/Sarah_hontoy-major_CV.pdf");
+    this.link.setAttribute("target", "_blank");
+    this.popupBody.appendChild(this.link);
+
+    this.btn = document.createElement("button");
+    this.btn.setAttribute("id", "cv-btn");
+    this.link.appendChild(this.btn);
+    this.btn.innerHTML = "Open CV in a pdf";
+
+    // this.copyBtn.
+  }
+
   createCntcPopup() {
     this.div = document.createElement("div");
     this.div.classList.add("website-popup");
@@ -345,13 +388,18 @@ class Header {
             //toggle about pop-up
             this.recalculatePosition(this.navMenuAboutPopup);
             this.navMenuAboutPopup.classList.toggle("popup-closed");
+            // Toggle self portrait
             this.recalculatePosition(this.navMenuImgPopup);
             this.navMenuImgPopup.classList.toggle("popup-closed");
+            // Toggle cv button
+            this.recalculatePosition(this.navMenuCvPopup);
+            this.navMenuCvPopup.classList.toggle("popup-closed");
             break;
           case "nav-menu-cntct-btn":
-            // toggle contact + instagram pop-up
+            // toggle contact popup
             this.recalculatePosition(this.navMenuContactPopup);
             this.navMenuContactPopup.classList.toggle("popup-closed");
+            // Toggle ig popup
             this.recalculatePosition(this.navMenuIgPopup);
             this.navMenuIgPopup.classList.toggle("popup-closed");
             break;
@@ -377,6 +425,10 @@ class Header {
           case "img-popup-close-btn":
             // close instagram pop-up
             this.navMenuImgPopup.classList.toggle("popup-closed");
+            break;
+          case "cv-popup-close-btn":
+            // close instagram pop-up
+            this.navMenuCvPopup.classList.toggle("popup-closed");
             break;
           case "contact-popup-close-btn":
             // close contact pop-up
@@ -416,6 +468,12 @@ class Header {
             this.navMenuImgPopup.mouseDown = true;
             this.navMenuImgPopup.style.zIndex = this.newZindex;
             break;
+
+          case "website-cv-popup":
+            //puts about pop-up on top
+            this.navMenuCvPopup.mouseDown = true;
+            this.navMenuCvPopup.style.zIndex = this.newZindex;
+            break;
           case "website-contact-popup":
             //puts about pop-up on top
             this.navMenuContactPopup.mouseDown = true;
@@ -437,6 +495,7 @@ class Header {
       this.navMenuPrjPopup.mouseDown = false;
       this.navMenuAboutPopup.mouseDown = false;
       this.navMenuImgPopup.mouseDown = false;
+      this.navMenuCvPopup.mouseDown = false;
       this.navMenuContactPopup.mouseDown = false;
       this.navMenuIgPopup.mouseDown = false;
     });
@@ -481,8 +540,6 @@ class Header {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
 
-    // console.log(popup.getAttribute("id"));
-
     this.maxWidth = this.width * 0.8;
     this.minWidth = this.width * 0.2;
 
@@ -490,6 +547,7 @@ class Header {
     this.minHeight = this.height * 0.3;
 
     switch (popup.getAttribute("id")) {
+      // projects popup will always appear closer to left/top than others
       case "website-projects-popup":
         this.maxWidth = this.width * 0.3;
         this.minWidth = this.width * 0.1;

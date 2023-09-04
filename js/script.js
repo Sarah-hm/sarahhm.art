@@ -40,7 +40,7 @@ window.onload = (event) => {
         let startX = window.innerWidth / 3;
         let startY = window.innerHeight / 4;
 
-        const alpha = 10;
+        const alpha = 40;
 
         let newX = startX;
         let newY = startY;
