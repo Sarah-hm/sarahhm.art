@@ -33,7 +33,6 @@ window.onload = (event) => {
       }
 
       if (document.getElementById("homepage")) {
-        console.log("homepage");
         let projectBtns = document.getElementsByClassName("prj-popup-title");
 
         //decide a random arbitrary starting point for the cascade

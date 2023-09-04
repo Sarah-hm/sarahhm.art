@@ -570,11 +570,6 @@ class Header {
       Math.random() * (this.maxHeight - this.minHeight) + this.minHeight
     );
 
-    console.log(
-      Math.floor(
-        Math.random() * (this.maxWidth - this.minWidth) + this.minWidth
-      )
-    );
     popup.style.left = `${this.xpos}px`;
     popup.style.top = `${this.ypos}px`;
   }

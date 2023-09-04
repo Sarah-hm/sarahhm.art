@@ -27,7 +27,7 @@ class ProjectImgPopup {
       this.div.appendChild(this.divHeader);
 
       this.closeBtn = document.createElement("button");
-      this.closeBtn.classList.add("website-popup-close-btn");
+      this.closeBtn.classList.add("project-img-popup-close-btn");
       this.divHeader.appendChild(this.closeBtn);
       this.closeBtn.insertAdjacentText("afterbegin", "x");
 
