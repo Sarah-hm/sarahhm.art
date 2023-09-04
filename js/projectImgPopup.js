@@ -1,7 +1,8 @@
 class ProjectImgPopup {
-  constructor(img, title, startX, startY) {
+  constructor(img, title, url, startX, startY) {
     this.img = img;
     this.title = title;
+    this.url = url;
     this.doc = document.getElementById("homepage");
 
     // img width
@@ -18,7 +19,6 @@ class ProjectImgPopup {
       //   this.recalculatePosition();
 
       this.div = document.createElement("div");
-      this.div.classList.add("website-popup");
       this.div.classList.add("project-img-popup");
       this.div.style.left = `${this.startX}px`;
       this.div.style.top = `${this.startY}px`;
@@ -42,12 +42,12 @@ class ProjectImgPopup {
       this.popupBody.classList.add("website-project-img-popup-body");
       this.div.appendChild(this.popupBody);
 
-      this.imgEl = document.createElement("img");
-      this.imgEl.classList.add("project-img-popup-div");
-      this.imgEl.setAttribute("src", `${this.img}`);
-      this.imgEl.setAttribute("alt", `image of ${this.title}`);
-      this.imgEl.setAttribute("height", `${this.width}px`);
-      this.popupBody.appendChild(this.imgEl);
+      this.imgLink = document.createElement("a");
+      this.imgLink.setAttribute("target", "_blank");
+      this.imgLink.setAttribute("href", `${this.url}`);
+      this.imgLink.classList.add("project-img-popup-div");
+      this.popupBody.appendChild(this.imgLink);
+      this.imgLink.innerHTML = `<img src='${this.img}' alt='Image of ${this.title}' "/>`;
 
       this.addListeners();
     }
@@ -80,13 +80,13 @@ class ProjectImgPopup {
 
         // console.log(this.elRect);
         this.deltaX = this.elRect.width / 2;
-        this.deltaY = this.elRect.height * 0.1;
+        this.deltaY = this.elRect.height * 0.05;
 
         this.newX = event.clientX - this.deltaX;
         this.newY = event.clientY - this.deltaY;
 
-        this.websitePopups[key].style.left = this.newX + "px";
-        this.websitePopups[key].style.top = this.newY + "px";
+        this.div.style.left = this.newX + "px";
+        this.div.style.top = this.newY + "px";
 
         //Redraw line with the current Element's X, Y position (should be whenever the div moves, not only on mouse move)
         this.newX = this.newX + this.elRect.width / 2;

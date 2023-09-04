@@ -36,35 +36,40 @@ window.onload = (event) => {
         console.log("homepage");
         let projectBtns = document.getElementsByClassName("prj-popup-title");
 
+        //decide a random arbitrary starting point for the cascade
         let startX = window.innerWidth / 3;
         let startY = window.innerHeight / 4;
 
-        const alpha = 50;
+        const alpha = 10;
 
         let newX = startX;
         let newY = startY;
-        Object.keys(projectBtns).forEach((key) => {
-          //decide a random arbitrary starting point for the cascade
 
+        let previousPrjUrl = "";
+        Object.keys(projectBtns).forEach((key) => {
           //add event listener on hover to create a new image popup window
           projectBtns[key].addEventListener("mouseover", () => {
             let prjUrl = projectBtns[key]
               .getElementsByTagName("a")[0]
               .getAttribute("href");
 
-            let imgUrl;
-            Object.keys(data).forEach((key) => {
-              if (data[key].url === prjUrl) {
-                imgUrl = data[key].visual_documentation[0].source;
-                imgTitle = data[key].title;
-              }
-            });
+            //if the prj URL isn't the same as the one who just got created, create a new popup
+            if (prjUrl != previousPrjUrl) {
+              previousPrjUrl = prjUrl;
+              let imgUrl;
+              Object.keys(data).forEach((key) => {
+                if (data[key].url === prjUrl) {
+                  imgUrl = data[key].visual_documentation[0].source;
+                  imgTitle = data[key].title;
+                }
+              });
 
-            //increase the position
-            newX = newX + alpha;
-            newY = newY + alpha;
-            //create a project img popup for every picture
-            new ProjectImgPopup(imgUrl, imgTitle, newX, newY);
+              //increase the position
+              newX = newX + alpha;
+              newY = newY + alpha;
+              //create a project img popup for every picture
+              new ProjectImgPopup(imgUrl, imgTitle, prjUrl, newX, newY);
+            }
           });
         });
       }

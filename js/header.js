@@ -328,7 +328,7 @@ class Header {
     this.imgLink.setAttribute("href", "https://www.instagram.com/sarahhm.jpg");
     this.imgLink.classList.add("contact-image-link");
     this.popupBody.appendChild(this.imgLink);
-    this.imgLink.innerHTML = `<img src="img/instagram.png" alt="Sarahhm.jpg's instagram link" "/>`;
+    this.imgLink.innerHTML = `<img src="img/instagram.png" alt="Sarahhm.jpg's instagram link" width = '${this.width}'"/>`;
   }
 
   addListeners() {
@@ -394,7 +394,7 @@ class Header {
     });
 
     //Adds to zindex everytime you click a popup
-    this.popupZindex = "4";
+    this.popupZindex = "5000";
 
     Object.keys(this.websitePopups).forEach((key) => {
       this.websitePopups[key].addEventListener("mousedown", () => {
@@ -449,7 +449,7 @@ class Header {
 
             // console.log(this.elRect);
             this.deltaX = this.elRect.width / 2;
-            this.deltaY = this.elRect.height * 0.1;
+            this.deltaY = this.elRect.height * 0.05;
 
             this.newX = event.clientX - this.deltaX;
             this.newY = event.clientY - this.deltaY;
