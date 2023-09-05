@@ -77,9 +77,6 @@ window.onload = (event) => {
               const maxX = (window.innerWidth / 5) * 4;
               const maxY = (window.innerHeight / 3) * 2;
 
-              console.log(window.innerHeight);
-              console.log((window.innerHeight / 5) * 4);
-
               if (newX >= maxX) {
                 let ranNum = Math.floor(Math.random() * 50) + 35;
                 newX = ranNum;

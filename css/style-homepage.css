@@ -59,7 +59,7 @@ header {
 .nav-menu-btn {
   cursor: pointer;
   outline: inherit;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
   padding: 1%;
   width: 100%;
   color: black;
@@ -71,10 +71,27 @@ header {
   font-family: sans-serif;
   font-size: 1rem;
   transition: background-color var(--color-transition-time);
+  background-image: linear-gradient(
+    to bottom,
+    white 50%,
+    var(--green-color) 50%
+  );
+  background-position: 0 -15%;
+  /* background-image: linear-gradient(to top, var(--green-color) 50%, white 50%); */
+  /* background-position: 0 15%; */
+  transition: all var(--color-transition-time)
+    cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-size: 100% 200%;
+  -webkit-transition: background-position var(--color-transition-time);
+  -moz-transition: background-position var(--color-transition-time);
 }
 
 .nav-menu-btn:hover {
   background-color: var(--green-color);
+  background-color: rgba(0, 0, 0, 1);
+  color: black;
+  background-position: 0 -100%;
+  /* background-position: 0 100%; */
 }
 #nav-menu-abt-btn {
   border-right: solid black 2px;

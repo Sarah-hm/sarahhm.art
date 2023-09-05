@@ -398,11 +398,17 @@ class Header {
               this.closeProjectImgPopups();
               this.navMenuPrjPopup.classList.add("popup-closed");
               this.navMenuPrjPopup.open = false;
+
+              // Remove green button background
+              this.navMenuBtns[key].style.backgroundPosition = "";
             } else {
               //toggle projects pop-up
               this.recalculatePosition(this.navMenuPrjPopup);
               this.navMenuPrjPopup.classList.remove("popup-closed");
               this.navMenuPrjPopup.open = true;
+
+              // make nav button green
+              this.navMenuBtns[key].style.backgroundPosition = "0 -100%";
             }
             break;
           case "nav-menu-abt-btn":
@@ -418,6 +424,9 @@ class Header {
               this.navMenuAboutPopup.open = false;
               this.navMenuImgPopup.open = false;
               this.navMenuCvPopup.open = false;
+
+              // Remove green button background
+              this.navMenuBtns[key].style.backgroundPosition = "";
             }
             // if they are all closed, open all of them (and recalculate position)
             else {
@@ -433,6 +442,9 @@ class Header {
               this.recalculatePosition(this.navMenuCvPopup);
               this.navMenuCvPopup.classList.remove("popup-closed");
               this.navMenuCvPopup.open = true;
+
+              // make nav button green
+              this.navMenuBtns[key].style.backgroundPosition = "0 -100%";
             }
 
             break;
@@ -445,6 +457,9 @@ class Header {
               // ig
               this.navMenuIgPopup.classList.add("popup-closed");
               this.navMenuIgPopup.open = false;
+
+              // Remove green button background
+              this.navMenuBtns[key].style.backgroundPosition = "";
             }
             // if they are all closed, open all of them (and recalculate position)
             else {
@@ -456,6 +471,9 @@ class Header {
               this.recalculatePosition(this.navMenuIgPopup);
               this.navMenuIgPopup.classList.remove("popup-closed");
               this.navMenuIgPopup.open = true;
+
+              // make nav button green
+              this.navMenuBtns[key].style.backgroundPosition = "0 -100%";
             }
 
             break;
