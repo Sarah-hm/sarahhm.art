@@ -129,6 +129,7 @@ class Header {
 
     this.divHeader = document.createElement("div");
     this.divHeader.classList.add("website-popup-header");
+    this.divHeader.setAttribute("id", "website-projects-popup-header");
     this.div.appendChild(this.divHeader);
 
     this.closeBtn = document.createElement("button");
@@ -169,6 +170,7 @@ class Header {
 
     this.divHeader = document.createElement("div");
     this.divHeader.classList.add("website-popup-header");
+    this.divHeader.setAttribute("id", "website-about-popup-header");
     this.div.appendChild(this.divHeader);
 
     this.closeBtn = document.createElement("button");
@@ -203,6 +205,7 @@ class Header {
 
     this.divHeader = document.createElement("div");
     this.divHeader.classList.add("website-popup-header");
+    this.divHeader.setAttribute("id", "website-image-popup-header");
     this.div.appendChild(this.divHeader);
 
     this.closeBtn = document.createElement("button");
@@ -237,6 +240,7 @@ class Header {
 
     this.divHeader = document.createElement("div");
     this.divHeader.classList.add("website-popup-header");
+    this.divHeader.setAttribute("id", "website-cv-popup-header");
     this.div.appendChild(this.divHeader);
 
     this.closeBtn = document.createElement("button");
@@ -278,6 +282,7 @@ class Header {
 
     this.divHeader = document.createElement("div");
     this.divHeader.classList.add("website-popup-header");
+    this.divHeader.setAttribute("id", "website-contact-popup-header");
     this.div.appendChild(this.divHeader);
 
     this.closeBtn = document.createElement("button");
@@ -348,6 +353,7 @@ class Header {
 
     this.divHeader = document.createElement("div");
     this.divHeader.classList.add("website-popup-header");
+    this.divHeader.setAttribute("id", "website-ig-popup-header");
     this.div.appendChild(this.divHeader);
 
     this.closeBtn = document.createElement("button");
@@ -497,43 +503,83 @@ class Header {
       });
     });
 
-    //Adds to zindex everytime you click a popup
+    //Make popup window draggable
     this.popupZindex = "5000";
+    this.popupHeaders = document.getElementsByClassName("website-popup-header");
 
-    Object.keys(this.websitePopups).forEach((key) => {
-      this.websitePopups[key].addEventListener("mousedown", () => {
+    Object.keys(this.popupHeaders).forEach((key) => {
+      this.popupHeaders[key].addEventListener("mousedown", () => {
         this.newZindex = this.popupZindex++;
-        switch (this.websitePopups[key].id) {
-          case "website-projects-popup":
+        console.log(this.popupHeaders[key].id);
+        switch (this.popupHeaders[key].id) {
+          case "website-projects-popup-header":
             //puts projects pop-up on top
             this.navMenuPrjPopup.mouseDown = true;
             this.navMenuPrjPopup.style.zIndex = this.newZindex;
             // this.websitePopups[key].style.cursor = "grabbing";
             break;
-          case "website-about-popup":
+          case "website-about-popup-header":
             //puts about pop-up on top
             this.navMenuAboutPopup.mouseDown = true;
             this.navMenuAboutPopup.style.zIndex = this.newZindex;
             break;
-          case "website-img-popup":
+          case "website-image-popup-header":
             //puts about pop-up on top
             this.navMenuImgPopup.mouseDown = true;
             this.navMenuImgPopup.style.zIndex = this.newZindex;
             break;
 
-          case "website-cv-popup":
+          case "website-cv-popup-header":
             //puts about pop-up on top
             this.navMenuCvPopup.mouseDown = true;
             this.navMenuCvPopup.style.zIndex = this.newZindex;
             break;
-          case "website-contact-popup":
+          case "website-contact-popup-header":
             //puts about pop-up on top
             this.navMenuContactPopup.mouseDown = true;
             this.navMenuContactPopup.style.zIndex = this.newZindex;
             break;
-          case "website-instagram-popup":
+          case "website-ig-popup-header":
             //puts about pop-up on top
             this.navMenuIgPopup.mouseDown = true;
+            this.navMenuIgPopup.style.zIndex = this.newZindex;
+            break;
+          default:
+            console.log("not a popup");
+            break;
+        }
+      });
+    });
+    // Make popup window increase z-index when clicked
+    Object.keys(this.websitePopups).forEach((key) => {
+      this.websitePopups[key].addEventListener("mousedown", () => {
+        this.newZindex = this.popupZindex++;
+        console.log(this.websitePopups[key].id);
+        switch (this.websitePopups[key].id) {
+          case "website-projects-popup":
+            //puts projects pop-up on top
+            this.navMenuPrjPopup.style.zIndex = this.newZindex;
+            break;
+          case "website-about-popup":
+            //puts about pop-up on top
+            this.navMenuAboutPopup.style.zIndex = this.newZindex;
+            break;
+          case "website-image-popup":
+            //puts about pop-up on top
+            this.navMenuImgPopup.style.zIndex = this.newZindex;
+            break;
+
+          case "website-cv-popup":
+            //puts about pop-up on top
+            this.navMenuCvPopup.style.zIndex = this.newZindex;
+            break;
+          case "website-contact-popup":
+            //puts about pop-up on top
+            this.navMenuContactPopup.style.zIndex = this.newZindex;
+            break;
+          case "website-ig-popup":
+            //puts about pop-up on top
+
             this.navMenuIgPopup.style.zIndex = this.newZindex;
             break;
           default:

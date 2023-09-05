@@ -82,14 +82,14 @@ header {
 }
 
 /* === WEBSITE POPUP GENERAL === */
-.website-popup {
+.website-popup,
+.project-img-popup {
   min-width: 20%;
   max-width: 40%;
   /* min-height: 30vh; */
   background-color: white;
   z-index: 3;
   position: fixed;
-  cursor: move;
   border: solid black 2px;
   outline: solid white 0.5px;
   overflow: hidden;
@@ -100,12 +100,14 @@ header {
   display: none;
 }
 
-.website-popup-header {
+.website-popup-header,
+.project-image-popup-header {
   height: 2rem;
   background-color: black;
   display: flex;
   justify-content: space-between;
   padding: 1%;
+  cursor: grab;
 }
 .website-popup-close-btn,
 .project-img-popup-close-btn {
@@ -339,8 +341,6 @@ header {
   text-align: center;
   /* cursor: grab; */
   transform-origin: center;
-  /* left: -50%;
-  top: -50%; */
 }
 
 /* ===== HOME PAGE ====== */
@@ -351,17 +351,12 @@ header {
   width: 100vw;
 }
 
-.project-img-popup {
-  background-color: white;
-  z-index: 3;
-  position: fixed;
-  cursor: move;
-  border: solid black 2px;
-  outline: solid white 0.5px;
-  overflow: hidden;
+.website-project-img-popup-body {
+  display: flex;
+  justify-content: center;
 }
 
-.website-project-img-popup-body {
+.website-project-img-popup-body a {
   display: flex;
   justify-content: center;
 }
@@ -371,9 +366,9 @@ header {
   height: 100%;
 }
 
-.project-img-popup-div img {
-  max-height: 40vh;
-  max-width: 40vw;
+.website-project-img-popup-body a img {
+  max-height: 50vh;
+  max-width: 100%;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */

@@ -28,7 +28,7 @@ class ProjectImgPopup {
       this.doc.appendChild(this.div);
 
       this.divHeader = document.createElement("div");
-      this.divHeader.classList.add("website-popup-header");
+      this.divHeader.classList.add("project-image-popup-header");
       this.div.appendChild(this.divHeader);
 
       this.closeBtn = document.createElement("button");
@@ -68,6 +68,11 @@ class ProjectImgPopup {
     this.div.addEventListener("mousedown", () => {
       this.newZindex = this.popupZindex++;
 
+      this.div.style.zIndex = this.newZindex;
+    });
+
+    this.divHeader.addEventListener("mousedown", () => {
+      this.newZindex = this.popupZindex++;
       this.div.mouseDown = true;
       this.div.style.zIndex = this.newZindex;
     });

@@ -74,10 +74,21 @@ window.onload = (event) => {
               newX = newX + alpha;
               newY = newY + alpha;
 
-              if (newX >= window.innerWidth / 0.7) {
-                newX = 0;
-              } else if (newY >= window.innerHeight) {
+              const maxX = (window.innerWidth / 5) * 4;
+              const maxY = (window.innerHeight / 3) * 2;
+
+              console.log(window.innerHeight);
+              console.log((window.innerHeight / 5) * 4);
+
+              if (newX >= maxX) {
+                let ranNum = Math.floor(Math.random() * 50) + 35;
+                newX = ranNum;
+              } else if (newY >= maxY && newX < maxX / 2) {
                 newY = 150;
+              } else if (newY >= maxY && newX >= maxX / 2) {
+                let ranNum = Math.floor(Math.random() * 50) + 35;
+                newY = ranNum;
+                newX = newX + ranNum;
               }
 
               //create a project img popup for every picture
