@@ -19,7 +19,20 @@ class Header {
       "website-title-container"
     );
 
-    this.navMenuBtns = document.getElementsByClassName("nav-menu-btn");
+    this.buttons = {
+      prjBtn: {
+        title: "Projects",
+        id: "project-nav-btn",
+      },
+      aboutBtn: {
+        title: "About",
+        id: "about-nav-btn",
+      },
+      contactBtn: {
+        title: "Contact",
+        id: "contact-nav-btn",
+      },
+    };
 
     this.emailCopyBtn = document.getElementById("email-tooltip");
     this.toolTipText = document.getElementById("tooltiptext");
@@ -28,10 +41,19 @@ class Header {
     this.titleRedirect();
 
     this.printNavMenu();
+    this.createNavButton(this.buttons.prjBtn.title, this.buttons.prjBtn.id);
+    this.createNavButton(this.buttons.aboutBtn.title, this.buttons.aboutBtn.id);
+    this.createNavButton(
+      this.buttons.contactBtn.title,
+      this.buttons.contactBtn.id
+    );
 
-    this.printPrjBtn();
-    this.printAbtBtn();
-    this.printCntcBtn();
+    // this.navMenuBtns = document.getElementsByClassName("nav-menu-btn");
+    this.navMenuBtns = document.getElementsByClassName("nav-menu-button-label");
+
+    // this.printPrjBtn();
+    // this.printAbtBtn();
+    // this.printCntcBtn();
 
     this.createPrjPopup();
     this.createAbtPopup();
@@ -96,9 +118,39 @@ class Header {
     this.header.appendChild(this.div);
   }
 
+  createNavButton(title, id) {
+    this.div = document.createElement("div");
+    this.div.classList.add("nav-menu-button");
+    document.getElementById("nav-menu").appendChild(this.div);
+
+    this.title = document.createElement("p");
+    this.title.classList.add("nav-menu-button-title");
+
+    this.div.appendChild(this.title);
+    this.title.insertAdjacentText("afterbegin", title);
+
+    this.label = document.createElement("label");
+    this.label.classList.add("nav-menu-button-label");
+    this.label.setAttribute("id", id);
+    this.div.appendChild(this.label);
+    // this.label.insertAdjacentText("afterbegin", title)
+
+    this.input = document.createElement("input");
+    this.input.setAttribute("type", "checkbox");
+    this.input.setAttribute("name", "nav-menu-button-input");
+
+    this.label.appendChild(this.input);
+
+    this.span = document.createElement("span");
+    this.span.classList.add("slider");
+    this.span.classList.add("round");
+    this.label.appendChild(this.span);
+  }
+
   printPrjBtn() {
     this.btn = document.createElement("button");
     this.btn.classList.add("nav-menu-btn");
+    this.btn.classList.add("nav-menu-btn-animating");
     this.btn.setAttribute("id", "nav-menu-prj-btn");
     document.getElementById("nav-menu").appendChild(this.btn);
     this.btn.insertAdjacentText("afterbegin", "projects");
@@ -390,9 +442,12 @@ class Header {
   addListeners() {
     // Open popups when clicking on nav menu
     Object.keys(this.navMenuBtns).forEach((key) => {
-      this.navMenuBtns[key].addEventListener("click", () => {
+      this.navMenuBtns[key].addEventListener("change", () => {
+        console.log(this.navMenuBtns[key].id);
         switch (this.navMenuBtns[key].id) {
-          case "nav-menu-prj-btn":
+          case "project-nav-btn":
+            console.log("hello");
+            console.log(this.navMenuPrjPopup.open);
             // close projects and all img popups
             if (this.navMenuPrjPopup.open) {
               this.closeProjectImgPopups();
@@ -400,18 +455,15 @@ class Header {
               this.navMenuPrjPopup.open = false;
 
               // Remove green button background
-              this.navMenuBtns[key].style.backgroundPosition = "";
+              // this.navMenuBtns[key].style.backgroundPosition = "";
             } else {
               //toggle projects pop-up
               this.recalculatePosition(this.navMenuPrjPopup);
               this.navMenuPrjPopup.classList.remove("popup-closed");
               this.navMenuPrjPopup.open = true;
-
-              // make nav button green
-              this.navMenuBtns[key].style.backgroundPosition = "0 -100%";
             }
             break;
-          case "nav-menu-abt-btn":
+          case "about-nav-btn":
             // if any of the about popups (statement, img, cv) are open, close all of them
             if (
               this.navMenuAboutPopup.open ||
@@ -424,9 +476,6 @@ class Header {
               this.navMenuAboutPopup.open = false;
               this.navMenuImgPopup.open = false;
               this.navMenuCvPopup.open = false;
-
-              // Remove green button background
-              this.navMenuBtns[key].style.backgroundPosition = "";
             }
             // if they are all closed, open all of them (and recalculate position)
             else {
@@ -442,13 +491,10 @@ class Header {
               this.recalculatePosition(this.navMenuCvPopup);
               this.navMenuCvPopup.classList.remove("popup-closed");
               this.navMenuCvPopup.open = true;
-
-              // make nav button green
-              this.navMenuBtns[key].style.backgroundPosition = "0 -100%";
             }
 
             break;
-          case "nav-menu-cntct-btn":
+          case "contact-nav-btn":
             // if any of the about popups (statement, img, cv) are open, close all of them
             if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
               // contact
@@ -457,9 +503,6 @@ class Header {
               // ig
               this.navMenuIgPopup.classList.add("popup-closed");
               this.navMenuIgPopup.open = false;
-
-              // Remove green button background
-              this.navMenuBtns[key].style.backgroundPosition = "";
             }
             // if they are all closed, open all of them (and recalculate position)
             else {
@@ -471,9 +514,6 @@ class Header {
               this.recalculatePosition(this.navMenuIgPopup);
               this.navMenuIgPopup.classList.remove("popup-closed");
               this.navMenuIgPopup.open = true;
-
-              // make nav button green
-              this.navMenuBtns[key].style.backgroundPosition = "0 -100%";
             }
 
             break;
