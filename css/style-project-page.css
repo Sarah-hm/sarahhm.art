@@ -176,7 +176,8 @@ body {
   body {
     width: 100vw;
     height: 100vh;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   #prj-container {

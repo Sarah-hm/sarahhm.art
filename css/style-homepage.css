@@ -175,7 +175,6 @@ header {
 
 .website-popup-body {
   width: 100%;
-  /* display: flex; */
 }
 /* PROJECT popup */
 
@@ -532,8 +531,15 @@ input:checked + .slider:before {
     font-size: 1.25rem;
   }
 
-  /* #nav-menu {
-    width: 100%;
-    height: 10vh;
-  } */
+  #website-projects-popup {
+    width: 75vw;
+  }
+
+  .website-popup {
+    min-width: 50vw;
+    max-width: 80vw;
+  }
+  .project-img-popup {
+    display: none;
+  }
 }
