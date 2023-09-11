@@ -511,6 +511,7 @@ input:checked + .slider:before {
     width: 100vw;
     height: 20vh;
     flex-wrap: wrap;
+    overflow: hidden;
   }
 
   .website-title-container {
