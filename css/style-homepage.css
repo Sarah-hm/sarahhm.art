@@ -25,21 +25,22 @@ body {
 
 /* ==== HEADER ==== */
 header {
-  width: 40vw;
+  width: 100vw;
   min-width: 600px;
-  min-height: 15vh;
+  min-height: 12vh;
   background-color: white;
   z-index: 2;
   position: fixed;
-  top: 1vw;
-  left: 1vw;
-  display: grid;
+  top: 0;
+  left: 0;
+  display: flex;
   border: solid black 2px;
   outline: solid white 0.5px;
 }
 
 .website-title-container {
   cursor: pointer;
+  width: 40vw;
 }
 
 .website-title,
@@ -94,54 +95,6 @@ header {
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
-}
-
-@-webkit-keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    background-position: 0 -15%;
-  }
-  40% {
-    background-position: 0 -50%;
-  }
-  60% {
-    background-position: 0 -20%;
-  }
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    background-position: 0 -15%;
-  }
-  40% {
-    background-position: 0 -50%;
-  }
-  60% {
-    background-position: 0 -20%;
-  }
-}
-
-@-webkit-keyframes navOpen {
-  0% {
-    background-position: 0 -15%;
-  }
-
-  100% {
-    background-position: 0 -100%;
-  }
-}
-
-@keyframes navOpen {
-  100% {
-    background-position: 0 -100%;
-  }
 }
 
 #nav-menu-abt-btn {

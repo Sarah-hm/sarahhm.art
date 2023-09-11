@@ -138,7 +138,7 @@ class Header {
     this.input = document.createElement("input");
     this.input.setAttribute("type", "checkbox");
     this.input.setAttribute("name", "nav-menu-button-input");
-
+    this.input.setAttribute("id", `${id}-input`);
     this.label.appendChild(this.input);
 
     this.span = document.createElement("span");
@@ -443,11 +443,9 @@ class Header {
     // Open popups when clicking on nav menu
     Object.keys(this.navMenuBtns).forEach((key) => {
       this.navMenuBtns[key].addEventListener("change", () => {
-        console.log(this.navMenuBtns[key].id);
         switch (this.navMenuBtns[key].id) {
           case "project-nav-btn":
-            console.log("hello");
-            console.log(this.navMenuPrjPopup.open);
+            // console.log(this.navMenuPrjPopup.open);
             // close projects and all img popups
             if (this.navMenuPrjPopup.open) {
               this.closeProjectImgPopups();
@@ -529,34 +527,57 @@ class Header {
       this.popupCloseBtns[key].addEventListener("click", () => {
         switch (this.popupCloseBtns[key].id) {
           case "projects-popup-close-btn":
+            console.log(this.popupCloseBtns[key]);
             //close projects pop-up
             this.navMenuPrjPopup.classList.add("popup-closed");
+            this.navMenuPrjPopup.open = false;
             console.log("close");
             this.closeProjectImgPopups();
+
             break;
           case "about-popup-close-btn":
             //close about pop-up
             this.navMenuAboutPopup.classList.add("popup-closed");
+            this.navMenuAboutPopup.open = false;
             break;
           case "img-popup-close-btn":
             // close instagram pop-up
             this.navMenuImgPopup.classList.add("popup-closed");
+            this.navMenuImgPopup.open = false;
             break;
           case "cv-popup-close-btn":
             // close instagram pop-up
             this.navMenuCvPopup.classList.add("popup-closed");
+            this.navMenuCvPopup.open = false;
             break;
           case "contact-popup-close-btn":
             // close contact pop-up
             this.navMenuContactPopup.classList.add("popup-closed");
+            this.navMenuContactPopup.open = false;
             break;
           case "instagram-popup-close-btn":
             // close instagram pop-up
             this.navMenuIgPopup.classList.add("popup-closed");
+            this.navMenuIgPopup.open = false;
             break;
           default:
             console.log("not a button");
             break;
+        }
+
+        // If all corresponding popups were manually closed, toggle the respective nav menu slider off
+        if (!this.navMenuPrjPopup.open) {
+          document.getElementById("project-nav-btn-input").checked = false;
+        }
+        if (
+          !this.navMenuAboutPopup.open &&
+          !this.navMenuImgPopup.open &&
+          !this.navMenuCvPopup.open
+        ) {
+          document.getElementById("about-nav-btn-input").checked = false;
+        }
+        if (!this.navMenuIgPopup.open && !this.navMenuContactPopup.open) {
+          document.getElementById("contact-nav-btn-input").checked = false;
         }
       });
     });
