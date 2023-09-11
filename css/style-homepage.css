@@ -27,7 +27,9 @@ body {
 header {
   width: 100vw;
   min-width: 600px;
-  min-height: 12vh;
+  /* min-height: 12vh; */
+  padding-top: 2vh;
+  padding-bottom: 0.5vh;
   background-color: white;
   z-index: 2;
   position: fixed;
@@ -40,13 +42,20 @@ header {
 
 .website-title-container {
   cursor: pointer;
-  width: 40vw;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .website-title,
 .website-subtitle {
   padding-left: 1rem;
   padding-bottom: 0.5rem;
+}
+
+.website-title {
+  font-size: 2rem;
 }
 
 .nav-menu-btn {
@@ -483,5 +492,15 @@ input:checked + .slider:before {
 
 .nav-menu-button-title {
   text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  font-size: 1.5rem;
+
+  /* color: white;
+  transform: translateY(-125%); */
   /* transform: translateX(50%); */
 }

@@ -77,15 +77,14 @@ window.onload = (event) => {
               const maxX = (window.innerWidth / 5) * 4;
               const maxY = (window.innerHeight / 3) * 2;
 
+              // if img position is beyond the maximum X position (right), return to left-hand side
               if (newX >= maxX) {
                 let ranNum = Math.floor(Math.random() * 50) + 35;
                 newX = ranNum;
-              } else if (newY >= maxY && newX < maxX / 2) {
+              }
+              // If img position is beyond the maximum Y position (bottom), return to top minimum
+              else if (newY >= maxY) {
                 newY = 150;
-              } else if (newY >= maxY && newX >= maxX / 2) {
-                let ranNum = Math.floor(Math.random() * 50) + 35;
-                newY = ranNum;
-                newX = newX + ranNum;
               }
 
               //create a project img popup for every picture

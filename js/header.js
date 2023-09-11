@@ -125,7 +125,7 @@ class Header {
 
     this.title = document.createElement("p");
     this.title.classList.add("nav-menu-button-title");
-
+    this.title.setAttribute("id", `${id}-title`);
     this.div.appendChild(this.title);
     this.title.insertAdjacentText("afterbegin", title);
 
@@ -440,7 +440,7 @@ class Header {
   }
 
   addListeners() {
-    // Open popups when clicking on nav menu
+    // Open popups when clicking on nav menu sliders
     Object.keys(this.navMenuBtns).forEach((key) => {
       this.navMenuBtns[key].addEventListener("change", () => {
         switch (this.navMenuBtns[key].id) {
@@ -522,7 +522,108 @@ class Header {
       });
     });
 
-    // Close popups when clicking on X header of popup
+    // Nav menu button titles toggle the entire on/off state when clicked
+    this.navMenuBtnTitles = document.getElementsByClassName(
+      "nav-menu-button-title"
+    );
+
+    Object.keys(this.navMenuBtnTitles).forEach((key) => {
+      this.navMenuBtnTitles[key].addEventListener("click", () => {
+        switch (this.navMenuBtnTitles[key].id) {
+          case "project-nav-btn-title":
+            // console.log(this.navMenuPrjPopup.open);
+            // close projects and all img popups
+            if (this.navMenuPrjPopup.open) {
+              this.closeProjectImgPopups();
+              this.navMenuPrjPopup.classList.add("popup-closed");
+              this.navMenuPrjPopup.open = false;
+
+              //Change slider to unchecked
+              document.getElementById("project-nav-btn-input").checked = false;
+            } else {
+              //toggle projects pop-up
+              this.recalculatePosition(this.navMenuPrjPopup);
+              this.navMenuPrjPopup.classList.remove("popup-closed");
+              this.navMenuPrjPopup.open = true;
+
+              //Change slider to checked
+              document.getElementById("project-nav-btn-input").checked = true;
+            }
+            break;
+          case "about-nav-btn-title":
+            // if any of the about popups (statement, img, cv) are open, close all of them
+            if (
+              this.navMenuAboutPopup.open ||
+              this.navMenuImgPopup.open ||
+              this.navMenuCvPopup.open
+            ) {
+              this.navMenuAboutPopup.classList.add("popup-closed");
+              this.navMenuImgPopup.classList.add("popup-closed");
+              this.navMenuCvPopup.classList.add("popup-closed");
+              this.navMenuAboutPopup.open = false;
+              this.navMenuImgPopup.open = false;
+              this.navMenuCvPopup.open = false;
+
+              //Change slider to unchecked
+              document.getElementById("about-nav-btn-input").checked = false;
+            }
+            // if they are all closed, open all of them (and recalculate position)
+            else {
+              // about
+              this.recalculatePosition(this.navMenuAboutPopup);
+              this.navMenuAboutPopup.classList.remove("popup-closed");
+              this.navMenuAboutPopup.open = true;
+              // self-portrait
+              this.recalculatePosition(this.navMenuImgPopup);
+              this.navMenuImgPopup.classList.remove("popup-closed");
+              this.navMenuImgPopup.open = true;
+              //cv
+              this.recalculatePosition(this.navMenuCvPopup);
+              this.navMenuCvPopup.classList.remove("popup-closed");
+              this.navMenuCvPopup.open = true;
+
+              //Change slider to checked
+              document.getElementById("about-nav-btn-input").checked = true;
+            }
+
+            break;
+          case "contact-nav-btn-title":
+            // if any of the about popups (statement, img, cv) are open, close all of them
+            if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
+              // contact
+              this.navMenuContactPopup.classList.add("popup-closed");
+              this.navMenuContactPopup.open = false;
+              // ig
+              this.navMenuIgPopup.classList.add("popup-closed");
+              this.navMenuIgPopup.open = false;
+
+              //Change slider to unchecked
+              document.getElementById("contact-nav-btn-input").checked = false;
+            }
+            // if they are all closed, open all of them (and recalculate position)
+            else {
+              // contact (email)
+              this.recalculatePosition(this.navMenuContactPopup);
+              this.navMenuContactPopup.classList.remove("popup-closed");
+              this.navMenuContactPopup.open = true;
+              // ig
+              this.recalculatePosition(this.navMenuIgPopup);
+              this.navMenuIgPopup.classList.remove("popup-closed");
+              this.navMenuIgPopup.open = true;
+
+              //Change slider to checked
+              document.getElementById("contact-nav-btn-input").checked = true;
+            }
+
+            break;
+          default:
+            console.log("not a button");
+            break;
+        }
+      });
+    });
+
+    // Manually close popups when clicking on X header of popup
     Object.keys(this.popupCloseBtns).forEach((key) => {
       this.popupCloseBtns[key].addEventListener("click", () => {
         switch (this.popupCloseBtns[key].id) {
@@ -629,7 +730,8 @@ class Header {
         }
       });
     });
-    // Make popup window increase z-index when clicked
+
+    // Make popup window increase z-index when clicked anywhere
     Object.keys(this.websitePopups).forEach((key) => {
       this.websitePopups[key].addEventListener("mousedown", () => {
         this.newZindex = this.popupZindex++;
@@ -717,27 +819,21 @@ class Header {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
 
-    this.maxWidth = this.width * 0.8;
-    this.minWidth = this.width * 0.2;
-
-    this.maxHeight = this.height * 0.7;
-    this.minHeight = this.height * 0.3;
-
     switch (popup.getAttribute("id")) {
       // projects popup will always appear closer to left/top than others
       case "website-projects-popup":
         this.maxWidth = this.width * 0.3;
-        this.minWidth = this.width * 0.1;
+        this.minWidth = this.width * 0.05;
 
         this.maxHeight = this.height * 0.4;
-        this.minHeight = this.height * 0.2;
+        this.minHeight = this.height * 0.15;
         break;
       default:
         this.maxWidth = this.width * 0.8;
         this.minWidth = this.width * 0.2;
 
         this.maxHeight = this.height * 0.7;
-        this.minHeight = this.height * 0.3;
+        this.minHeight = this.height * 0.15;
     }
 
     this.xpos = Math.floor(
