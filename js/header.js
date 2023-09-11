@@ -188,7 +188,7 @@ class Header {
     this.closeBtn.classList.add("website-popup-close-btn");
     this.closeBtn.setAttribute("id", "projects-popup-close-btn");
     this.divHeader.appendChild(this.closeBtn);
-    this.closeBtn.insertAdjacentText("afterbegin", "x");
+    // this.closeBtn.insertAdjacentText("afterbegin", "x");
 
     this.popupTitle = document.createElement("h3");
     this.popupTitle.classList.add("website-popup-header-title");

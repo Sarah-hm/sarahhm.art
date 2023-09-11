@@ -107,6 +107,7 @@ header {
 .project-img-popup {
   min-width: 20%;
   max-width: 40%;
+  border-radius: 10px 10px 10px 10px;
   /* min-height: 30vh; */
   background-color: white;
   z-index: 3;
@@ -124,6 +125,7 @@ header {
 .website-popup-header,
 .project-image-popup-header {
   height: 2rem;
+  /* border-start-start-radius: 25px; */
   background-color: black;
   display: flex;
   justify-content: space-between;
@@ -134,21 +136,25 @@ header {
 .project-img-popup-close-btn {
   width: 20px;
   height: 20px;
+  border-radius: 10px;
   border: inset 2px white;
   background-color: white;
   color: black;
+  font-weight: bold;
 }
 
 .website-popup-close-btn:hover,
 .project-img-popup-close-btn:hover {
   border: inset 2px var(--green-color);
   cursor: pointer;
+  background: var(--green-color);
 }
 
 .website-popup-header-title {
   color: white;
   background-color: black;
   font-weight: bold;
+  padding-right: 1%;
   user-drag: none;
   user-select: none;
   -moz-user-select: none;
