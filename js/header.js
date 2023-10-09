@@ -62,6 +62,8 @@ class Header {
     this.createCntcPopup();
     this.createIgPopup();
 
+    this.createMobileNav();
+
     this.websitePopups = document.getElementsByClassName("website-popup");
     this.navMenuPrjPopup = document.getElementById("website-projects-popup");
     this.navMenuAboutPopup = document.getElementById("website-about-popup");
@@ -437,6 +439,38 @@ class Header {
     this.imgLink.classList.add("contact-image-link");
     this.popupBody.appendChild(this.imgLink);
     this.imgLink.innerHTML = `<img src="img/instagram.png" alt="Sarahhm.jpg's instagram link" width = '${this.width}'"/>`;
+  }
+
+  createMobileNav() {
+    this.div = document.createElement("div");
+    this.div.setAttribute("id", "nav-menu-mobile");
+    document.getElementById("homepage").appendChild(this.div);
+
+    this.createMobileNavBtn(this.buttons.prjBtn.title, this.buttons.prjBtn.id);
+    this.createMobileNavSection(this.buttons.prjBtn.id);
+    this.createMobileNavBtn(
+      this.buttons.aboutBtn.title,
+      this.buttons.aboutBtn.id
+    );
+    this.createMobileNavBtn(
+      this.buttons.contactBtn.title,
+      this.buttons.contactBtn.id
+    );
+  }
+
+  createMobileNavBtn(title, id) {
+    this.button = document.createElement("button");
+    this.button.classList.add("mobile-nav-menu-button");
+    this.button.setAttribute("id", `${id}-mobile-button`);
+    document.getElementById("nav-menu-mobile").appendChild(this.button);
+    this.button.insertAdjacentText("afterbegin", `${title}`);
+  }
+
+  createMobileNavSection(id) {
+    this.div = document.createElement("div");
+    this.div.classList.add("mobile-nav-menu-section");
+    this.div.setAttribute("id", `${id}-mobile-section`);
+    document.getElementById("nav-menu-mobile").appendChild(this.div);
   }
 
   addListeners() {
