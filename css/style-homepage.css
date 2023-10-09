@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: white;
   /* overflow: hidden; Hide scrollbars */
 }
 
@@ -182,35 +182,45 @@ header {
 }
 /* PROJECT popup */
 
+#website-projects-list-container {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+}
+
+#website-projects-list-container ul li {
+  border-bottom: solid black 1px;
+}
+
 #website-projects-popup {
   width: 25vw;
 }
 
-.prj-popup-title {
+.prj-list-title {
   padding: 0.2vw;
   text-align: right;
   font-size: 1.5rem;
   list-style-type: none;
 }
 
-.prj-popup-title a {
+.prj-list-title a {
   text-decoration: none;
   color: black;
 }
 
-.prj-popup-title a:visited {
+.prj-list-title a:visited {
   text-decoration: none;
   color: grey;
 }
 
-.prj-popup-title:hover {
+.prj-list-title:hover {
   text-align: right;
   font-size: 1.5rem;
   background-color: var(--green-color);
   cursor: pointer;
 }
 
-.prj-popup-title sup {
+.prj-list-title sup {
   font-size: 0.8rem;
 }
 

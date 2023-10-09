@@ -37,16 +37,16 @@ class Header {
     this.emailCopyBtn = document.getElementById("email-tooltip");
     this.toolTipText = document.getElementById("tooltiptext");
 
-    this.printWebTitle();
+    // this.printWebTitle();
     this.titleRedirect();
 
-    this.printNavMenu();
-    this.createNavButton(this.buttons.prjBtn.title, this.buttons.prjBtn.id);
-    this.createNavButton(this.buttons.aboutBtn.title, this.buttons.aboutBtn.id);
-    this.createNavButton(
-      this.buttons.contactBtn.title,
-      this.buttons.contactBtn.id
-    );
+    // this.printNavMenu();
+    // this.createNavButton(this.buttons.prjBtn.title, this.buttons.prjBtn.id);
+    // this.createNavButton(this.buttons.aboutBtn.title, this.buttons.aboutBtn.id);
+    // this.createNavButton(
+    //   this.buttons.contactBtn.title,
+    //   this.buttons.contactBtn.id
+    // );
 
     // this.navMenuBtns = document.getElementsByClassName("nav-menu-btn");
     this.navMenuBtns = document.getElementsByClassName("nav-menu-button-label");
@@ -55,12 +55,16 @@ class Header {
     // this.printAbtBtn();
     // this.printCntcBtn();
 
-    this.createPrjPopup();
-    this.createAbtPopup();
-    this.createImgPopup();
-    this.createCvPopup();
-    this.createCntcPopup();
-    this.createIgPopup();
+    // this.createPrjPopup();
+    // this.createAbtPopup();
+    // this.createImgPopup();
+    // this.createCvPopup();
+    // this.createCntcPopup();
+    // this.createIgPopup();
+
+    // NEW
+    this.createAboutSection();
+    this.createProjectList();
 
     this.createMobileNav();
 
@@ -75,7 +79,7 @@ class Header {
     );
     this.navMenuImgPopup = document.getElementById("website-img-popup");
 
-    this.navMenuPrjPopup.open = false;
+    // this.navMenuPrjPopup.open = false;
     this.navMenuAboutPopup.open = false;
     this.navMenuImgPopup.open = false;
     this.navMenuCvPopup.open = false;
@@ -85,25 +89,25 @@ class Header {
     this.addListeners();
   }
 
-  printWebTitle() {
-    this.header = document.createElement("header");
-    this.header.setAttribute("id", "website-header");
-    this.doc.prepend(this.header);
+  // printWebTitle() {
+  //   this.header = document.createElement("header");
+  //   this.header.setAttribute("id", "website-header");
+  //   this.doc.prepend(this.header);
 
-    this.div = document.createElement("div");
-    this.div.classList.add("website-title-container");
-    this.header.appendChild(this.div);
+  //   this.div = document.createElement("div");
+  //   this.div.classList.add("website-title-container");
+  //   this.header.appendChild(this.div);
 
-    this.title = document.createElement("h1");
-    this.title.classList.add("website-title");
-    this.div.appendChild(this.title);
-    this.title.insertAdjacentText("afterbegin", this.websiteTitle.title);
+  //   this.title = document.createElement("h1");
+  //   this.title.classList.add("website-title");
+  //   this.div.appendChild(this.title);
+  //   this.title.insertAdjacentText("afterbegin", this.websiteTitle.title);
 
-    this.subtitle = document.createElement("h2");
-    this.subtitle.classList.add("website-subtitle");
-    this.div.appendChild(this.subtitle);
-    this.subtitle.insertAdjacentText("afterbegin", this.websiteTitle.subtitle);
-  }
+  //   this.subtitle = document.createElement("h2");
+  //   this.subtitle.classList.add("website-subtitle");
+  //   this.div.appendChild(this.subtitle);
+  //   this.subtitle.insertAdjacentText("afterbegin", this.websiteTitle.subtitle);
+  // }
 
   titleRedirect() {
     //redirect to index.html when clicking website title container
@@ -213,6 +217,68 @@ class Header {
       this.list.appendChild(this.newPrj);
       this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
     }
+  }
+
+  createProjectList() {
+    this.div = document.createElement("div");
+    this.div.setAttribute("id", "website-projects-list-container");
+    this.doc.appendChild(this.div);
+
+    this.list = document.createElement("ul");
+    this.list.setAttribute("id", "projects-list");
+    this.div.appendChild(this.list);
+
+    // For the entire length of the projects.json data (minus the template available at the very end of the array)
+    for (let i = 0; i < this.data.length - 1; i++) {
+      this.newPrj = document.createElement("li");
+      this.newPrj.classList.add("prj-list-title");
+      this.list.appendChild(this.newPrj);
+      this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
+
+      this.newPrj.addEventListener(
+        "mouseover",
+        this.prjEventListener(this.newPrj)
+      );
+    }
+  }
+
+  createAboutSection() {
+    this.header = document.createElement("header");
+    this.header.setAttribute("id", "website-header");
+    this.doc.prepend(this.header);
+
+    this.div = document.createElement("div");
+    this.div.classList.add("website-title-container");
+    this.header.appendChild(this.div);
+
+    this.title = document.createElement("h1");
+    this.title.classList.add("website-title");
+    this.div.appendChild(this.title);
+    this.title.insertAdjacentText("afterbegin", this.websiteTitle.title);
+
+    this.subtitle = document.createElement("h2");
+    this.subtitle.classList.add("website-subtitle");
+    this.div.appendChild(this.subtitle);
+    this.subtitle.insertAdjacentText("afterbegin", this.websiteTitle.subtitle);
+
+    this.div = document.createElement("div");
+    this.div.setAttribute("id", "website-about-section");
+    this.doc.appendChild(this.div);
+
+    this.popupBody = document.createElement("div");
+    this.popupBody.classList.add("website-section-body");
+    this.popupBody.setAttribute("id", "about-section-body");
+    this.div.appendChild(this.popupBody);
+
+    for (this.i = 0; this.i < this.about.text.length; this.i++) {
+      this.para = document.createElement("p");
+      this.popupBody.appendChild(this.para);
+      this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
+    }
+  }
+
+  prjEventListener(item) {
+    console.log(item);
   }
 
   createAbtPopup() {
