@@ -33,81 +33,29 @@ class Header {
         id: "contact-nav-btn",
       },
     };
+    this.navBtns = {
+      about: "learn more",
+      instagram: "You can also visit my",
+      email: "or copy my e-mail",
+    };
+    this.navHTML = `<p class = "nav-text"> ${this.navBtns.about} <span class= "nav-button" id ="about-button"> about me</span>. ${this.navBtns.instagram} <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a> ${this.navBtns.email} <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>.</p>`;
 
-    this.emailCopyBtn = document.getElementById("email-tooltip");
-    this.toolTipText = document.getElementById("tooltiptext");
+    console.log(this.navHTML);
 
-    // this.printWebTitle();
-    this.titleRedirect();
-
-    // this.printNavMenu();
-    // this.createNavButton(this.buttons.prjBtn.title, this.buttons.prjBtn.id);
-    // this.createNavButton(this.buttons.aboutBtn.title, this.buttons.aboutBtn.id);
-    // this.createNavButton(
-    //   this.buttons.contactBtn.title,
-    //   this.buttons.contactBtn.id
-    // );
-
-    // this.navMenuBtns = document.getElementsByClassName("nav-menu-btn");
-    this.navMenuBtns = document.getElementsByClassName("nav-menu-button-label");
-
-    // this.printPrjBtn();
-    // this.printAbtBtn();
-    // this.printCntcBtn();
-
-    // this.createPrjPopup();
-    // this.createAbtPopup();
-    // this.createImgPopup();
-    // this.createCvPopup();
-    // this.createCntcPopup();
-    // this.createIgPopup();
-
-    // NEW
+    this.createWebsiteTitle();
     this.createAboutSection();
     this.createProjectList();
 
-    this.createMobileNav();
+    // this.printWebTitle();
+    this.titleRedirect();
+    this.printNavMenu(this.navHTML);
 
-    this.websitePopups = document.getElementsByClassName("website-popup");
-    this.navMenuPrjPopup = document.getElementById("website-projects-popup");
-    this.navMenuAboutPopup = document.getElementById("website-about-popup");
-    this.navMenuContactPopup = document.getElementById("website-contact-popup");
-    this.navMenuCvPopup = document.getElementById("website-cv-popup");
-    this.navMenuIgPopup = document.getElementById("website-instagram-popup");
-    this.popupCloseBtns = document.getElementsByClassName(
-      "website-popup-close-btn"
-    );
-    this.navMenuImgPopup = document.getElementById("website-img-popup");
+    document
+      .getElementById("about-button")
+      .addEventListener("click", this.aboutSectionToggle);
 
-    // this.navMenuPrjPopup.open = false;
-    this.navMenuAboutPopup.open = false;
-    this.navMenuImgPopup.open = false;
-    this.navMenuCvPopup.open = false;
-    this.navMenuContactPopup.open = false;
-    this.navMenuIgPopup.open = false;
-
-    this.addListeners();
+    // this.addListeners();
   }
-
-  // printWebTitle() {
-  //   this.header = document.createElement("header");
-  //   this.header.setAttribute("id", "website-header");
-  //   this.doc.prepend(this.header);
-
-  //   this.div = document.createElement("div");
-  //   this.div.classList.add("website-title-container");
-  //   this.header.appendChild(this.div);
-
-  //   this.title = document.createElement("h1");
-  //   this.title.classList.add("website-title");
-  //   this.div.appendChild(this.title);
-  //   this.title.insertAdjacentText("afterbegin", this.websiteTitle.title);
-
-  //   this.subtitle = document.createElement("h2");
-  //   this.subtitle.classList.add("website-subtitle");
-  //   this.div.appendChild(this.subtitle);
-  //   this.subtitle.insertAdjacentText("afterbegin", this.websiteTitle.subtitle);
-  // }
 
   titleRedirect() {
     //redirect to index.html when clicking website title container
@@ -118,105 +66,56 @@ class Header {
     });
   }
 
-  printNavMenu() {
-    this.div = document.createElement("div");
-    this.div.setAttribute("id", "nav-menu");
-    this.header.appendChild(this.div);
-  }
+  createWebsiteTitle() {
+    this.header = document.createElement("header");
+    this.header.setAttribute("id", "website-header");
+    this.doc.prepend(this.header);
 
-  createNavButton(title, id) {
-    this.div = document.createElement("div");
-    this.div.classList.add("nav-menu-button");
-    document.getElementById("nav-menu").appendChild(this.div);
+    this.innerHeader = document.createElement("div");
+    this.innerHeader.classList.add("inner-header");
+    this.header.appendChild(this.innerHeader);
 
-    this.title = document.createElement("p");
-    this.title.classList.add("nav-menu-button-title");
-    this.title.setAttribute("id", `${id}-title`);
+    this.div = document.createElement("div");
+    this.div.classList.add("website-title-container");
+    this.innerHeader.appendChild(this.div);
+
+    this.title = document.createElement("h1");
+    this.title.classList.add("website-title");
     this.div.appendChild(this.title);
-    this.title.insertAdjacentText("afterbegin", title);
+    this.title.insertAdjacentText("afterbegin", this.websiteTitle.title);
 
-    this.label = document.createElement("label");
-    this.label.classList.add("nav-menu-button-label");
-    this.label.setAttribute("id", id);
-    this.div.appendChild(this.label);
-    // this.label.insertAdjacentText("afterbegin", title)
-
-    this.input = document.createElement("input");
-    this.input.setAttribute("type", "checkbox");
-    this.input.setAttribute("name", "nav-menu-button-input");
-    this.input.setAttribute("id", `${id}-input`);
-    this.label.appendChild(this.input);
-
-    this.span = document.createElement("span");
-    this.span.classList.add("slider");
-    this.span.classList.add("round");
-    this.label.appendChild(this.span);
+    this.subtitle = document.createElement("h2");
+    this.subtitle.classList.add("website-subtitle");
+    this.div.appendChild(this.subtitle);
+    this.subtitle.insertAdjacentText("afterbegin", this.websiteTitle.subtitle);
   }
 
-  printPrjBtn() {
-    this.btn = document.createElement("button");
-    this.btn.classList.add("nav-menu-btn");
-    this.btn.classList.add("nav-menu-btn-animating");
-    this.btn.setAttribute("id", "nav-menu-prj-btn");
-    document.getElementById("nav-menu").appendChild(this.btn);
-    this.btn.insertAdjacentText("afterbegin", "projects");
-  }
+  printNavMenu(navText) {
+    this.navText = document.createElement("p");
+    this.innerHeader.appendChild(this.navText);
+    this.navText.classList.add("nav-text");
+    this.navText.innerHTML = navText;
 
-  printAbtBtn() {
-    this.btn = document.createElement("button");
-    this.btn.classList.add("nav-menu-btn");
-    this.btn.setAttribute("id", "nav-menu-abt-btn");
-    document.getElementById("nav-menu").appendChild(this.btn);
-    this.btn.insertAdjacentText("afterbegin", "about");
-  }
+    this.toolTipText = document.getElementById("tooltiptext");
+    this.emailTxt = document.getElementById("email-button");
 
-  printCntcBtn() {
-    this.btn = document.createElement("button");
-    this.btn.classList.add("nav-menu-btn");
-    this.btn.setAttribute("id", "nav-menu-cntct-btn");
-    document.getElementById("nav-menu").appendChild(this.btn);
-    this.btn.insertAdjacentText("afterbegin", "contact");
-  }
+    this.copyTooltip = document.createElement("span");
+    this.copyTooltip.setAttribute("id", "tooltiptext");
+    this.emailTxt.appendChild(this.copyTooltip);
+    this.copyTooltip.innerHTML = "Copy to clipboard";
 
-  createPrjPopup() {
-    this.div = document.createElement("div");
-    this.div.classList.add("website-popup");
-    this.div.classList.add("popup-closed");
-    this.div.setAttribute("id", "website-projects-popup");
-    this.doc.appendChild(this.div);
-
-    this.divHeader = document.createElement("div");
-    this.divHeader.classList.add("website-popup-header");
-    this.divHeader.setAttribute("id", "website-projects-popup-header");
-    this.div.appendChild(this.divHeader);
-
-    this.closeBtn = document.createElement("button");
-    this.closeBtn.classList.add("website-popup-close-btn");
-    this.closeBtn.setAttribute("id", "projects-popup-close-btn");
-    this.divHeader.appendChild(this.closeBtn);
-    // this.closeBtn.insertAdjacentText("afterbegin", "x");
-
-    this.popupTitle = document.createElement("h3");
-    this.popupTitle.classList.add("website-popup-header-title");
-    this.divHeader.appendChild(this.popupTitle);
-    this.popupTitle.insertAdjacentText("afterbegin", "projects");
-
-    this.popupBody = document.createElement("div");
-    this.popupBody.classList.add("website-popup-body");
-    this.popupBody.setAttribute("id", "projects-popup-body");
-    this.div.appendChild(this.popupBody);
-
-    this.list = document.createElement("ul");
-    this.list.setAttribute("id", "projects-popup-list");
-    this.popupBody.appendChild(this.list);
-
-    // For the entire length of the projects.json data (minus the template available at the very end of the array)
-    for (let i = 0; i < this.data.length - 1; i++) {
-      this.newPrj = document.createElement("li");
-      this.newPrj.classList.add("prj-popup-title");
-      this.list.appendChild(this.newPrj);
-      this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
-    }
+    this.emailTxt.addEventListener("click", () => {
+      this.email = "sarah.hm@hotmail.ca";
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(this.email);
+      // email popup: change tool tip text when clicked
+      this.OriginalText = this.copyTooltip.innerHTML;
+      console.log(this.OriginalText);
+      this.copyTooltip.innerHTML = "Copied to clipboard!";
+      setTimeout(() => {
+        this.copyTooltip.innerHTML = this.OriginalText;
+      }, 750);
+    });
   }
 
   createProjectList() {
@@ -234,277 +133,42 @@ class Header {
       this.newPrj.classList.add("prj-list-title");
       this.list.appendChild(this.newPrj);
       this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
-
-      this.newPrj.addEventListener(
-        "mouseover",
-        this.prjEventListener(this.newPrj)
-      );
     }
+
+    this.projectsListed = document.getElementsByClassName("prj-list-title");
+    // console.log(this.projectsListed);
+
+    Object.keys(this.projectsListed).forEach((key) => {});
   }
 
   createAboutSection() {
-    this.header = document.createElement("header");
-    this.header.setAttribute("id", "website-header");
-    this.doc.prepend(this.header);
+    this.aboutSection = document.createElement("div");
+    this.aboutSection.classList.add("website-about-section");
+    this.header.appendChild(this.aboutSection);
 
-    this.div = document.createElement("div");
-    this.div.classList.add("website-title-container");
-    this.header.appendChild(this.div);
-
-    this.title = document.createElement("h1");
-    this.title.classList.add("website-title");
-    this.div.appendChild(this.title);
-    this.title.insertAdjacentText("afterbegin", this.websiteTitle.title);
-
-    this.subtitle = document.createElement("h2");
-    this.subtitle.classList.add("website-subtitle");
-    this.div.appendChild(this.subtitle);
-    this.subtitle.insertAdjacentText("afterbegin", this.websiteTitle.subtitle);
-
-    this.div = document.createElement("div");
-    this.div.setAttribute("id", "website-about-section");
-    this.doc.appendChild(this.div);
-
-    this.popupBody = document.createElement("div");
-    this.popupBody.classList.add("website-section-body");
-    this.popupBody.setAttribute("id", "about-section-body");
-    this.div.appendChild(this.popupBody);
+    this.aboutBody = document.createElement("div");
+    this.aboutBody.classList.add("website-section-body");
+    this.aboutBody.setAttribute("id", "about-section-body");
+    this.aboutSection.appendChild(this.aboutBody);
 
     for (this.i = 0; this.i < this.about.text.length; this.i++) {
       this.para = document.createElement("p");
-      this.popupBody.appendChild(this.para);
+      this.aboutBody.appendChild(this.para);
       this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
     }
   }
 
-  prjEventListener(item) {
-    console.log(item);
-  }
+  aboutSectionToggle() {
+    // get the height of the bottom of project list to make them align
+    //to be compelted
 
-  createAbtPopup() {
-    this.div = document.createElement("div");
-    this.div.classList.add("website-popup");
-    this.div.classList.add("popup-closed");
-    this.div.setAttribute("id", "website-about-popup");
-    this.doc.appendChild(this.div);
-
-    this.divHeader = document.createElement("div");
-    this.divHeader.classList.add("website-popup-header");
-    this.divHeader.setAttribute("id", "website-about-popup-header");
-    this.div.appendChild(this.divHeader);
-
-    this.closeBtn = document.createElement("button");
-    this.closeBtn.classList.add("website-popup-close-btn");
-    this.closeBtn.setAttribute("id", "about-popup-close-btn");
-    this.divHeader.appendChild(this.closeBtn);
-    this.closeBtn.insertAdjacentText("afterbegin", "x");
-
-    this.popupTitle = document.createElement("h3");
-    this.popupTitle.classList.add("website-popup-header-title");
-    this.divHeader.appendChild(this.popupTitle);
-    this.popupTitle.insertAdjacentText("afterbegin", "about");
-
-    this.popupBody = document.createElement("div");
-    this.popupBody.classList.add("website-popup-body");
-    this.popupBody.setAttribute("id", "about-popup-body");
-    this.div.appendChild(this.popupBody);
-
-    for (this.i = 0; this.i < this.about.text.length; this.i++) {
-      this.para = document.createElement("p");
-      this.popupBody.appendChild(this.para);
-      this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
-    }
-  }
-
-  createImgPopup() {
-    this.div = document.createElement("div");
-    this.div.classList.add("website-popup");
-    this.div.classList.add("popup-closed");
-    this.div.setAttribute("id", "website-img-popup");
-    this.doc.appendChild(this.div);
-
-    this.divHeader = document.createElement("div");
-    this.divHeader.classList.add("website-popup-header");
-    this.divHeader.setAttribute("id", "website-image-popup-header");
-    this.div.appendChild(this.divHeader);
-
-    this.closeBtn = document.createElement("button");
-    this.closeBtn.classList.add("website-popup-close-btn");
-    this.closeBtn.setAttribute("id", "img-popup-close-btn");
-    this.divHeader.appendChild(this.closeBtn);
-    this.closeBtn.insertAdjacentText("afterbegin", "x");
-
-    this.popupTitle = document.createElement("h3");
-    this.popupTitle.classList.add("website-popup-header-title");
-    this.divHeader.appendChild(this.popupTitle);
-    this.popupTitle.insertAdjacentText("afterbegin", "sarahhm.jpg");
-
-    this.popupBody = document.createElement("div");
-    this.popupBody.classList.add("website-popup-body");
-    this.popupBody.setAttribute("id", "img-popup-body");
-    this.div.appendChild(this.popupBody);
-
-    this.img = document.createElement("img");
-    this.img.setAttribute("src", `img/sarahhm.jpg`);
-    this.img.setAttribute("draggable", `false`);
-    this.img.setAttribute("id", "about-img");
-    this.popupBody.appendChild(this.img);
-  }
-
-  createCvPopup() {
-    this.div = document.createElement("div");
-    this.div.classList.add("website-popup");
-    this.div.classList.add("popup-closed");
-    this.div.setAttribute("id", "website-cv-popup");
-    this.doc.appendChild(this.div);
-
-    this.divHeader = document.createElement("div");
-    this.divHeader.classList.add("website-popup-header");
-    this.divHeader.setAttribute("id", "website-cv-popup-header");
-    this.div.appendChild(this.divHeader);
-
-    this.closeBtn = document.createElement("button");
-    this.closeBtn.classList.add("website-popup-close-btn");
-    this.closeBtn.setAttribute("id", "cv-popup-close-btn");
-    this.divHeader.appendChild(this.closeBtn);
-    this.closeBtn.insertAdjacentText("afterbegin", "x");
-
-    this.popupTitle = document.createElement("h3");
-    this.popupTitle.classList.add("website-popup-header-title");
-    this.divHeader.appendChild(this.popupTitle);
-    this.popupTitle.insertAdjacentText("afterbegin", "curriculum vitae");
-
-    this.popupBody = document.createElement("div");
-    this.popupBody.classList.add("website-popup-body");
-    this.popupBody.setAttribute("id", "cv-popup-body");
-    this.div.appendChild(this.popupBody);
-
-    this.link = document.createElement("a");
-    this.link.classList.add("cv-link");
-    this.link.setAttribute("href", "data/Sarah_hontoy-major_CV.pdf");
-    this.link.setAttribute("target", "_blank");
-    this.popupBody.appendChild(this.link);
-
-    this.btn = document.createElement("button");
-    this.btn.setAttribute("id", "cv-btn");
-    this.link.appendChild(this.btn);
-    this.btn.innerHTML = "Open CV in a pdf";
-
-    // this.copyBtn.
-  }
-
-  createCntcPopup() {
-    this.div = document.createElement("div");
-    this.div.classList.add("website-popup");
-    this.div.classList.add("popup-closed");
-    this.div.setAttribute("id", "website-contact-popup");
-    this.doc.appendChild(this.div);
-
-    this.divHeader = document.createElement("div");
-    this.divHeader.classList.add("website-popup-header");
-    this.divHeader.setAttribute("id", "website-contact-popup-header");
-    this.div.appendChild(this.divHeader);
-
-    this.closeBtn = document.createElement("button");
-    this.closeBtn.classList.add("website-popup-close-btn");
-    this.closeBtn.setAttribute("id", "contact-popup-close-btn");
-    this.divHeader.appendChild(this.closeBtn);
-    this.closeBtn.insertAdjacentText("afterbegin", "x");
-
-    this.popupTitle = document.createElement("h3");
-    this.popupTitle.classList.add("website-popup-header-title");
-    this.divHeader.appendChild(this.popupTitle);
-    this.popupTitle.insertAdjacentText("afterbegin", "contact");
-
-    this.popupBody = document.createElement("div");
-    this.popupBody.classList.add("website-popup-body");
-    this.popupBody.setAttribute("id", "contact-popup-body");
-    this.div.appendChild(this.popupBody);
-
-    this.txtLink = document.createElement("a");
-    this.txtLink.classList.add("contact-link");
-    this.txtLink.setAttribute("href", "mailto: sarah.hm@hotmail.ca");
-    this.txtLink.setAttribute("target", "_blank");
-    this.popupBody.appendChild(this.txtLink);
-    this.txtLink.innerHTML = "sarah.hm@hotmail.ca";
-
-    this.imgLink = document.createElement("a");
-    this.imgLink.setAttribute("href", "mailto: sarah.hm@hotmail.ca");
-    this.imgLink.setAttribute("target", "_blank");
-    this.popupBody.appendChild(this.imgLink);
-    this.imgLink.innerHTML = `<img src="img/email.png" alt="Sarah Hontoy-Major's email link"/>`;
-
-    this.emailCopySec = document.createElement("div");
-    this.emailCopySec.setAttribute("id", "contact-email-copy-section");
-    this.popupBody.appendChild(this.emailCopySec);
-
-    this.copyBtn = document.createElement("button");
-    this.copyBtn.setAttribute("id", "email-tooltip");
-    this.emailCopySec.appendChild(this.copyBtn);
-    this.copyBtn.innerHTML = "Copy email";
-
-    this.copyTooltip = document.createElement("span");
-    this.copyTooltip.setAttribute("id", "tooltiptext");
-    this.copyBtn.appendChild(this.copyTooltip);
-    this.copyTooltip.innerHTML = "Copy to clipboard";
-
-    this.copyBtn.addEventListener("click", () => {
-      this.email = "sarah.hm@hotmail.ca";
-      // Copy the text inside the text field
-      navigator.clipboard.writeText(this.email);
-      // email popup: change tool tip text when clicked
-      this.OriginalText = this.copyTooltip.innerHTML;
-      console.log(this.OriginalText);
-      this.copyTooltip.innerHTML = "Copied to clipboard!";
-      setTimeout(() => {
-        this.copyTooltip.innerHTML = this.OriginalText;
-      }, 750);
+    //toggle the about section open/close
+    this.aboutSections = document.getElementsByClassName(
+      "website-about-section"
+    );
+    Object.keys(this.aboutSections).forEach((key) => {
+      this.aboutSections[key].classList.toggle("website-about-section-open");
     });
-
-    // this.copyBtn.
-  }
-
-  createIgPopup() {
-    this.div = document.createElement("div");
-    this.div.classList.add("website-popup");
-    this.div.classList.add("popup-closed");
-    this.div.setAttribute("id", "website-instagram-popup");
-    this.doc.appendChild(this.div);
-
-    this.divHeader = document.createElement("div");
-    this.divHeader.classList.add("website-popup-header");
-    this.divHeader.setAttribute("id", "website-ig-popup-header");
-    this.div.appendChild(this.divHeader);
-
-    this.closeBtn = document.createElement("button");
-    this.closeBtn.classList.add("website-popup-close-btn");
-    this.closeBtn.setAttribute("id", "instagram-popup-close-btn");
-    this.divHeader.appendChild(this.closeBtn);
-    this.closeBtn.insertAdjacentText("afterbegin", "x");
-
-    this.popupTitle = document.createElement("h3");
-    this.popupTitle.classList.add("website-popup-header-title");
-    this.divHeader.appendChild(this.popupTitle);
-    this.popupTitle.insertAdjacentText("afterbegin", "@sarahhm.jpg");
-
-    this.popupBody = document.createElement("div");
-    this.popupBody.classList.add("website-popup-body");
-    this.popupBody.setAttribute("id", "ig-popup-body");
-    this.div.appendChild(this.popupBody);
-
-    this.txtLink = document.createElement("a");
-    this.txtLink.classList.add("contact-link");
-    this.txtLink.setAttribute("target", "_blank");
-    this.txtLink.setAttribute("href", "https://www.instagram.com/sarahhm.jpg");
-    this.popupBody.appendChild(this.txtLink);
-    this.txtLink.innerHTML = "@sarahhm.jpg";
-
-    this.imgLink = document.createElement("a");
-    this.imgLink.setAttribute("target", "_blank");
-    this.imgLink.setAttribute("href", "https://www.instagram.com/sarahhm.jpg");
-    this.imgLink.classList.add("contact-image-link");
-    this.popupBody.appendChild(this.imgLink);
-    this.imgLink.innerHTML = `<img src="img/instagram.png" alt="Sarahhm.jpg's instagram link" width = '${this.width}'"/>`;
   }
 
   createMobileNav() {

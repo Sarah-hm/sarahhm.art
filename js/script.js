@@ -96,3 +96,7 @@ window.onload = (event) => {
     })
     .catch((error) => console.error(error));
 };
+
+function copyText() {
+  console.log("copy text");
+}
