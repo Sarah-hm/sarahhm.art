@@ -50,10 +50,27 @@ class Header {
     this.titleRedirect();
     this.printNavMenu(this.navHTML);
 
+    // Toggle about section by clicking on button
     document
       .getElementById("about-button")
       .addEventListener("click", this.aboutSectionToggle);
 
+    // toggle project img by hovering over project list
+    Object.keys(document.getElementsByClassName("prj-list-title")).forEach(
+      (i) => {
+        document
+          .getElementsByClassName("prj-list-title")
+          [i].addEventListener("mouseenter", (e) => {
+            console.log("hover");
+            this.showProjectImg(i);
+          });
+        document
+          .getElementsByClassName("prj-list-title")
+          [i].addEventListener("mouseleave", (e) => {
+            this.removeProjectImg(i);
+          });
+      }
+    );
     // this.addListeners();
   }
 
@@ -171,6 +188,47 @@ class Header {
     });
   }
 
+  showProjectImg(el) {
+    // Calculate where the middle of the screen is
+    // console.log(window.innerWidth);
+    // window.innerHeight;
+
+    // create img project element
+    this.projectImg = document.createElement("div");
+    this.projectImg.classList.add("project-img-overlay");
+    this.projectImg.setAttribute("id", `${this.data[el].id}-img`);
+    document.body.appendChild(this.projectImg);
+
+    // Probably have to create an inner project image container
+
+    // Create img element
+    this.img = document.createElement("img");
+    this.img.setAttribute(
+      "src",
+      `${this.data[el].visual_documentation[0].source}`
+    );
+    this.img.setAttribute("alt", `Image of ${this.data[el].title}`);
+    // this.img.classList.add("project-img-popup-div");
+    //Populate the project image container with the current image
+    this.projectImg.appendChild(this.img);
+
+    // console.log(this.)
+    // Calculate where the middle of the image is
+    // this.projectImgRect = document
+    //   .getElementsByClassName("project-img-overlay")[0]
+    //   .getBoundingClientRect();
+    // console.log(this.projectImgRect);
+    // this.imgX = window.innerWidth / 2 - this.projectImgRect.width / 2;
+    // this.imgY = window.innerHeight / 2 - this.projectImgRect.height / 2;
+    // this.projectImg.style.left = this.imgX;
+    // this.projectImg.style.top = this.imgY;
+  }
+
+  removeProjectImg(el) {
+    document.getElementById(`${this.data[el].id}-img`).remove();
+  }
+
+  //  ===== NOTHIGN AFTER THIS MATTERS (i think?) =====
   createMobileNav() {
     this.div = document.createElement("div");
     this.div.setAttribute("id", "nav-menu-mobile");

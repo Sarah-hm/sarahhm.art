@@ -27,19 +27,19 @@ class ProjectImgPopup {
       this.div.style.top = `${this.startY}px`;
       this.doc.appendChild(this.div);
 
-      this.divHeader = document.createElement("div");
-      this.divHeader.classList.add("project-image-popup-header");
-      this.div.appendChild(this.divHeader);
+      // this.divHeader = document.createElement("div");
+      // this.divHeader.classList.add("project-image-popup-header");
+      // this.div.appendChild(this.divHeader);
 
-      this.closeBtn = document.createElement("button");
-      this.closeBtn.classList.add("project-img-popup-close-btn");
-      this.divHeader.appendChild(this.closeBtn);
-      this.closeBtn.insertAdjacentText("afterbegin", "x");
+      // this.closeBtn = document.createElement("button");
+      // this.closeBtn.classList.add("project-img-popup-close-btn");
+      // this.divHeader.appendChild(this.closeBtn);
+      // this.closeBtn.insertAdjacentText("afterbegin", "x");
 
-      this.popupTitle = document.createElement("h3");
-      this.popupTitle.classList.add("website-popup-header-title");
-      this.divHeader.appendChild(this.popupTitle);
-      this.popupTitle.insertAdjacentText("afterbegin", this.title);
+      // this.popupTitle = document.createElement("h3");
+      // this.popupTitle.classList.add("website-popup-header-title");
+      // this.divHeader.appendChild(this.popupTitle);
+      // this.popupTitle.insertAdjacentText("afterbegin", this.title);
 
       this.popupBody = document.createElement("div");
       this.popupBody.classList.add("website-project-img-popup-body");
@@ -51,7 +51,7 @@ class ProjectImgPopup {
       this.popupBody.appendChild(this.imgLink);
       this.imgLink.innerHTML = `<img src='${this.img}' alt='Image of ${this.title}' "/>`;
 
-      this.addListeners();
+      // this.addListeners();
     }
   }
 
