@@ -1,5 +1,36 @@
 [
   {
+    "id": "shm-prj-aMRI",
+    "url": "aMRI.html",
+    "title": "aMRI",
+    "subtitle": "the functional MRI implies the existence of an afunctional MRI",
+    "year": "2023",
+    "media": ["php", "javascript", "crowd-sourced data"],
+    "keywords": [
+      "pattern seeking",
+      "speculative design",
+      "naive science",
+      "networked materiality"
+    ],
+    "websiteLink": "https://hybrid.concordia.ca/s_hontoy/aMRI/index.php",
+    "description": [
+      "Data_scapes is a continuing exploration of story-telling through data and folk ontologies; how we can reinterpret different stories through different simplified data visualization and algorithms. Humanity has naturalized hegemonic, yet arbitrary, structures and hierarchies in every aspect of our existence, including cyberspace. Our deterministic rather than probabilistic nature, that is we would rather want something to be entirely true or entirely false, as opposed to a nuance of both or neither, forces oversimplifications of natural, organic, and non-linear processes into binary ‘truths’.  This makes us increasingly less likely to accept different ‘subjective’ truths as equally ‘objective’ amongst themselves. "
+    ],
+    "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/data-scapes/data-scapes-01.png",
+        "caption": "Data-scapes' state as of 04/09/2023 calculated on Mercador projection"
+      }
+    ],
+    "link_documentation": [
+      {
+        "type": "github repository",
+        "source": "https://github.com/Sarah-hm/CART499/tree/main/aMRI"
+      }
+    ]
+  },
+  {
     "id": "shm-prj-data_scapes",
     "url": "data-scapes.html",
     "title": "Data_Scapes",

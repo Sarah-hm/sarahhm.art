@@ -35,10 +35,10 @@ class Header {
     };
     this.navBtns = {
       about: "learn more",
-      instagram: "You can also visit my",
-      email: "or copy my e-mail",
+      instagram: ", visit my",
+      email: ", or copy my e-mail",
     };
-    this.navHTML = `<p class = "nav-text"> ${this.navBtns.about} <span class= "nav-button" id ="about-button"> about me</span>. ${this.navBtns.instagram} <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a> ${this.navBtns.email} <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>.</p>`;
+    this.navHTML = `<p class = "nav-text"> ${this.navBtns.about} <span class= "nav-button" id ="about-button"> about me</span>${this.navBtns.instagram} <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>${this.navBtns.email} <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>.</p>`;
 
     console.log(this.navHTML);
 
@@ -54,6 +54,11 @@ class Header {
     document
       .getElementById("about-button")
       .addEventListener("click", this.aboutSectionToggle);
+
+    // Close about section when mouse leaves header
+    document
+      .getElementsByTagName("header")[0]
+      .addEventListener("mouseleave", this.aboutSectionClose);
 
     // toggle project img by hovering over project list
     Object.keys(document.getElementsByClassName("prj-list-title")).forEach(
@@ -71,7 +76,6 @@ class Header {
           });
       }
     );
-    // this.addListeners();
   }
 
   titleRedirect() {
@@ -116,26 +120,29 @@ class Header {
     this.toolTipText = document.getElementById("tooltiptext");
     this.emailTxt = document.getElementById("email-button");
 
-    this.copyTooltip = document.createElement("span");
-    this.copyTooltip.setAttribute("id", "tooltiptext");
-    this.emailTxt.appendChild(this.copyTooltip);
-    this.copyTooltip.innerHTML = "Copy to clipboard";
+    // this.copyTooltip = document.createElement("span");
+    // this.copyTooltip.setAttribute("id", "tooltiptext");
+    // this.emailTxt.appendChild(this.copyTooltip);
+    // this.copyTooltip.innerHTML = "Copy to clipboard";
 
     this.emailTxt.addEventListener("click", () => {
       this.email = "sarah.hm@hotmail.ca";
       // Copy the text inside the text field
       navigator.clipboard.writeText(this.email);
       // email popup: change tool tip text when clicked
-      this.OriginalText = this.copyTooltip.innerHTML;
-      console.log(this.OriginalText);
-      this.copyTooltip.innerHTML = "Copied to clipboard!";
-      setTimeout(() => {
-        this.copyTooltip.innerHTML = this.OriginalText;
-      }, 750);
+      // this.OriginalText = this.copyTooltip.innerHTML;
+      // console.log(this.OriginalText);
+      // this.copyTooltip.innerHTML = "Copied to clipboard!";
+      // setTimeout(() => {
+      //   this.copyTooltip.innerHTML = this.OriginalText;
+      // }, 750);
     });
   }
 
   createProjectList() {
+    this.sidebar = document.createElement("sidebar");
+    this.doc.appendChild(this.sidebar);
+
     this.div = document.createElement("div");
     this.div.setAttribute("id", "website-projects-list-container");
     this.doc.appendChild(this.div);
@@ -188,6 +195,16 @@ class Header {
     });
   }
 
+  aboutSectionClose() {
+    //toggle the about section open/close
+    this.aboutSections = document.getElementsByClassName(
+      "website-about-section"
+    );
+    Object.keys(this.aboutSections).forEach((key) => {
+      this.aboutSections[key].classList.remove("website-about-section-open");
+    });
+  }
+
   showProjectImg(el) {
     // Calculate where the middle of the screen is
     // console.log(window.innerWidth);
@@ -208,20 +225,9 @@ class Header {
       `${this.data[el].visual_documentation[0].source}`
     );
     this.img.setAttribute("alt", `Image of ${this.data[el].title}`);
-    // this.img.classList.add("project-img-popup-div");
+
     //Populate the project image container with the current image
     this.projectImg.appendChild(this.img);
-
-    // console.log(this.)
-    // Calculate where the middle of the image is
-    // this.projectImgRect = document
-    //   .getElementsByClassName("project-img-overlay")[0]
-    //   .getBoundingClientRect();
-    // console.log(this.projectImgRect);
-    // this.imgX = window.innerWidth / 2 - this.projectImgRect.width / 2;
-    // this.imgY = window.innerHeight / 2 - this.projectImgRect.height / 2;
-    // this.projectImg.style.left = this.imgX;
-    // this.projectImg.style.top = this.imgY;
   }
 
   removeProjectImg(el) {
@@ -261,380 +267,380 @@ class Header {
     document.getElementById("nav-menu-mobile").appendChild(this.div);
   }
 
-  addListeners() {
-    // Open popups when clicking on nav menu sliders
-    Object.keys(this.navMenuBtns).forEach((key) => {
-      this.navMenuBtns[key].addEventListener("change", () => {
-        switch (this.navMenuBtns[key].id) {
-          case "project-nav-btn":
-            // console.log(this.navMenuPrjPopup.open);
-            // close projects and all img popups
-            if (this.navMenuPrjPopup.open) {
-              this.closeProjectImgPopups();
-              this.navMenuPrjPopup.classList.add("popup-closed");
-              this.navMenuPrjPopup.open = false;
+  // addListeners() {
+  //   // Open popups when clicking on nav menu sliders
+  //   Object.keys(this.navMenuBtns).forEach((key) => {
+  //     this.navMenuBtns[key].addEventListener("change", () => {
+  //       switch (this.navMenuBtns[key].id) {
+  //         case "project-nav-btn":
+  //           // console.log(this.navMenuPrjPopup.open);
+  //           // close projects and all img popups
+  //           if (this.navMenuPrjPopup.open) {
+  //             this.closeProjectImgPopups();
+  //             this.navMenuPrjPopup.classList.add("popup-closed");
+  //             this.navMenuPrjPopup.open = false;
 
-              // Remove green button background
-              // this.navMenuBtns[key].style.backgroundPosition = "";
-            } else {
-              //toggle projects pop-up
-              this.recalculatePosition(this.navMenuPrjPopup);
-              this.navMenuPrjPopup.classList.remove("popup-closed");
-              this.navMenuPrjPopup.open = true;
-            }
-            break;
-          case "about-nav-btn":
-            // if any of the about popups (statement, img, cv) are open, close all of them
-            if (
-              this.navMenuAboutPopup.open ||
-              this.navMenuImgPopup.open ||
-              this.navMenuCvPopup.open
-            ) {
-              this.navMenuAboutPopup.classList.add("popup-closed");
-              this.navMenuImgPopup.classList.add("popup-closed");
-              this.navMenuCvPopup.classList.add("popup-closed");
-              this.navMenuAboutPopup.open = false;
-              this.navMenuImgPopup.open = false;
-              this.navMenuCvPopup.open = false;
-            }
-            // if they are all closed, open all of them (and recalculate position)
-            else {
-              // about
-              this.recalculatePosition(this.navMenuAboutPopup);
-              this.navMenuAboutPopup.classList.remove("popup-closed");
-              this.navMenuAboutPopup.open = true;
-              // self-portrait
-              this.recalculatePosition(this.navMenuImgPopup);
-              this.navMenuImgPopup.classList.remove("popup-closed");
-              this.navMenuImgPopup.open = true;
-              //cv
-              this.recalculatePosition(this.navMenuCvPopup);
-              this.navMenuCvPopup.classList.remove("popup-closed");
-              this.navMenuCvPopup.open = true;
-            }
+  //             // Remove green button background
+  //             // this.navMenuBtns[key].style.backgroundPosition = "";
+  //           } else {
+  //             //toggle projects pop-up
+  //             this.recalculatePosition(this.navMenuPrjPopup);
+  //             this.navMenuPrjPopup.classList.remove("popup-closed");
+  //             this.navMenuPrjPopup.open = true;
+  //           }
+  //           break;
+  //         case "about-nav-btn":
+  //           // if any of the about popups (statement, img, cv) are open, close all of them
+  //           if (
+  //             this.navMenuAboutPopup.open ||
+  //             this.navMenuImgPopup.open ||
+  //             this.navMenuCvPopup.open
+  //           ) {
+  //             this.navMenuAboutPopup.classList.add("popup-closed");
+  //             this.navMenuImgPopup.classList.add("popup-closed");
+  //             this.navMenuCvPopup.classList.add("popup-closed");
+  //             this.navMenuAboutPopup.open = false;
+  //             this.navMenuImgPopup.open = false;
+  //             this.navMenuCvPopup.open = false;
+  //           }
+  //           // if they are all closed, open all of them (and recalculate position)
+  //           else {
+  //             // about
+  //             this.recalculatePosition(this.navMenuAboutPopup);
+  //             this.navMenuAboutPopup.classList.remove("popup-closed");
+  //             this.navMenuAboutPopup.open = true;
+  //             // self-portrait
+  //             this.recalculatePosition(this.navMenuImgPopup);
+  //             this.navMenuImgPopup.classList.remove("popup-closed");
+  //             this.navMenuImgPopup.open = true;
+  //             //cv
+  //             this.recalculatePosition(this.navMenuCvPopup);
+  //             this.navMenuCvPopup.classList.remove("popup-closed");
+  //             this.navMenuCvPopup.open = true;
+  //           }
 
-            break;
-          case "contact-nav-btn":
-            // if any of the about popups (statement, img, cv) are open, close all of them
-            if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
-              // contact
-              this.navMenuContactPopup.classList.add("popup-closed");
-              this.navMenuContactPopup.open = false;
-              // ig
-              this.navMenuIgPopup.classList.add("popup-closed");
-              this.navMenuIgPopup.open = false;
-            }
-            // if they are all closed, open all of them (and recalculate position)
-            else {
-              // contact (email)
-              this.recalculatePosition(this.navMenuContactPopup);
-              this.navMenuContactPopup.classList.remove("popup-closed");
-              this.navMenuContactPopup.open = true;
-              // ig
-              this.recalculatePosition(this.navMenuIgPopup);
-              this.navMenuIgPopup.classList.remove("popup-closed");
-              this.navMenuIgPopup.open = true;
-            }
+  //           break;
+  //         case "contact-nav-btn":
+  //           // if any of the about popups (statement, img, cv) are open, close all of them
+  //           if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
+  //             // contact
+  //             this.navMenuContactPopup.classList.add("popup-closed");
+  //             this.navMenuContactPopup.open = false;
+  //             // ig
+  //             this.navMenuIgPopup.classList.add("popup-closed");
+  //             this.navMenuIgPopup.open = false;
+  //           }
+  //           // if they are all closed, open all of them (and recalculate position)
+  //           else {
+  //             // contact (email)
+  //             this.recalculatePosition(this.navMenuContactPopup);
+  //             this.navMenuContactPopup.classList.remove("popup-closed");
+  //             this.navMenuContactPopup.open = true;
+  //             // ig
+  //             this.recalculatePosition(this.navMenuIgPopup);
+  //             this.navMenuIgPopup.classList.remove("popup-closed");
+  //             this.navMenuIgPopup.open = true;
+  //           }
 
-            break;
-          default:
-            console.log("not a button");
-            break;
-        }
-      });
-    });
+  //           break;
+  //         default:
+  //           console.log("not a button");
+  //           break;
+  //       }
+  //     });
+  //   });
 
-    // Nav menu button titles toggle the entire on/off state when clicked
-    this.navMenuBtnTitles = document.getElementsByClassName(
-      "nav-menu-button-title"
-    );
+  //   // Nav menu button titles toggle the entire on/off state when clicked
+  //   this.navMenuBtnTitles = document.getElementsByClassName(
+  //     "nav-menu-button-title"
+  //   );
 
-    Object.keys(this.navMenuBtnTitles).forEach((key) => {
-      this.navMenuBtnTitles[key].addEventListener("click", () => {
-        switch (this.navMenuBtnTitles[key].id) {
-          case "project-nav-btn-title":
-            // console.log(this.navMenuPrjPopup.open);
-            // close projects and all img popups
-            if (this.navMenuPrjPopup.open) {
-              this.closeProjectImgPopups();
-              this.navMenuPrjPopup.classList.add("popup-closed");
-              this.navMenuPrjPopup.open = false;
+  //   Object.keys(this.navMenuBtnTitles).forEach((key) => {
+  //     this.navMenuBtnTitles[key].addEventListener("click", () => {
+  //       switch (this.navMenuBtnTitles[key].id) {
+  //         case "project-nav-btn-title":
+  //           // console.log(this.navMenuPrjPopup.open);
+  //           // close projects and all img popups
+  //           if (this.navMenuPrjPopup.open) {
+  //             this.closeProjectImgPopups();
+  //             this.navMenuPrjPopup.classList.add("popup-closed");
+  //             this.navMenuPrjPopup.open = false;
 
-              //Change slider to unchecked
-              document.getElementById("project-nav-btn-input").checked = false;
-            } else {
-              //toggle projects pop-up
-              this.recalculatePosition(this.navMenuPrjPopup);
-              this.navMenuPrjPopup.classList.remove("popup-closed");
-              this.navMenuPrjPopup.open = true;
+  //             //Change slider to unchecked
+  //             document.getElementById("project-nav-btn-input").checked = false;
+  //           } else {
+  //             //toggle projects pop-up
+  //             this.recalculatePosition(this.navMenuPrjPopup);
+  //             this.navMenuPrjPopup.classList.remove("popup-closed");
+  //             this.navMenuPrjPopup.open = true;
 
-              //Change slider to checked
-              document.getElementById("project-nav-btn-input").checked = true;
-            }
-            break;
-          case "about-nav-btn-title":
-            // if any of the about popups (statement, img, cv) are open, close all of them
-            if (
-              this.navMenuAboutPopup.open ||
-              this.navMenuImgPopup.open ||
-              this.navMenuCvPopup.open
-            ) {
-              this.navMenuAboutPopup.classList.add("popup-closed");
-              this.navMenuImgPopup.classList.add("popup-closed");
-              this.navMenuCvPopup.classList.add("popup-closed");
-              this.navMenuAboutPopup.open = false;
-              this.navMenuImgPopup.open = false;
-              this.navMenuCvPopup.open = false;
+  //             //Change slider to checked
+  //             document.getElementById("project-nav-btn-input").checked = true;
+  //           }
+  //           break;
+  //         case "about-nav-btn-title":
+  //           // if any of the about popups (statement, img, cv) are open, close all of them
+  //           if (
+  //             this.navMenuAboutPopup.open ||
+  //             this.navMenuImgPopup.open ||
+  //             this.navMenuCvPopup.open
+  //           ) {
+  //             this.navMenuAboutPopup.classList.add("popup-closed");
+  //             this.navMenuImgPopup.classList.add("popup-closed");
+  //             this.navMenuCvPopup.classList.add("popup-closed");
+  //             this.navMenuAboutPopup.open = false;
+  //             this.navMenuImgPopup.open = false;
+  //             this.navMenuCvPopup.open = false;
 
-              //Change slider to unchecked
-              document.getElementById("about-nav-btn-input").checked = false;
-            }
-            // if they are all closed, open all of them (and recalculate position)
-            else {
-              // about
-              this.recalculatePosition(this.navMenuAboutPopup);
-              this.navMenuAboutPopup.classList.remove("popup-closed");
-              this.navMenuAboutPopup.open = true;
-              // self-portrait
-              this.recalculatePosition(this.navMenuImgPopup);
-              this.navMenuImgPopup.classList.remove("popup-closed");
-              this.navMenuImgPopup.open = true;
-              //cv
-              this.recalculatePosition(this.navMenuCvPopup);
-              this.navMenuCvPopup.classList.remove("popup-closed");
-              this.navMenuCvPopup.open = true;
+  //             //Change slider to unchecked
+  //             document.getElementById("about-nav-btn-input").checked = false;
+  //           }
+  //           // if they are all closed, open all of them (and recalculate position)
+  //           else {
+  //             // about
+  //             this.recalculatePosition(this.navMenuAboutPopup);
+  //             this.navMenuAboutPopup.classList.remove("popup-closed");
+  //             this.navMenuAboutPopup.open = true;
+  //             // self-portrait
+  //             this.recalculatePosition(this.navMenuImgPopup);
+  //             this.navMenuImgPopup.classList.remove("popup-closed");
+  //             this.navMenuImgPopup.open = true;
+  //             //cv
+  //             this.recalculatePosition(this.navMenuCvPopup);
+  //             this.navMenuCvPopup.classList.remove("popup-closed");
+  //             this.navMenuCvPopup.open = true;
 
-              //Change slider to checked
-              document.getElementById("about-nav-btn-input").checked = true;
-            }
+  //             //Change slider to checked
+  //             document.getElementById("about-nav-btn-input").checked = true;
+  //           }
 
-            break;
-          case "contact-nav-btn-title":
-            // if any of the about popups (statement, img, cv) are open, close all of them
-            if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
-              // contact
-              this.navMenuContactPopup.classList.add("popup-closed");
-              this.navMenuContactPopup.open = false;
-              // ig
-              this.navMenuIgPopup.classList.add("popup-closed");
-              this.navMenuIgPopup.open = false;
+  //           break;
+  //         case "contact-nav-btn-title":
+  //           // if any of the about popups (statement, img, cv) are open, close all of them
+  //           if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
+  //             // contact
+  //             this.navMenuContactPopup.classList.add("popup-closed");
+  //             this.navMenuContactPopup.open = false;
+  //             // ig
+  //             this.navMenuIgPopup.classList.add("popup-closed");
+  //             this.navMenuIgPopup.open = false;
 
-              //Change slider to unchecked
-              document.getElementById("contact-nav-btn-input").checked = false;
-            }
-            // if they are all closed, open all of them (and recalculate position)
-            else {
-              // contact (email)
-              this.recalculatePosition(this.navMenuContactPopup);
-              this.navMenuContactPopup.classList.remove("popup-closed");
-              this.navMenuContactPopup.open = true;
-              // ig
-              this.recalculatePosition(this.navMenuIgPopup);
-              this.navMenuIgPopup.classList.remove("popup-closed");
-              this.navMenuIgPopup.open = true;
+  //             //Change slider to unchecked
+  //             document.getElementById("contact-nav-btn-input").checked = false;
+  //           }
+  //           // if they are all closed, open all of them (and recalculate position)
+  //           else {
+  //             // contact (email)
+  //             this.recalculatePosition(this.navMenuContactPopup);
+  //             this.navMenuContactPopup.classList.remove("popup-closed");
+  //             this.navMenuContactPopup.open = true;
+  //             // ig
+  //             this.recalculatePosition(this.navMenuIgPopup);
+  //             this.navMenuIgPopup.classList.remove("popup-closed");
+  //             this.navMenuIgPopup.open = true;
 
-              //Change slider to checked
-              document.getElementById("contact-nav-btn-input").checked = true;
-            }
+  //             //Change slider to checked
+  //             document.getElementById("contact-nav-btn-input").checked = true;
+  //           }
 
-            break;
-          default:
-            console.log("not a button");
-            break;
-        }
-      });
-    });
+  //           break;
+  //         default:
+  //           console.log("not a button");
+  //           break;
+  //       }
+  //     });
+  //   });
 
-    // Manually close popups when clicking on X header of popup
-    Object.keys(this.popupCloseBtns).forEach((key) => {
-      this.popupCloseBtns[key].addEventListener("click", () => {
-        switch (this.popupCloseBtns[key].id) {
-          case "projects-popup-close-btn":
-            console.log(this.popupCloseBtns[key]);
-            //close projects pop-up
-            this.navMenuPrjPopup.classList.add("popup-closed");
-            this.navMenuPrjPopup.open = false;
-            console.log("close");
-            this.closeProjectImgPopups();
+  //   // // Manually close popups when clicking on X header of popup
+  //   // Object.keys(this.popupCloseBtns).forEach((key) => {
+  //   //   this.popupCloseBtns[key].addEventListener("click", () => {
+  //   //     switch (this.popupCloseBtns[key].id) {
+  //   //       case "projects-popup-close-btn":
+  //   //         console.log(this.popupCloseBtns[key]);
+  //   //         //close projects pop-up
+  //   //         this.navMenuPrjPopup.classList.add("popup-closed");
+  //   //         this.navMenuPrjPopup.open = false;
+  //   //         console.log("close");
+  //   //         this.closeProjectImgPopups();
 
-            break;
-          case "about-popup-close-btn":
-            //close about pop-up
-            this.navMenuAboutPopup.classList.add("popup-closed");
-            this.navMenuAboutPopup.open = false;
-            break;
-          case "img-popup-close-btn":
-            // close instagram pop-up
-            this.navMenuImgPopup.classList.add("popup-closed");
-            this.navMenuImgPopup.open = false;
-            break;
-          case "cv-popup-close-btn":
-            // close instagram pop-up
-            this.navMenuCvPopup.classList.add("popup-closed");
-            this.navMenuCvPopup.open = false;
-            break;
-          case "contact-popup-close-btn":
-            // close contact pop-up
-            this.navMenuContactPopup.classList.add("popup-closed");
-            this.navMenuContactPopup.open = false;
-            break;
-          case "instagram-popup-close-btn":
-            // close instagram pop-up
-            this.navMenuIgPopup.classList.add("popup-closed");
-            this.navMenuIgPopup.open = false;
-            break;
-          default:
-            console.log("not a button");
-            break;
-        }
+  //   //         break;
+  //   //       case "about-popup-close-btn":
+  //   //         //close about pop-up
+  //   //         this.navMenuAboutPopup.classList.add("popup-closed");
+  //   //         this.navMenuAboutPopup.open = false;
+  //   //         break;
+  //   //       case "img-popup-close-btn":
+  //   //         // close instagram pop-up
+  //   //         this.navMenuImgPopup.classList.add("popup-closed");
+  //   //         this.navMenuImgPopup.open = false;
+  //   //         break;
+  //   //       case "cv-popup-close-btn":
+  //   //         // close instagram pop-up
+  //   //         this.navMenuCvPopup.classList.add("popup-closed");
+  //   //         this.navMenuCvPopup.open = false;
+  //   //         break;
+  //   //       case "contact-popup-close-btn":
+  //   //         // close contact pop-up
+  //   //         this.navMenuContactPopup.classList.add("popup-closed");
+  //   //         this.navMenuContactPopup.open = false;
+  //   //         break;
+  //   //       case "instagram-popup-close-btn":
+  //   //         // close instagram pop-up
+  //   //         this.navMenuIgPopup.classList.add("popup-closed");
+  //   //         this.navMenuIgPopup.open = false;
+  //   //         break;
+  //   //       default:
+  //   //         console.log("not a button");
+  //   //         break;
+  //   //     }
 
-        // If all corresponding popups were manually closed, toggle the respective nav menu slider off
-        if (!this.navMenuPrjPopup.open) {
-          document.getElementById("project-nav-btn-input").checked = false;
-        }
-        if (
-          !this.navMenuAboutPopup.open &&
-          !this.navMenuImgPopup.open &&
-          !this.navMenuCvPopup.open
-        ) {
-          document.getElementById("about-nav-btn-input").checked = false;
-        }
-        if (!this.navMenuIgPopup.open && !this.navMenuContactPopup.open) {
-          document.getElementById("contact-nav-btn-input").checked = false;
-        }
-      });
-    });
+  //   //     // If all corresponding popups were manually closed, toggle the respective nav menu slider off
+  //   //     if (!this.navMenuPrjPopup.open) {
+  //   //       document.getElementById("project-nav-btn-input").checked = false;
+  //   //     }
+  //   //     if (
+  //   //       !this.navMenuAboutPopup.open &&
+  //   //       !this.navMenuImgPopup.open &&
+  //   //       !this.navMenuCvPopup.open
+  //   //     ) {
+  //   //       document.getElementById("about-nav-btn-input").checked = false;
+  //   //     }
+  //   //     if (!this.navMenuIgPopup.open && !this.navMenuContactPopup.open) {
+  //   //       document.getElementById("contact-nav-btn-input").checked = false;
+  //   //     }
+  //   //   });
+  //   // });
 
-    //Make popup window draggable
-    this.popupZindex = "5000";
-    this.popupHeaders = document.getElementsByClassName("website-popup-header");
+  //   // //Make popup window draggable
+  //   // this.popupZindex = "5000";
+  //   // this.popupHeaders = document.getElementsByClassName("website-popup-header");
 
-    Object.keys(this.popupHeaders).forEach((key) => {
-      this.popupHeaders[key].addEventListener("mousedown", () => {
-        this.newZindex = this.popupZindex++;
-        console.log(this.popupHeaders[key].id);
-        switch (this.popupHeaders[key].id) {
-          case "website-projects-popup-header":
-            //puts projects pop-up on top
-            this.navMenuPrjPopup.mouseDown = true;
-            this.navMenuPrjPopup.style.zIndex = this.newZindex;
-            // this.websitePopups[key].style.cursor = "grabbing";
-            break;
-          case "website-about-popup-header":
-            //puts about pop-up on top
-            this.navMenuAboutPopup.mouseDown = true;
-            this.navMenuAboutPopup.style.zIndex = this.newZindex;
-            break;
-          case "website-image-popup-header":
-            //puts about pop-up on top
-            this.navMenuImgPopup.mouseDown = true;
-            this.navMenuImgPopup.style.zIndex = this.newZindex;
-            break;
+  //   // Object.keys(this.popupHeaders).forEach((key) => {
+  //   //   this.popupHeaders[key].addEventListener("mousedown", () => {
+  //   //     this.newZindex = this.popupZindex++;
+  //   //     console.log(this.popupHeaders[key].id);
+  //   //     switch (this.popupHeaders[key].id) {
+  //   //       case "website-projects-popup-header":
+  //   //         //puts projects pop-up on top
+  //   //         this.navMenuPrjPopup.mouseDown = true;
+  //   //         this.navMenuPrjPopup.style.zIndex = this.newZindex;
+  //   //         // this.websitePopups[key].style.cursor = "grabbing";
+  //   //         break;
+  //   //       case "website-about-popup-header":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuAboutPopup.mouseDown = true;
+  //   //         this.navMenuAboutPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       case "website-image-popup-header":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuImgPopup.mouseDown = true;
+  //   //         this.navMenuImgPopup.style.zIndex = this.newZindex;
+  //   //         break;
 
-          case "website-cv-popup-header":
-            //puts about pop-up on top
-            this.navMenuCvPopup.mouseDown = true;
-            this.navMenuCvPopup.style.zIndex = this.newZindex;
-            break;
-          case "website-contact-popup-header":
-            //puts about pop-up on top
-            this.navMenuContactPopup.mouseDown = true;
-            this.navMenuContactPopup.style.zIndex = this.newZindex;
-            break;
-          case "website-ig-popup-header":
-            //puts about pop-up on top
-            this.navMenuIgPopup.mouseDown = true;
-            this.navMenuIgPopup.style.zIndex = this.newZindex;
-            break;
-          default:
-            console.log("not a popup");
-            break;
-        }
-      });
-    });
+  //   //       case "website-cv-popup-header":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuCvPopup.mouseDown = true;
+  //   //         this.navMenuCvPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       case "website-contact-popup-header":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuContactPopup.mouseDown = true;
+  //   //         this.navMenuContactPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       case "website-ig-popup-header":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuIgPopup.mouseDown = true;
+  //   //         this.navMenuIgPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       default:
+  //   //         console.log("not a popup");
+  //   //         break;
+  //   //     }
+  //   //   });
+  //   // });
 
-    // Make popup window increase z-index when clicked anywhere
-    Object.keys(this.websitePopups).forEach((key) => {
-      this.websitePopups[key].addEventListener("mousedown", () => {
-        this.newZindex = this.popupZindex++;
-        console.log(this.websitePopups[key].id);
-        switch (this.websitePopups[key].id) {
-          case "website-projects-popup":
-            //puts projects pop-up on top
-            this.navMenuPrjPopup.style.zIndex = this.newZindex;
-            break;
-          case "website-about-popup":
-            //puts about pop-up on top
-            this.navMenuAboutPopup.style.zIndex = this.newZindex;
-            break;
-          case "website-image-popup":
-            //puts about pop-up on top
-            this.navMenuImgPopup.style.zIndex = this.newZindex;
-            break;
+  //   // // Make popup window increase z-index when clicked anywhere
+  //   // Object.keys(this.websitePopups).forEach((key) => {
+  //   //   this.websitePopups[key].addEventListener("mousedown", () => {
+  //   //     this.newZindex = this.popupZindex++;
+  //   //     console.log(this.websitePopups[key].id);
+  //   //     switch (this.websitePopups[key].id) {
+  //   //       case "website-projects-popup":
+  //   //         //puts projects pop-up on top
+  //   //         this.navMenuPrjPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       case "website-about-popup":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuAboutPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       case "website-image-popup":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuImgPopup.style.zIndex = this.newZindex;
+  //   //         break;
 
-          case "website-cv-popup":
-            //puts about pop-up on top
-            this.navMenuCvPopup.style.zIndex = this.newZindex;
-            break;
-          case "website-contact-popup":
-            //puts about pop-up on top
-            this.navMenuContactPopup.style.zIndex = this.newZindex;
-            break;
-          case "website-ig-popup":
-            //puts about pop-up on top
+  //   //       case "website-cv-popup":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuCvPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       case "website-contact-popup":
+  //   //         //puts about pop-up on top
+  //   //         this.navMenuContactPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       case "website-ig-popup":
+  //   //         //puts about pop-up on top
 
-            this.navMenuIgPopup.style.zIndex = this.newZindex;
-            break;
-          default:
-            console.log("not a popup");
-            break;
-        }
-      });
-    });
+  //   //         this.navMenuIgPopup.style.zIndex = this.newZindex;
+  //   //         break;
+  //   //       default:
+  //   //         console.log("not a popup");
+  //   //         break;
+  //   //     }
+  //   //   });
+  //   // });
 
-    document.addEventListener("mouseup", () => {
-      this.navMenuPrjPopup.mouseDown = false;
-      this.navMenuAboutPopup.mouseDown = false;
-      this.navMenuImgPopup.mouseDown = false;
-      this.navMenuCvPopup.mouseDown = false;
-      this.navMenuContactPopup.mouseDown = false;
-      this.navMenuIgPopup.mouseDown = false;
-    });
+  //   // document.addEventListener("mouseup", () => {
+  //   //   this.navMenuPrjPopup.mouseDown = false;
+  //   //   this.navMenuAboutPopup.mouseDown = false;
+  //   //   this.navMenuImgPopup.mouseDown = false;
+  //   //   this.navMenuCvPopup.mouseDown = false;
+  //   //   this.navMenuContactPopup.mouseDown = false;
+  //   //   this.navMenuIgPopup.mouseDown = false;
+  //   // });
 
-    document.addEventListener("mousemove", (event) => {
-      Object.keys(this.websitePopups).forEach((key) => {
-        switch (this.websitePopups[key].mouseDown) {
-          case true:
-            this.elRect = this.websitePopups[key].getBoundingClientRect();
+  //   // document.addEventListener("mousemove", (event) => {
+  //   //   Object.keys(this.websitePopups).forEach((key) => {
+  //   //     switch (this.websitePopups[key].mouseDown) {
+  //   //       case true:
+  //   //         this.elRect = this.websitePopups[key].getBoundingClientRect();
 
-            // console.log(this.elRect);
-            this.deltaX = this.elRect.width / 2;
-            this.deltaY = this.elRect.height * 0.05;
+  //   //         // console.log(this.elRect);
+  //   //         this.deltaX = this.elRect.width / 2;
+  //   //         this.deltaY = this.elRect.height * 0.05;
 
-            this.newX = event.clientX - this.deltaX;
-            this.newY = event.clientY - this.deltaY;
+  //   //         this.newX = event.clientX - this.deltaX;
+  //   //         this.newY = event.clientY - this.deltaY;
 
-            this.websitePopups[key].style.left = this.newX + "px";
-            this.websitePopups[key].style.top = this.newY + "px";
+  //   //         this.websitePopups[key].style.left = this.newX + "px";
+  //   //         this.websitePopups[key].style.top = this.newY + "px";
 
-            //Redraw line with the current Element's X, Y position (should be whenever the div moves, not only on mouse move)
-            this.newX = this.newX + this.elRect.width / 2;
-            this.newY = this.newY + this.elRect.height / 2;
+  //   //         //Redraw line with the current Element's X, Y position (should be whenever the div moves, not only on mouse move)
+  //   //         this.newX = this.newX + this.elRect.width / 2;
+  //   //         this.newY = this.newY + this.elRect.height / 2;
 
-            this.x = this.newX;
-            this.y = this.newY;
+  //   //         this.x = this.newX;
+  //   //         this.y = this.newY;
 
-            break;
-          case false:
-            // console.log("false");
-            break;
-          default:
-            // console.log("not a popup");
-            break;
-        }
-      });
-    });
-  }
+  //   //         break;
+  //   //       case false:
+  //   //         // console.log("false");
+  //   //         break;
+  //   //       default:
+  //   //         // console.log("not a popup");
+  //   //         break;
+  //   //     }
+  //   //   });
+  //   // });
+  // }
 
   // == Recalculate position within viewport everytime popup opens
   recalculatePosition(popup) {

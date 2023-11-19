@@ -26,7 +26,8 @@ body {
 /* ==== HEADER ==== */
 header {
   position: fixed;
-  width: 40vw;
+  width: 50vw;
+  /* height: 20vh; */
   padding-top: 2vh;
   padding-bottom: 0.5vh;
   background-color: white;
@@ -41,7 +42,7 @@ header {
 .inner-header {
   /* border-bottom: solid black 2px; */
   width: 100%;
-  height: 40vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,7 +103,7 @@ header {
 }
 
 .website-about-section-open {
-  height: 40vh;
+  height: 60vh;
   overflow-y: hidden;
   /* overflow: scroll; */
 }
@@ -111,13 +112,12 @@ header {
   width: 50vw;
   height: 70vh;
   position: fixed;
-  top: 15vh;
-  left: 25vw;
+  bottom: 0px;
+  left: 0px;
   /* z-index: -1; */
   display: flex;
   justify-content: center;
   align-items: center;
-
   overflow: hidden;
 }
 
@@ -125,9 +125,9 @@ header {
   background-color: white;
   max-width: 100%;
   max-height: 100%;
-  padding: 2rem;
+  /* padding: 2rem;
   border: solid black 2px;
-  outline: solid white 0.5px;
+  outline: solid white 0.5px; */
 }
 
 .nav-menu-btn {
@@ -249,14 +249,22 @@ header {
 }
 /* PROJECT popup */
 
+/* sidebar */
+
 #website-projects-list-container {
+  width: 25vw;
   position: fixed;
   right: 0px;
-  top: 40vh;
+  top: 2rem;
 }
 
 #website-projects-list-container ul li {
   border-bottom: solid black 1px;
+  padding-right: 1rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 #website-projects-popup {
