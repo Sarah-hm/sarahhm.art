@@ -32,17 +32,17 @@ class Project {
     this.descContainer.setAttribute("id", "desc-container");
     this.prjContainer.appendChild(this.descContainer);
 
-    this.printTitle();
-    this.printSubtitle();
-    this.printYear();
+    // this.printTitle();
+    // this.printSubtitle();
+    // this.printYear();
 
-    this.printMedia();
-    this.printKeywords();
-    this.printWebsiteLink();
-    this.printDescription();
+    // this.printMedia();
+    // this.printKeywords();
+    // this.printWebsiteLink();
+    // this.printDescription();
 
-    this.printLinkDoc();
-    this.printVisualDoc();
+    // this.printLinkDoc();
+    // this.printVisualDoc();
   }
 
   printTitle() {

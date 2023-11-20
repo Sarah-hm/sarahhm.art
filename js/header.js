@@ -15,6 +15,18 @@ class Header {
     this.data = data;
     this.doc = document.body;
 
+    // get the current page's only div's id
+    this.currentPageID = document
+      .getElementsByTagName("div")[0]
+      .getAttribute("id");
+
+    // If the currentPageID is project contrainer, get the specific project of the page
+    if (this.currentPageID === "project-container") {
+      this.currentProjectID = document
+        .getElementsByTagName("div")[0]
+        .getAttribute("project");
+    }
+
     this.websiteTitleContainer = document.getElementsByClassName(
       "website-title-container"
     );
@@ -38,17 +50,25 @@ class Header {
       instagram: ", visit my",
       email: ", or copy my e-mail",
     };
-    this.navHTML = `<p class = "nav-text"> ${this.navBtns.about} <span class= "nav-button" id ="about-button"> about me</span>${this.navBtns.instagram} <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>${this.navBtns.email} <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>.</p>`;
+    this.navHTML = ` ${this.navBtns.about} <span class= "nav-button" id ="about-button"> about me</span>${this.navBtns.instagram} <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>${this.navBtns.email} <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>.`;
 
     console.log(this.navHTML);
 
     this.createWebsiteTitle();
     this.createAboutSection();
-    this.createProjectList();
 
     // this.printWebTitle();
     this.titleRedirect();
     this.printNavMenu(this.navHTML);
+
+    // if homepage, print project list; if project page, print project drop-down
+    console.log(this.currentPageID);
+    if (this.currentPageID === "homepage") {
+      console.log("homepage");
+      this.createProjectList();
+    } else {
+      this.createProjectDropdown(this.currentProjectID);
+    }
 
     // Toggle about section by clicking on button
     document
@@ -96,18 +116,18 @@ class Header {
     this.innerHeader.classList.add("inner-header");
     this.header.appendChild(this.innerHeader);
 
-    this.div = document.createElement("div");
-    this.div.classList.add("website-title-container");
-    this.innerHeader.appendChild(this.div);
+    this.webTitleContainer = document.createElement("div");
+    this.webTitleContainer.classList.add("website-title-container");
+    this.innerHeader.appendChild(this.webTitleContainer);
 
     this.title = document.createElement("h1");
     this.title.classList.add("website-title");
-    this.div.appendChild(this.title);
+    this.webTitleContainer.appendChild(this.title);
     this.title.insertAdjacentText("afterbegin", this.websiteTitle.title);
 
     this.subtitle = document.createElement("h2");
     this.subtitle.classList.add("website-subtitle");
-    this.div.appendChild(this.subtitle);
+    this.webTitleContainer.appendChild(this.subtitle);
     this.subtitle.insertAdjacentText("afterbegin", this.websiteTitle.subtitle);
   }
 
@@ -140,9 +160,6 @@ class Header {
   }
 
   createProjectList() {
-    this.sidebar = document.createElement("sidebar");
-    this.doc.appendChild(this.sidebar);
-
     this.div = document.createElement("div");
     this.div.setAttribute("id", "website-projects-list-container");
     this.doc.appendChild(this.div);
@@ -158,17 +175,57 @@ class Header {
       this.list.appendChild(this.newPrj);
       this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
     }
+  }
 
-    this.projectsListed = document.getElementsByClassName("prj-list-title");
-    // console.log(this.projectsListed);
+  createProjectDropdown(currentProject) {
+    this.dropdownContainer = document.createElement("div");
+    this.dropdownContainer.setAttribute(
+      "id",
+      "website-projects-dropdown-container"
+    );
+    this.header.appendChild(this.dropdownContainer);
 
-    Object.keys(this.projectsListed).forEach((key) => {});
+    this.dropdownBtn = document.createElement("button");
+    this.dropdownBtn.setAttribute("id", "website-projects-dropdown-button");
+    this.dropdownContainer.appendChild(this.dropdownBtn);
+
+    // let button be current project's title
+    for (let item in this.data) {
+      if (this.data[item].id === currentProject) {
+        this.dropdownBtn.innerHTML = `  <a href="${this.data[item].url}"><sup>${this.data[item].year}</sup>${this.data[item].title}</a>`;
+      }
+    }
+
+    this.dropdownBtn.addEventListener("mouseover", () => {
+      this.dropdownContent = document.createElement("div");
+      this.dropdownContent.setAttribute(
+        "id",
+        "website-projects-dropdown-content"
+      );
+      this.dropdownContainer.appendChild(this.dropdownContent);
+
+      // For the entire length of the projects.json data (minus the template available at the very end of the array)
+      for (let i = 0; i < this.data.length - 1; i++) {
+        // don't reprint the current project page
+        if (this.data[i].id != currentProject) {
+          this.newPrj = document.createElement("li");
+          this.newPrj.classList.add("prj-list-title");
+          this.dropdownContent.appendChild(this.newPrj);
+          this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
+        }
+      }
+    });
+
+    // close dropdown when mouse leave
+    this.dropdownContainer.addEventListener("mouseleave", () => {
+      this.dropdownContent.remove();
+    });
   }
 
   createAboutSection() {
     this.aboutSection = document.createElement("div");
     this.aboutSection.classList.add("website-about-section");
-    this.header.appendChild(this.aboutSection);
+    this.innerHeader.appendChild(this.aboutSection);
 
     this.aboutBody = document.createElement("div");
     this.aboutBody.classList.add("website-section-body");
