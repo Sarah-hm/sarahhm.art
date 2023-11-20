@@ -214,11 +214,22 @@ class Header {
           this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
         }
       }
-    });
 
-    // close dropdown when mouse leave
-    this.dropdownContainer.addEventListener("mouseleave", () => {
-      this.dropdownContent.remove();
+      this.mouseInDropdownContent = false;
+
+      this.dropdownContent.addEventListener("mouseenter", () => {
+        this.mouseInDropdownContent = true;
+      });
+      this.dropdownContent.addEventListener("mouseleave", () => {
+        this.mouseInDropdownContent = false;
+      });
+
+      // close dropdown when mouse leave
+      this.dropdownContainer.addEventListener("mouseleave", () => {
+        if (!this.mouseInDropdownContent) {
+          document.getElementById("website-projects-dropdown-content").remove();
+        }
+      });
     });
   }
 
