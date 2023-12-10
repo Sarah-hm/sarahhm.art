@@ -14,8 +14,8 @@
 }
 
 body {
-  background-color: white;
-  /* overflow: hidden; Hide scrollbars */
+  /* background-color: white; */
+  overflow: hidden;
 }
 
 ::selection {
@@ -432,13 +432,13 @@ input:checked + .slider:before {
   }
 
   #nav-menu-mobile {
-    width: 100vw;
+    /* width: 100vw;
     max-height: 50vh;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
 
   .mobile-nav-menu-button {

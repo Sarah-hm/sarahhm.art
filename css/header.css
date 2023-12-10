@@ -11,34 +11,35 @@
   padding: 0;
   margin: 0;
   font-family: "Atkinson Hyperlegible", sans-serif;
+  background: none;
 }
 
 /* ==== HEADER ==== */
 header {
-  position: fixed;
+  z-index: 500;
+  position: absolute;
   width: 100vw;
-  /* height: 20vh; */
-  padding-top: 2vh;
-  padding-bottom: 0.5vh;
-  background-color: white;
+  margin-top: 2vh;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  outline: solid white 0.5px;
+  background: none;
+  /* background: red; */
 }
 
 .inner-header {
   /* border-bottom: solid black 2px; */
-  width: 50%;
-  height: 17vh;
+  width: calc(50% + 2px);
+  height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 1rem;
-  border-bottom: 2px solid black;
+  overflow-y: visible;
+  justify-content: flex-end;
 }
 
 #nav-menu-mobile {
@@ -55,12 +56,21 @@ header {
 
 .website-title,
 .website-subtitle {
-  /* padding-left: 1rem; */
+  /* z-index: 1; */
+  /* font-size: 7vw; */
+  color: invert(100%);
   padding-bottom: 0.5rem;
 }
 
 .website-title {
   font-size: 2rem;
+}
+
+.nav-text {
+  /* height: 3rem; */
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 0.75rem;
 }
 
 .nav-button {
@@ -75,6 +85,7 @@ header {
   text-decoration: underline;
   cursor: pointer;
   transition: background-color 0.25s;
+  color: black;
 }
 
 .nav-button:hover {
@@ -82,21 +93,22 @@ header {
 }
 
 .nav-text a:visited {
-  color: inherit;
+  color: black;
 }
 
 .website-about-section {
+  position: absolute;
   height: 0px;
   transition: all 1s;
   overflow: hidden;
-  direction: rtl;
+  /* direction: rtl; */
   text-align: left;
   padding-left: 1rem;
 }
 
 .website-about-section-open {
   height: 60vh;
-  overflow-y: hidden;
+  overflow-y: visible !important;
   /* overflow: scroll; */
 }
 
@@ -106,7 +118,6 @@ header {
   position: fixed;
   bottom: 0px;
   left: 0px;
-  /* z-index: -1; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,23 +125,21 @@ header {
 }
 
 .project-img-overlay img {
-  background-color: white;
+  /* background-color: white; */
   max-width: 100%;
   max-height: 100%;
-  /* padding: 2rem;
-    border: solid black 2px;
-    outline: solid white 0.5px; */
 }
 
+/* 
 .nav-menu-btn {
   cursor: pointer;
   outline: inherit;
-  /* background-color: rgb(255, 255, 255); */
+
   padding: 1%;
   width: 100%;
   color: black;
   border: none;
-  /* border: solid black 2px; */
+
   border-top: solid black 2px;
   text-decoration: none;
   text-align: center;
@@ -143,27 +152,22 @@ header {
     var(--green-color) 50%
   );
   background-position: 0 -15%;
-  /* background-image: linear-gradient(to top, var(--green-color) 50%, white 50%); */
-  /* background-position: 0 15%; */
+
   transition: background-position var(--color-transition-time);
   background-size: 100% 200%;
   -webkit-transition: background-position var(--color-transition-time);
   -moz-transition: background-position var(--color-transition-time);
-}
+} */
 
-.nav-menu-btn:hover {
+/* .nav-menu-btn:hover {
   background-color: var(--green-color);
   background-color: rgba(0, 0, 0, 1);
   color: black;
   background-position: 0 -100%;
   animation: none;
-  /* animation: navOpen; */
-  /* animation-duration: var(--color-transition-time);
-    animation-iteration-count: 1; */
-  /* background-position: 0 100%; */
-}
+} */
 
-.nav-menu-btn-animating {
+/* .nav-menu-btn-animating {
   animation-name: bounce;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -173,16 +177,15 @@ header {
 #nav-menu-abt-btn {
   border-right: solid black 2px;
   border-left: solid black 2px;
-}
+} */
 
 /* Project list */
 
-#website-projects-list-container {
+/* #website-projects-list-container {
   width: 25vw;
   position: fixed;
   right: 0px;
   top: calc(17vh - 1.5rem);
-  /* top: 20vh; */
 }
 
 #website-projects-list-container ul li {
@@ -196,9 +199,9 @@ header {
 
 #website-projects-popup {
   width: 25vw;
-}
+} */
 
-.prj-list-title {
+/* .prj-list-title {
   padding: 0.2vw;
   text-align: right;
   font-size: 1.5rem;
@@ -215,7 +218,7 @@ header {
   font-size: 1.5rem;
   background-color: var(--green-color);
   cursor: pointer;
-}
+} */
 
 /* project drop down */
 
@@ -226,26 +229,38 @@ header {
 }
 
 #website-projects-dropdown-button,
+#website-projects-dropdown-button-homepage,
 #website-projects-dropdown-content li {
+  /* padding: 0.2vw; */
+  position: relative;
+  z-index: 5;
   margin: 0;
   text-align: right;
-  min-height: 3rem;
+  height: 3rem;
   width: 100%;
   border: none;
   box-shadow: none;
-  background: white;
+  background: none;
   border-bottom: 2px solid black;
+  transform: translateY(2px);
+  padding-right: 3rem;
+}
+
+#website-projects-dropdown-button-homepage h1 sup {
+  font-weight: normal;
+  font-size: 0.75rem;
 }
 
 #website-projects-dropdown-button:hover,
 #website-projects-dropdown-content li:hover {
   background: var(--green-color);
+  border-bottom: 2px solid black;
 }
 
 #website-projects-dropdown-button a,
 #website-projects-dropdown-content li a {
   text-decoration: none;
-  padding: 0.2vw;
+  color: black;
   text-align: right;
   font-size: 1.5rem;
   list-style-type: none;

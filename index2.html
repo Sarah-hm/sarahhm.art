@@ -7,61 +7,32 @@
     <title>Sarah Hm</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.jpg" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script2.js"></script>
   </head>
   <body>
-    <div id="page-container">
-      <div id="dark-mode-toggle-btn">
-        <label class="switch">
-          <input type="checkbox" name="dark-mode-checkbox" />
-          <span class="slider round"></span>
-        </label>
-      </div>
-      <div id="menu">
-        <div class="titles hovering-titles light-mode" id="title-name">
-          <h1>Sarah Hontoy-Major,</h1>
-        </div>
-        <div class="subsection light-mode" id="subsection-name"></div>
+    <script>
+      let link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href =
+        "https://adsys2.concordia.ca/CMP/concordia-master-clientlibs.min.css";
+      link.type = "text/css";
+      document.head.appendChild(link);
 
-        <!-- DESCRIPTOR SECTION -->
-        <div class="titles light-mode" id="title-desc">
-          <h1>transdisciplinary artist</h1>
-        </div>
+      link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href =
+        "https://cscript-cdn-use.cassiecloud.com/cookie-policy-table.css";
+      link.type = "text/css";
+      document.head.appendChild(link);
 
-        <!-- 'in' title -->
-        <div class="titles light-mode" id="title-in"><h1>in</h1></div>
+      let script = document.createElement("script");
+      script.src = "https://cscript-cdn-use.cassiecloud.com/tableV2.js";
+      document.head.appendChild(script);
 
-        <!-- COMPUTATION ARTS -->
-        <div class="titles hovering-titles light-mode" id="title-cart">
-          <h1>Computation Arts;</h1>
-        </div>
-        <!-- FASHION -->
-        <div class="titles hovering-titles light-mode" id="title-fashion">
-          <h1>Fashion;</h1>
-        </div>
+      script = document.createElement("script");
+      script.textContext = `ar request = new XMLHttpRequest();request.open("GET", "https://www.concordia.ca/privacy/cookies/jcr:content/content-main/box/box-parsys.html");request.send();request.onreadystatechange = function() {if (request.readyState == XMLHttpRequest.DONE) { if (request.status == 200) { var response = request.responseText; document.getElementById("privacy-policy").innerHTML = response;} else { document.body.innerHTML = '<h3>The content of this page is currently unavailable.</h3>';}}}	;document.addEventListener("DOMContentLoaded", function(event) { GetCookiePolicyTable('39','414E0D0E-BBCC-4D69-95C5-FE1D15F8C496', 'privacy-policy', '','1');}); `;
+      document.head.appendChild(script);
+    </script>
 
-        <!-- POLI SCI -->
-        <div class="titles hovering-titles light-mode" id="title-polisci">
-          <h1>& Political Science.</h1>
-        </div>
-      </div>
-      <div id="submenu" class="submenu-opened">
-        <div
-          class="submenu-titles titles hovering-titles light-mode"
-          id="menu-subsection-cart"
-        >
-          <h1>data_scapes</h1>
-        </div>
-        <div
-          class="submenu-titles titles hovering-titles light-mode"
-          id="menu-subsection-cart"
-        >
-          <h1>tangible media</h1>
-        </div>
-      </div>
-      <div id="page">
-        <!-- NAME SECTION -->
-      </div>
-    </div>
+    <div id="privacy-policy"></div>
   </body>
 </html>

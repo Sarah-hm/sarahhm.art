@@ -28,41 +28,45 @@ class Project {
     this.prjContainer.setAttribute("id", "prj-container");
     document.body.appendChild(this.prjContainer);
 
-    this.descContainer = document.createElement("div");
-    this.descContainer.setAttribute("id", "desc-container");
-    this.prjContainer.appendChild(this.descContainer);
+    this.leftContainer = document.createElement("div");
+    this.leftContainer.setAttribute("id", "prj-container-left");
+    this.prjContainer.appendChild(this.leftContainer);
+
+    this.rightContainer = document.createElement("div");
+    this.rightContainer.setAttribute("id", "prj-container-right");
+    this.prjContainer.appendChild(this.rightContainer);
 
     // this.printTitle();
-    // this.printSubtitle();
-    // this.printYear();
+    this.printSubtitle();
+    this.printYear();
 
-    // this.printMedia();
-    // this.printKeywords();
-    // this.printWebsiteLink();
-    // this.printDescription();
+    this.printMedia();
+    this.printKeywords();
+    this.printWebsiteLink();
+    this.printDescription();
 
-    // this.printLinkDoc();
-    // this.printVisualDoc();
+    this.printLinkDoc();
+    this.printVisualDoc();
   }
 
   printTitle() {
     this.para = document.createElement("p");
     this.para.classList.add("prj-title");
-    this.descContainer.appendChild(this.para);
+    this.rightContainer.appendChild(this.para);
     this.para.insertAdjacentText("afterbegin", this.title);
   }
 
   printSubtitle() {
     this.para = document.createElement("p");
     this.para.classList.add("prj-subtitle");
-    this.descContainer.appendChild(this.para);
+    this.rightContainer.appendChild(this.para);
     this.para.insertAdjacentText("afterbegin", this.subtitle);
   }
 
   printYear() {
     this.para = document.createElement("p");
     this.para.classList.add("prj-year");
-    this.descContainer.appendChild(this.para);
+    this.rightContainer.appendChild(this.para);
     this.para.insertAdjacentText("afterbegin", this.year);
   }
 
@@ -70,8 +74,8 @@ class Project {
     // open a div that stores all media with an ul
     this.ul = document.createElement("ul");
     this.ul.classList.add("prj-media-ul");
-    this.descContainer.appendChild(this.ul);
-    this.ul.innerHTML = `<h4>Media: </h4>`;
+    this.rightContainer.appendChild(this.ul);
+    this.ul.innerHTML = `<h4>Media</h4>`;
 
     for (this.i = 0; this.i < this.media.length; this.i++) {
       //print single medium as a li
@@ -90,8 +94,8 @@ class Project {
 
     this.ul = document.createElement("ul");
     this.ul.classList.add("prj-keywords-ul");
-    this.descContainer.appendChild(this.ul);
-    this.ul.innerHTML = `<h4>Keywords: </h4>`;
+    this.rightContainer.appendChild(this.ul);
+    this.ul.innerHTML = `<h4>Keywords</h4>`;
 
     for (this.i = 0; this.i < this.keywords.length; this.i++) {
       //print single medium as a li
@@ -109,7 +113,7 @@ class Project {
     if (this.websiteLink != "") {
       this.div = document.createElement("div");
       this.div.classList.add("prj-websiteLink-btn");
-      this.descContainer.appendChild(this.div);
+      this.leftContainer.appendChild(this.div);
 
       this.link = `<a href = "${this.websiteLink}" target = "_blank"> Access project website</a>`;
       this.div.insertAdjacentHTML("afterbegin", this.link);
@@ -120,8 +124,8 @@ class Project {
     // open a div that stores all description with an ul
     this.div = document.createElement("div");
     this.div.classList.add("prj-desc-div");
-    this.descContainer.appendChild(this.div);
-    this.div.innerHTML = `<h4>Statement: </h4>`;
+    this.rightContainer.appendChild(this.div);
+    this.div.innerHTML = `<h4>Statement</h4>`;
 
     for (this.i = 0; this.i < this.desc.length; this.i++) {
       //print descriptions as paragraphs
@@ -136,9 +140,13 @@ class Project {
   //Add images to slideshow (or video*)
   printVisualDoc() {
     // open a div that stores all keywords with an ul
-    this.div = document.createElement("div");
-    this.div.setAttribute("id", "visual-doc-container");
-    this.prjContainer.appendChild(this.div);
+    this.visualDocContainer = document.createElement("div");
+    this.visualDocContainer.setAttribute("id", "visual-doc-container");
+    this.leftContainer.appendChild(this.visualDocContainer);
+
+    // this.prj_page_top_margin = document.createElement("div");
+    // this.prj_page_top_margin.classList.add("prj-page-top-margin-buffer");
+    // this.visualDocContainer.appendChild(this.prj_page_top_margin);
 
     for (this.i = 0; this.i < this.visualDoc.length; this.i++) {
       switch (this.visualDoc[this.i].type) {
@@ -146,7 +154,7 @@ class Project {
           // Create figure with caption
           this.figure = document.createElement("figure");
           this.figure.classList.add("prj-visualDoc-figure");
-          this.div.appendChild(this.figure);
+          this.visualDocContainer.appendChild(this.figure);
 
           if (this.visualDoc[this.i].caption != "") {
             this.caption = document.createElement("figcaption");
@@ -169,7 +177,7 @@ class Project {
           if (this.visualDoc[this.i].caption != "") {
             this.caption = document.createElement("figcaption");
             this.caption.classList.add("prj-visualDoc-figcaption");
-            this.div.appendChild(this.caption);
+            this.visualDocContainer.appendChild(this.caption);
             this.caption.insertAdjacentText(
               "afterbegin",
               this.visualDoc[this.i].caption
@@ -181,7 +189,7 @@ class Project {
           this.video.setAttribute("controls", "controls");
           this.video.setAttribute("autoplay", "autoplay");
           this.video.setAttribute("loop", "loop");
-          this.div.appendChild(this.video);
+          this.visualDocContainer.appendChild(this.video);
 
           this.source = document.createElement("source");
           this.source.src = `${this.visualDoc[this.i].source}`;
@@ -199,12 +207,12 @@ class Project {
   printLinkDoc() {
     this.div = document.createElement("div");
     this.div.classList.add("prj-link-documentation-div");
-    this.descContainer.appendChild(this.div);
+    this.leftContainer.appendChild(this.div);
 
     for (this.i = 0; this.i < this.linkDoc.length; this.i++) {
       this.div = document.createElement("div");
       this.div.classList.add("prj-visual-documentation-btn");
-      this.descContainer.appendChild(this.div);
+      this.leftContainer.appendChild(this.div);
       this.link = `<a href = "${this.linkDoc[this.i].source}" target="_blank">${
         this.linkDoc[this.i].type
       }</a>`;

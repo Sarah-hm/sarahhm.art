@@ -46,18 +46,17 @@ class Header {
       },
     };
     this.navBtns = {
-      about: "learn more",
-      instagram: ", visit my",
-      email: ", or copy my e-mail",
+      about: `learn more <span class= "nav-button" id ="about-button"> about me</span>`,
+      instagram: `, visit my <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>`,
+      email: `, or copy my e-mail <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>`,
     };
-    this.navHTML = ` ${this.navBtns.about} <span class= "nav-button" id ="about-button"> about me</span>${this.navBtns.instagram} <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>${this.navBtns.email} <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>.`;
+    this.navHTML = ` ${this.navBtns.about} ${this.navBtns.instagram} ${this.navBtns.email}.`;
 
     console.log(this.navHTML);
 
     this.createWebsiteTitle();
     this.createAboutSection();
 
-    // this.printWebTitle();
     this.titleRedirect();
     this.printNavMenu(this.navHTML);
 
@@ -65,6 +64,7 @@ class Header {
     console.log(this.currentPageID);
     if (this.currentPageID === "homepage") {
       console.log("homepage");
+      this.createImgPopupContainer();
       this.createProjectList();
     } else {
       this.createProjectDropdown(this.currentProjectID);
@@ -160,19 +160,34 @@ class Header {
   }
 
   createProjectList() {
-    this.div = document.createElement("div");
-    this.div.setAttribute("id", "website-projects-list-container");
-    this.doc.appendChild(this.div);
+    this.dropdownContainer = document.createElement("div");
+    this.dropdownContainer.setAttribute(
+      "id",
+      "website-projects-dropdown-container"
+    );
+    this.header.appendChild(this.dropdownContainer);
 
-    this.list = document.createElement("ul");
-    this.list.setAttribute("id", "projects-list");
-    this.div.appendChild(this.list);
+    this.dropdownBtn = document.createElement("button");
+    this.dropdownBtn.setAttribute(
+      "id",
+      "website-projects-dropdown-button-homepage"
+    );
+    this.dropdownContainer.appendChild(this.dropdownBtn);
 
-    // For the entire length of the projects.json data (minus the template available at the very end of the array)
+    this.dropdownBtn.innerHTML = `<h1>   things I've done </h1>`;
+
+    this.dropdownContent = document.createElement("div");
+    this.dropdownContent.setAttribute(
+      "id",
+      "website-projects-dropdown-content"
+    );
+    this.dropdownContainer.appendChild(this.dropdownContent);
+
+    // Print all the projects in the projects.json, except the last one (template json object)
     for (let i = 0; i < this.data.length - 1; i++) {
       this.newPrj = document.createElement("li");
       this.newPrj.classList.add("prj-list-title");
-      this.list.appendChild(this.newPrj);
+      this.dropdownContent.appendChild(this.newPrj);
       this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
     }
   }
@@ -234,8 +249,24 @@ class Header {
   }
 
   createAboutSection() {
+    // this.aboutSection = document.createElement("div");
+    // this.aboutSection.classList.add("website-about-section");
+    // this.innerHeader.appendChild(this.aboutSection);
+    // this.aboutBody = document.createElement("div");
+    // this.aboutBody.classList.add("website-section-body");
+    // this.aboutBody.setAttribute("id", "about-section-body");
+    // this.aboutSection.appendChild(this.aboutBody);
+    // for (this.i = 0; this.i < this.about.text.length; this.i++) {
+    //   this.para = document.createElement("p");
+    //   this.aboutBody.appendChild(this.para);
+    //   this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
+    // }
+  }
+
+  aboutSectionToggle() {
+    console.log("yolo");
     this.aboutSection = document.createElement("div");
-    this.aboutSection.classList.add("website-about-section");
+    this.aboutSection.setAttribute("id", "website-about-section-container");
     this.innerHeader.appendChild(this.aboutSection);
 
     this.aboutBody = document.createElement("div");
@@ -248,9 +279,23 @@ class Header {
       this.aboutBody.appendChild(this.para);
       this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
     }
-  }
 
-  aboutSectionToggle() {
+    this.mouseInInnerHeader = false;
+
+    this.innerHeader.addEventListener("mouseenter", () => {
+      this.mouseInInnerHeader = true;
+    });
+    this.innerHeader.addEventListener("mouseleave", () => {
+      this.mouseInInnerHeader = false;
+    });
+
+    // close dropdown when mouse leave
+    this.aboutSection.addEventListener("mouseleave", () => {
+      if (!this.mouseInInnerHeader) {
+        document.getElementById("website-about-section-container").remove();
+      }
+    });
+
     // get the height of the bottom of project list to make them align
     //to be compelted
 
@@ -273,11 +318,13 @@ class Header {
     });
   }
 
-  showProjectImg(el) {
-    // Calculate where the middle of the screen is
-    // console.log(window.innerWidth);
-    // window.innerHeight;
+  createImgPopupContainer() {
+    this.imgPopupContainer = document.createElement("div");
+    this.imgPopupContainer.setAttribute("id", "project-img-overlay-container");
+    this.doc.appendChild(this.imgPopupContainer);
+  }
 
+  showProjectImg(el) {
     // create img project element
     this.projectImg = document.createElement("div");
     this.projectImg.classList.add("project-img-overlay");
