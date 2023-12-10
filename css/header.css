@@ -19,7 +19,7 @@ header {
   z-index: 500;
   position: absolute;
   width: 100vw;
-  margin-top: 2vh;
+  padding-top: 2vh;
   top: 0;
   left: 0;
   display: flex;
@@ -31,6 +31,7 @@ header {
 }
 
 .inner-header {
+  /* background: cyan; */
   /* border-bottom: solid black 2px; */
   width: calc(50% + 2px);
   height: 15vh;
@@ -40,6 +41,7 @@ header {
   padding-left: 1rem;
   overflow-y: visible;
   justify-content: flex-end;
+  background: none;
 }
 
 #nav-menu-mobile {
@@ -86,6 +88,8 @@ header {
   cursor: pointer;
   transition: background-color 0.25s;
   color: black;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 .nav-button:hover {
@@ -112,8 +116,23 @@ header {
   /* overflow: scroll; */
 }
 
+#project-img-overlay-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* background: pink; */
+  width: 70vw;
+  height: 80vh;
+  display: flex;
+  /* justify-content: center; */
+}
+
 .project-img-overlay {
-  width: 50vw;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  /* background: pink; */
+  /* width: 50vw;
   height: 70vh;
   position: fixed;
   bottom: 0px;
@@ -121,7 +140,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: hidden; */
 }
 
 .project-img-overlay img {
@@ -129,96 +148,6 @@ header {
   max-width: 100%;
   max-height: 100%;
 }
-
-/* 
-.nav-menu-btn {
-  cursor: pointer;
-  outline: inherit;
-
-  padding: 1%;
-  width: 100%;
-  color: black;
-  border: none;
-
-  border-top: solid black 2px;
-  text-decoration: none;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 1rem;
-  transition: background-color var(--color-transition-time);
-  background-image: linear-gradient(
-    to bottom,
-    white 50%,
-    var(--green-color) 50%
-  );
-  background-position: 0 -15%;
-
-  transition: background-position var(--color-transition-time);
-  background-size: 100% 200%;
-  -webkit-transition: background-position var(--color-transition-time);
-  -moz-transition: background-position var(--color-transition-time);
-} */
-
-/* .nav-menu-btn:hover {
-  background-color: var(--green-color);
-  background-color: rgba(0, 0, 0, 1);
-  color: black;
-  background-position: 0 -100%;
-  animation: none;
-} */
-
-/* .nav-menu-btn-animating {
-  animation-name: bounce;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
-}
-
-#nav-menu-abt-btn {
-  border-right: solid black 2px;
-  border-left: solid black 2px;
-} */
-
-/* Project list */
-
-/* #website-projects-list-container {
-  width: 25vw;
-  position: fixed;
-  right: 0px;
-  top: calc(17vh - 1.5rem);
-}
-
-#website-projects-list-container ul li {
-  border-bottom: solid black 1px;
-  padding-right: 1rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-#website-projects-popup {
-  width: 25vw;
-} */
-
-/* .prj-list-title {
-  padding: 0.2vw;
-  text-align: right;
-  font-size: 1.5rem;
-  list-style-type: none;
-}
-
-.prj-list-title a {
-  text-decoration: none;
-  color: black;
-}
-
-.prj-list-title:hover {
-  text-align: right;
-  font-size: 1.5rem;
-  background-color: var(--green-color);
-  cursor: pointer;
-} */
 
 /* project drop down */
 

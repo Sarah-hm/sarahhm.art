@@ -329,7 +329,9 @@ class Header {
     this.projectImg = document.createElement("div");
     this.projectImg.classList.add("project-img-overlay");
     this.projectImg.setAttribute("id", `${this.data[el].id}-img`);
-    document.body.appendChild(this.projectImg);
+    document
+      .getElementById("project-img-overlay-container")
+      .appendChild(this.projectImg);
 
     // Probably have to create an inner project image container
 
