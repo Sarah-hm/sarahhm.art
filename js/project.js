@@ -144,10 +144,6 @@ class Project {
     this.visualDocContainer.setAttribute("id", "visual-doc-container");
     this.leftContainer.appendChild(this.visualDocContainer);
 
-    // this.prj_page_top_margin = document.createElement("div");
-    // this.prj_page_top_margin.classList.add("prj-page-top-margin-buffer");
-    // this.visualDocContainer.appendChild(this.prj_page_top_margin);
-
     for (this.i = 0; this.i < this.visualDoc.length; this.i++) {
       switch (this.visualDoc[this.i].type) {
         case "image":
@@ -187,6 +183,7 @@ class Project {
           this.video = document.createElement("video");
           this.video.classList.add("prj-visualDoc-video");
           this.video.setAttribute("controls", "controls");
+          this.video.setAttribute("controlsList", "nodownload");
           this.video.setAttribute("autoplay", "autoplay");
           this.video.setAttribute("loop", "loop");
           this.visualDocContainer.appendChild(this.video);

@@ -9,18 +9,24 @@
     "keywords": [
       "pattern seeking",
       "speculative design",
-      "naive science",
+      "folk ontologies",
       "networked materiality"
     ],
     "websiteLink": "https://hybrid.concordia.ca/s_hontoy/aMRI/index.php",
     "description": [
-      "Data_scapes is a continuing exploration of story-telling through data and folk ontologies; how we can reinterpret different stories through different simplified data visualization and algorithms. Humanity has naturalized hegemonic, yet arbitrary, structures and hierarchies in every aspect of our existence, including cyberspace. Our deterministic rather than probabilistic nature, that is we would rather want something to be entirely true or entirely false, as opposed to a nuance of both or neither, forces oversimplifications of natural, organic, and non-linear processes into binary ‘truths’.  This makes us increasingly less likely to accept different ‘subjective’ truths as equally ‘objective’ amongst themselves. "
+      "Functional Magnetic Resonance Imagery aims to understand what part of our brain, associated with specific functions, use the most energy given certain tasks. This is useful for physicians and other experts to analyze brain functions, advance science, and understand brain-related injuries and diseases better.",
+      "Though it communicates information that are closest to us, fMRI results remain complex and innaccessible information for most . Its affordances are for experts to understand.",
+      "Another function of this kind of imagery could be to communicate information to ourselves in a more humanist and personal way. Simplifying convoluted data by removing layers of scientific accuracy would be naive, but it may make information more reachable, thus more meaningful.",
+      "There is no pain nerve endings in the brain, so imaging brain functions help us gain awareness of those functions better, and our own situatedness within them. Although we cannot actually feel them, seeing them may emulate a similar sensation.",
+      "The afuntional MRI makes you reflect on a general idea, and asks where in your brain you think this may come from. Is it a random choice, or do you know the brain enough to guess with precision? Which functions do you think visualizing those data may have? In the most non-scientific way possible, why is it important to reflect where in your brain things come from?"
     ],
     "visual_documentation": [
       {
-        "type": "image",
-        "source": "projects/data-scapes/data-scapes-01.png",
-        "caption": "Data-scapes' state as of 04/09/2023 calculated on Mercador projection"
+        "type": "video",
+        "source": "projects/aMRI/aMRI_full-length.mp4",
+        "videoType": "video/mp4",
+        "caption": ": How to participate",
+        "poster": "projects/aMRI/aMRI-short-length.gif"
       }
     ],
     "link_documentation": [
@@ -252,15 +258,11 @@
     ],
     "visual_documentation": [
       {
-        "type": "image",
-        "source": "projects/femme/femme-still.png",
-        "caption": ""
-      },
-      {
         "type": "video",
         "source": "projects/femme/Femme_2022_optimized.mp4",
         "videoType": "video/mp4",
-        "caption": "full video"
+        "caption": "full video",
+        "poster": "projects/femme/femme_GIF.gif"
       }
     ],
     "link_documentation": []

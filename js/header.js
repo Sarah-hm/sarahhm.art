@@ -52,8 +52,6 @@ class Header {
     };
     this.navHTML = ` ${this.navBtns.about} ${this.navBtns.instagram} ${this.navBtns.email}.`;
 
-    console.log(this.navHTML);
-
     this.createWebsiteTitle();
     this.createAboutSection();
 
@@ -61,9 +59,7 @@ class Header {
     this.printNavMenu(this.navHTML);
 
     // if homepage, print project list; if project page, print project drop-down
-    console.log(this.currentPageID);
     if (this.currentPageID === "homepage") {
-      console.log("homepage");
       this.createImgPopupContainer();
       this.createProjectList();
     } else {
@@ -86,7 +82,6 @@ class Header {
         document
           .getElementsByClassName("prj-list-title")
           [i].addEventListener("mouseenter", (e) => {
-            console.log("hover");
             this.showProjectImg(i);
           });
         document
@@ -333,14 +328,29 @@ class Header {
       .getElementById("project-img-overlay-container")
       .appendChild(this.projectImg);
 
-    // Probably have to create an inner project image container
-
     // Create img element
     this.img = document.createElement("img");
-    this.img.setAttribute(
-      "src",
-      `${this.data[el].visual_documentation[0].source}`
-    );
+
+    // Switch what to render as thumbnail image depending on first source's type (img, video, ...)
+    switch (this.data[el].visual_documentation[0].type) {
+      // If the source is an image, take the image directly
+      case "image":
+        this.img.setAttribute(
+          "src",
+          `${this.data[el].visual_documentation[0].source}`
+        );
+        break;
+      // if the source s a video, take its thumbnail (poster) as img
+      case "video":
+        this.img.setAttribute(
+          "src",
+          `${this.data[el].visual_documentation[0].poster}`
+        );
+        break;
+      default:
+        console.log("no supported source type");
+    }
+
     this.img.setAttribute("alt", `Image of ${this.data[el].title}`);
 
     //Populate the project image container with the current image
