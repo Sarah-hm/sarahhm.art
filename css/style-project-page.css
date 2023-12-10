@@ -37,7 +37,7 @@
 
 body {
   background-color: white;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #prj-container {
@@ -52,11 +52,11 @@ body {
 #prj-container-left {
   width: 50vw;
   /* background: pink; */
-  position: relative;
-  top: 0px;
-  left: 0px;
+  /* position: relative; */
+  /* top: 0px;
+  left: 0px; */
   width: 50vw;
-  height: 100vh;
+  /* height: 100vh; */
   /* background-color: white; */
   padding: 3rem;
   padding-top: 20vh;
@@ -74,21 +74,6 @@ body {
   padding: 3rem;
   padding-top: 20vh;
 }
-
-/* #desc-container {
-  height: 100%;
-  width: 50vw;
-  background-color: white;
-  color: black;
-  padding-top: 2rem;
-  padding-left: 1rem;
-  padding-right: 2rem;
-  padding-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  overflow-x: hidden;
-} */
 
 #visual-doc-container {
   display: flex;
@@ -144,7 +129,6 @@ body {
 .prj-year {
   padding-bottom: 0.5rem;
   flex-wrap: nowrap;
-  /* width: 25%; */
   text-align: right;
 }
 
@@ -235,28 +219,61 @@ body {
   mix-blend-mode: difference;
 }
 
-@media only screen and (max-width: 800px) {
-  header {
-    position: sticky;
-  }
-
-  body {
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-
+/* mobile portrait + landscape */
+@media only screen and (max-width: 767px) {
   #prj-container {
-    flex-direction: column;
-    width: 100vw;
+    flex-direction: column-reverse;
+    overflow: scroll;
+    direction: rtl;
   }
 
-  #desc-container {
-    width: 100vw;
+  #prj-container-right {
+    padding-top: 35vh;
   }
 
-  #visual-doc-container {
-    width: 100vw;
+  #prj-container-left {
+    padding-top: 0;
+  }
+
+  #prj-container-left,
+  #prj-container-right {
+    padding-left: calc(2rem - 10px);
+    padding-right: 2rem;
+    width: 100%;
+    overflow-y: initial;
+    overflow-x: initial;
+  }
+
+  .prj-title,
+  .prj-subtitle,
+  .prj-year,
+  .prj-media-ul,
+  .prj-keywords-ul,
+  .prj-desc-div,
+  .prj-desc-para {
+    text-align: left;
+  }
+
+  .prj-visualDoc-figure {
+    width: 100%;
+  }
+}
+
+/* tablets + small desktop */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #prj-container {
+    flex-direction: column-reverse;
+    overflow: scroll;
+    direction: rtl;
+  }
+  #prj-container-right {
+    padding-top: 30vh;
+  }
+
+  #prj-container-left,
+  #prj-container-right {
+    width: 100%;
+    overflow-y: initial;
+    overflow-x: initial;
   }
 }

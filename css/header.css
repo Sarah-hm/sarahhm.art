@@ -16,6 +16,7 @@
 
 /* ==== HEADER ==== */
 header {
+  height: auto;
   z-index: 500;
   position: absolute;
   width: 100vw;
@@ -33,7 +34,7 @@ header {
 .inner-header {
   /* background: cyan; */
   /* border-bottom: solid black 2px; */
-  width: calc(50% + 2px);
+  /* width: calc(50% + 2px); */
   height: 15vh;
   display: flex;
   flex-direction: column;
@@ -69,9 +70,6 @@ header {
 }
 
 .nav-text {
-  /* height: 3rem; */
-  display: flex;
-  align-items: flex-end;
   padding-bottom: 0.75rem;
 }
 
@@ -88,8 +86,6 @@ header {
   cursor: pointer;
   transition: background-color 0.25s;
   color: black;
-  padding-left: 3px;
-  padding-right: 3px;
 }
 
 .nav-button:hover {
@@ -116,63 +112,27 @@ header {
   /* overflow: scroll; */
 }
 
-#project-img-overlay-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  /* background: pink; */
-  width: 70vw;
-  height: 80vh;
-  display: flex;
-  /* justify-content: center; */
-}
-
-.project-img-overlay {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
-  /* background: pink; */
-  /* width: 50vw;
-  height: 70vh;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; */
-}
-
-.project-img-overlay img {
-  /* background-color: white; */
-  max-width: 100%;
-  max-height: 100%;
-}
-
 /* project drop down */
 
 #website-projects-dropdown-container {
   position: relative;
-  /* display: inline-block; */
-  width: 30vw;
+  width: 35vw;
 }
 
 #website-projects-dropdown-button,
 #website-projects-dropdown-button-homepage,
 #website-projects-dropdown-content li {
-  /* padding: 0.2vw; */
-  position: relative;
+  /* position: relative; */
   z-index: 5;
   margin: 0;
   text-align: right;
-  height: 3rem;
   width: 100%;
   border: none;
   box-shadow: none;
   background: none;
   border-bottom: 2px solid black;
-  transform: translateY(2px);
   padding-right: 3rem;
+  padding-top: 0.5rem;
 }
 
 #website-projects-dropdown-button-homepage h1 sup {
@@ -193,7 +153,6 @@ header {
   text-align: right;
   font-size: 1.5rem;
   list-style-type: none;
-  height: 3rem;
   width: 100%;
 }
 
@@ -212,4 +171,113 @@ header {
   position: absolute;
   width: 100%;
   background-color: white;
+}
+
+/* project image overlay */
+
+#project-img-overlay-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 65vw;
+  height: 80vh;
+  display: flex;
+}
+
+.project-img-overlay {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+.project-img-overlay img {
+  /* background-color: white; */
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* mobile portrait + landscape */
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 10px;
+  }
+  header {
+    /* position: sticky; */
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    height: auto;
+    /* padding-top: 2rem; */
+    /* height: auto; */
+  }
+
+  .inner-header {
+    /* height: 20vh; */
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+  }
+
+  .nav-text {
+    word-wrap: normal;
+    text-align: left;
+  }
+  #website-projects-dropdown-container {
+    width: 100%;
+    text-align: left;
+  }
+
+  #website-projects-dropdown-content {
+    display: inline;
+    width: 100%;
+    overflow-y: scroll;
+    padding: 0;
+    padding-left: 2rem;
+    padding-right: 1.5rem;
+  }
+
+  #website-projects-dropdown-button a,
+  #website-projects-dropdown-button-homepage {
+    padding-left: 2rem;
+  }
+
+  #website-projects-dropdown-button a,
+  #website-projects-dropdown-button-homepage,
+  #website-projects-dropdown-content li a {
+    text-align: left;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding-right: 2rem;
+  }
+
+  .prj-list-title {
+    padding: 0;
+  }
+
+  #project-img-overlay-container {
+  }
+}
+
+/* tablets + small desktop */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  header {
+    height: 30vh;
+  }
+
+  .inner-header {
+    height: auto;
+    position: fixed;
+    top: 0px;
+    width: 80%;
+    /* background: cyan; */
+  }
+
+  #website-projects-dropdown-container {
+    position: absolute;
+    top: calc(20vh - 3rem / 2);
+    right: 0px;
+    width: 40vw;
+  }
 }
