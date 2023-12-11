@@ -31,6 +31,8 @@ header {
   align-items: flex-end;
   justify-content: space-between;
   background: none;
+  color: black;
+  background-color: white;
   /* background: red; */
 }
 
@@ -59,12 +61,16 @@ header {
   flex-direction: column;
   justify-content: center;
 }
+.website-title-container h1 {
+}
 
 .website-title,
 .website-subtitle {
   /* z-index: 1; */
   /* font-size: 7vw; */
-  color: invert(100%);
+  /* color: invert(100%); */
+
+  color: black;
   padding-bottom: 0.5rem;
 }
 

@@ -37,6 +37,7 @@
   cursor: pointer;
 }
 
+html,
 body {
   background-color: white;
   /* overflow: hidden; */
@@ -52,6 +53,7 @@ body {
 }
 
 #prj-container-left {
+  background-color: white;
   width: 50vw;
   /* background: pink; */
   /* position: relative; */
@@ -67,6 +69,9 @@ body {
   display: flex;
   flex-direction: column;
   direction: rtl;
+  /* z-index: 5001; */
+  /* background-color: black; */
+  /* mix-blend-mode: difference; */
 }
 
 #prj-container-right {
