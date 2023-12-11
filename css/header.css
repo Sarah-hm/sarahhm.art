@@ -14,6 +14,9 @@
   background: none;
 }
 
+li {
+  list-style-type: none;
+}
 /* ==== HEADER ==== */
 header {
   height: auto;
@@ -135,6 +138,17 @@ header {
   padding-top: 0.5rem;
 }
 
+#website-projects-dropdown-button a,
+#website-projects-dropdown-button-homepage a,
+#website-projects-dropdown-content a {
+  /* position: relative; */
+  margin: 0;
+  text-align: right;
+  width: 100%;
+  border: none;
+  text-decoration: none;
+}
+
 #website-projects-dropdown-button-homepage h1 sup {
   font-weight: normal;
   font-size: 0.75rem;
@@ -147,7 +161,7 @@ header {
 }
 
 #website-projects-dropdown-button a,
-#website-projects-dropdown-content li a {
+#website-projects-dropdown-content a {
   text-decoration: none;
   color: black;
   text-align: right;
@@ -157,13 +171,13 @@ header {
 }
 
 #website-projects-dropdown-button a:visited,
-#website-projects-dropdown-content li a:visited {
+#website-projects-dropdown-content a:visited {
   text-decoration: none;
   color: grey;
 }
 
 #website-projects-dropdown-button a sup,
-#website-projects-dropdown-content li a sup {
+#website-projects-dropdown-content a sup {
   font-size: 0.8rem;
 }
 

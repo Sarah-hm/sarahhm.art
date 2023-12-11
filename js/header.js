@@ -180,10 +180,16 @@ class Header {
 
     // Print all the projects in the projects.json, except the last one (template json object)
     for (let i = 0; i < this.data.length - 1; i++) {
-      this.newPrj = document.createElement("li");
-      this.newPrj.classList.add("prj-list-title");
+      this.newPrj = document.createElement("a");
+      this.newPrj.setAttribute("href", `${this.data[i].url}`);
+      // this.newPrj.classList.add("prj-list-title");
       this.dropdownContent.appendChild(this.newPrj);
-      this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
+      this.newPrj.innerHTML = `
+      <li class="prj-list-title">
+      <sup> ${this.data[i].year} </sup>
+      ${this.data[i].title}
+      </li>
+      `;
     }
   }
 
@@ -218,10 +224,16 @@ class Header {
       for (let i = 0; i < this.data.length - 1; i++) {
         // don't reprint the current project page
         if (this.data[i].id != currentProject) {
-          this.newPrj = document.createElement("li");
-          this.newPrj.classList.add("prj-list-title");
+          this.newPrj = document.createElement("a");
+          this.newPrj.setAttribute("href", `${this.data[i].url}`);
+          // this.newPrj.classList.add("prj-list-title");
           this.dropdownContent.appendChild(this.newPrj);
-          this.newPrj.innerHTML = `<a href = ${this.data[i].url}><sup> ${this.data[i].year} </sup>${this.data[i].title}</a>`;
+          this.newPrj.innerHTML = `
+      <li class="prj-list-title">
+      <sup> ${this.data[i].year} </sup>
+      ${this.data[i].title}
+      </li>
+      `;
         }
       }
 

@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-  /* --green-color: rgb(0, 206, 9); */
-  --green-color: rgb(0, 230, 0);
+  /* --accent-color: rgb(0, 206, 9); */
+  --accent-color: rgb(0, 230, 0);
   --color-transition-time: 0.1s;
 }
 
@@ -19,8 +19,8 @@ body {
 }
 
 ::selection {
-  background-color: var(--green-color);
-  /* color: var(--green-color); */
+  background-color: var(--accent-color);
+  /* color: var(--accent-color); */
 }
 
 /* === WEBSITE POPUP GENERAL === */
@@ -66,9 +66,9 @@ body {
 
 .website-popup-close-btn:hover,
 .project-img-popup-close-btn:hover {
-  border: inset 2px var(--green-color);
+  border: inset 2px var(--accent-color);
   cursor: pointer;
-  background: var(--green-color);
+  background: var(--accent-color);
 }
 
 .website-popup-header-title {
@@ -131,7 +131,7 @@ body {
 .prj-list-title:hover {
   text-align: right;
   font-size: 1.5rem;
-  background-color: var(--green-color);
+  background-color: var(--accent-color);
   cursor: pointer;
 }
 
@@ -206,13 +206,13 @@ body {
   color: black;
   padding: 1%;
   padding-top: 3%;
-  box-shadow: 0px 0px 0px 0 var(--green-color);
+  box-shadow: 0px 0px 0px 0 var(--accent-color);
   transition: box-shadow 0.1s;
 }
 
 .contact-link:hover {
   cursor: pointer;
-  box-shadow: 5px 6px 0px 0 var(--green-color);
+  box-shadow: 5px 6px 0px 0 var(--accent-color);
   outline: solid black 0.5px;
 }
 
@@ -222,13 +222,13 @@ body {
 
 #contact-email-copy-section button {
   width: 100%;
-  box-shadow: 0px 0px 0px 0 var(--green-color);
+  box-shadow: 0px 0px 0px 0 var(--accent-color);
   transition: box-shadow 0.1s;
 }
 
 #contact-email-copy-section button:hover {
   cursor: pointer;
-  box-shadow: 5px 6px 0px 0 var(--green-color);
+  box-shadow: 5px 6px 0px 0 var(--accent-color);
 }
 /* email */
 #email-tooltip {
@@ -286,13 +286,13 @@ body {
 #cv-btn {
   padding: 2%;
   cursor: pointer;
-  box-shadow: 0px 0px 0px 0 var(--green-color);
+  box-shadow: 0px 0px 0px 0 var(--accent-color);
   transition: box-shadow 0.1s;
   font-size: 1.5rem;
 }
 
 #cv-btn:hover {
-  box-shadow: 5px 6px 0px 0 var(--green-color);
+  box-shadow: 5px 6px 0px 0 var(--accent-color);
 }
 
 /* map */
@@ -385,7 +385,7 @@ body {
   transition: 0.4s;
 }
 input:checked + .slider {
-  background-color: var(--green-color);
+  background-color: var(--accent-color);
 }
 /* input:focus + .slider {
   box-shadow: 0 0 2px black;
