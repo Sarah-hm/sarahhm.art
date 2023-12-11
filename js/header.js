@@ -105,7 +105,7 @@ class Header {
     //redirect to index.html when clicking website title container
     Object.keys(this.websiteTitleContainer).forEach((key) => {
       this.websiteTitleContainer[key].addEventListener("click", () => {
-        window.location.href = "/index.html";
+        window.location.href = "/";
       });
     });
   }
