@@ -9,7 +9,8 @@ class Project {
     websiteLink,
     desc,
     visualDoc,
-    linkDoc
+    linkDoc,
+    accentColor
   ) {
     this.title = title;
     this.subtitle = subtitle;
@@ -20,6 +21,7 @@ class Project {
     this.desc = desc;
     this.visualDoc = visualDoc;
     this.linkDoc = linkDoc;
+    this.accentColor = accentColor;
     // this.media[("one", "two", "three")];
 
     // this.websiteHeader = document.body;
@@ -35,6 +37,11 @@ class Project {
     this.rightContainer = document.createElement("div");
     this.rightContainer.setAttribute("id", "prj-container-right");
     this.prjContainer.appendChild(this.rightContainer);
+
+    document.documentElement.style.setProperty(
+      "--accent-color",
+      `${this.accentColor}`
+    );
 
     // this.printTitle();
     this.printSubtitle();
@@ -204,12 +211,12 @@ class Project {
   printLinkDoc() {
     this.div = document.createElement("div");
     this.div.classList.add("prj-link-documentation-div");
-    this.leftContainer.appendChild(this.div);
+    this.rightContainer.appendChild(this.div);
 
     for (this.i = 0; this.i < this.linkDoc.length; this.i++) {
       this.div = document.createElement("div");
       this.div.classList.add("prj-visual-documentation-btn");
-      this.leftContainer.appendChild(this.div);
+      this.rightContainer.appendChild(this.div);
       this.link = `<a href = "${this.linkDoc[this.i].source}" target="_blank">${
         this.linkDoc[this.i].type
       }</a>`;

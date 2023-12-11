@@ -26,7 +26,8 @@ window.onload = (event) => {
               data[i].websiteLink,
               data[i].description,
               data[i].visual_documentation,
-              data[i].link_documentation
+              data[i].link_documentation,
+              data[i].accentColor
             );
           }
         }

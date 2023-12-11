@@ -34,7 +34,8 @@
         "type": "github repository",
         "source": "https://github.com/Sarah-hm/CART499/tree/main/aMRI"
       }
-    ]
+    ],
+    "accentColor": "salmon"
   },
   {
     "id": "shm-prj-data_scapes",
@@ -83,7 +84,8 @@
         "type": "github repository",
         "source": "https://github.com/Sarah-hm/sarahhm.art"
       }
-    ]
+    ],
+    "accentColor": "#ACACAD"
   },
   {
     "id": "shm-prj-data-patterns",
@@ -135,7 +137,8 @@
         "type": "final report",
         "source": "projects/data-patterns/Report_Data-Patterns_Sarah-Hontoy-Major.pdf"
       }
-    ]
+    ],
+    "accentColor": "#98161E"
   },
   {
     "id": "shm-prj-sheins-cabinet",
@@ -179,7 +182,8 @@
         "type": "final report",
         "source": "./projects/sheins-cabinet/data-pattern-misinformation-fashion.pdf"
       }
-    ]
+    ],
+    "accentColor": "#EDA841"
   },
   {
     "id": "shm-prj-rideaux-de-mom",
@@ -232,7 +236,8 @@
         "caption": ""
       }
     ],
-    "link_documentation": []
+    "link_documentation": [],
+    "accentColor": "#DDAAA3"
   },
   {
     "id": "shm-prj-femme",
@@ -265,7 +270,8 @@
         "poster": "projects/femme/femme_GIF.gif"
       }
     ],
-    "link_documentation": []
+    "link_documentation": [],
+    "accentColor": "#AFAAAB"
   },
   {
     "id": "shm-prj-aeffect",
@@ -306,7 +312,8 @@
         "type": "artefact presentation",
         "source": "projects/Aeffect/aeffect_final_artefact.pdf"
       }
-    ]
+    ],
+    "accentColor": "#70b9e0"
   },
   {
     "id": "shm-prj-ad-vitam-aeternam",
@@ -349,7 +356,8 @@
         "caption": ""
       }
     ],
-    "link_documentation": []
+    "link_documentation": [],
+    "accentColor": "#B79FED"
   },
   {
     "id": "shm-prj-jeu-denfant",
@@ -399,7 +407,8 @@
         "caption": ""
       }
     ],
-    "link_documentation": []
+    "link_documentation": [],
+    "accentColor": "#6FCEC1"
   },
   {
     "id": "shm-prj-monastique",
@@ -449,18 +458,8 @@
         "caption": "Final selected garment"
       }
     ],
-    "link_documentation": [
-      {
-        "type": "final report",
-        "source": "src",
-        "caption": ""
-      },
-      {
-        "type": "artefact presentation",
-        "source": "src",
-        "caption": ""
-      }
-    ]
+    "link_documentation": [],
+    "accentColor": "#963440"
   },
   {
     "id": "shm-prj-name",

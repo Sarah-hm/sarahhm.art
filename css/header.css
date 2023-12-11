@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-  /* --green-color: rgb(0, 206, 9); */
-  --green-color: rgb(0, 230, 0);
+  /* --accent-color: rgb(0, 206, 9); */
+  --accent-color: rgb(0, 230, 0);
   --color-transition-time: 0.1s;
 }
 
@@ -89,7 +89,7 @@ header {
 }
 
 .nav-button:hover {
-  background-color: var(--green-color);
+  background-color: var(--accent-color);
 }
 
 .nav-text a:visited {
@@ -142,7 +142,7 @@ header {
 
 #website-projects-dropdown-button:hover,
 #website-projects-dropdown-content li:hover {
-  background: var(--green-color);
+  background: var(--accent-color);
   border-bottom: 2px solid black;
 }
 
