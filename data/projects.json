@@ -27,6 +27,26 @@
         "videoType": "video/mp4",
         "caption": ": How to participate",
         "poster": "projects/aMRI/aMRI-short-length.gif"
+      },
+      {
+        "type": "image",
+        "source": "projects/aMRI/amri-04.jpg",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/aMRI/amri-01.jpg",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/aMRI/amri-02.jpg",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "source": "projects/aMRI/amri-03.jpg",
+        "caption": ""
       }
     ],
     "link_documentation": [
@@ -63,6 +83,11 @@
       "What would happen if we would learn to see different versions of reality as equally true, depending on how and when we come to calculate them?"
     ],
     "visual_documentation": [
+      {
+        "type": "image",
+        "source": "projects/data-scapes/data-scapes-04.gif",
+        "caption": "Data-scapes' state as of 04/09/2023 calculated on Mercador projection"
+      },
       {
         "type": "image",
         "source": "projects/data-scapes/data-scapes-01.png",
@@ -168,12 +193,12 @@
     "visual_documentation": [
       {
         "type": "image",
-        "source": "projects/sheins-cabinet/data-scapes-journal-screengrab03.jpg",
+        "source": "projects/sheins-cabinet/data-scapes-journal-screengrab02.jpg",
         "caption": ""
       },
       {
         "type": "image",
-        "source": "projects/sheins-cabinet/data-scapes-journal-screengrab02.jpg",
+        "source": "projects/sheins-cabinet/data-scapes-journal-screengrab03.jpg",
         "caption": ""
       }
     ],
@@ -246,6 +271,7 @@
     "subtitle": "",
     "year": "2022",
     "media": [
+      "video (1:38)",
       "Digital sculpture",
       "Digital animation",
       "Rhino CAD software",
@@ -266,7 +292,7 @@
         "type": "video",
         "source": "projects/femme/Femme_2022_optimized.mp4",
         "videoType": "video/mp4",
-        "caption": "full video",
+        "caption": "",
         "poster": "projects/femme/femme_GIF.gif"
       }
     ],

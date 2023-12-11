@@ -32,8 +32,7 @@ header {
   justify-content: space-between;
   background: none;
   color: black;
-  background-color: white;
-  /* background: red; */
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .inner-header {
@@ -44,7 +43,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 1rem;
+  padding-left: 2rem;
   overflow-y: visible;
   justify-content: flex-end;
   background: none;
@@ -283,6 +282,7 @@ header {
   }
 
   #project-img-overlay-container {
+    display: none;
   }
 }
 

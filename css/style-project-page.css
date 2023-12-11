@@ -55,23 +55,13 @@ body {
 #prj-container-left {
   background-color: white;
   width: 50vw;
-  /* background: pink; */
-  /* position: relative; */
-  /* top: 0px;
-  left: 0px; */
-  width: 50vw;
-  /* height: 100vh; */
-  /* background-color: white; */
-  padding: 3rem;
+  padding-left: 1rem;
   padding-top: 20vh;
   overflow-y: visible;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   direction: rtl;
-  /* z-index: 5001; */
-  /* background-color: black; */
-  /* mix-blend-mode: difference; */
 }
 
 #prj-container-right {
@@ -91,21 +81,18 @@ body {
 }
 
 .prj-visualDoc-figure {
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
   padding-top: 2%;
   padding-bottom: 10%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 #visual-doc-container figcaption {
   text-wrap: balance;
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
+  margin: 0;
+  text-align: left;
   padding-bottom: 0.5rem;
 }
 
@@ -196,6 +183,12 @@ video::-webkit-media-controls-pause-button {
   font-size: 1rem;
   box-shadow: 0px 0px 0px 0 var(--accent-color);
   transition: box-shadow 0.1s;
+  width: 100%;
+  overflow: visible;
+}
+
+.prj-websiteLink-btn {
+  margin-right: 5px;
 }
 
 .prj-visual-documentation-btn {
