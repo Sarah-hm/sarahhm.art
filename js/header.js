@@ -20,17 +20,6 @@ class Header {
       .getElementsByTagName("div")[0]
       .getAttribute("id");
 
-    // If the currentPageID is project contrainer, get the specific project of the page
-    if (this.currentPageID === "project-container") {
-      this.currentProjectID = document
-        .getElementsByTagName("div")[0]
-        .getAttribute("project");
-    }
-
-    this.websiteTitleContainer = document.getElementsByClassName(
-      "website-title-container"
-    );
-
     this.buttons = {
       prjBtn: {
         title: "Projects",
@@ -49,32 +38,51 @@ class Header {
       about: `learn more <span class= "nav-button" id ="about-button"> about me</span>`,
       instagram: `, visit my <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>`,
       email: `, or copy my e-mail <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>`,
+      homepage: `Go back to <a href="/index.html"> <span class = "nav-button"> homepage</span></a>`,
     };
-    this.navHTML = ` ${this.navBtns.about} ${this.navBtns.instagram} ${this.navBtns.email}.`;
 
     this.createWebsiteTitle();
-    this.createAboutSection();
 
-    this.titleRedirect();
-    this.printNavMenu(this.navHTML);
+    // If the currentPageID is project contrainer, get the specific project of the page
+    if (this.currentPageID === "project-container") {
+      this.currentProjectID = document
+        .getElementsByTagName("div")[0]
+        .getAttribute("project");
+      this.toHomepage = `${this.navBtns.homepage}.`;
+      this.toHomepageNav(this.toHomepage);
+
+      this.createProjectDropdown(
+        document.getElementById(`${this.currentPageID}`).getAttribute("project")
+      );
+    }
+
+    this.websiteTitleContainer = document.getElementsByClassName(
+      "website-title-container"
+    );
 
     // if homepage, print project list; if project page, print project drop-down
     if (this.currentPageID === "homepage") {
       this.createImgPopupContainer();
       this.createProjectList();
+
+      this.createAboutSection();
+      this.navHTML = `${this.navBtns.about} ${this.navBtns.instagram} ${this.navBtns.email}.`;
+      this.printNavMenu(this.navHTML);
+
+      // Toggle about section by clicking on button
+      document
+        .getElementById("about-button")
+        .addEventListener("click", this.aboutSectionToggle);
+
+      // Close about section when mouse leaves header
+      document
+        .getElementsByTagName("header")[0]
+        .addEventListener("mouseleave", this.aboutSectionClose);
     } else {
-      this.createProjectDropdown(this.currentProjectID);
+      // this.createProjectDropdown(this.currentProjectID);
     }
 
-    // Toggle about section by clicking on button
-    document
-      .getElementById("about-button")
-      .addEventListener("click", this.aboutSectionToggle);
-
-    // Close about section when mouse leaves header
-    document
-      .getElementsByTagName("header")[0]
-      .addEventListener("mouseleave", this.aboutSectionClose);
+    this.titleRedirect();
 
     // toggle project img by hovering over project list
     Object.keys(document.getElementsByClassName("prj-list-title")).forEach(
@@ -135,11 +143,6 @@ class Header {
     this.toolTipText = document.getElementById("tooltiptext");
     this.emailTxt = document.getElementById("email-button");
 
-    // this.copyTooltip = document.createElement("span");
-    // this.copyTooltip.setAttribute("id", "tooltiptext");
-    // this.emailTxt.appendChild(this.copyTooltip);
-    // this.copyTooltip.innerHTML = "Copy to clipboard";
-
     this.emailTxt.addEventListener("click", () => {
       this.email = "sarah.hm@hotmail.ca";
       // Copy the text inside the text field
@@ -152,6 +155,14 @@ class Header {
       //   this.copyTooltip.innerHTML = this.OriginalText;
       // }, 750);
     });
+  }
+
+  toHomepageNav(navText) {
+    console.log(navText);
+    this.navText = document.createElement("p");
+    this.innerHeader.appendChild(this.navText);
+    this.navText.classList.add("nav-text");
+    this.navText.innerHTML = navText;
   }
 
   createProjectList() {
@@ -205,8 +216,11 @@ class Header {
     this.dropdownBtn.setAttribute("id", "website-projects-dropdown-button");
     this.dropdownContainer.appendChild(this.dropdownBtn);
 
+    console.log(currentProject);
+
     // let button be current project's title
     for (let item in this.data) {
+      console.log(this.data[item].id);
       if (this.data[item].id === currentProject) {
         this.dropdownBtn.innerHTML = `  <a href="${this.data[item].url}"><sup>${this.data[item].year}</sup>${this.data[item].title}</a>`;
       }
