@@ -2,7 +2,7 @@
 
 :root {
   /* --accent-color: rgb(0, 206, 9); */
-  --accent-color: rgb(0, 230, 0);
+  --accent-color: #9aeb94;
   --color-transition-time: 0.1s;
 }
 
@@ -122,6 +122,11 @@ header {
   width: 35vw;
 }
 
+#website-projects-dropdown-button-homepage h1 {
+  color: black;
+  font-size: 1.5rem;
+}
+
 #website-projects-dropdown-button,
 #website-projects-dropdown-button-homepage,
 #website-projects-dropdown-content li {
@@ -182,6 +187,7 @@ header {
 }
 
 #website-projects-dropdown-content {
+  border: none;
   position: absolute;
   width: 100%;
   background-color: white;

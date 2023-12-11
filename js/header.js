@@ -38,7 +38,7 @@ class Header {
       about: `learn more <span class= "nav-button" id ="about-button"> about me</span>`,
       instagram: `, visit my <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>`,
       email: `, or copy my e-mail <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>`,
-      homepage: `Go back to <a href="/index.html"> <span class = "nav-button"> homepage</span></a>`,
+      homepage: `Go back to <a href="/"> <span class = "nav-button"> homepage</span></a>`,
     };
 
     this.createWebsiteTitle();

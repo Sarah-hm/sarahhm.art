@@ -2,7 +2,9 @@
 
 :root {
   /* --accent-color: rgb(0, 206, 9); */
-  --accent-color: rgb(0, 230, 0);
+  --green-color: rgb(0, 230, 0);
+  --accent-color: #9aeb94;
+
   --color-transition-time: 0.1s;
 }
 
