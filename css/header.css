@@ -20,10 +20,10 @@ li {
 /* ==== HEADER ==== */
 header {
   height: auto;
-  z-index: 500;
-  position: absolute;
+  /* z-index: 500; */
+  position: fixed;
   width: 100vw;
-  padding-top: 2vh;
+  padding-top: 1rem;
   top: 0;
   left: 0;
   display: flex;
@@ -38,8 +38,7 @@ header {
 .inner-header {
   /* background: cyan; */
   /* border-bottom: solid black 2px; */
-  /* width: calc(50% + 2px); */
-  height: 15vh;
+  width: calc(50% + 2px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,8 +103,21 @@ header {
   color: black;
 }
 
+/* about section */
+
+#website-about-section-container {
+  display: block;
+  width: 80%;
+  display: block;
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.75s;
+  z-index: 5000;
+  background: rgba(255, 255, 255, 0.8);
+}
+
 .website-about-section {
-  position: absolute;
+  position: relative;
   height: 0px;
   transition: all 1s;
   overflow: hidden;
@@ -115,9 +127,14 @@ header {
 }
 
 .website-about-section-open {
-  height: 60vh;
-  overflow-y: visible !important;
+  height: 60vh !important;
+  /* overflow-y: visible !important; */
   /* overflow: scroll; */
+}
+
+#about-section-body p {
+  line-height: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 /* project drop down */
@@ -207,6 +224,7 @@ header {
   width: 65vw;
   height: 80vh;
   display: flex;
+  z-index: 0;
 }
 
 .project-img-overlay {
@@ -289,7 +307,7 @@ header {
 /* tablets + small desktop */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   header {
-    height: 30vh;
+    min-height: 10vh;
   }
 
   .inner-header {

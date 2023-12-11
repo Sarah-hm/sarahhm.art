@@ -20,6 +20,9 @@ class Header {
       .getElementsByTagName("div")[0]
       .getAttribute("id");
 
+    this.aboutSectionHovering = false;
+    this.innerHeaderHovering = false;
+
     this.buttons = {
       prjBtn: {
         title: "Projects",
@@ -65,19 +68,74 @@ class Header {
       this.createImgPopupContainer();
       this.createProjectList();
 
-      this.createAboutSection();
       this.navHTML = `${this.navBtns.about} ${this.navBtns.instagram} ${this.navBtns.email}.`;
       this.printNavMenu(this.navHTML);
+      this.createAboutSection();
 
       // Toggle about section by clicking on button
-      document
-        .getElementById("about-button")
-        .addEventListener("click", this.aboutSectionToggle);
+      document.getElementById("about-button").addEventListener("click", () => {
+        this.aboutSectionHovering = true;
+        this.aboutSectionToggle();
+      });
 
       // Close about section when mouse leaves header
       document
-        .getElementsByTagName("header")[0]
-        .addEventListener("mouseleave", this.aboutSectionClose);
+        .getElementsByClassName("inner-header")[0]
+        .addEventListener("mouseleave", () => {
+          this.innerHeaderHovering = false;
+
+          this.aboutSectionClose();
+        });
+
+      document
+        .getElementsByClassName("inner-header")[0]
+        .addEventListener("mouseenter", () => {
+          this.innerHeaderHovering = true;
+        });
+
+      // document
+      //   .getElementsByClassName("inner-header")[0]
+      //   .addEventListener("mouseleave", () => {
+      //     this.innerHeaderHovering = false;
+      //     // this.aboutSectionHovering = true;
+      //     if (!this.aboutSectionHovering) {
+      //       this.aboutSectionClose();
+      //     }
+      //   });
+
+      // Set hovering over the about section to true
+      document
+        .getElementById("website-about-section-container")
+        .addEventListener("mouseenter", () => {
+          this.aboutSectionHovering = true;
+          this.innerHeaderHovering = true;
+          console.log("in about section");
+        });
+      // Set hovering over the about section to false
+      document
+        .getElementById("website-about-section-container")
+        .addEventListener("mouseleave", () => {
+          console.log("out about section");
+          this.aboutSectionHovering = false;
+          // this.aboutSectionClose();
+        });
+
+      // making sure the about section is close if hover over project list
+      document
+        .getElementById("website-projects-dropdown-container")
+        .addEventListener("mouseenter", () => {
+          this.innerHeaderHovering = false;
+          this.aboutSectionHovering = false;
+          this.aboutSectionClose();
+        });
+
+      document
+        .getElementById("website-projects-dropdown-content")
+        .addEventListener("mouseenter", () => {
+          this.innerHeaderHovering = false;
+          this.aboutSectionHovering = false;
+          this.aboutSectionClose();
+        });
     } else {
       // this.createProjectDropdown(this.currentProjectID);
     }
@@ -270,25 +328,16 @@ class Header {
   }
 
   createAboutSection() {
-    // this.aboutSection = document.createElement("div");
-    // this.aboutSection.classList.add("website-about-section");
-    // this.innerHeader.appendChild(this.aboutSection);
-    // this.aboutBody = document.createElement("div");
-    // this.aboutBody.classList.add("website-section-body");
-    // this.aboutBody.setAttribute("id", "about-section-body");
-    // this.aboutSection.appendChild(this.aboutBody);
-    // for (this.i = 0; this.i < this.about.text.length; this.i++) {
-    //   this.para = document.createElement("p");
-    //   this.aboutBody.appendChild(this.para);
-    //   this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
-    // }
-  }
-
-  aboutSectionToggle() {
+    console.log("create about");
     console.log("yolo");
     this.aboutSection = document.createElement("div");
     this.aboutSection.setAttribute("id", "website-about-section-container");
-    this.innerHeader.appendChild(this.aboutSection);
+    document
+      .getElementById("website-header")
+      .getElementsByClassName("inner-header")[0]
+      .appendChild(this.aboutSection);
+
+    console.log(this.aboutSection);
 
     this.aboutBody = document.createElement("div");
     this.aboutBody.classList.add("website-section-body");
@@ -301,48 +350,31 @@ class Header {
       this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
     }
 
-    this.mouseInInnerHeader = false;
+    this.aboutSectionHovering = false;
+  }
 
-    this.innerHeader.addEventListener("mouseenter", () => {
-      this.mouseInInnerHeader = true;
-    });
-    this.innerHeader.addEventListener("mouseleave", () => {
-      this.mouseInInnerHeader = false;
-    });
-
-    // close dropdown when mouse leave
-    this.aboutSection.addEventListener("mouseleave", () => {
-      if (!this.mouseInInnerHeader) {
-        document.getElementById("website-about-section-container").remove();
-      }
-    });
-
-    // get the height of the bottom of project list to make them align
-    //to be compelted
-
-    //toggle the about section open/close
-    this.aboutSections = document.getElementsByClassName(
-      "website-about-section"
+  aboutSectionToggle() {
+    // this.mouseInInnerHeader = false;
+    this.aboutContainer = document.getElementById(
+      "website-about-section-container"
     );
-    Object.keys(this.aboutSections).forEach((key) => {
-      this.aboutSections[key].classList.toggle("website-about-section-open");
-    });
+    this.aboutContainer.classList.toggle("website-about-section-open");
   }
 
   aboutSectionClose() {
-    //toggle the about section open/close
-    this.aboutSections = document.getElementsByClassName(
-      "website-about-section"
-    );
-    Object.keys(this.aboutSections).forEach((key) => {
-      this.aboutSections[key].classList.remove("website-about-section-open");
-    });
+    console.log(this.aboutSectionHovering);
+    if (!this.aboutSectionHovering && !this.innerHeaderHovering) {
+      this.aboutContainer = document.getElementById(
+        "website-about-section-container"
+      );
+      this.aboutContainer.classList.remove("website-about-section-open");
+    }
   }
 
   createImgPopupContainer() {
     this.imgPopupContainer = document.createElement("div");
     this.imgPopupContainer.setAttribute("id", "project-img-overlay-container");
-    this.doc.appendChild(this.imgPopupContainer);
+    this.doc.prepend(this.imgPopupContainer);
   }
 
   showProjectImg(el) {
