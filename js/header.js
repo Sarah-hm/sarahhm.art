@@ -136,8 +136,6 @@ class Header {
           this.aboutSectionHovering = false;
           this.aboutSectionClose();
         });
-    } else {
-      // this.createProjectDropdown(this.currentProjectID);
     }
 
     this.titleRedirect();
@@ -362,11 +360,11 @@ class Header {
   }
 
   aboutSectionClose() {
+    this.aboutContainer = document.getElementById(
+      "website-about-section-container"
+    );
     console.log(this.aboutSectionHovering);
     if (!this.aboutSectionHovering && !this.innerHeaderHovering) {
-      this.aboutContainer = document.getElementById(
-        "website-about-section-container"
-      );
       this.aboutContainer.classList.remove("website-about-section-open");
     }
   }
