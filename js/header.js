@@ -75,13 +75,12 @@ class Header {
 
       this.createProfileImage();
 
-      window.addEventListener("resize", () => {
-        this.headerRect = document
-          .getElementById("website-header")
-          .getBoundingClientRect();
-
-        this.calculatePortraitSize();
-      });
+      // window.addEventListener("resize", () => {
+      //   this.headerRect = document
+      //     .getElementById("website-header")
+      //     .getBoundingClientRect();
+      //   this.calculatePortraitSize();
+      // });
       // end profile image
 
       // nav menu
@@ -449,7 +448,7 @@ class Header {
       .getElementById("header-portrait-container")
       .getBoundingClientRect();
 
-    this.portraitDeltaY = `calc(${this.titleProjectRect.top}px - ${this.headerRect.height}px - ${this.portraitRect.height}px)`;
+    this.portraitDeltaY = `calc(${this.titleProjectRect.top}px - ${this.headerRect.height}px - ${this.portraitRect.height}px - 2rem)`;
     console.log(this.portraitDeltaY);
     // this.portraitContainer.style.top = `calc(${this.titleProjectRect.top}px - ${this.titleProjectRect.height}px)`;
     this.portraitContainer.style.transform = `translateY(${this.portraitDeltaY})`;

@@ -143,6 +143,7 @@ header {
   right: 0px;
   top: 0px;
   margin-right: 3rem;
+  /* margin-bottom: 2rem; */
   /* transform-origin: bottom right; */
   /* transition: transform 0.5s; */
   /* position: sticky; */
@@ -303,12 +304,14 @@ header {
 
   #website-projects-dropdown-button a,
   #website-projects-dropdown-button-homepage,
-  #website-projects-dropdown-content li a {
+  #website-projects-dropdown-content a li {
     text-align: left;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: flex-end;
+
     padding-right: 2rem;
+    direction: ltr;
+    justify-content: flex-end;
   }
 
   .prj-list-title {
@@ -321,6 +324,10 @@ header {
 
   #header-portrait-container {
     display: none;
+  }
+
+  .nav-text {
+    font-size: 1.5rem;
   }
 }
 

@@ -17,7 +17,7 @@
 
 body {
   /* background-color: white; */
-  overflow-x: hidden;
+  overflow: hidden;
   background: white;
 }
 
