@@ -99,7 +99,6 @@ class Header {
         .getElementsByClassName("inner-header")[0]
         .addEventListener("mouseleave", () => {
           this.innerHeaderHovering = false;
-
           this.aboutSectionClose();
         });
 
@@ -131,6 +130,7 @@ class Header {
           this.innerHeaderHovering = false;
           this.aboutSectionHovering = false;
           this.aboutSectionClose();
+          this.calculatePortraitSize();
         });
 
       document
@@ -139,6 +139,7 @@ class Header {
           this.innerHeaderHovering = false;
           this.aboutSectionHovering = false;
           this.aboutSectionClose();
+          this.calculatePortraitSize();
         });
     }
 

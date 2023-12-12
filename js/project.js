@@ -49,8 +49,9 @@ class Project {
 
     this.printMedia();
     this.printKeywords();
-    this.printWebsiteLink();
+
     this.printDescription();
+    this.printWebsiteLink();
 
     this.printLinkDoc();
     this.printVisualDoc();
@@ -120,7 +121,7 @@ class Project {
     if (this.websiteLink != "") {
       this.div = document.createElement("div");
       this.div.classList.add("prj-websiteLink-btn");
-      this.leftContainer.appendChild(this.div);
+      this.rightContainer.appendChild(this.div);
 
       this.link = `<a href = "${this.websiteLink}" target = "_blank"> Access project website</a>`;
       this.div.insertAdjacentHTML("afterbegin", this.link);
