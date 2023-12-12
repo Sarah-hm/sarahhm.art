@@ -38,7 +38,7 @@ class Header {
       },
     };
     this.navBtns = {
-      about: `learn more <span class= "nav-button" id ="about-button"> about me</span>`,
+      about: `Read <span class= "nav-button" id ="about-button"> about me</span>`,
       instagram: `, visit my <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>`,
       email: `, or copy my e-mail <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>`,
       homepage: `Go back to <a href="/"> <span class = "nav-button"> homepage</span></a>`,
@@ -348,6 +348,13 @@ class Header {
       this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
     }
 
+    this.cvButton = document.createElement("a");
+    this.cvButton.setAttribute("href", "data/Sarah_hontoy-major_CV.pdf");
+    this.cvButton.setAttribute("target", "_target");
+    this.cvButton.setAttribute("id", "about-section-cv-button");
+    this.cvButton.innerHTML = `Curriculum Vitae`;
+    this.aboutSection.appendChild(this.cvButton);
+
     this.aboutSectionHovering = false;
   }
 
@@ -449,7 +456,7 @@ class Header {
       .getBoundingClientRect();
 
     this.portraitDeltaY = `calc(${this.titleProjectRect.top}px - ${this.headerRect.height}px - ${this.portraitRect.height}px - 2rem)`;
-    console.log(this.portraitDeltaY);
+
     // this.portraitContainer.style.top = `calc(${this.titleProjectRect.top}px - ${this.titleProjectRect.height}px)`;
     this.portraitContainer.style.transform = `translateY(${this.portraitDeltaY})`;
   }

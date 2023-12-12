@@ -137,6 +137,30 @@ header {
   padding-bottom: 2rem;
 }
 
+#about-section-cv-button {
+  cursor: pointer;
+  outline: inherit;
+  background-color: rgb(255, 255, 255);
+  padding: 1%;
+  margin: 1% auto;
+  width: 90%;
+  color: black;
+  border: none;
+  border: solid black 2px;
+  text-decoration: none;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1rem;
+  box-shadow: 0px 0px 0px 0 var(--accent-color);
+  transition: box-shadow 0.1s;
+  width: 100%;
+  overflow: visible;
+}
+
+#about-section-cv-button:hover {
+  box-shadow: 5px 6px 0px 0 var(--accent-color);
+}
+
 /* portrait */
 #header-portrait-container {
   position: fixed;
