@@ -43,13 +43,19 @@ body {
 html,
 body {
   background-color: white;
-  overflow-y: scroll;
+
   /* overflow: hidden; */
+}
+
+body {
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 #prj-container {
   /* margin-top: 20vh; */
   width: 100%;
+  /* background: cyan; */
   /* height: 100vh; */
   display: flex;
   /* flex-direction: column; */
@@ -73,15 +79,18 @@ body {
 
 #prj-container-right {
   text-align: right;
-  /* height: 200vh; */
+  height: 100vh;
   width: 50vw;
   /* background: burlywood; */
   padding: calc(3rem - 20px);
   padding-top: 20vh;
   /* margin-bottom: 4rem; */
   /* overflow-y: scroll; */
-  margin-bottom: 5rem;
-  /* overflow: hidden; */
+  margin-bottom: 2rem;
+  /* position: -webkit-sticky; 
+  position: sticky;
+  bottom: 2rem; */
+  overflow: visible;
 }
 
 #visual-doc-container {
