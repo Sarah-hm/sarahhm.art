@@ -137,6 +137,22 @@ header {
   padding-bottom: 2rem;
 }
 
+/* portrait */
+#header-portrait-container {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  margin-right: 3rem;
+  /* transform-origin: bottom right; */
+  /* transition: transform 0.5s; */
+  /* position: sticky; */
+}
+
+#header-portrait-container img {
+  /* position: relative; */
+  width: 100%;
+  height: 100%;
+}
 /* project drop down */
 
 #website-projects-dropdown-container {
@@ -302,6 +318,10 @@ header {
   #project-img-overlay-container {
     display: none;
   }
+
+  #header-portrait-container {
+    display: none;
+  }
 }
 
 /* tablets + small desktop */
@@ -314,7 +334,7 @@ header {
     height: auto;
     position: fixed;
     top: 0px;
-    width: 80%;
+    width: 60%;
     /* background: cyan; */
   }
 
@@ -323,5 +343,9 @@ header {
     top: calc(20vh - 3rem / 2);
     right: 0px;
     width: 40vw;
+  }
+
+  #header-portrait-container {
+    display: none;
   }
 }

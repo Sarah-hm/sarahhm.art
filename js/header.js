@@ -68,6 +68,23 @@ class Header {
       this.createImgPopupContainer();
       this.createProjectList();
 
+      // profile image
+      this.headerRect = document
+        .getElementById("website-header")
+        .getBoundingClientRect();
+
+      this.createProfileImage();
+
+      window.addEventListener("resize", () => {
+        this.headerRect = document
+          .getElementById("website-header")
+          .getBoundingClientRect();
+
+        this.calculatePortraitSize();
+      });
+      // end profile image
+
+      // nav menu
       this.navHTML = `${this.navBtns.about} ${this.navBtns.instagram} ${this.navBtns.email}.`;
       this.printNavMenu(this.navHTML);
       this.createAboutSection();
@@ -93,29 +110,17 @@ class Header {
           this.innerHeaderHovering = true;
         });
 
-      // document
-      //   .getElementsByClassName("inner-header")[0]
-      //   .addEventListener("mouseleave", () => {
-      //     this.innerHeaderHovering = false;
-      //     // this.aboutSectionHovering = true;
-      //     if (!this.aboutSectionHovering) {
-      //       this.aboutSectionClose();
-      //     }
-      //   });
-
       // Set hovering over the about section to true
       document
         .getElementById("website-about-section-container")
         .addEventListener("mouseenter", () => {
           this.aboutSectionHovering = true;
           this.innerHeaderHovering = true;
-          console.log("in about section");
         });
       // Set hovering over the about section to false
       document
         .getElementById("website-about-section-container")
         .addEventListener("mouseleave", () => {
-          console.log("out about section");
           this.aboutSectionHovering = false;
           // this.aboutSectionClose();
         });
@@ -326,16 +331,12 @@ class Header {
   }
 
   createAboutSection() {
-    console.log("create about");
-    console.log("yolo");
     this.aboutSection = document.createElement("div");
     this.aboutSection.setAttribute("id", "website-about-section-container");
     document
       .getElementById("website-header")
       .getElementsByClassName("inner-header")[0]
       .appendChild(this.aboutSection);
-
-    console.log(this.aboutSection);
 
     this.aboutBody = document.createElement("div");
     this.aboutBody.classList.add("website-section-body");
@@ -357,13 +358,19 @@ class Header {
       "website-about-section-container"
     );
     this.aboutContainer.classList.toggle("website-about-section-open");
+
+    this.interval = setInterval(() => {
+      this.calculatePortraitSize();
+    }, 50);
+    setTimeout(() => {
+      clearInterval(this.interval);
+    }, 2000);
   }
 
   aboutSectionClose() {
     this.aboutContainer = document.getElementById(
       "website-about-section-container"
     );
-    console.log(this.aboutSectionHovering);
     if (!this.aboutSectionHovering && !this.innerHeaderHovering) {
       this.aboutContainer.classList.remove("website-about-section-open");
     }
@@ -417,453 +424,34 @@ class Header {
     document.getElementById(`${this.data[el].id}-img`).remove();
   }
 
-  //  ===== NOTHIGN AFTER THIS MATTERS (i think?) =====
-  // createMobileNav() {
-  //   this.div = document.createElement("div");
-  //   this.div.setAttribute("id", "nav-menu-mobile");
-  //   document.getElementById("homepage").appendChild(this.div);
+  createProfileImage() {
+    this.portraitContainer = document.createElement("div");
+    this.portraitContainer.setAttribute("id", "header-portrait-container");
+    this.doc.appendChild(this.portraitContainer);
+    this.portrait = document.createElement("img");
+    this.portrait.setAttribute("src", "img/sarahhm.jpg");
+    this.portrait.setAttribute("alt", "Portrait of Sarah Hontoy-Major");
+    this.portraitContainer.appendChild(this.portrait);
 
-  //   this.createMobileNavBtn(this.buttons.prjBtn.title, this.buttons.prjBtn.id);
-  //   this.createMobileNavSection(this.buttons.prjBtn.id);
-  //   this.createMobileNavBtn(
-  //     this.buttons.aboutBtn.title,
-  //     this.buttons.aboutBtn.id
-  //   );
-  //   this.createMobileNavBtn(
-  //     this.buttons.contactBtn.title,
-  //     this.buttons.contactBtn.id
-  //   );
-  // }
+    this.calculatePortraitSize();
+  }
 
-  // createMobileNavBtn(title, id) {
-  //   this.button = document.createElement("button");
-  //   this.button.classList.add("mobile-nav-menu-button");
-  //   this.button.setAttribute("id", `${id}-mobile-button`);
-  //   document.getElementById("nav-menu-mobile").appendChild(this.button);
-  //   this.button.insertAdjacentText("afterbegin", `${title}`);
-  // }
+  calculatePortraitSize() {
+    // calculate where project title is, make it the max-height of portrait;
+    this.titleProjectRect = document
+      .getElementById("website-projects-dropdown-container")
+      .getBoundingClientRect();
 
-  // createMobileNavSection(id) {
-  //   this.div = document.createElement("div");
-  //   this.div.classList.add("mobile-nav-menu-section");
-  //   this.div.setAttribute("id", `${id}-mobile-section`);
-  //   document.getElementById("nav-menu-mobile").appendChild(this.div);
-  // }
+    this.portraitContainer.style.height = `calc(${this.titleProjectRect.width}px - 3rem)`;
+    this.portraitContainer.style.width = `calc(${this.titleProjectRect.width}px - 3rem)`;
 
-  // // addListeners() {
-  // //   // Open popups when clicking on nav menu sliders
-  // //   Object.keys(this.navMenuBtns).forEach((key) => {
-  // //     this.navMenuBtns[key].addEventListener("change", () => {
-  // //       switch (this.navMenuBtns[key].id) {
-  // //         case "project-nav-btn":
-  // //           // console.log(this.navMenuPrjPopup.open);
-  // //           // close projects and all img popups
-  // //           if (this.navMenuPrjPopup.open) {
-  // //             this.closeProjectImgPopups();
-  // //             this.navMenuPrjPopup.classList.add("popup-closed");
-  // //             this.navMenuPrjPopup.open = false;
+    this.portraitRect = document
+      .getElementById("header-portrait-container")
+      .getBoundingClientRect();
 
-  // //             // Remove green button background
-  // //             // this.navMenuBtns[key].style.backgroundPosition = "";
-  // //           } else {
-  // //             //toggle projects pop-up
-  // //             this.recalculatePosition(this.navMenuPrjPopup);
-  // //             this.navMenuPrjPopup.classList.remove("popup-closed");
-  // //             this.navMenuPrjPopup.open = true;
-  // //           }
-  // //           break;
-  // //         case "about-nav-btn":
-  // //           // if any of the about popups (statement, img, cv) are open, close all of them
-  // //           if (
-  // //             this.navMenuAboutPopup.open ||
-  // //             this.navMenuImgPopup.open ||
-  // //             this.navMenuCvPopup.open
-  // //           ) {
-  // //             this.navMenuAboutPopup.classList.add("popup-closed");
-  // //             this.navMenuImgPopup.classList.add("popup-closed");
-  // //             this.navMenuCvPopup.classList.add("popup-closed");
-  // //             this.navMenuAboutPopup.open = false;
-  // //             this.navMenuImgPopup.open = false;
-  // //             this.navMenuCvPopup.open = false;
-  // //           }
-  // //           // if they are all closed, open all of them (and recalculate position)
-  // //           else {
-  // //             // about
-  // //             this.recalculatePosition(this.navMenuAboutPopup);
-  // //             this.navMenuAboutPopup.classList.remove("popup-closed");
-  // //             this.navMenuAboutPopup.open = true;
-  // //             // self-portrait
-  // //             this.recalculatePosition(this.navMenuImgPopup);
-  // //             this.navMenuImgPopup.classList.remove("popup-closed");
-  // //             this.navMenuImgPopup.open = true;
-  // //             //cv
-  // //             this.recalculatePosition(this.navMenuCvPopup);
-  // //             this.navMenuCvPopup.classList.remove("popup-closed");
-  // //             this.navMenuCvPopup.open = true;
-  // //           }
-
-  // //           break;
-  // //         case "contact-nav-btn":
-  // //           // if any of the about popups (statement, img, cv) are open, close all of them
-  // //           if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
-  // //             // contact
-  // //             this.navMenuContactPopup.classList.add("popup-closed");
-  // //             this.navMenuContactPopup.open = false;
-  // //             // ig
-  // //             this.navMenuIgPopup.classList.add("popup-closed");
-  // //             this.navMenuIgPopup.open = false;
-  // //           }
-  // //           // if they are all closed, open all of them (and recalculate position)
-  // //           else {
-  // //             // contact (email)
-  // //             this.recalculatePosition(this.navMenuContactPopup);
-  // //             this.navMenuContactPopup.classList.remove("popup-closed");
-  // //             this.navMenuContactPopup.open = true;
-  // //             // ig
-  // //             this.recalculatePosition(this.navMenuIgPopup);
-  // //             this.navMenuIgPopup.classList.remove("popup-closed");
-  // //             this.navMenuIgPopup.open = true;
-  // //           }
-
-  // //           break;
-  // //         default:
-  // //           console.log("not a button");
-  // //           break;
-  // //       }
-  // //     });
-  // //   });
-
-  // //   // Nav menu button titles toggle the entire on/off state when clicked
-  // //   this.navMenuBtnTitles = document.getElementsByClassName(
-  // //     "nav-menu-button-title"
-  // //   );
-
-  // //   Object.keys(this.navMenuBtnTitles).forEach((key) => {
-  // //     this.navMenuBtnTitles[key].addEventListener("click", () => {
-  // //       switch (this.navMenuBtnTitles[key].id) {
-  // //         case "project-nav-btn-title":
-  // //           // console.log(this.navMenuPrjPopup.open);
-  // //           // close projects and all img popups
-  // //           if (this.navMenuPrjPopup.open) {
-  // //             this.closeProjectImgPopups();
-  // //             this.navMenuPrjPopup.classList.add("popup-closed");
-  // //             this.navMenuPrjPopup.open = false;
-
-  // //             //Change slider to unchecked
-  // //             document.getElementById("project-nav-btn-input").checked = false;
-  // //           } else {
-  // //             //toggle projects pop-up
-  // //             this.recalculatePosition(this.navMenuPrjPopup);
-  // //             this.navMenuPrjPopup.classList.remove("popup-closed");
-  // //             this.navMenuPrjPopup.open = true;
-
-  // //             //Change slider to checked
-  // //             document.getElementById("project-nav-btn-input").checked = true;
-  // //           }
-  // //           break;
-  // //         case "about-nav-btn-title":
-  // //           // if any of the about popups (statement, img, cv) are open, close all of them
-  // //           if (
-  // //             this.navMenuAboutPopup.open ||
-  // //             this.navMenuImgPopup.open ||
-  // //             this.navMenuCvPopup.open
-  // //           ) {
-  // //             this.navMenuAboutPopup.classList.add("popup-closed");
-  // //             this.navMenuImgPopup.classList.add("popup-closed");
-  // //             this.navMenuCvPopup.classList.add("popup-closed");
-  // //             this.navMenuAboutPopup.open = false;
-  // //             this.navMenuImgPopup.open = false;
-  // //             this.navMenuCvPopup.open = false;
-
-  // //             //Change slider to unchecked
-  // //             document.getElementById("about-nav-btn-input").checked = false;
-  // //           }
-  // //           // if they are all closed, open all of them (and recalculate position)
-  // //           else {
-  // //             // about
-  // //             this.recalculatePosition(this.navMenuAboutPopup);
-  // //             this.navMenuAboutPopup.classList.remove("popup-closed");
-  // //             this.navMenuAboutPopup.open = true;
-  // //             // self-portrait
-  // //             this.recalculatePosition(this.navMenuImgPopup);
-  // //             this.navMenuImgPopup.classList.remove("popup-closed");
-  // //             this.navMenuImgPopup.open = true;
-  // //             //cv
-  // //             this.recalculatePosition(this.navMenuCvPopup);
-  // //             this.navMenuCvPopup.classList.remove("popup-closed");
-  // //             this.navMenuCvPopup.open = true;
-
-  // //             //Change slider to checked
-  // //             document.getElementById("about-nav-btn-input").checked = true;
-  // //           }
-
-  // //           break;
-  // //         case "contact-nav-btn-title":
-  // //           // if any of the about popups (statement, img, cv) are open, close all of them
-  // //           if (this.navMenuContactPopup.open || this.navMenuIgPopup.open) {
-  // //             // contact
-  // //             this.navMenuContactPopup.classList.add("popup-closed");
-  // //             this.navMenuContactPopup.open = false;
-  // //             // ig
-  // //             this.navMenuIgPopup.classList.add("popup-closed");
-  // //             this.navMenuIgPopup.open = false;
-
-  // //             //Change slider to unchecked
-  // //             document.getElementById("contact-nav-btn-input").checked = false;
-  // //           }
-  // //           // if they are all closed, open all of them (and recalculate position)
-  // //           else {
-  // //             // contact (email)
-  // //             this.recalculatePosition(this.navMenuContactPopup);
-  // //             this.navMenuContactPopup.classList.remove("popup-closed");
-  // //             this.navMenuContactPopup.open = true;
-  // //             // ig
-  // //             this.recalculatePosition(this.navMenuIgPopup);
-  // //             this.navMenuIgPopup.classList.remove("popup-closed");
-  // //             this.navMenuIgPopup.open = true;
-
-  // //             //Change slider to checked
-  // //             document.getElementById("contact-nav-btn-input").checked = true;
-  // //           }
-
-  // //           break;
-  // //         default:
-  // //           console.log("not a button");
-  // //           break;
-  // //       }
-  // //     });
-  // //   });
-
-  // //   // // Manually close popups when clicking on X header of popup
-  // //   // Object.keys(this.popupCloseBtns).forEach((key) => {
-  // //   //   this.popupCloseBtns[key].addEventListener("click", () => {
-  // //   //     switch (this.popupCloseBtns[key].id) {
-  // //   //       case "projects-popup-close-btn":
-  // //   //         console.log(this.popupCloseBtns[key]);
-  // //   //         //close projects pop-up
-  // //   //         this.navMenuPrjPopup.classList.add("popup-closed");
-  // //   //         this.navMenuPrjPopup.open = false;
-  // //   //         console.log("close");
-  // //   //         this.closeProjectImgPopups();
-
-  // //   //         break;
-  // //   //       case "about-popup-close-btn":
-  // //   //         //close about pop-up
-  // //   //         this.navMenuAboutPopup.classList.add("popup-closed");
-  // //   //         this.navMenuAboutPopup.open = false;
-  // //   //         break;
-  // //   //       case "img-popup-close-btn":
-  // //   //         // close instagram pop-up
-  // //   //         this.navMenuImgPopup.classList.add("popup-closed");
-  // //   //         this.navMenuImgPopup.open = false;
-  // //   //         break;
-  // //   //       case "cv-popup-close-btn":
-  // //   //         // close instagram pop-up
-  // //   //         this.navMenuCvPopup.classList.add("popup-closed");
-  // //   //         this.navMenuCvPopup.open = false;
-  // //   //         break;
-  // //   //       case "contact-popup-close-btn":
-  // //   //         // close contact pop-up
-  // //   //         this.navMenuContactPopup.classList.add("popup-closed");
-  // //   //         this.navMenuContactPopup.open = false;
-  // //   //         break;
-  // //   //       case "instagram-popup-close-btn":
-  // //   //         // close instagram pop-up
-  // //   //         this.navMenuIgPopup.classList.add("popup-closed");
-  // //   //         this.navMenuIgPopup.open = false;
-  // //   //         break;
-  // //   //       default:
-  // //   //         console.log("not a button");
-  // //   //         break;
-  // //   //     }
-
-  // //   //     // If all corresponding popups were manually closed, toggle the respective nav menu slider off
-  // //   //     if (!this.navMenuPrjPopup.open) {
-  // //   //       document.getElementById("project-nav-btn-input").checked = false;
-  // //   //     }
-  // //   //     if (
-  // //   //       !this.navMenuAboutPopup.open &&
-  // //   //       !this.navMenuImgPopup.open &&
-  // //   //       !this.navMenuCvPopup.open
-  // //   //     ) {
-  // //   //       document.getElementById("about-nav-btn-input").checked = false;
-  // //   //     }
-  // //   //     if (!this.navMenuIgPopup.open && !this.navMenuContactPopup.open) {
-  // //   //       document.getElementById("contact-nav-btn-input").checked = false;
-  // //   //     }
-  // //   //   });
-  // //   // });
-
-  // //   // //Make popup window draggable
-  // //   // this.popupZindex = "5000";
-  // //   // this.popupHeaders = document.getElementsByClassName("website-popup-header");
-
-  // //   // Object.keys(this.popupHeaders).forEach((key) => {
-  // //   //   this.popupHeaders[key].addEventListener("mousedown", () => {
-  // //   //     this.newZindex = this.popupZindex++;
-  // //   //     console.log(this.popupHeaders[key].id);
-  // //   //     switch (this.popupHeaders[key].id) {
-  // //   //       case "website-projects-popup-header":
-  // //   //         //puts projects pop-up on top
-  // //   //         this.navMenuPrjPopup.mouseDown = true;
-  // //   //         this.navMenuPrjPopup.style.zIndex = this.newZindex;
-  // //   //         // this.websitePopups[key].style.cursor = "grabbing";
-  // //   //         break;
-  // //   //       case "website-about-popup-header":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuAboutPopup.mouseDown = true;
-  // //   //         this.navMenuAboutPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       case "website-image-popup-header":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuImgPopup.mouseDown = true;
-  // //   //         this.navMenuImgPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-
-  // //   //       case "website-cv-popup-header":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuCvPopup.mouseDown = true;
-  // //   //         this.navMenuCvPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       case "website-contact-popup-header":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuContactPopup.mouseDown = true;
-  // //   //         this.navMenuContactPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       case "website-ig-popup-header":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuIgPopup.mouseDown = true;
-  // //   //         this.navMenuIgPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       default:
-  // //   //         console.log("not a popup");
-  // //   //         break;
-  // //   //     }
-  // //   //   });
-  // //   // });
-
-  // //   // // Make popup window increase z-index when clicked anywhere
-  // //   // Object.keys(this.websitePopups).forEach((key) => {
-  // //   //   this.websitePopups[key].addEventListener("mousedown", () => {
-  // //   //     this.newZindex = this.popupZindex++;
-  // //   //     console.log(this.websitePopups[key].id);
-  // //   //     switch (this.websitePopups[key].id) {
-  // //   //       case "website-projects-popup":
-  // //   //         //puts projects pop-up on top
-  // //   //         this.navMenuPrjPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       case "website-about-popup":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuAboutPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       case "website-image-popup":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuImgPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-
-  // //   //       case "website-cv-popup":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuCvPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       case "website-contact-popup":
-  // //   //         //puts about pop-up on top
-  // //   //         this.navMenuContactPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       case "website-ig-popup":
-  // //   //         //puts about pop-up on top
-
-  // //   //         this.navMenuIgPopup.style.zIndex = this.newZindex;
-  // //   //         break;
-  // //   //       default:
-  // //   //         console.log("not a popup");
-  // //   //         break;
-  // //   //     }
-  // //   //   });
-  // //   // });
-
-  // //   // document.addEventListener("mouseup", () => {
-  // //   //   this.navMenuPrjPopup.mouseDown = false;
-  // //   //   this.navMenuAboutPopup.mouseDown = false;
-  // //   //   this.navMenuImgPopup.mouseDown = false;
-  // //   //   this.navMenuCvPopup.mouseDown = false;
-  // //   //   this.navMenuContactPopup.mouseDown = false;
-  // //   //   this.navMenuIgPopup.mouseDown = false;
-  // //   // });
-
-  // //   // document.addEventListener("mousemove", (event) => {
-  // //   //   Object.keys(this.websitePopups).forEach((key) => {
-  // //   //     switch (this.websitePopups[key].mouseDown) {
-  // //   //       case true:
-  // //   //         this.elRect = this.websitePopups[key].getBoundingClientRect();
-
-  // //   //         // console.log(this.elRect);
-  // //   //         this.deltaX = this.elRect.width / 2;
-  // //   //         this.deltaY = this.elRect.height * 0.05;
-
-  // //   //         this.newX = event.clientX - this.deltaX;
-  // //   //         this.newY = event.clientY - this.deltaY;
-
-  // //   //         this.websitePopups[key].style.left = this.newX + "px";
-  // //   //         this.websitePopups[key].style.top = this.newY + "px";
-
-  // //   //         //Redraw line with the current Element's X, Y position (should be whenever the div moves, not only on mouse move)
-  // //   //         this.newX = this.newX + this.elRect.width / 2;
-  // //   //         this.newY = this.newY + this.elRect.height / 2;
-
-  // //   //         this.x = this.newX;
-  // //   //         this.y = this.newY;
-
-  // //   //         break;
-  // //   //       case false:
-  // //   //         // console.log("false");
-  // //   //         break;
-  // //   //       default:
-  // //   //         // console.log("not a popup");
-  // //   //         break;
-  // //   //     }
-  // //   //   });
-  // //   // });
-  // // }
-
-  // // == Recalculate position within viewport everytime popup opens
-  // recalculatePosition(popup) {
-  //   this.width = window.innerWidth;
-  //   this.height = window.innerHeight;
-
-  //   switch (popup.getAttribute("id")) {
-  //     // projects popup will always appear closer to left/top than others
-  //     case "website-projects-popup":
-  //       this.maxWidth = this.width * 0.3;
-  //       this.minWidth = this.width * 0.05;
-
-  //       this.maxHeight = this.height * 0.4;
-  //       this.minHeight = this.height * 0.15;
-  //       break;
-  //     default:
-  //       this.maxWidth = this.width * 0.8;
-  //       this.minWidth = this.width * 0.2;
-
-  //       this.maxHeight = this.height * 0.7;
-  //       this.minHeight = this.height * 0.15;
-  //   }
-
-  //   this.xpos = Math.floor(
-  //     Math.random() * (this.maxWidth - this.minWidth) + this.minWidth
-  //   );
-  //   this.ypos = Math.floor(
-  //     Math.random() * (this.maxHeight - this.minHeight) + this.minHeight
-  //   );
-
-  //   popup.style.left = `${this.xpos}px`;
-  //   popup.style.top = `${this.ypos}px`;
-  // }
-
-  // closeProjectImgPopups() {
-  //   this.prjImgPopups = document.getElementsByClassName("project-img-popup");
-  //   if (this.prjImgPopups.length > 0) {
-  //     Object.keys(this.prjImgPopups).forEach((key) => {
-  //       this.prjImgPopups[key].classList.add("popup-closed");
-  //     });
-  //   }
-  // }
+    this.portraitDeltaY = `calc(${this.titleProjectRect.top}px - ${this.headerRect.height}px - ${this.portraitRect.height}px)`;
+    console.log(this.portraitDeltaY);
+    // this.portraitContainer.style.top = `calc(${this.titleProjectRect.top}px - ${this.titleProjectRect.height}px)`;
+    this.portraitContainer.style.transform = `translateY(${this.portraitDeltaY})`;
+  }
 }
