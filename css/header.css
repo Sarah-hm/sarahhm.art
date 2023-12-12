@@ -185,6 +185,10 @@ header {
   width: 35vw;
 }
 
+#website-projects-dropdown-button {
+  cursor: pointer;
+}
+
 #website-projects-dropdown-button-homepage h1 {
   color: black;
   font-size: 1.5rem;
@@ -215,6 +219,7 @@ header {
   width: 100%;
   border: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 #website-projects-dropdown-button-homepage h1 sup {

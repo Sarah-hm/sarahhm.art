@@ -141,6 +141,20 @@ class Header {
           this.aboutSectionClose();
           this.calculatePortraitSize();
         });
+
+      document.getElementById("homepage").addEventListener("mouseenter", () => {
+        this.innerHeaderHovering = false;
+        this.aboutSectionHovering = false;
+        this.calculatePortraitSize();
+      });
+
+      document
+        .getElementById("header-portrait-container")
+        .addEventListener("mouseenter", () => {
+          this.innerHeaderHovering = false;
+          this.aboutSectionHovering = false;
+          this.calculatePortraitSize();
+        });
     }
 
     this.titleRedirect();
