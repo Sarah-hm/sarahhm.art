@@ -9,6 +9,9 @@
 * {
   box-sizing: border-box;
 }
+body {
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -51,6 +54,8 @@ body {
   display: flex;
   /* flex-direction: column; */
   /* background: cyan; */
+  /* overflow: scroll; */
+  scrollbar-gutter: initial;
 }
 
 #prj-container-left {
@@ -71,7 +76,7 @@ body {
   /* height: 200vh; */
   width: 50vw;
   /* background: burlywood; */
-  padding: 3rem;
+  padding: calc(3rem - 20px);
   padding-top: 20vh;
   /* margin-bottom: 4rem; */
   /* overflow-y: scroll; */

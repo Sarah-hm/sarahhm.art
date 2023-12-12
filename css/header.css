@@ -163,14 +163,11 @@ header {
 
 /* portrait */
 #header-portrait-container {
+  z-index: 501;
   position: fixed;
   right: 0px;
   top: 0px;
   margin-right: 3rem;
-  /* margin-bottom: 2rem; */
-  /* transform-origin: bottom right; */
-  /* transition: transform 0.5s; */
-  /* position: sticky; */
 }
 
 #header-portrait-container img {
