@@ -127,7 +127,7 @@ header {
 }
 
 .website-about-section-open {
-  height: 60vh !important;
+  height: 100vh !important;
   /* overflow-y: visible !important; */
   /* overflow: scroll; */
 }

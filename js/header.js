@@ -361,7 +361,7 @@ class Header {
 
     this.interval = setInterval(() => {
       this.calculatePortraitSize();
-    }, 50);
+    }, 20);
     setTimeout(() => {
       clearInterval(this.interval);
     }, 2000);
