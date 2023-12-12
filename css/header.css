@@ -185,8 +185,19 @@ header {
   width: 35vw;
 }
 
-#website-projects-dropdown-button {
+#website-projects-dropdown-button,
+#website-projects-dropdown-content li {
+  box-shadow: 0px 0px 0px 0 var(--accent-color);
+  transition: box-shadow 0.1s;
+  background: none;
   cursor: pointer;
+}
+
+#website-projects-dropdown-button:hover,
+#website-projects-dropdown-content li:hover {
+  box-shadow: 0px 6px 0px 0 var(--accent-color);
+  /* background: var(--accent-color); */
+  /* border-bottom: 2px solid black; */
 }
 
 #website-projects-dropdown-button-homepage h1 {
@@ -225,12 +236,6 @@ header {
 #website-projects-dropdown-button-homepage h1 sup {
   font-weight: normal;
   font-size: 0.75rem;
-}
-
-#website-projects-dropdown-button:hover,
-#website-projects-dropdown-content li:hover {
-  background: var(--accent-color);
-  border-bottom: 2px solid black;
 }
 
 #website-projects-dropdown-button a,
