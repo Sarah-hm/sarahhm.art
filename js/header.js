@@ -222,9 +222,6 @@ class Header {
     this.toolTipText = document.getElementById("tooltiptext");
     this.emailTxt = document.getElementById("email-button");
 
-    this.emailTooltip = document.getElementById("email-tooltip");
-    this.emailTooltip.setAttribute("hidden", "hidden");
-
     this.emailTxt.addEventListener("click", () => {
       this.email = "sarah.hm@hotmail.ca";
       // Copy the text inside the text field

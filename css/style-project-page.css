@@ -191,6 +191,7 @@ video::-webkit-media-controls-pause-button {
 
 .prj-websiteLink-btn,
 .prj-visual-documentation-btn {
+  display: block;
   cursor: pointer;
   outline: inherit;
   background-color: rgb(255, 255, 255);
@@ -218,15 +219,15 @@ video::-webkit-media-controls-pause-button {
   width: 100%;
 }
 
-.prj-websiteLink-btn a,
-.prj-visual-documentation-btn a {
+.prj-websiteLink-btn,
+.prj-visual-documentation-btn {
   text-decoration: none;
   color: black;
   font-weight: bold;
 }
 
-.prj-websiteLink-btn a:visited,
-.prj-visual-documentation-btn a:visited {
+.prj-websiteLink-btn:visited,
+.prj-visual-documentation-btn :visited {
   text-decoration: none;
   color: gray;
   font-weight: bold;

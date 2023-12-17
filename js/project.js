@@ -119,12 +119,12 @@ class Project {
   printWebsiteLink() {
     //if the website link isn't empty, create a button to link to it
     if (this.websiteLink != "") {
-      this.div = document.createElement("div");
-      this.div.classList.add("prj-websiteLink-btn");
-      this.rightContainer.appendChild(this.div);
-
-      this.link = `<a href = "${this.websiteLink}" target = "_blank"> Access project website</a>`;
-      this.div.insertAdjacentHTML("afterbegin", this.link);
+      this.webLink = document.createElement("a");
+      this.webLink.setAttribute("href", `${this.websiteLink}`);
+      this.webLink.setAttribute("target", "_blank");
+      this.webLink.classList.add("prj-websiteLink-btn");
+      this.webLink.insertAdjacentHTML("afterbegin", "Access project website");
+      this.rightContainer.appendChild(this.webLink);
     }
   }
 
@@ -215,13 +215,15 @@ class Project {
     this.rightContainer.appendChild(this.div);
 
     for (this.i = 0; this.i < this.linkDoc.length; this.i++) {
-      this.div = document.createElement("div");
-      this.div.classList.add("prj-visual-documentation-btn");
-      this.rightContainer.appendChild(this.div);
-      this.link = `<a href = "${this.linkDoc[this.i].source}" target="_blank">${
-        this.linkDoc[this.i].type
-      }</a>`;
-      this.div.insertAdjacentHTML("afterbegin", this.link);
+      this.docLink = document.createElement("a");
+      this.docLink.setAttribute("href", `${this.linkDoc[this.i].source}`);
+      this.docLink.setAttribute("target", "_blank");
+      this.docLink.classList.add("prj-websiteLink-btn");
+      this.docLink.insertAdjacentHTML(
+        "afterbegin",
+        `${this.linkDoc[this.i].type}`
+      );
+      this.rightContainer.appendChild(this.docLink);
     }
   }
 }
