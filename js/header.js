@@ -2,12 +2,13 @@ class Header {
   constructor(data) {
     this.websiteTitle = {
       title: "Sarah Hontoy-Major,",
-      subtitle: "transdisciplinary artist and designer",
+      subtitle: "art-based research enthusiast",
     };
     this.about = {
       text: [
-        "Sarah is a multidisciplinary, queer and neurodivergent, computational and tangible designer with a background in wearables, fashion design, 3 CAD and CAM, front and back end programming with a special interest on outlying narratives and material techniques. Their practice bridges our material and graspable world with the digital realm and its interfaces; how they impact each other in often unnoticed patterns. They strive to deconstruct the binary and linear hierarchies we maintain our dominant institutions in through queer and divergent story-telling. 'Invisible', digital, detexturized and averaged out data translate into tangible and graspable realities leaving outlying narratives out by design. These outcast stories are crucial to voice and physicalize to create a faithfully representative, sustainable, and reciprocal present and future cyberspace.",
-        "Current research assistant for the Indigenous Futures Research Center and Aboriginal Terriroty in Cyberspace in the Milieux Research Institute of Concordia University's Fine Arts Faculty, they are also a former research assistant for speculative fashion designer Ying Gao (École Supérieur de Mode de Montréal, UQAM), UQAM's Diament research chair on design for cyber mental health, and Vestechpro, an apparel research and innovation center affiliated with Marie-Victorin Fashion College.",
+        "",
+        // "Sarah is a multidisciplinary, queer and neurodivergent, computational and tangible designer with a background in wearables, fashion design, 3 CAD and CAM, front and back end programming with a special interest on outlying narratives and material techniques. Their practice bridges our material and graspable world with the digital realm and its interfaces; how they impact each other in often unnoticed patterns. They strive to deconstruct the binary and linear hierarchies we maintain our dominant institutions in through queer and divergent story-telling. 'Invisible', digital, detexturized and averaged out data translate into tangible and graspable realities leaving outlying narratives out by design. These outcast stories are crucial to voice and physicalize to create a faithfully representative, sustainable, and reciprocal present and future cyberspace.",
+        // "Current research assistant for the Indigenous Futures Research Center and Aboriginal Terriroty in Cyberspace in the Milieux Research Institute of Concordia University's Fine Arts Faculty, they are also a former research assistant for speculative fashion designer Ying Gao (École Supérieur de Mode de Montréal, UQAM), UQAM's Diament research chair on design for cyber mental health, and Vestechpro, an apparel research and innovation center affiliated with Marie-Victorin Fashion College.",
       ],
       img: "img/ma-face.jpg",
     };
@@ -75,6 +76,9 @@ class Header {
 
       this.createProfileImage();
 
+      //clip art guy for MIT
+      this.createClipPopup();
+
       // window.addEventListener("resize", () => {
       //   this.headerRect = document
       //     .getElementById("website-header")
@@ -84,7 +88,7 @@ class Header {
       // end profile image
 
       // nav menu
-      this.navHTML = `${this.navBtns.about} ${this.navBtns.instagram} ${this.navBtns.email}.`;
+      this.navHTML = `${this.navBtns.about}${this.navBtns.instagram}${this.navBtns.email}.`;
       this.printNavMenu(this.navHTML);
       this.createAboutSection();
 
@@ -218,17 +222,19 @@ class Header {
     this.toolTipText = document.getElementById("tooltiptext");
     this.emailTxt = document.getElementById("email-button");
 
+    this.emailTooltip = document.getElementById("email-tooltip");
+    this.emailTooltip.setAttribute("hidden", "hidden");
+
     this.emailTxt.addEventListener("click", () => {
       this.email = "sarah.hm@hotmail.ca";
       // Copy the text inside the text field
       navigator.clipboard.writeText(this.email);
-      // email popup: change tool tip text when clicked
-      // this.OriginalText = this.copyTooltip.innerHTML;
-      // console.log(this.OriginalText);
-      // this.copyTooltip.innerHTML = "Copied to clipboard!";
-      // setTimeout(() => {
-      //   this.copyTooltip.innerHTML = this.OriginalText;
-      // }, 750);
+
+      this.emailTxt.innerHTML = "here—copied";
+      console.log(this.emailTxt);
+      setTimeout(() => {
+        this.emailTxt.innerHTML = "here";
+      }, 750);
     });
   }
 
@@ -474,5 +480,15 @@ class Header {
 
     // this.portraitContainer.style.top = `calc(${this.titleProjectRect.top}px - ${this.titleProjectRect.height}px)`;
     this.portraitContainer.style.transform = `translateY(${this.portraitDeltaY})`;
+  }
+
+  createClipPopup() {
+    this.clippyContainer = document.createElement("div");
+    this.clippyContainer.setAttribute("id", "clippy-container");
+    this.doc.appendChild(this.clippyContainer);
+    this.clippy = document.createElement("img");
+    this.clippy.setAttribute("src", "img/clippy.png");
+    this.clippy.setAttribute("alt", "Clippy");
+    this.clippyContainer.appendChild(this.clippy);
   }
 }

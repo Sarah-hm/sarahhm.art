@@ -64,9 +64,7 @@ header {
 
 .website-title,
 .website-subtitle {
-  /* z-index: 1; */
-  /* font-size: 7vw; */
-  /* color: invert(100%); */
+  line-height: 100%;
 
   color: black;
   padding-bottom: 0.5rem;
@@ -101,6 +99,11 @@ header {
 
 .nav-text a:visited {
   color: black;
+}
+
+#email-tooltip {
+  /* display: none; */
+  background: cyan;
 }
 
 /* about section */

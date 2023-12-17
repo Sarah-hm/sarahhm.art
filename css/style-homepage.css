@@ -234,7 +234,7 @@ body {
   box-shadow: 5px 6px 0px 0 var(--accent-color);
 }
 /* email */
-#email-tooltip {
+/* #email-tooltip {
   position: relative;
   display: inline-block;
 }
@@ -270,7 +270,7 @@ body {
 #email-tooltip:hover #tooltiptext {
   visibility: visible;
   opacity: 1;
-}
+} */
 /* ig */
 
 /* CV popup */

@@ -325,8 +325,8 @@
     "visual_documentation": [
       {
         "type": "image",
-        "source": "",
-        "caption": "Visual documentation coming soon"
+        "source": "projects/Aeffect/aeffect-01.gif",
+        "caption": ""
       }
     ],
     "link_documentation": [
@@ -339,7 +339,7 @@
         "source": "projects/Aeffect/aeffect_final_artefact.pdf"
       }
     ],
-    "accentColor": "#70b9e0"
+    "accentColor": "#4273EF"
   },
   {
     "id": "shm-prj-ad-vitam-aeternam",
