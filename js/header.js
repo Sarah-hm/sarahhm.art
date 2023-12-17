@@ -2,7 +2,7 @@ class Header {
   constructor(data) {
     this.websiteTitle = {
       title: "Sarah Hontoy-Major,",
-      subtitle: "art-based research enthusiast",
+      subtitle: "Art-Based Researcher",
     };
     this.about = {
       text: [
@@ -39,9 +39,9 @@ class Header {
       },
     };
     this.navBtns = {
-      about: `Read <span class= "nav-button" id ="about-button"> about me</span>`,
+      about: `Read <span class= "nav-button" id ="about-button"> about me and my current projects</span>`,
       instagram: `, visit my <a href="https://www.instagram.com/sarahhm.jpg/" target= "_blank" ><span class= "nav-button" id="instagram-button">Instagram</span></a>`,
-      email: `, or copy my e-mail <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>`,
+      email: `, or get my e-mail <span class= "nav-button" id="email-button" onclick="copyText()" >here</span>`,
       homepage: `Go back to <a href="/"> <span class = "nav-button"> homepage</span></a>`,
     };
 
@@ -76,9 +76,6 @@ class Header {
 
       this.createProfileImage();
 
-      //clip art guy for MIT
-      this.createClipPopup();
-
       // window.addEventListener("resize", () => {
       //   this.headerRect = document
       //     .getElementById("website-header")
@@ -90,6 +87,7 @@ class Header {
       // nav menu
       this.navHTML = `${this.navBtns.about}${this.navBtns.instagram}${this.navBtns.email}.`;
       this.printNavMenu(this.navHTML);
+
       this.createAboutSection();
 
       // Toggle about section by clicking on button
@@ -479,13 +477,35 @@ class Header {
     this.portraitContainer.style.transform = `translateY(${this.portraitDeltaY})`;
   }
 
-  createClipPopup() {
-    this.clippyContainer = document.createElement("div");
-    this.clippyContainer.setAttribute("id", "clippy-container");
-    this.doc.appendChild(this.clippyContainer);
-    this.clippy = document.createElement("img");
-    this.clippy.setAttribute("src", "img/clippy.png");
-    this.clippy.setAttribute("alt", "Clippy");
-    this.clippyContainer.appendChild(this.clippy);
+  createQuickTourPopup() {
+    this.quickTourClicked = false;
+    this.quickTourContainer = document.createElement("div");
+    this.quickTourContainer.setAttribute("id", "quick-tour-container");
+    this.innerHeader.appendChild(this.quickTourContainer);
+
+    this.quickTourSymbol = `🙋🏻‍♀️`;
+
+    this.quickTourContainer.insertAdjacentHTML(
+      "afterbegin",
+      this.quickTourSymbol
+    );
+
+    this.tourTooltip = document.createElement("span");
+    this.tourTooltip.setAttribute("id", "quick-tour-tooltip");
+    this.tourTooltip.insertAdjacentHTML("afterbegin", "Coming from MIT?");
+
+    this.quickTourContainer.appendChild(this.tourTooltip);
+
+    this.quickTourContainer.addEventListener("click", () => {
+      if (!this.quickTourClicked) {
+        this.quickTourClicked = true;
+        // Change emoji
+        this.quickTourSymbol = `💁🏻‍♀️`;
+        this.quickTourContainer.insertAdjacentHTML(
+          "afterbegin",
+          this.quickTourSymbol
+        );
+      }
+    });
   }
 }

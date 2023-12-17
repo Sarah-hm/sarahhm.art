@@ -290,6 +290,63 @@ header {
   max-height: 100%;
 }
 
+/* Clippy guy */
+
+#quick-tour-container {
+  position: relative;
+  display: inline;
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+  /* padding-right: 3rem; */
+  text-align: left;
+}
+
+#quick-tour-container:hover {
+  cursor: pointer;
+}
+
+#quick-tour-container #quick-tour-tooltip {
+  visibility: hidden;
+  font-size: 1rem;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  left: 105%;
+  width: 12vw;
+  border: 2px solid var(--accent-color);
+  background-color: white;
+  /* background-color: var(--accent-color); */
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 2px;
+  /* font-weight: bold; */
+}
+
+#quick-tour-container #quick-tour-tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent var(--accent-color) transparent transparent;
+}
+
+#quick-tour-container:hover #quick-tour-tooltip {
+  visibility: visible;
+}
+
+#quick-tour-container img {
+  cursor: grab;
+  height: 100%;
+  width: 100%;
+  -webkit-filter: drop-shadow(1px 1px 1px #222);
+  filter: drop-shadow(1px 1px 1px #222);
+}
+
 /* mobile portrait + landscape */
 @media only screen and (max-width: 767px) {
   html {
