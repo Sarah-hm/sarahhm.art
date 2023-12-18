@@ -6,9 +6,11 @@ class Header {
     };
     this.about = {
       text: [
-        "",
-        // "Sarah is a multidisciplinary, queer and neurodivergent, computational and tangible designer with a background in wearables, fashion design, 3 CAD and CAM, front and back end programming with a special interest on outlying narratives and material techniques. Their practice bridges our material and graspable world with the digital realm and its interfaces; how they impact each other in often unnoticed patterns. They strive to deconstruct the binary and linear hierarchies we maintain our dominant institutions in through queer and divergent story-telling. 'Invisible', digital, detexturized and averaged out data translate into tangible and graspable realities leaving outlying narratives out by design. These outcast stories are crucial to voice and physicalize to create a faithfully representative, sustainable, and reciprocal present and future cyberspace.",
-        // "Current research assistant for the Indigenous Futures Research Center and Aboriginal Terriroty in Cyberspace in the Milieux Research Institute of Concordia University's Fine Arts Faculty, they are also a former research assistant for speculative fashion designer Ying Gao (École Supérieur de Mode de Montréal, UQAM), UQAM's Diament research chair on design for cyber mental health, and Vestechpro, an apparel research and innovation center affiliated with Marie-Victorin Fashion College.",
+        "I am a transdisciplinary computational and tangible designer. My practice merges front and back-end programming, 3D CAD and CAM, wearables, and fashion design.",
+        "I work to develop general understandings of complex contemporary concepts by making them accessible (see <a href='/aMRI.html' target='_blank'>aMRI</a>).",
+        "The experiences I create are playful and participative; they are charming invitations to reflect on convoluted realities of our world (see <a href='/sheins-cabinet.html' target='_blank'>Shein's Cabinet</a>).",
+        "I interweave emerging technologies and artisanal processes to develop new ways of approaching artistic applications of mechanical processes (see <a href='/data-patterns.html' target='_blank'>Data Patterns</a>).",
+        "I am currently working on <a href='/projects/symphenia/Symphanie_Proposal.pdf' target='_blank'>Symphenia</a>, an interactive interpretation of the neurosciences of perception and mind wandering, to be presented at the <a href='https://muhc.ca/' target='_blank'>MUHC Glen Site’s atrium</a> in April 2024.",
       ],
       img: "img/ma-face.jpg",
     };
@@ -361,7 +363,7 @@ class Header {
     for (this.i = 0; this.i < this.about.text.length; this.i++) {
       this.para = document.createElement("p");
       this.aboutBody.appendChild(this.para);
-      this.para.insertAdjacentText("afterbegin", this.about.text[this.i]);
+      this.para.innerHTML = `${this.about.text[this.i]}`;
     }
 
     this.cvButton = document.createElement("a");

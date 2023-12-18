@@ -78,7 +78,8 @@ header {
   padding-bottom: 0.75rem;
 }
 
-.nav-button {
+.nav-button,
+#about-section-body p a {
   /* remove default style */
   background-color: transparent;
   border: none;
@@ -93,17 +94,14 @@ header {
   color: black;
 }
 
-.nav-button:hover {
+.nav-button:hover,
+#about-section-body p a:hover {
   background-color: var(--accent-color);
 }
 
-.nav-text a:visited {
+.nav-text a:visited,
+#about-section-body p a:visited {
   color: black;
-}
-
-#email-tooltip {
-  /* display: none; */
-  background: cyan;
 }
 
 /* about section */
@@ -120,6 +118,7 @@ header {
 }
 
 .website-about-section {
+  padding-top: 3rem;
   position: relative;
   height: 0px;
   transition: all 1s;
@@ -135,9 +134,14 @@ header {
   /* overflow: scroll; */
 }
 
+#about-section-body {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 #about-section-body p {
   line-height: 1.5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 #about-section-cv-button {
