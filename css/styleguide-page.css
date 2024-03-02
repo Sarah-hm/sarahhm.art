@@ -43,6 +43,7 @@
 #color-palette__grid-container {
   width: 75%;
   margin: auto;
+  grid-template-columns: var(--grid-4-col);
 }
 .color-palette_grid,
 .color-palette_figcaption-grid {
@@ -51,7 +52,7 @@
 
 .color-palette__grid-item {
   flex-direction: column-reverse;
-  height: 10vh;
+  height: var(--inline-grid-gap);
   width: 100%;
   margin: auto;
 }
@@ -182,10 +183,8 @@
   height: 10vh;
   background-color: var(--accent-color);
 }
-#styleguide-component__CTA-container div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#styleguide-component__CTA-container > div {
+  padding: var(--inline-grid-gap);
 }
 
 #scrollbar-mockup {

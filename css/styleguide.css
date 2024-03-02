@@ -57,7 +57,7 @@
 
   /* sizing */
   font-size: 10px;
-  --h1-size: clamp(5rem, 14.34vw + 0.411rem, 20rem);
+  --h1-size: clamp(5rem, 12.428vw + 1.023rem, 18rem);
   --h2-size: clamp(3rem, 2.868vw + 2.082rem, 6rem);
   --h3-size: clamp(2.5rem, 0.478vw + 2.347rem, 3rem);
   --h4-size: clamp(1rem, 0.956vw + 0.694rem, 2rem);
@@ -107,24 +107,6 @@ body {
 /* scrollbar */
 ::-webkit-scrollbar {
   display: none;
-}
-
-#scrollbar {
-  position: fixed;
-  width: clamp(0.2rem, 0.287vw + 0.108rem, 0.5rem);
-  top: 0px;
-  right: 2rem;
-  bottom: 800px;
-  background: var(--color-dark);
-  color: var(--dark-color);
-  font-size: var(--h2-size);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  line-height: 65%;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
 }
 
 /* sections */
@@ -275,19 +257,6 @@ li {
 /* == Components == */
 
 /* GRIDS */
-.grid-container {
-  display: grid;
-  gap: var(--p-size);
-  grid-template-columns: repeat(var(--grid-columns), minmax(0, 2fr));
-  grid-column-end: unset;
-}
-.grid-container > * {
-  max-width: 100%;
-  max-height: 100%;
-  border: var(--box-border);
-  padding: 2rem;
-  font-size: var(--p-size);
-}
 
 .grid-1-col {
   display: grid;
@@ -353,15 +322,16 @@ button:hover {
   cursor: pointer;
   box-shadow: 5px 6px 0px 0 var(--accent-color);
 }
+/* form */
 form {
-  width: 100%;
+  display: flex;
 }
 
 form input {
   font-size: var(--button-font-size);
   border: none;
   border-bottom: var(--box-border);
-  padding: var(--button-padding);
+
   background: none;
 }
 
@@ -369,6 +339,26 @@ form input:focus {
   outline: none;
   border: none;
   border-bottom: var(--box-border);
+}
+
+/* scrollbar */
+
+#scrollbar {
+  position: fixed;
+  width: clamp(0.2rem, 0.287vw + 0.108rem, 0.5rem);
+  top: 0px;
+  right: 2rem;
+  bottom: 800px;
+  background: var(--color-dark);
+  color: var(--dark-color);
+  font-size: var(--h2-size);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 65%;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 /* == add-ons == */
@@ -383,9 +373,6 @@ form input:focus {
 
 /* Very Large devices (laptops/desktops, 1200px and down) */
 @media only screen and (max-width: 1200px) {
-  .grid-2-col {
-    grid-template-columns: var(--grid-1-col);
-  }
   .grid-4-col {
     grid-template-columns: var(--grid-2-col);
   }
@@ -397,13 +384,16 @@ form input:focus {
     grid-template-columns: var(--grid-1-col);
   }
   .grid-4-col {
-    grid-template-columns: var(--grid-1-col);
+    grid-template-columns: var(--grid-2-col);
   }
 }
 
 /*  Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 768px) {
   .grid-2-col-sidebar {
+    grid-template-columns: var(--grid-1-col);
+  }
+  .grid-4-col {
     grid-template-columns: var(--grid-1-col);
   }
 }
