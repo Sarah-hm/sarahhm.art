@@ -1,0 +1,187 @@
+.styleguide-section {
+  min-height: 100vh;
+  /* border: 1px black solid; */
+  scroll-snap-align: start;
+}
+
+#styleguide_header {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#styleguide_principles {
+}
+
+.styleguide-principles__container {
+  display: grid;
+  grid-template-columns: var(--grid-3-col);
+  column-gap: var(--inline-grid-gap);
+}
+
+#styleguide-principles__cybernetic {
+}
+
+/* typography section */
+
+#typography-atkinson_fonts-list li span {
+  color: var(--text-color);
+  background: none;
+}
+
+.span__bold {
+  font-weight: bold;
+}
+
+.span__italics {
+  font-style: italic;
+}
+
+.span__italics-bold {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* color section */
+
+#color-palette__grid-container {
+  width: 75%;
+  margin: auto;
+}
+.color-palette_grid,
+.color-palette_figcaption-grid {
+  text-align: center;
+}
+
+.color-palette__grid-item {
+  flex-direction: column-reverse;
+  height: 10vh;
+  width: 100%;
+  margin: auto;
+}
+
+.color-palette__color-swatch {
+  width: 100%;
+  height: 100%;
+  /* height: clamp(5rem, 9.56vw + 1.941rem, 15rem); */
+}
+
+.color-palette__blue {
+  --color-hue: 223;
+  --color-dark: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-dark)
+  );
+  --color-dark-medium: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-dark-medium)
+  );
+  --color-medium: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-medium)
+  );
+  --color-medium-light: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-medium-light)
+  );
+  --color-light: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-light)
+  );
+}
+
+.color-palette__red {
+  --color-hue: 356;
+  --color-dark: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-dark)
+  );
+  --color-dark-medium: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-dark-medium)
+  );
+  --color-medium: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-medium)
+  );
+  --color-medium-light: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-medium-light)
+  );
+  --color-light: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-light)
+  );
+}
+
+.color-palette__yellow {
+  --color-hue: 36;
+  --color-dark: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-dark)
+  );
+  --color-dark-medium: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-dark-medium)
+  );
+  --color-medium: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-medium)
+  );
+  --color-medium-light: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-medium-light)
+  );
+  --color-light: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-brightness-light)
+  );
+}
+
+.color-palette__dark-swatch {
+  background: var(--color-dark);
+}
+
+.color-palette__dark-medium-swatch {
+  background: var(--color-dark-medium);
+}
+
+.color-palette__medium-swatch {
+  background: var(--color-medium);
+}
+
+.color-palette__medium-light-swatch {
+  background: var(--color-medium-light);
+}
+
+.color-palette__light-swatch {
+  background: var(--color-light);
+}
+
+/* components */
+
+#styleguide-component__grids {
+  display: grid;
+  grid-template-columns: var(--grid-1-col);
+  gap: var(--inline-grid-gap);
+}
+
+.styleguide-component_grid-item {
+  width: 100%;
+  height: 10vh;
+  background-color: var(--accent-color);
+}
