@@ -43,7 +43,10 @@
 #color-palette__grid-container {
   width: 75%;
   margin: auto;
+  /* custom grid without media query, don't erase */
+  display: grid;
   grid-template-columns: var(--grid-4-col);
+  gap: var(--inline-grid-gap);
 }
 .color-palette_grid,
 .color-palette_figcaption-grid {
@@ -168,6 +171,32 @@
 
 .color-palette__light-swatch {
   background: var(--color-light);
+}
+
+#color-coordination__grid-container {
+  width: 75%;
+  margin: auto;
+}
+
+#color-coordination__grid-container p {
+  width: 100%;
+}
+
+#styleguide-color-coordination__span {
+  background-color: var(--color-dark-medium);
+  transition: var(--accent-color-transition-duration);
+}
+
+#styleguide-color-coordination__span:hover {
+  background-color: var(--color-medium-light);
+}
+
+#styleguide-color-coordination__span:hover > span {
+  background-color: var(--color-medium-light);
+}
+
+#color-coordination__grid-container span {
+  text-wrap: wrap;
 }
 
 /* components */

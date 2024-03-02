@@ -3,8 +3,8 @@
 
 /* Noto serif */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap");
-/* Root variables */
 
+/* Root variables */
 :root {
   font-family: "Atkinson Hyperlegible", Helvetica, sans-serif;
 
@@ -50,21 +50,23 @@
   --accent-color-transition-duration: 0.1s;
   --text-color: var(--color-dark);
   --text-color-inverted: var(--color-light);
-  --box-border: 1.5px solid var(--color-dark);
+  --box-border: 1.5px solid var(--color-dark-medium);
 
   /* typography */
   --heading-font-family: "Noto Serif", Times, "Times New Roman", serif;
 
   /* sizing */
   font-size: 10px;
+  /* p-size unless otherwise specified */
+  --p-size: clamp(1rem, 0.956vw + 0.694rem, 2rem);
   --h1-size: clamp(5rem, 12.428vw + 1.023rem, 18rem);
   --h2-size: clamp(3rem, 2.868vw + 2.082rem, 6rem);
   --h3-size: clamp(2.5rem, 0.478vw + 2.347rem, 3rem);
   --h4-size: clamp(1rem, 0.956vw + 0.694rem, 2rem);
   --menu-font-size: clamp(1.5rem, 0.956vw + 1.194rem, 2.5rem);
-  --p-size: clamp(1rem, 0.956vw + 0.694rem, 2rem);
   --button-font-size: clamp(1.5rem, 0.956vw + 1.194rem, 2.5rem);
   --figcaption-font-size: calc(var(--p-size) / 3 * 2);
+  --sup-font-size: 0.5em;
 
   /* grids */
   --grid-1-col: repeat(1, minmax(0, 1fr));
@@ -76,8 +78,9 @@
   --section-gutter: clamp(2rem, 2.868vw + 1.082rem, 5rem);
   --inline-grid-gap: clamp(2.5rem, 31.071vw + -7.443rem, 3.5rem);
   --block-grid-gap: clamp(3rem, 2.008vw + 2.358rem, 5.1rem);
-  --margin-block__headings: 0.5em;
-  --button-padding: 1em;
+  --inner-padding-large: 1.5em;
+  --inner-padding: 0.5em;
+  --button-padding: var(--inner-padding);
 }
 
 /* Global styling */
@@ -104,10 +107,6 @@ html {
 body {
   background: var(--color-light);
 }
-/* scrollbar */
-::-webkit-scrollbar {
-  display: none;
-}
 
 /* sections */
 section {
@@ -118,31 +117,6 @@ section {
 .section-inner-container {
   border-top: var(--box-border);
   padding-bottom: 5rem;
-}
-
-/* menu and menu items */
-menu {
-}
-
-menu a {
-  text-decoration: none;
-  font-size: var(--menu-font-size);
-}
-
-menu a:hover {
-  text-decoration: none;
-}
-
-menu li {
-  list-style-type: none;
-  font-size: inherit;
-  border-bottom: var(--box-border);
-}
-
-sup {
-  font-size: 0.5em;
-  font-weight: normal;
-  margin-left: 0.5em;
 }
 
 /* heading 1 */
@@ -215,32 +189,35 @@ a:hover {
 p {
   color: var(--text-color);
   font-size: var(--p-size);
-  gap: 1.5em;
+  padding-bottom: 1em;
   padding-right: 2em;
 }
 
 .rich-text {
-  padding-bottom: 1.5em;
+  padding-bottom: 0px;
 }
 
-code {
-  color: var(--text-color);
-  background-color: var(--color-medium-light);
-  font-size: calc(var(--p-size) / 2);
-  padding: 0.5em;
-  border-radius: 0.5em;
-}
 /* span */
 span {
-  background-color: var(--color-dark);
+  background-color: var(--color-dark-medium);
   color: var(--color-light);
   padding-inline: 0.2em;
   transition: background-color;
   transition-duration: var(--accent-color-transition-duration);
   text-wrap: nowrap;
 }
+span a {
+  color: var(--color-light);
+}
+
 span:hover {
   background-color: var(--color-medium-light);
+}
+
+sup {
+  font-size: var(--sup-font-size);
+  font-weight: normal;
+  margin-left: var(--inner-padding);
 }
 
 .indent-list {
@@ -252,6 +229,14 @@ li {
   color: var(--text-color);
   list-style-type: none;
   font-size: var(--p-size);
+}
+
+code {
+  color: var(--text-color);
+  background-color: var(--color-medium-light);
+  font-size: calc(var(--p-size) / 2);
+  padding: var(--inner-padding);
+  border-radius: 0.5em;
 }
 
 /* == Components == */
@@ -341,7 +326,29 @@ form input:focus {
   border-bottom: var(--box-border);
 }
 
+/* menu */
+menu {
+}
+
+menu a {
+  text-decoration: none;
+  font-size: var(--menu-font-size);
+}
+
+menu a:hover {
+  text-decoration: none;
+}
+
+menu li {
+  list-style-type: none;
+  font-size: inherit;
+  border-bottom: var(--box-border);
+}
+
 /* scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
 
 #scrollbar {
   position: fixed;
@@ -363,10 +370,11 @@ form input:focus {
 
 /* == add-ons == */
 
-.children-flex-centered {
+.flex-centered-left-align {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  flex-direction: column;
 }
 
 /* == Media queries == */
