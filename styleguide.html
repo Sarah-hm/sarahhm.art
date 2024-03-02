@@ -20,7 +20,7 @@
       <div class="grid-4-col">
         <div class="styleguide-principles__item">
           <h3>Determined Chaos</h3>
-          <p>
+          <p class="rich-text">
             The deterministic nature of chaos produces seemingly random
             patterns. An environment and components that allow some level of
             entropy inform a serendipitous space.
@@ -91,7 +91,7 @@
           <figcaption>This is a figure caption</figcaption>
         </div>
         <div>
-          <p>
+          <p class="rich-text">
             The
             <a href="https://brailleinstitute.org/freefont"
               >Atkinson Hyperlegible font</a
@@ -121,20 +121,18 @@
     </section>
     <section class="styleguide-section" id="styleguide_color">
       <h1>Colors</h1>
-      <p>
+      <p  class="rich-text">
         Depending on the selected hue (degree), the color will be iterated
         through 65% saturation and different brightness % using the HSB color
         system:
       </p>
       <div class="grid-4-col" id="color-palette__grid-container">
+        <figcaption>Dark 5%</figcaption>
         <figcaption>Dark-medium 15%</figcaption>
 
         <figcaption>Medium-light 75%</figcaption>
         <figcaption>Light 99% (background color)</figcaption>
 
-        <div class="grid-1-col">
-          <figcaption>Dark 5%</figcaption>
-        </div>
         <div class="color-palette__grid-item">
           <figure
             class="color-palette__color-swatch color-palette__dark-swatch"
@@ -226,7 +224,6 @@
     </section>
     <section class="styleguide-section" id="styleguide_component">
       <h1>Components</h1>
-
       <div class="section-inner-container" id="styleguide-component__grids">
         <h2>Grids</h2>
         <div class="grid-1-col">
@@ -261,10 +258,10 @@
 
       <div class="section-inner-container" id="styleguide-component__CTA">
         <h2>Calls to action</h2>
-        <div class="grid-1-col" id="styleguide-component__CTA-container">
-          <div><button>This is a button</button></div>
-          <div>
-            <form action="#">
+        <div class="grid-4-col" id="styleguide-component__CTA-container">
+          <div class="children-flex-centered"><button>This is a button</button></div>
+          <div class="children-flex-centered">
+            <form  action="#">
               <input
                 type="text"
                 placeholder="This is a text input..."
@@ -273,7 +270,7 @@
               <button type="submit">submit</button>
             </form>
           </div>
-          <div>
+          <div class="children-flex-centered">
             <menu>
               <a href="#"
                 ><li>menu item<sup>this is a superscript</sup></li>
@@ -289,18 +286,75 @@
               </a>
             </menu>
           </div>
+          <div  class="children-flex-centered">
+            <p style="width:60%">The scrollbar will be grabbable in the full website</p>
+            <div id="scrollbar-mockup">⌄</div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="styleguide-section"></section>
-    <!-- <section>
-      <div class="grid-container">
-        <div>This</div>
-        <div>is</div>
-        <div>a</div>
-        <div>grid</div>
-        <div>:)</div>
+    <section class="styleguide-section" id="styleguide__spacing">
+      <h1>Space</h1>
+      <div class="section-inner-container" id="styleguide-component__grids">
+        <h2>Sizing</h2>
+        <div class="grid-2-col-sidebar">       
+          <code>  /* sizing */<br>
+          font-size: 10px;<br>
+          --h1-size: clamp(5rem, 14.34vw + 0.411rem, 20rem); <br>
+          --h2-size: clamp(3rem, 2.868vw + 2.082rem, 6rem);<br>
+          --h3-size: clamp(2.5rem, 0.478vw + 2.347rem, 3rem);<br>
+          --h4-size: clamp(1rem, 0.956vw + 0.694rem, 2rem);<br>
+          --menu-font-size: clamp(1.5rem, 0.956vw + 1.194rem, 2.5rem);<br>
+          --p-size: clamp(1rem, 0.956vw + 0.694rem, 2rem);<br>
+          --button-font-size: clamp(1.5rem, 0.956vw + 1.194rem, 2.5rem);<br>
+          --figcaption-font-size: calc(var(--p-size) / 3 * 2);</code>
+          <div class="children-flex-centered">
+            <p>All font size were defined using clamp functions, creating an automatic responsive design wherein the minimum, maximum, and desired value are calculated using the viewport width.</p>
+          </div>
+        </div>
+        </div>
+       
+        <div class="section-inner-container" id="styleguide-component__grids">
+          <h2>Spacing</h2>
+          <div class="grid-2-col-sidebar">      <code>
+            /* spacing */<br>
+            --section-gutter: clamp(2rem, 2.868vw + 1.082rem, 5rem);<br>
+            --inline-grid-gap: clamp(2.5rem, 31.071vw + -7.443rem, 3.5rem);<br>
+            --block-grid-gap: clamp(3rem, 2.008vw + 2.358rem, 5.1rem);<br>
+            --margin-block__headings: 0.5em;<br>
+            --button-padding: 1em;<br>
+          </code>   </div>
+        
+          </div>
       </div>
-    </section> -->
+      <div class="section-inner-container" id="styleguide-component__grids">
+        <h2>Media Queries</h2>
+        <div class="grid-2-col-sidebar">       
+           <code>/* == Media queries == */<br>
+
+          /* Large devices (laptops/desktops, 992px and down) */<br>
+          @media only screen and (max-width: 992px) {<br>
+            .grid-2-col {<br>
+              grid-template-columns: var(--grid-1-col);<br>
+            }<br>
+            .grid-4-col {<br>
+              grid-template-columns: var(--grid-2-col);<br>
+            }<br>
+          }<br>
+
+          /*  Medium devices (landscape tablets, 768px and down) */<br>
+          @media only screen and (max-width: 768px) {<br>
+            .grid-2-col-sidebar {<br>
+              grid-template-columns: var(--grid-1-col);<br>
+            }<br>
+            .grid-4-col {<br>
+              grid-template-columns: var(--grid-1-col);<br>
+            }<br>
+          }<br>
+          </code>    </div>
+  
+        </div>
+    </div>
+    </section>
   </body>
 </html>

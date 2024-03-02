@@ -182,10 +182,27 @@
   height: 10vh;
   background-color: var(--accent-color);
 }
-
-#styleguide-component__CTA-container {
+#styleguide-component__CTA-container div {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#scrollbar-mockup {
+  position: relative;
+  width: clamp(0.2rem, 0.287vw + 0.108rem, 0.5rem);
+  top: 0px;
+  right: 2rem;
+  bottom: 800px;
+  background: var(--color-dark);
+  color: var(--dark-color);
+  font-size: var(--h2-size);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 65%;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  cursor: grab;
 }
