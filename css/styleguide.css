@@ -72,6 +72,8 @@
   --grid-1-col: repeat(1, minmax(0, 1fr));
   --grid-2-col: repeat(2, minmax(0, 1fr));
   --grid-2-col-sidebar: repeat(1, minmax(0, 2fr)) repeat(1, minmax(0, 3fr));
+  --grid-2-col-sidebar-reverse: repeat(1, minmax(0, 3fr))
+    repeat(1, minmax(0, 2fr));
   --grid-4-col: repeat(4, minmax(0, 1fr));
 
   /* spacing */
@@ -102,6 +104,13 @@ html {
   scroll-snap-type: y mandatory;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+header {
+}
+
+footer {
+  height: 20vh;
 }
 
 body {
@@ -229,6 +238,9 @@ li {
   color: var(--text-color);
   list-style-type: none;
   font-size: var(--p-size);
+  padding-bottom: var(--inner-padding);
+  margin-right: var(--inner-padding-large);
+  font-size: 90%;
 }
 
 code {
@@ -240,6 +252,16 @@ code {
 }
 
 /* == Components == */
+
+/* images */
+
+.img-container {
+  max-height: 80vh;
+}
+
+.img-container img {
+  height: 100%;
+}
 
 /* GRIDS */
 
@@ -261,15 +283,9 @@ code {
   gap: var(--inline-grid-gap);
 }
 
-.grid-3-col {
+.grid-2-col-sidebar-reverse {
   display: grid;
-  grid-template-columns: var(--grid-3-col);
-  gap: var(--inline-grid-gap);
-}
-
-.grid-3-col-sidebar {
-  display: grid;
-  grid-template-columns: var(--grid-3-col-sidebar);
+  grid-template-columns: var(--grid-2-col-sidebar-reverse);
   gap: var(--inline-grid-gap);
 }
 
@@ -309,15 +325,18 @@ button:hover {
 }
 /* form */
 form {
-  display: flex;
+  /* display: flex; */
 }
 
 form input {
-  font-size: var(--button-font-size);
+  font-size: var(--p-size);
   border: none;
   border-bottom: var(--box-border);
-
+  padding: 0;
+  margin: 0;
+  padding-bottom: var(--button-padding);
   background: none;
+  transform: translateX(5%);
 }
 
 form input:focus {
@@ -375,6 +394,18 @@ menu li {
   justify-content: center;
   /* align-items: center; */
   flex-direction: column;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 0px;
 }
 
 /* == Media queries == */
