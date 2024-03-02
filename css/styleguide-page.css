@@ -18,9 +18,6 @@
   column-gap: var(--inline-grid-gap);
 }
 
-#styleguide-principles__cybernetic {
-}
-
 /* typography section */
 
 #typography-atkinson_fonts-list li span {
@@ -184,4 +181,11 @@
   width: 100%;
   height: 10vh;
   background-color: var(--accent-color);
+}
+
+#styleguide-component__CTA-container {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
 }

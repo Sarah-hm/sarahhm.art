@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/styleguide-page.css" />
     <script src="js/styleguide.js"></script>
   </head>
+  <div aria-label="scrollbar" id="scrollbar">⌄</div>
   <body id="styleguide-page">
     <section class="styleguide-section" id="styleguide_header">
       <h1>Styleguide</h1>
@@ -16,7 +17,7 @@
     <section class="styleguide-section" id="styleguide_principles">
       <h1>Principles</h1>
 
-      <div class="grid-3-col">
+      <div class="grid-4-col">
         <div class="styleguide-principles__item">
           <h3>Determined Chaos</h3>
           <p>
@@ -24,7 +25,7 @@
             patterns. An environment and components that allow some level of
             entropy inform a serendipitous space.
           </p>
-          <ul>
+          <ul class="indent-list">
             <li>
               Is this chaos useful? (Being as useful as your favorite song can
               suffice)
@@ -42,7 +43,7 @@
             machine-machine) must be clear. Feedback loops happen in playful and
             non-invasive ways.
           </p>
-          <ul>
+          <ul class="indent-list">
             <li>
               Is this interaction playful and/or meaningful to the experience?
             </li>
@@ -56,7 +57,7 @@
             legible DOM, and optional complex interactions will allow greater
             experience customization according to users’ desires.
           </p>
-          <ul>
+          <ul class="indent-list">
             <li>Can the user experience be improved and/or simplified?</li>
             <li>Is the chaos (or maximalist nature) taking over?</li>
             <li>
@@ -72,44 +73,51 @@
       <h2>This is a subheading</h2>
       <h3>This is a title</h3>
       <h4>This is a subtitle</h4>
-      <!-- <h5>This is a rich text</h5> -->
-      <figcaption>This is a figure caption</figcaption>
-      <a href="#">This is a link</a>
-      <p>
-        This is a paragraph. <a href="#">This is an inline link.</a> Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit. Etiam elementum tortor a
-        euismod hendrerit. Donec accumsan in tortor in vulputate. Mauris
-        venenatis risus diam, at volutpat tellus rhoncus in.
-        <span>This is an inline span.</span> Donec eget placerat felis.
-        Phasellus gravida placerat est, sit amet scelerisque magna ultrices sit
-        amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-        posuere cubilia curae; Pellentesque facilisis tortor ut accumsan
-        iaculis. Donec a vestibulum mi. Morbi a lorem cursus, sagittis nisl non,
-        dapibus odio.
-      </p>
-      <p>
-        The
-        <a href="https://brailleinstitute.org/freefont"
-          >Atkinson Hyperlegible font</a
-        >, also available on
-        <a href="https://fonts.google.com/specimen/Atkinson+Hyperlegible"
-          >Google Fonts</a
-        >, is a free to use typeface created by the Braille Institute designed
-        to improve readability for low vision readers and people with reading
-        disabilities. It is available in 4 fonts, including two weights:
-      </p>
-      <ul id="typography-atkinson_fonts-list">
-        <li>
-          <span>regular</span>
-        </li>
-        <li>
-          <span class="span__bold">bold</span>
-        </li>
-        <li><span class="span__italics">italics</span></li>
-        <li>
-          <span class="span__italics-bold">italics bold</span>
-        </li>
-      </ul>
+      <div class="grid-2-col">
+        <div>
+          <!-- <h5>This is a rich text</h5> -->
+          <p>
+            This is a paragraph. <a href="#">This is an inline link.</a> Lorem
+            ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum
+            tortor a euismod hendrerit. Donec accumsan in tortor in vulputate.
+            Mauris venenatis risus diam, at volutpat tellus rhoncus in.
+            <span>This is an inline span.</span> Donec eget placerat felis.
+            Phasellus gravida placerat est, sit amet scelerisque magna ultrices
+            sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et
+            ultrices posuere cubilia curae; Pellentesque facilisis tortor ut
+            accumsan iaculis. Donec a vestibulum mi. Morbi a lorem cursus,
+            sagittis nisl non, dapibus odio.
+          </p>
+          <figcaption>This is a figure caption</figcaption>
+        </div>
+        <div>
+          <p>
+            The
+            <a href="https://brailleinstitute.org/freefont"
+              >Atkinson Hyperlegible font</a
+            >, also available on
+            <a href="https://fonts.google.com/specimen/Atkinson+Hyperlegible"
+              >Google Fonts</a
+            >, is a free to use typeface created by the Braille Institute
+            designed to improve readability for low vision readers and people
+            with reading disabilities. It is available in 4 fonts, including two
+            weights:
+          </p>
+          <ul class="indent-list" id="typography-atkinson_fonts-list">
+            <li>
+              <span>regular</span>
+            </li>
+            <li>
+              <span class="span__bold">bold</span>
+            </li>
+            <li><span class="span__italics">italics</span></li>
+            <li>
+              <span class="span__italics-bold">italics bold</span>
+            </li>
+            <li>N.b.: This is an unordered (indented) list</li>
+          </ul>
+        </div>
+      </div>
     </section>
     <section class="styleguide-section" id="styleguide_color">
       <h1>Colors</h1>
@@ -118,13 +126,15 @@
         through 65% saturation and different brightness % using the HSB color
         system:
       </p>
-      <div class="grid-5-col" id="color-palette__grid-container">
-        <figcaption>Dark 10%</figcaption>
-        <figcaption>Dark-medium 25%</figcaption>
-        <figcaption>Medium color 50%</figcaption>
+      <div class="grid-4-col" id="color-palette__grid-container">
+        <figcaption>Dark-medium 15%</figcaption>
+
         <figcaption>Medium-light 75%</figcaption>
-        <figcaption>Light 95%</figcaption>
+        <figcaption>Light 99% (background color)</figcaption>
 
+        <div class="grid-1-col">
+          <figcaption>Dark 5%</figcaption>
+        </div>
         <div class="color-palette__grid-item">
           <figure
             class="color-palette__color-swatch color-palette__dark-swatch"
@@ -135,11 +145,7 @@
             class="color-palette__color-swatch color-palette__dark-medium-swatch"
           ></figure>
         </div>
-        <div class="color-palette__grid-item">
-          <figure
-            class="color-palette__color-swatch color-palette__medium-swatch"
-          ></figure>
-        </div>
+
         <div class="color-palette__grid-item">
           <figure
             class="color-palette__color-swatch color-palette__medium-light-swatch"
@@ -161,11 +167,7 @@
             class="color-palette__color-swatch color-palette__dark-medium-swatch"
           ></figure>
         </div>
-        <div class="color-palette__grid-item color-palette__blue">
-          <figure
-            class="color-palette__color-swatch color-palette__medium-swatch"
-          ></figure>
-        </div>
+
         <div class="color-palette__grid-item color-palette__blue">
           <figure
             class="color-palette__color-swatch color-palette__medium-light-swatch"
@@ -187,11 +189,7 @@
             class="color-palette__color-swatch color-palette__dark-medium-swatch"
           ></figure>
         </div>
-        <div class="color-palette__grid-item color-palette__red">
-          <figure
-            class="color-palette__color-swatch color-palette__medium-swatch"
-          ></figure>
-        </div>
+
         <div class="color-palette__grid-item color-palette__red">
           <figure
             class="color-palette__color-swatch color-palette__medium-light-swatch"
@@ -213,11 +211,7 @@
             class="color-palette__color-swatch color-palette__dark-medium-swatch"
           ></figure>
         </div>
-        <div class="color-palette__grid-item color-palette__yellow">
-          <figure
-            class="color-palette__color-swatch color-palette__medium-swatch"
-          ></figure>
-        </div>
+
         <div class="color-palette__grid-item color-palette__yellow">
           <figure
             class="color-palette__color-swatch color-palette__medium-light-swatch"
@@ -236,66 +230,69 @@
       <div class="section-inner-container" id="styleguide-component__grids">
         <h2>Grids</h2>
         <div class="grid-1-col">
-          <div class="styleguide-component_grid-item"><h4>1 column</h4></div>
-        </div>
-        <div class="grid-2-col-sidebar">
-          <div class="styleguide-component_grid-item">
-            <h4>2 columns with sidebar</h4>
+          <div class="grid-1-col">
+            <div class="styleguide-component_grid-item">
+              <h4>1 column (mobile)</h4>
+            </div>
           </div>
-          <div class="styleguide-component_grid-item"></div>
-        </div>
-        <div class="grid-2-col">
-          <div class="styleguide-component_grid-item">
-            <h4>2 equal columns</h4>
+          <div class="grid-2-col-sidebar">
+            <div class="styleguide-component_grid-item">
+              <h4>2 columns with 2/5 left sidebar</h4>
+            </div>
+            <div class="styleguide-component_grid-item"></div>
           </div>
-          <div class="styleguide-component_grid-item"></div>
-        </div>
-        <div class="grid-3-col">
-          <div class="styleguide-component_grid-item"><h4>3 columns</h4></div>
-          <div class="styleguide-component_grid-item"></div>
-          <div class="styleguide-component_grid-item"></div>
-        </div>
-        <div class="grid-5-col">
-          <div class="styleguide-component_grid-item"><h4>5 columns</h4></div>
-          <div class="styleguide-component_grid-item"></div>
-          <div class="styleguide-component_grid-item"></div>
-          <div class="styleguide-component_grid-item"></div>
-          <div class="styleguide-component_grid-item"></div>
+          <div class="grid-2-col">
+            <div class="styleguide-component_grid-item">
+              <h4>2 equal columns (nested grids)</h4>
+            </div>
+            <div class="styleguide-component_grid-item"></div>
+          </div>
+
+          <div class="grid-4-col">
+            <div class="styleguide-component_grid-item">
+              <h4>4 equal columns (nested grids)</h4>
+            </div>
+            <div class="styleguide-component_grid-item"></div>
+            <div class="styleguide-component_grid-item"></div>
+            <div class="styleguide-component_grid-item"></div>
+          </div>
         </div>
       </div>
 
       <div class="section-inner-container" id="styleguide-component__CTA">
         <h2>Calls to action</h2>
-        <div class="grid-2-col-sidebar">
-          <button>This is a button</button>
-          <h4>Button</h4>
-          <form action="#">
-            <input
-              type="text"
-              placeholder="This is a text input..."
-              name="search"
-            />
-            <button type="submit">submit</button>
-          </form>
+        <div class="grid-1-col" id="styleguide-component__CTA-container">
+          <div><button>This is a button</button></div>
+          <div>
+            <form action="#">
+              <input
+                type="text"
+                placeholder="This is a text input..."
+                name="search"
+              />
+              <button type="submit">submit</button>
+            </form>
+          </div>
+          <div>
+            <menu>
+              <a href="#"
+                ><li>menu item<sup>this is a superscript</sup></li>
+              </a>
+              <a href="#"
+                ><li>a second item<sup>2020</sup></li>
+              </a>
+              <a href="#"
+                ><li>another longer menu item<sup>2023</sup></li>
+              </a>
+              <a href="#"
+                ><li>one last menu item<sup>Sept 2024</sup></li>
+              </a>
+            </menu>
+          </div>
         </div>
       </div>
     </section>
-    <section class="styleguide-section">
-      <menu>
-        <a href="#"
-          ><li>menu item<sup>this is a superscript</sup></li>
-        </a>
-        <a href="#"
-          ><li>a second item<sup>2020</sup></li>
-        </a>
-        <a href="#"
-          ><li>another longer menu item<sup>2023</sup></li>
-        </a>
-        <a href="#"
-          ><li>one last menu item<sup>Sept 2024</sup></li>
-        </a>
-      </menu>
-    </section>
+    <section class="styleguide-section"></section>
     <!-- <section>
       <div class="grid-container">
         <div>This</div>
