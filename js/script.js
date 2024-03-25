@@ -2,8 +2,9 @@ window.onload = (event) => {
   fetch("data/projects.json")
     .then((response) => response.json())
     .then((data) => {
+      console.log(data.projects[1]);
       //create a nav menu with all the projects in the JSON file
-      new Header(data, document);
+      new Header(data.projects, document);
 
       // If it's a project page:
       // Depending on the ID of the project, send the new project object and its data to the class
@@ -14,20 +15,20 @@ window.onload = (event) => {
         let websiteHeader = document.getElementById("website-header");
 
         //    Send all projects to a new project class, and in the class populate a
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].id == projectID) {
+        for (let i = 0; i < data.projects.length; i++) {
+          if (data.projects[i].id == projectID) {
             new Project(
               websiteHeader,
-              data[i].title,
-              data[i].subtitle,
-              data[i].year,
-              data[i].media,
-              data[i].keywords,
-              data[i].websiteLink,
-              data[i].description,
-              data[i].visual_documentation,
-              data[i].link_documentation,
-              data[i].accentColor
+              data.projects[i].title,
+              data.projects[i].subtitle,
+              data.projects[i].year,
+              data.projects[i].media,
+              data.projects[i].keywords,
+              data.projects[i].websiteLink,
+              data.projects[i].description,
+              data.projects[i].visual_documentation,
+              data.projects[i].link_documentation,
+              data.projects[i].accentColor
             );
           }
         }

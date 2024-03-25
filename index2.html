@@ -6,33 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sarah Hm</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.jpg" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="styleguide/css/styleguide.css" />
+    <script src="js/script2.js"></script>
   </head>
   <body>
-    <script>
-      let link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href =
-        "https://adsys2.concordia.ca/CMP/concordia-master-clientlibs.min.css";
-      link.type = "text/css";
-      document.head.appendChild(link);
+    <header class="grid-2-col-sidebar">
+      <a id="website-title" href="#"><h1>SHM</h1></a>
+      <nav>
+        <a href="#"><button>Bio & CV</button></a>
+        <a href=""><button>Instagram</button></a>
+        <a href=""><button>E-mail</button></a>
+      </nav>
+    </header>
+    <section id="hero">
+      <div id="hero__title-container">
+        <h1>Sarah Hontoy-Major</h1>
+      </div>
+    </section>
 
-      link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href =
-        "https://cscript-cdn-use.cassiecloud.com/cookie-policy-table.css";
-      link.type = "text/css";
-      document.head.appendChild(link);
-
-      let script = document.createElement("script");
-      script.src = "https://cscript-cdn-use.cassiecloud.com/tableV2.js";
-      document.head.appendChild(script);
-
-      script = document.createElement("script");
-      script.textContext = `ar request = new XMLHttpRequest();request.open("GET", "https://www.concordia.ca/privacy/cookies/jcr:content/content-main/box/box-parsys.html");request.send();request.onreadystatechange = function() {if (request.readyState == XMLHttpRequest.DONE) { if (request.status == 200) { var response = request.responseText; document.getElementById("privacy-policy").innerHTML = response;} else { document.body.innerHTML = '<h3>The content of this page is currently unavailable.</h3>';}}}	;document.addEventListener("DOMContentLoaded", function(event) { GetCookiePolicyTable('39','414E0D0E-BBCC-4D69-95C5-FE1D15F8C496', 'privacy-policy', '','1');}); `;
-      document.head.appendChild(script);
-    </script>
-
-    <div id="privacy-policy"></div>
+    <section id="homepage" class="grid-2-col-sidebar">
+      <menu>
+        <a href=""
+          ><li>a project <sup>2020</sup></li></a
+        >
+      </menu>
+    </section>
   </body>
 </html>
+<!--  -->
