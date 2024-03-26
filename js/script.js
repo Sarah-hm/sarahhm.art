@@ -12,9 +12,9 @@ window.onload = (event) => {
       // Run script according to page attribute (homepage, about, project)
       switch (document.body.getAttribute("page")) {
         case "homepage":
-          navCTA = ["cv", "instagram", "email"];
-          // new Header(navCTA);
-          new HomepageGrid(data, document);
+          navCTA = ["about", "instagram", "email"];
+          new Header(navCTA);
+          new HomepageGrid(data);
           break;
         case "about":
           navCTA = ["homepage", "cv", "instagram", "email"];

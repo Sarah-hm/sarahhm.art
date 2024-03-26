@@ -1,7 +1,6 @@
 class HomepageGrid {
-  constructor(data, document) {
+  constructor(data) {
     this.data = data;
-    this.doc = document;
 
     for (let i = 0; i < this.data.projects.length; i++) {
       new MenuItem(

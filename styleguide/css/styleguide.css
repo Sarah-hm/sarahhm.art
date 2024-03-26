@@ -112,7 +112,7 @@ header {
   width: 100vw;
   position: sticky;
   top: 0;
-  /* z-index: 1; */
+  z-index: 1;
   align-items: center;
   padding-inline: var(--section-gutter);
   background: none;
@@ -513,9 +513,16 @@ menu li {
   width: 100%;
   position: sticky;
   top: 0px;
-  /* border: var(--box-border); */
+  height: min-content;
 }
 
 #homepage-menu li {
   padding-left: var(--section-gutter);
+}
+
+#about-section img {
+  max-width: 100%;
+  position: sticky;
+  top: 0px;
+  height: min-content;
 }
