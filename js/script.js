@@ -6,29 +6,46 @@ window.onload = (event) => {
       data.projects.pop();
       data.experiments.pop();
 
+      // Make header here :)
+      let navCTA = []; //can be "homepage", "cv", "instagram", "email" (documentation is pushed independently)
+
       // Run script according to page attribute (homepage, about, project)
       switch (document.body.getAttribute("page")) {
         case "homepage":
+          navCTA = ["cv", "instagram", "email"];
+          // new Header(navCTA);
           new HomepageGrid(data, document);
-          // for (let i = 0; i < data.projects.length - 1; i++) {
-          //   if (data.projects[i].id == projectID) {
-          //     new HomepageGrid(
-          //       data.projects[i].title,
-          //       data.projects[i].subtitle,
-          //       data.projects[i].year,
-          //       data.projects[i].thumbnail,
-          //       data.projects[i].visual_documentation,
-          //       data.projects[i].link_documentation,
-          //       data.projects[i].accentColor
-          //     );
-          //   }
-          // }
           break;
         case "about":
-          console.log("we're on the about page");
+          navCTA = ["homepage", "cv", "instagram", "email"];
+          // new Header(navCTA);
           break;
         case "project":
-          console.log("we're on a project page");
+          navCTA = ["homepage", "instagram", "email"];
+          // new Header(navCTA);
+
+          //Send data from project to new Project Object
+          let projectID = document.body.getAttribute("projectID");
+
+          for (let i = 0; i < data.projects.length; i++) {
+            if (data.projects[i].id == projectID) {
+              new Project(
+                data.projects[i].title,
+                data.projects[i].subtitle,
+                data.projects[i].year,
+                data.projects[i].media,
+                data.projects[i].keywords,
+                data.projects[i].websiteLink,
+                data.projects[i].description,
+                data.projects[i].visual_documentation,
+                data.projects[i].link_documentation,
+                data.projects[i].accentColor
+              );
+            }
+          }
+          break;
+        case "experiments":
+          console.log("we're on an experiments page");
           break;
         default:
           console.log("404 teehee");
@@ -60,24 +77,6 @@ window.onload = (event) => {
             );
           }
         }
-      }
-
-      if (document.getElementById("homepage")) {
-        let projectBtns = document.getElementsByClassName("prj-list-title");
-
-        //decide a random arbitrary starting point for the cascade
-        let startX = window.innerWidth / 3;
-        let startY = window.innerHeight / 4;
-
-        const alpha = window.innerWidth / 10;
-
-        let newX = startX;
-        let newY = startY;
-
-        let previousPrjUrl = "";
-
-        let newStartX = startX;
-        let firstStartX = startX;
       }
     })
     .catch((error) => console.error(error));
