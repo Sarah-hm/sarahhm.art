@@ -4,7 +4,6 @@ class HomepageGrid {
     this.doc = document;
 
     for (let i = 0; i < this.data.projects.length; i++) {
-      console.log(this.data.projects[i]);
       new MenuItem(
         this.data.projects[i].title,
         this.data.projects[i].year,

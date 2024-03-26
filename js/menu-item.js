@@ -20,6 +20,11 @@ class MenuItem {
 
     this.title = document.createTextNode(this.title);
     this.listItem.appendChild(this.title);
-    console.log("selut");
+
+    this.superscript = document.createElement("sup");
+    this.listItem.appendChild(this.superscript);
+
+    this.subtitle = document.createTextNode(this.year);
+    this.superscript.appendChild(this.subtitle);
   }
 }
