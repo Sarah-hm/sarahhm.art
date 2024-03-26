@@ -2,9 +2,37 @@ window.onload = (event) => {
   fetch("data/projects.json")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.projects[1]);
-      //create a nav menu with all the projects in the JSON file
-      new Header(data.projects, document);
+      // Remove last project and experiment (template)
+      data.projects.pop();
+      data.experiments.pop();
+
+      // Run script according to page attribute (homepage, about, project)
+      switch (document.body.getAttribute("page")) {
+        case "homepage":
+          new HomepageGrid(data, document);
+          // for (let i = 0; i < data.projects.length - 1; i++) {
+          //   if (data.projects[i].id == projectID) {
+          //     new HomepageGrid(
+          //       data.projects[i].title,
+          //       data.projects[i].subtitle,
+          //       data.projects[i].year,
+          //       data.projects[i].thumbnail,
+          //       data.projects[i].visual_documentation,
+          //       data.projects[i].link_documentation,
+          //       data.projects[i].accentColor
+          //     );
+          //   }
+          // }
+          break;
+        case "about":
+          console.log("we're on the about page");
+          break;
+        case "project":
+          console.log("we're on a project page");
+          break;
+        default:
+          console.log("404 teehee");
+      }
 
       // If it's a project page:
       // Depending on the ID of the project, send the new project object and its data to the class
@@ -50,55 +78,7 @@ window.onload = (event) => {
 
         let newStartX = startX;
         let firstStartX = startX;
-
-        // Object.keys(projectBtns).forEach((key) => {
-        //   //add event listener on hover to create a new image popup window
-        //   projectBtns[key].addEventListener("mouseover", () => {
-        //     let prjUrl = projectBtns[key]
-        //       .getElementsByTagName("a")[0]
-        //       .getAttribute("href");
-
-        //     //if the prj URL isn't the same as the one who just got created, create a new popup
-        //     if (prjUrl != previousPrjUrl) {
-        //       previousPrjUrl = prjUrl;
-        //       let imgUrl;
-        //       let imgTitle;
-        //       let prjId;
-        //       Object.keys(data).forEach((key) => {
-        //         if (data[key].url === prjUrl) {
-        //           imgUrl = data[key].visual_documentation[0].source;
-        //           imgTitle = data[key].title;
-        //           prjId = data[key].id;
-        //         }
-        //       });
-
-        //       //increase the position
-        //       // newX = newX + alpha;
-        //       // newY = newY + alpha;
-
-        //       // const maxX = (window.innerWidth / 5) * 4;
-        //       // const maxY = (window.innerHeight / 3) * 2;
-
-        //       // // if img position is beyond the maximum X position (right), return to left-hand side
-        //       // if (newX >= maxX) {
-        //       //   let ranNum = Math.floor(Math.random() * 50) + 35;
-        //       //   newX = ranNum;
-        //       // }
-        //       // // If img position is beyond the maximum Y position (bottom), return to top minimum
-        //       // else if (newY >= maxY) {
-        //       //   newY = 150;
-        //       // }
-
-        //       //create a project img popup for every picture
-        //       new ProjectImgPopup(imgUrl, imgTitle, prjUrl, prjId, newX, newY);
-        //     }
-        //   });
-        // });
       }
     })
     .catch((error) => console.error(error));
 };
-
-function copyText() {
-  console.log("copy text");
-}

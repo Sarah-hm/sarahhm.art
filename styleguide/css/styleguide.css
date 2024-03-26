@@ -67,10 +67,12 @@
   --button-font-size: clamp(1.5rem, 0.956vw + 1.194rem, 2.5rem);
   --figcaption-font-size: calc(var(--p-size) / 3 * 2);
   --sup-font-size: 0.5em;
+  /* --header-height: */
 
   /* grids */
   --grid-1-col: repeat(1, minmax(0, 1fr));
   --grid-2-col: repeat(2, minmax(0, 1fr));
+  --grid-3-col: repeat(3, minmax(0, 1fr));
   --grid-2-col-sidebar: repeat(1, minmax(0, 2fr)) repeat(1, minmax(0, 3fr));
   --grid-2-col-sidebar-reverse: repeat(1, minmax(0, 3fr))
     repeat(1, minmax(0, 2fr));
@@ -108,9 +110,9 @@ html {
 
 header {
   width: 100vw;
-  position: fixed;
+  position: sticky;
   top: 0;
-  z-index: 1;
+  /* z-index: 1; */
   align-items: center;
   padding-inline: var(--section-gutter);
   background: none;
@@ -122,7 +124,7 @@ header {
 
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 footer {
@@ -160,9 +162,9 @@ section {
 }
 
 #homepage {
-  /* scroll-snap-type: x mandatory; */
   scroll-snap-align: end;
-  min-height: 100vh;
+  height: 100vh;
+  margin: 0;
   /* background: pink; */
 }
 
@@ -329,10 +331,18 @@ code {
   gap: var(--inline-grid-gap);
 }
 
+.grid-3-col {
+  display: grid;
+  grid-template-columns: var(--grid-3-col);
+  gap: var(--inline-grid-gap);
+  /* border: var(--box-border); */
+}
+
 .grid-4-col {
   display: grid;
   grid-template-columns: var(--grid-4-col);
   gap: var(--inline-grid-gap);
+  grid-auto-rows: 20vh;
 }
 
 .grid-5-col {
@@ -402,6 +412,18 @@ menu li {
   list-style-type: none;
   font-size: inherit;
   border-bottom: var(--box-border);
+  padding-bottom: 0;
+}
+
+#homepage-menu {
+  /* transform-origin: bottom left; */
+  margin: 0;
+
+  width: 100%;
+}
+
+#homepage-menu li {
+  padding-left: var(--section-gutter);
 }
 
 /* scrollbar */
@@ -475,4 +497,30 @@ menu li {
   .grid-4-col {
     grid-template-columns: var(--grid-1-col);
   }
+}
+
+/* == PATTERNS == */
+
+/* homepage */
+#homepage-project-grid {
+  /* margin-top: 25vh; */
+  /* position: relative; */
+  /* bottom: 0; */
+  /* background-color: cyan; */
+  align-items: center;
+  padding-top: 30vh;
+  /* top: 50vh; */
+  margin-right: var(--section-gutter);
+}
+
+#homepage-thumbnail-grid {
+  /* height: 50vh; */
+  overflow: hidden;
+}
+
+#homepage-thumbnail-grid a img {
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
 }

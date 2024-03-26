@@ -21,6 +21,7 @@
         "There is no pain nerve endings in the brain, so imaging brain functions help us gain awareness of those functions better, and our own situatedness within them. Although we cannot actually feel them, seeing them may emulate a similar sensation.",
         "The afuntional MRI makes you reflect on a general idea, and asks where in your brain you think this may come from. Is it a random choice, or do you know the brain enough to guess with precision? Which functions do you think visualizing those data may have? In the most non-scientific way possible, why is it important to reflect where in your brain things come from?"
       ],
+      "thumbnail": "projects/aMRI/aMRI-short-length.gif",
       "visual_documentation": [
         {
           "type": "video",
@@ -83,6 +84,7 @@
         "Data_scapes seeks to visualize complex notions by removing intermidiary steps and noise of inference processes and data collection, instead prioritizing user exploration of different visualizations of the same raw data, their geolocation, to tell different, sometimes diverging, stories.",
         "What would happen if we would learn to see different versions of reality as equally true, depending on how and when we come to calculate them?"
       ],
+      "thumbnail": "projects/data-scapes/data-scapes-04.gif",
       "visual_documentation": [
         {
           "type": "image",
@@ -136,6 +138,7 @@
         "Data patterns is an exploration of collaborative artistic methodologies between machines and humans. Ai processes have generally been designed to become humans’ workers, consequently antagonizing the machine and perceiving it as a replacement for, namely, artists’ and designers’ practices.",
         "This philosophy has restrained the development of such creative methodologies; we fail to perceive them as an addition to the designer’s toolbox, but also as a collaborative agent for artistic practices. By (re)imagining heterodox and creative methodologies between human and machine, data patterns fosters critical and social imaginaries for the future of ‘AI art’ and the artist’s ever-evolving practice."
       ],
+      "thumbnail": "projects/data-patterns/dataPatterns_thumbnail.jpg",
       "visual_documentation": [
         {
           "type": "image",
@@ -191,6 +194,7 @@
         "Downloading this google extension on your own machine will grant you access to all journal entries. ",
         "Presented at fourth space (2022) as part of _scapes project mediation"
       ],
+      "thumbnail": "projects/sheins-cabinet/data-scapes-journal-screengrab02.jpg",
       "visual_documentation": [
         {
           "type": "image",
@@ -235,6 +239,7 @@
       "description": [
         "Femme is a short animation depicting an ambiguous female form, with her insides mounted on her head and shoulders. She is arched slightly inward, looking into the absence of her abdomen. Her larger-than-nature body is stripped of limbs, stuck between the walls of a 3D rendition of Concordia University’s agora. This sculpture is an ode to universal bodily autonomy and a consideration of body dysmorphia, the unscientific and socially constructed lack of institutional freedom people affected by either live through, and the mental discord it entails."
       ],
+      "thumbnail": "projects/rideaux-de-mom/rideaux_01.jpg",
       "visual_documentation": [
         {
           "type": "image",
@@ -288,6 +293,7 @@
       "description": [
         "Femme is a short animation depicting an ambiguous female form, with her insides mounted on her head and shoulders. She is arched slightly inward, looking into the absence of her abdomen. Her larger-than-nature body is stripped of limbs, stuck between the walls of a 3D rendition of Concordia University’s agora. This sculpture is an ode to universal bodily autonomy and a consideration of body dysmorphia, the unscientific and socially constructed lack of institutional freedom people affected by either live through, and the mental discord it entails."
       ],
+      "thumbnail": "projects/femme/femme_GIF.gif",
       "visual_documentation": [
         {
           "type": "video",
@@ -323,6 +329,7 @@
       "description": [
         "In our fast-paced society and beset by the challenges of pandemic facial coverings, our connection to both our own emotional condition and the condition of others has seemingly never been further from our conscious awareness. A portmanteau of visual effect and psychological affect, Æffect presents a prototype model for a physically dynamic, emotionally responsive wearable garment providing haptic feedback to its wearer to encourage greater introspection."
       ],
+      "thumbnail": "projects/Aeffect/aeffect-01.gif",
       "visual_documentation": [
         {
           "type": "image",
@@ -361,6 +368,7 @@
         "Tasked to design an ‘unrealistic’ garment without material or commercial restrictions, I aimed to produce an environmentally sustainable concept that centers clothes’ life cycles and their striking ecological impact. From extensive research on sustainable manufacturing and production processes I had started in my internship at Vestechpro, an innovative apparel research center, I designed a speculative wearable that would allow a <i>giving back</i> rather than an ever-increasing <i>taking</i>; the fashion industry’s usual approach to production. ",
         "<i>Ad vitam aeternam</i> is an exploration of what living and dressing within our situated materialities can look like; a manifest garment created from wood pulp housing living and growing local flora. The 3D printed structure , housing whichever floral species found where worn, could be assembled onto a body or be disposed outside to create a garden; a quite feasible and realistic way of wearing a flower pot."
       ],
+      "thumbnail": "projects/ad-vitam-aeternam/ad-vitam-aeternam-cover.png",
       "visual_documentation": [
         {
           "type": "image",
@@ -407,6 +415,7 @@
         "As part of my last fashion design studies collection, we were tasked to produce a collection based on the theme <i>Crayola</i>. The brand’s bright colors and patterns inspired me to mirror in clothes the youthfulness I always refused to let go when introduced to adulthood.",
         "Playful and childlike silhouettes were created with a juvenile short-skirt (skort) and overall, while handmade hama beads button, melted Crayola wax onto otherwise pristine white shirting fabric, and backpack clips completed an otherwise modern feminine look inspired by fashion’s most iconic cuts, namely Chanel’s four-pocket jacket."
       ],
+      "thumbnail": "projects/un-jeu-denfant/jeu-denfant-silhouettes.png",
       "visual_documentation": [
         {
           "type": "image",
@@ -458,6 +467,7 @@
       "description": [
         "Monastique,  an imposed theme for my end of degree collection, called for elegant minimalism, and inspired seemingly simple, yet technically complex, garment pieces. The solemn and sober shapes of the garment allowed for several material modifications and technical audacities to elevate the look elegantly. Manually laminated fabric and ultrasonic bonding were used to create a simili-leather look, while a loosened overlock gave way to handstitch look-alikes."
       ],
+      "thumbnail": "projects/gris-monatique/monastique-01.png",
       "visual_documentation": [
         {
           "type": "image",
@@ -498,6 +508,7 @@
       "keywords": ["keyword", "keyword", "keyword", "keyword", "keyword"],
       "websiteLink": "",
       "description": ["desc"],
+      "thumbnail": "projects/#.png",
       "visual_documentation": [
         {
           "type": "image",
