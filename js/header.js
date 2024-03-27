@@ -60,7 +60,7 @@ class Header {
           new NavButton(this.name, this.url, this.target);
           break;
         case "cv":
-          this.name = "CV";
+          this.name = "Curriculum Vitae";
           this.url = "data/Sarah_hontoy-major_CV.pdf";
           this.target = "blank";
           new NavButton(this.name, this.url, this.target);

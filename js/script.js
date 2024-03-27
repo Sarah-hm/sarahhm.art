@@ -12,18 +12,17 @@ window.onload = (event) => {
       // Run script according to page attribute (homepage, about, project)
       switch (document.body.getAttribute("page")) {
         case "homepage":
-          navCTA = ["about", "instagram", "email"];
+          navCTA = ["about", "instagram"];
           new Header(navCTA);
           new HomepageGrid(data);
           break;
         case "about":
           navCTA = ["homepage", "cv", "instagram", "email"];
-          // new Header(navCTA);
+          new Header(navCTA);
           break;
         case "project":
-          navCTA = ["homepage", "instagram", "email"];
-          // new Header(navCTA);
-
+          navCTA = ["homepage"];
+          new Header(navCTA);
           //Send data from project to new Project Object
           let projectID = document.body.getAttribute("projectID");
 
