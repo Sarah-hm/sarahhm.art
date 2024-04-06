@@ -1,7 +1,6 @@
 class Header {
   constructor(navCTA) {
     this.navCTA = navCTA;
-    console.log(navCTA);
 
     this.websiteTitle = "SHM";
     this.titleUrl = "/";
@@ -22,9 +21,7 @@ class Header {
   createHeader() {
     this.header = document.createElement("header");
     this.header.classList.add(this.headerGridClass);
-    console.log("HELLO");
     document.body.prepend(this.header);
-    console.log(this.header);
   }
 
   createWebsiteTitle() {
@@ -78,6 +75,7 @@ class Header {
           new NavButton(this.name, this.url, this.target);
           break;
         default:
+          console.log("not a supported CTA");
       }
     });
   }

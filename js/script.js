@@ -21,10 +21,11 @@ window.onload = (event) => {
           new Header(navCTA);
           break;
         case "project":
+          let projectID = document.body.getAttribute("projectID");
           navCTA = ["homepage"];
+
           new Header(navCTA);
           //Send data from project to new Project Object
-          let projectID = document.body.getAttribute("projectID");
 
           for (let i = 0; i < data.projects.length; i++) {
             if (data.projects[i].id == projectID) {

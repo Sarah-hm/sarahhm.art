@@ -45,19 +45,21 @@ class Project {
 
     // Creating main body
     this.container = document.createElement("section");
-    this.container.classList.add("grid-2-col-sidebar");
+    // this.container.classList.add("grid-2-col-sidebar");
+    this.container.setAttribute("id", "project-container");
     document.body.appendChild(this.container);
 
     this.sidebar = document.createElement("div");
+    this.sidebar.setAttribute("id", "project-sidebar");
     this.container.appendChild(this.sidebar);
 
     this.main = document.createElement("div");
+    this.main.setAttribute("id", "project-main");
     this.container.appendChild(this.main);
 
     // Populate content in order, with specified container
-    this.createTitle(this.sidebar);
+    this.createTitleMenu(this.sidebar);
     this.createSubtitle(this.sidebar);
-    this.createYear(this.sidebar);
     this.createMedia(this.sidebar);
     this.createKeywords(this.sidebar);
     this.createDescription(this.sidebar);
@@ -83,6 +85,27 @@ class Project {
     // text
     this.websiteLinkTxt = document.createTextNode(text);
     this.websiteLinkBtn.appendChild(this.websiteLinkTxt);
+  }
+
+  createTitleMenu(container) {
+    this.menuContainer = document.createElement("div");
+    this.menuContainer.setAttribute("id", "project-menu__container");
+    container.appendChild(this.menuContainer);
+
+    this.titleMenu = document.createElement("menu");
+    this.titleMenu.setAttribute("id", "project-menu");
+    this.menuContainer.appendChild(this.titleMenu);
+
+    // create menu item for current project
+    this.callback = "menu";
+    new MenuItem(
+      this.title,
+      this.year,
+      "#",
+      this.id,
+      this.titleMenu,
+      this.callback
+    );
   }
 
   createTitle(container) {
@@ -151,11 +174,24 @@ class Project {
   }
 
   createVisualDocumentation(container) {
-    console.log(this.visualDoc);
     this.visualDoc.forEach((doc) => {
       switch (doc.type) {
         case "image":
-          console.log("image");
+          // Create figure with caption
+          this.figure = document.createElement("figure");
+          container.appendChild(this.figure);
+
+          if (doc.caption) {
+            this.caption = document.createElement("figcaption");
+            this.caption.classList.add("prj-visualDoc-figcaption");
+            this.figure.appendChild(this.caption);
+            this.caption.appendChild(document.createTextNode(doc.caption));
+          }
+
+          this.img = document.createElement("img");
+          this.img.src = `${doc.source}`;
+          this.figure.appendChild(this.img);
+
           break;
         case "video":
           this.video = document.createElement("video");
