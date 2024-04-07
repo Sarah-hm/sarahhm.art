@@ -88,7 +88,7 @@ class Header {
           break;
         case "about":
           this.name = "About";
-          this.url = "/me.html";
+          this.url = "me.html";
           this.target = "same"; //same or target
           new NavButton(this.name, this.url, this.target);
           break;
