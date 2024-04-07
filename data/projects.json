@@ -537,7 +537,7 @@
   ],
   "experiments": [
     {
-      "id": "shm-prj-touchdesigner-experiments",
+      "id": "shm-exp-touchdesigner",
       "url": "touchdesigner-experiments.html",
       "title": "TouchDesigner Experiments",
       "subtitle": "Subtitle",
@@ -578,7 +578,7 @@
       ]
     },
     {
-      "id": "shm-prj-name",
+      "id": "shm-exp-name",
       "url": "name.html",
       "title": "Experiment",
       "subtitle": "Subtitle",
