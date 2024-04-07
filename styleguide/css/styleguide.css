@@ -46,7 +46,7 @@
   --accent-color: var(--color-medium-light);
 
   /* color shading */
-  --accent-color-box-shadow: 5px 6px 0px var(--accent-color);
+  --accent-color-box-shadow: 0px 0px 0px 10px var(--accent-color);
   --accent-color-transition-duration: 0.1s;
   --text-color: var(--color-dark);
   --text-color-inverted: var(--color-light);
@@ -144,12 +144,9 @@ body[page="project"] header:hover {
   transition: var(--dynamic-grid-transition-time);
 }
 
-.website-title-initial {
-}
 .website-title-name {
   width: 0%;
   overflow: hidden;
-  transition: var(--dynamic-grid-transition-time);
 }
 
 .website-title-initial:hover + .website-title-name {
@@ -180,15 +177,31 @@ nav a button {
 }
 
 nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   outline: var(--box-border);
+  transition: var(--accent-color-transition-duration);
 }
 
 nav a button {
-  transition: var(--dynamic-grid-transition-time);
+  transition: var(--accent-color-transition-duration);
+}
+
+nav a:hover {
+  text-decoration: none;
 }
 
 nav a button:hover {
-  transform: scale(0.85);
+  width: 80%;
+  height: 80%;
+  background: white;
+  text-decoration: none;
+}
+
+nav a:has(button:hover) {
+  background: var(--accent-color);
+  text-decoration: none;
 }
 
 footer {
@@ -444,8 +457,8 @@ button {
 }
 button:hover {
   cursor: pointer;
-  box-shadow: 5px 6px 0px 0 var(--accent-color);
 }
+
 /* form */
 form {
   /* display: flex; */
@@ -648,24 +661,31 @@ body[page="homepage"] menu li {
 }
 
 #project-menu__container {
-  height: 5vh;
   transform-origin: bottom left;
   /* position: sticky;
   top: calc(var(--header-height) - 10vh + 1px); */
   border-bottom: var(--box-border);
 }
 
+#project-title {
+  cursor: pointer;
+}
+
 #project-menu__projects-container {
-  height: 0vh;
+  max-height: 0vh;
   overflow: hidden;
   transition: var(--dynamic-grid-transition-time);
 }
 
-.projects-container-opened {
-  height: min-content !important;
+#project-menu__projects-container a:hover {
+  text-decoration: none;
+}
+#project-menu__projects-container a:hover > li {
+  font-size: var(--h3-size);
 }
 
-#project-menu a {
+.projects-container-opened {
+  max-height: 80vh !important;
 }
 
 #project-main {

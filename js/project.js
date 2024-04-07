@@ -95,7 +95,7 @@ class Project {
     container.appendChild(this.menuContainer);
 
     this.titleMenu = document.createElement("menu");
-    this.titleMenu.setAttribute("id", "project-menu");
+    this.titleMenu.setAttribute("id", "project-title");
     this.menuContainer.appendChild(this.titleMenu);
 
     // create menu item for current project
