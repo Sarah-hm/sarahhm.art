@@ -4,6 +4,7 @@ class Menu {
     this.callback = callback;
     this.container = container;
 
+    console.log(this.data);
     switch (this.callback) {
       case "redirection":
         // If on a project page, only send the projects we are not on the page of

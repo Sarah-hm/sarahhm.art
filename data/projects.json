@@ -57,7 +57,8 @@
           "source": "https://github.com/Sarah-hm/CART499/tree/main/aMRI"
         }
       ],
-      "accentColor": "salmon"
+      "accentColor": "salmon",
+      "accentHue": 6.2
     },
     {
       "id": "shm-prj-data_scapes",
@@ -113,7 +114,9 @@
           "source": "https://github.com/Sarah-hm/sarahhm.art"
         }
       ],
-      "accentColor": "#ACACAD"
+      "accentColor": "#ACACAD",
+      "accentHue": 240,
+      "accentSaturation": 20
     },
     {
       "id": "shm-prj-data-patterns",
@@ -167,7 +170,9 @@
           "source": "projects/data-patterns/Report_Data-Patterns_Sarah-Hontoy-Major.pdf"
         }
       ],
-      "accentColor": "#98161E"
+      "accentColor": "#98161E",
+      "accentHue": 356,
+      "accentSaturation": 75
     },
     {
       "id": "shm-prj-sheins-cabinet",
@@ -213,7 +218,9 @@
           "source": "./projects/sheins-cabinet/data-pattern-misinformation-fashion.pdf"
         }
       ],
-      "accentColor": "#EDA841"
+      "accentColor": "#EDA841",
+      "accentHue": 52,
+      "accentSaturation": 89
     },
     {
       "id": "shm-prj-rideaux-de-mom",
@@ -268,7 +275,9 @@
         }
       ],
       "link_documentation": [],
-      "accentColor": "#DDAAA3"
+      "accentColor": "#DDAAA3",
+      "accentHue": 7,
+      "accentSaturation": 46
     },
     {
       "id": "shm-prj-femme",
@@ -304,7 +313,9 @@
         }
       ],
       "link_documentation": [],
-      "accentColor": "#AFAAAB"
+      "accentColor": "#AFAAAB",
+      "accentHue": 348,
+      "accentSaturation": 3
     },
     {
       "id": "shm-prj-aeffect",
@@ -347,7 +358,8 @@
           "source": "projects/Aeffect/aeffect_final_artefact.pdf"
         }
       ],
-      "accentColor": "#4273EF"
+      "accentColor": "#4273EF",
+      "accentHue": 223
     },
     {
       "id": "shm-prj-ad-vitam-aeternam",
@@ -392,7 +404,9 @@
         }
       ],
       "link_documentation": [],
-      "accentColor": "#B79FED"
+      "accentColor": "#B79FED",
+      "accentHue": 60,
+      "accentSaturation": 70
     },
     {
       "id": "shm-prj-jeu-denfant",
@@ -444,7 +458,8 @@
         }
       ],
       "link_documentation": [],
-      "accentColor": "#6FCEC1"
+      "accentColor": "#6FCEC1",
+      "accentHue": 172
     },
     {
       "id": "shm-prj-monastique",
@@ -496,7 +511,9 @@
         }
       ],
       "link_documentation": [],
-      "accentColor": "#963440"
+      "accentColor": "#963440",
+      "accentHue": 353,
+      "accentSaturation": 70
     },
     {
       "id": "shm-prj-name",
@@ -509,6 +526,8 @@
       "websiteLink": "",
       "description": ["desc"],
       "thumbnail": "projects/#.png",
+      "accentHue": 116,
+      "accentSaturation": 95,
       "visual_documentation": [
         {
           "type": "image",

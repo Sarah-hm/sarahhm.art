@@ -10,6 +10,8 @@ class Project {
     visualDoc,
     linkDoc,
     accentColor,
+    accentHue,
+    accentSaturation,
     data
   ) {
     this.title = title;
@@ -22,10 +24,16 @@ class Project {
     this.visualDoc = visualDoc;
     this.linkDoc = linkDoc;
     this.accentColor = accentColor;
+    this.accentHue = accentHue;
+    this.accentSaturation = accentSaturation;
     this.data = data;
 
-    if (this.accentColor) {
-      this.updateAccentColor();
+    if (this.accentHue) {
+      this.updateAccentHue();
+    }
+
+    if (this.accentSaturation) {
+      this.updateAccentSaturation();
     }
 
     // Update navigation with website and documentation links
@@ -69,8 +77,15 @@ class Project {
     this.createVisualDocumentation(this.main);
   }
 
-  updateAccentColor() {
-    //oops i'll have to update HEX to hue in JSON before doing that :(
+  updateAccentHue() {
+    document.documentElement.style.setProperty("--color-hue", this.accentHue);
+  }
+
+  updateAccentSaturation() {
+    document.documentElement.style.setProperty(
+      "--color-saturation",
+      `${this.accentSaturation}%`
+    );
   }
 
   updateNav(text, url) {
@@ -215,12 +230,22 @@ class Project {
 
           break;
         case "video":
+          this.figure = document.createElement("figure");
+          container.appendChild(this.figure);
+
+          if (doc.caption) {
+            this.caption = document.createElement("figcaption");
+            this.caption.classList.add("prj-visualDoc-figcaption");
+            this.figure.appendChild(this.caption);
+            this.caption.appendChild(document.createTextNode(doc.caption));
+          }
+
           this.video = document.createElement("video");
           this.video.setAttribute("controls", "controls");
           this.video.setAttribute("controlsList", "nodownload");
           this.video.setAttribute("autoplay", "autoplay");
           this.video.setAttribute("loop", "loop");
-          container.appendChild(this.video);
+          this.figure.appendChild(this.video);
 
           this.source = document.createElement("source");
           this.source.src = `${doc.source}`;
