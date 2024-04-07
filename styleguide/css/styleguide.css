@@ -192,14 +192,16 @@ nav a:hover {
   text-decoration: none;
 }
 
-nav a button:hover {
-  width: 80%;
-  height: 80%;
+nav a:hover > button {
+  width: 30%;
+  min-width: min-content;
+  height: 40%;
+  min-height: max-content;
   background: white;
   text-decoration: none;
 }
 
-nav a:has(button:hover) {
+nav a:hover {
   background: var(--accent-color);
   text-decoration: none;
 }
@@ -580,11 +582,18 @@ body[page="homepage"] menu li {
 
 /*  Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 768px) {
+  :root {
+    --header-height: 10vh;
+  }
   .grid-2-col-sidebar {
     grid-template-columns: var(--grid-1-col);
   }
   .grid-4-col {
     grid-template-columns: var(--grid-1-col);
+  }
+  nav a,
+  nav a button {
+    height: 100%;
   }
 }
 
@@ -614,6 +623,20 @@ body[page="homepage"] menu li {
   width: 100%;
 }
 
+/* make last items span all remaining grid spaces */
+#homepage-thumbnail-grid > *:nth-child(4n-1):nth-last-of-type(1) {
+  grid-column: span 2;
+}
+
+#homepage-thumbnail-grid > *:nth-child(4n-2):nth-last-child(1) {
+  grid-column: span 3;
+}
+
+#homepage-thumbnail-grid > *:nth-child(4n-3):nth-last-child(1) {
+  grid-column: span 4;
+}
+
+/* -- */
 #homepage-thumbnail-grid a img {
   width: 100%;
   height: 100%;

@@ -21,7 +21,7 @@ window.onload = (event) => {
           new Header(navCTA);
           break;
         case "project":
-          let projectID = document.body.getAttribute("projectID");
+          let projectID = document.body.getAttribute("projectid");
           navCTA = ["homepage"];
 
           new Header(navCTA);
@@ -46,7 +46,29 @@ window.onload = (event) => {
           }
           break;
         case "experiments":
-          console.log("we're on an experiments page");
+          let expID = document.body.getAttribute("projectid");
+          navCTA = ["homepage"];
+
+          new Header(navCTA);
+          //Send data from project to new Project Object
+
+          for (let i = 0; i < data.experiments.length; i++) {
+            if (data.experiments[i].id == expID) {
+              new Project(
+                data.projects[i].title,
+                data.projects[i].subtitle,
+                data.projects[i].year,
+                data.projects[i].media,
+                data.projects[i].keywords,
+                data.projects[i].websiteLink,
+                data.projects[i].description,
+                data.projects[i].visual_documentation,
+                data.projects[i].link_documentation,
+                data.projects[i].accentColor,
+                data
+              );
+            }
+          }
           break;
         default:
           console.log("404 teehee");
