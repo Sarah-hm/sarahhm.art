@@ -592,6 +592,7 @@ body[page="homepage"] menu li {
 
 /* homepage */
 #homepage-project-grid {
+  margin-left: 1px;
   padding-top: var(--header-height);
   /* margin-right: var(--section-gutter); */
 }
@@ -600,6 +601,7 @@ body[page="homepage"] menu li {
   justify-items: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fill, 30vh);
   /* gap: var(--inline-grid-gap); */
   transition: var(--dynamic-grid-transition-time);
 }
@@ -624,6 +626,7 @@ body[page="homepage"] menu li {
   position: sticky;
   top: 0px;
   height: min-content;
+  border-top: var(--box-border);
 }
 
 #homepage-menu li {

@@ -6,6 +6,9 @@ class HomepageGrid {
     this.menu = document.getElementById("homepage-menu");
     new Menu(this.data, this.menuCallback, this.menu);
 
+    this.shuffledData = this.shuffleArray(this.data.projects);
+
+    console.log(this.data);
     for (let i = 0; i < this.data.projects.length; i++) {
       new Thumbnail(
         this.data.projects[i].thumbnail,
@@ -87,5 +90,13 @@ class HomepageGrid {
         //which
       }
     }
+  }
+
+  shuffleArray(array) {
+    for (this.i = array.length - 1; this.i > 0; this.i--) {
+      this.j = Math.floor(Math.random() * (this.i + 1));
+      [array[this.i], array[this.j]] = [array[this.j], array[this.i]];
+    }
+    return array;
   }
 }

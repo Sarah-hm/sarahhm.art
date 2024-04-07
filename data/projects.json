@@ -537,6 +537,47 @@
   ],
   "experiments": [
     {
+      "id": "shm-prj-touchdesigner-experiments",
+      "url": "touchdesigner-experiments.html",
+      "title": "TouchDesigner Experiments",
+      "subtitle": "Subtitle",
+      "year": "year",
+      "media": ["medium", "medium", "medium", "medium"],
+      "keywords": ["keyword", "keyword", "keyword", "keyword", "keyword"],
+      "description": ["desc"],
+      "iterations": [
+        {
+          "title": "Noise",
+          "description": "TouchDesigner experiments with a main focus on the Noise Operator (and palette operator)",
+          "thumbnail": "projects/aMRI/aMRI-short-length.gif",
+          "visual_documentation": [
+            {
+              "type": "image",
+              "source": "",
+              "caption": ""
+            },
+            {
+              "type": "video",
+              "source": "",
+              "caption": ""
+            }
+          ]
+        }
+      ],
+      "link_documentation": [
+        {
+          "type": "final report",
+          "source": "src",
+          "caption": ""
+        },
+        {
+          "type": "artefact presentation",
+          "source": "src",
+          "caption": ""
+        }
+      ]
+    },
+    {
       "id": "shm-prj-name",
       "url": "name.html",
       "title": "Experiment",
@@ -549,6 +590,7 @@
         {
           "title": "X iteration's title",
           "description": "X iteration's desc",
+          "thumbnail": "",
           "visual_documentation": [
             {
               "type": "image",
