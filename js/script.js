@@ -39,7 +39,8 @@ window.onload = (event) => {
                 data.projects[i].description,
                 data.projects[i].visual_documentation,
                 data.projects[i].link_documentation,
-                data.projects[i].accentColor
+                data.projects[i].accentColor,
+                data
               );
             }
           }
@@ -73,7 +74,8 @@ window.onload = (event) => {
               data.projects[i].description,
               data.projects[i].visual_documentation,
               data.projects[i].link_documentation,
-              data.projects[i].accentColor
+              data.projects[i].accentColor,
+              data
             );
           }
         }

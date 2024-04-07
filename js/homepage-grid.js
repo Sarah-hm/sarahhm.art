@@ -53,15 +53,15 @@ class HomepageGrid {
 
             break;
           case 1:
-            console.log("second column");
+            // console.log("second column");
             this.thumbnails_container.style.gridTemplateColumns = `${this.smallFr} ${this.largeFr} ${this.smallFr} ${this.smallFr} `;
             break;
           case 2:
-            console.log("third column");
+            // console.log("third column");
             this.thumbnails_container.style.gridTemplateColumns = `${this.smallFr} ${this.smallFr} ${this.largeFr} ${this.smallFr} `;
             break;
           case 3:
-            console.log("fourth column");
+            // console.log("fourth column");
             this.thumbnails_container.style.gridTemplateColumns = `${this.smallFr} ${this.smallFr} ${this.smallFr} ${this.largeFr} `;
             break;
           default:
@@ -70,18 +70,18 @@ class HomepageGrid {
 
         this.row = this.i / 4;
         if (this.row < 1) {
-          console.log("first row");
+          // console.log("first row");
           this.thumbnails_container.style.gridTemplateRows = `${this.largeHeight} ${this.smallHeight} ${this.smallHeight} ${this.smallHeight}`;
         } else if (this.row < 2) {
-          console.log("second row");
+          // console.log("second row");
           this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.largeHeight} ${this.smallHeight} ${this.smallHeight}`;
         } else if (this.row < 3) {
-          console.log("third row");
+          // console.log("third row");
           this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.largeHeight} ${this.smallHeight}`;
         } else if (this.row < 4) {
-          console.log("fourth row");
+          // console.log("fourth row");
         } else if (this.row < 5) {
-          console.log("fifth row");
+          // console.log("fifth row");
         }
 
         //which

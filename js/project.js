@@ -9,7 +9,8 @@ class Project {
     desc,
     visualDoc,
     linkDoc,
-    accentColor
+    accentColor,
+    data
   ) {
     this.title = title;
     this.subtitle = subtitle;
@@ -21,6 +22,7 @@ class Project {
     this.visualDoc = visualDoc;
     this.linkDoc = linkDoc;
     this.accentColor = accentColor;
+    this.data = data;
 
     if (this.accentColor) {
       this.updateAccentColor();
@@ -98,7 +100,7 @@ class Project {
 
     // create menu item for current project
     this.callback = "menu";
-    new MenuItem(
+    this.project_title = new MenuItem(
       this.title,
       this.year,
       "#",
@@ -106,6 +108,25 @@ class Project {
       this.titleMenu,
       this.callback
     );
+
+    this.projectsContainer = document.createElement("div");
+    this.projectsContainer.setAttribute(
+      "id",
+      "project-menu__projects-container"
+    );
+    this.menuContainer.appendChild(this.projectsContainer);
+
+    this.projects_menu = new Menu(
+      this.data,
+      "redirection",
+      this.projectsContainer
+    );
+
+    this.titleMenu.addEventListener("click", () => {
+      document
+        .getElementById("project-menu__projects-container")
+        .classList.toggle("projects-container-opened");
+    });
   }
 
   createTitle(container) {

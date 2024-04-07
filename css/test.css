@@ -1,0 +1,15 @@
+#div-with-line {
+  background-color: #eee;
+  width: 200px;
+  height: 200px;
+}
+
+#line {
+  width: 280px;
+  background-color: #ddd;
+  height: 3px;
+  transform: rotate(45deg);
+  position: relative;
+  right: 39px;
+  top: 99px;
+}
