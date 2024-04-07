@@ -28,13 +28,49 @@ class Header {
     this.link = document.createElement("a");
     this.link.setAttribute("href", this.titleUrl);
     this.link.setAttribute("id", this.websiteTitleID);
-
     this.header.appendChild(this.link);
 
-    this.heading = document.createElement("h1");
-    this.link.appendChild(this.heading);
+    this.titleGrid = document.createElement("div");
+    this.titleGrid.setAttribute("id", "website-title-grid");
+    this.link.appendChild(this.titleGrid);
 
-    this.heading.appendChild(document.createTextNode(this.websiteTitle));
+    this.font = "h2";
+    this.nameFont = "h3";
+
+    this.item = document.createElement(this.font);
+    this.titleGrid.appendChild(this.item);
+    this.item.appendChild(document.createTextNode("S"));
+    this.item.classList.add("website-title-initial");
+
+    this.item = document.createElement(this.nameFont);
+    this.titleGrid.appendChild(this.item);
+    this.item.appendChild(document.createTextNode("arah"));
+    this.item.classList.add("website-title-name");
+
+    this.item = document.createElement(this.font);
+    this.titleGrid.appendChild(this.item);
+    this.item.appendChild(document.createTextNode("H"));
+    this.item.classList.add("website-title-initial");
+
+    this.item = document.createElement(this.nameFont);
+    this.titleGrid.appendChild(this.item);
+    this.item.appendChild(document.createTextNode("ontoy"));
+    this.item.classList.add("website-title-name");
+
+    this.item = document.createElement(this.font);
+    this.titleGrid.appendChild(this.item);
+    this.item.appendChild(document.createTextNode("M"));
+    this.item.classList.add("website-title-initial");
+
+    this.item = document.createElement(this.nameFont);
+    this.titleGrid.appendChild(this.item);
+    this.item.appendChild(document.createTextNode("ajor"));
+    this.item.classList.add("website-title-name");
+
+    // this.heading = document.createElement("h2");
+    // this.link.appendChild(this.heading);
+
+    // this.heading.appendChild(document.createTextNode(this.websiteTitle));
   }
 
   createNav() {

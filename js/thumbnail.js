@@ -10,9 +10,14 @@ class Thumbnail {
   }
 
   createThumbnail() {
+    this.container = document.createElement("div");
+    this.container.classList.add("thumbnail-container");
+    this.container.setAttribute("id", `${this.id}-thumbnail`);
+    this.grid.appendChild(this.container);
+
     this.link = document.createElement("a");
     this.link.setAttribute("href", this.url);
-    this.grid.appendChild(this.link);
+    this.container.appendChild(this.link);
 
     this.img = document.createElement("img");
     this.img.setAttribute("src", this.thumbnail);
