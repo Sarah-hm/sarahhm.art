@@ -549,7 +549,7 @@
         {
           "title": "Noise",
           "description": "TouchDesigner experiments with a main focus on the Noise Operator (and palette operator)",
-          "thumbnail": "projects/aMRI/aMRI-short-length.gif",
+          "thumbnail": "projects/touchDesigner-experiments/PSK-31-waterfall-optimize.gif",
           "visual_documentation": [
             {
               "type": "image",
@@ -590,7 +590,7 @@
         {
           "title": "X iteration's title",
           "description": "X iteration's desc",
-          "thumbnail": "",
+          "thumbnail": "projects/touchDesigner-experiments/PSK-31-waterfall-optimize.gif",
           "visual_documentation": [
             {
               "type": "image",

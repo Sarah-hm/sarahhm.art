@@ -6,14 +6,42 @@ class HomepageGrid {
     this.menu = document.getElementById("homepage-menu");
     new Menu(this.data, this.menuCallback, this.menu);
 
-    this.shuffledData = this.shuffleArray(this.data.projects);
+    this.allthumbnails = [];
 
-    console.log(this.data);
-    for (let i = 0; i < this.data.projects.length; i++) {
+    // get all projects thumbnails
+    for (this.i = 0; this.i < this.data.projects.length; this.i++) {
+      // console.log(this.data.projects[this.i].thumbnail);
+      this.temp = {
+        thumbnail: this.data.projects[this.i].thumbnail,
+        url: this.data.projects[this.i].url,
+        id: this.data.projects[this.i].id,
+      };
+      this.allthumbnails.push(this.temp);
+    }
+    // get all experiments' thumbnails
+    for (this.i = 0; this.i < this.data.experiments.length; this.i++) {
+      for (
+        this.j = 0;
+        this.j < this.data.experiments[this.i].iterations.length;
+        this.j++
+      ) {
+        console.log(this.data.experiments[this.i].iterations[this.j].thumbnail);
+        this.temp = {
+          thumbnail: this.data.experiments[this.i].iterations[this.j].thumbnail,
+          url: this.data.experiments[this.i].url,
+          id: this.data.experiments[this.i].id,
+        };
+        this.allthumbnails.push(this.temp);
+      }
+    }
+
+    this.shuffledThumbnails = this.shuffleArray(this.allthumbnails);
+
+    for (this.i = 0; this.i < this.allthumbnails.length; this.i++) {
       new Thumbnail(
-        this.data.projects[i].thumbnail,
-        this.data.projects[i].url,
-        this.data.projects[i].id
+        this.allthumbnails[this.i].thumbnail,
+        this.allthumbnails[this.i].url,
+        this.allthumbnails[this.i].id
       );
     }
 
