@@ -527,27 +527,23 @@ body[page="homepage"] menu li {
 }
 
 /* scrollbar */
+/* ===== Scrollbar CSS ===== */
+/* width */
 ::-webkit-scrollbar {
-  display: none;
+  width: 3px;
 }
 
-#scrollbar {
-  position: fixed;
-  width: clamp(0.2rem, 0.287vw + 0.108rem, 0.5rem);
-  top: 0px;
-  right: 2rem;
-  bottom: 800px;
-  background: var(--color-dark);
-  color: var(--dark-color);
-  font-size: var(--h2-size);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  line-height: 65%;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
 }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-medium);
+}
+
+/*  */
 
 /* == add-ons == */
 
