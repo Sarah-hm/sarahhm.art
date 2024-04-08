@@ -717,6 +717,18 @@ body[page="homepage"] menu li {
   align-items: flex-end;
 }
 
+#project-title-arrow {
+  padding: 0;
+  margin: 0;
+  transform: rotate(225deg);
+  transition: var(--dynamic-grid-transition-time);
+  color: var(--color-dark-medium);
+}
+
+.project-title-arrow-opened {
+  transform: rotate(315deg) !important;
+}
+
 #project-menu__projects-container {
   max-height: 0vh;
   overflow: hidden;

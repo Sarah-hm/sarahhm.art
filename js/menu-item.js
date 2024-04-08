@@ -46,6 +46,12 @@ class MenuItem {
         this.subtitle = document.createTextNode(this.year);
         this.superscript.appendChild(this.subtitle);
 
+        this.arrowContainer = document.createElement("p");
+        this.arrowContainer.setAttribute("id", "project-title-arrow");
+        this.link.appendChild(this.arrowContainer);
+        this.arrow = document.createTextNode("∟");
+        this.arrowContainer.appendChild(this.arrow);
+
         break;
       default:
         console.log("Not a supported callback");

@@ -146,6 +146,10 @@ class Project {
       document
         .getElementById("project-menu__projects-container")
         .classList.toggle("projects-container-opened");
+
+      document
+        .getElementById("project-title-arrow")
+        .classList.toggle("project-title-arrow-opened");
     });
   }
 
