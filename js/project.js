@@ -69,9 +69,14 @@ class Project {
 
     // Populate content in order, with specified container
     this.createTitleMenu(this.sidebar);
-    this.createSubtitle(this.sidebar);
-    this.createMedia(this.sidebar);
-    this.createKeywords(this.sidebar);
+    // this.createSubtitle(this.sidebar);
+
+    this.subsidebar = document.createElement("div");
+    this.subsidebar.setAttribute("id", "project-subsidebar");
+    this.sidebar.appendChild(this.subsidebar);
+
+    this.createMedia(this.subsidebar);
+    this.createKeywords(this.subsidebar);
     this.createDescription(this.sidebar);
 
     this.createVisualDocumentation(this.main);
@@ -164,9 +169,9 @@ class Project {
 
   createMedia(container) {
     if (this.media) {
-      this.DOMMedia = document.createElement("h4");
+      this.DOMMedia = document.createElement("h5");
       container.appendChild(this.DOMMedia);
-      this.DOMMedia.appendChild(document.createTextNode("Media: "));
+      this.DOMMedia.innerHTML = `<b>Media: </b>`;
       // display all but last media with ", " at the end
       for (this.i = 0; this.i < this.media.length - 1; this.i++) {
         this.DOMMedia.appendChild(
@@ -182,9 +187,9 @@ class Project {
 
   createKeywords(container) {
     if (this.keywords) {
-      this.DOMKeywords = document.createElement("h4");
+      this.DOMKeywords = document.createElement("h5");
       container.appendChild(this.DOMKeywords);
-      this.DOMKeywords.appendChild(document.createTextNode("keywords: "));
+      this.DOMKeywords.innerHTML = `<b>keywords: </b>`;
       // display all but last media with ", " at the end
       for (this.i = 0; this.i < this.keywords.length - 1; this.i++) {
         this.DOMKeywords.appendChild(

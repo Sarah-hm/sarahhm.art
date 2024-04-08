@@ -63,6 +63,7 @@
   --h2-size: clamp(3rem, 2.868vw + 2.082rem, 6rem);
   --h3-size: clamp(2.2rem, 0.287vw + 2.108rem, 2.5rem);
   --h4-size: clamp(1rem, 0.956vw + 0.694rem, 2rem);
+  --h5-size: clamp(1rem, 0.956vw + 0.694rem, 2rem);
   --menu-font-size: clamp(1.5rem, 0.956vw + 1.194rem, 2.5rem);
   --menu-font-size-hover: clamp(3rem, 2.868vw + 2.082rem, 6rem);
   --button-font-size: clamp(1.5rem, 0.956vw + 1.194rem, 2.5rem);
@@ -176,6 +177,7 @@ nav a button {
   transition: height var(--dynamic-grid-transition-time);
   height: var(--header-height);
   width: 100%;
+  white-space: nowrap;
 }
 
 nav a {
@@ -301,7 +303,7 @@ h4 {
 h5 {
   color: var(--text-color);
   font-size: var(--h5-size);
-  font-weight: bold;
+  font-weight: normal;
 }
 
 figcaption {
@@ -697,7 +699,7 @@ body[page="homepage"] menu li {
   padding-inline: var(--section-gutter);
   width: 100%;
   transition: 300ms;
-  row-gap: var(--block-grid-gap);
+  row-gap: var(--inline-grid-gap);
   outline: var(--box-border);
   overflow: scroll;
   position: sticky;
@@ -706,22 +708,29 @@ body[page="homepage"] menu li {
 
 #project-menu__container {
   transform-origin: bottom left;
-  /* border-bottom: var(--box-border); */
-  box-shadow: 0px 1px 0px 0px var(--color-dark-medium);
-  height: 5vh;
   position: sticky;
   top: -5vh;
   margin: 0;
 }
 
 #project-title {
+  height: 5vh;
   cursor: pointer;
+  box-shadow: 0px 1px 0px 0px var(--color-dark-medium);
+  display: flex;
+  align-items: flex-end;
 }
 
 #project-menu__projects-container {
   max-height: 0vh;
   overflow: hidden;
   transition: var(--dynamic-grid-transition-time);
+  /* margin-bottom: var(--block-grid-gap); */
+}
+
+#project-menu__projects-container li {
+  border-bottom: var(--box-border);
+  padding: 0;
 }
 
 #project-menu__projects-container a:hover {
@@ -733,6 +742,13 @@ body[page="homepage"] menu li {
 
 .projects-container-opened {
   max-height: 80vh !important;
+}
+
+#project-subsidebar {
+  border: var(--box-border);
+  padding: var(--inner-padding-large);
+  height: min-content;
+  margin-top: var(--block-grid-gap);
 }
 
 #project-main {
