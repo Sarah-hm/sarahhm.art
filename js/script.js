@@ -8,23 +8,23 @@ window.onload = (event) => {
 
       // Make header here :)
       let navCTA = []; //can be "homepage", "cv", "instagram", "email" (documentation is pushed independently)
-
+      let header;
       // Run script according to page attribute (homepage, about, project)
       switch (document.body.getAttribute("page")) {
         case "homepage":
           navCTA = ["about", "instagram"];
-          new Header(navCTA);
+          header = new Header(navCTA);
           new HomepageGrid(data);
           break;
         case "about":
           navCTA = ["homepage", "cv", "instagram", "email"];
-          new Header(navCTA);
+          header = new Header(navCTA);
           break;
         case "project":
           let projectID = document.body.getAttribute("projectid");
           navCTA = ["homepage"];
 
-          new Header(navCTA);
+          header = new Header(navCTA);
           //Send data from project to new Project Object
 
           for (let i = 0; i < data.projects.length; i++) {
@@ -46,28 +46,50 @@ window.onload = (event) => {
               );
             }
           }
+
+          // if project sidebar is scrolled, hide website title, make project title z-index increase
+          document
+            .getElementById("project-sidebar")
+            .addEventListener("scroll", (el) => {
+              this.titleBottom = document
+                .getElementById("project-menu__container")
+                .getBoundingClientRect().bottom;
+
+              this.headerBottom = document
+                .getElementsByTagName("header")[0]
+                .getBoundingClientRect().bottom;
+
+              if (this.titleBottom === this.headerBottom) {
+                document.getElementById("website-title").style.transform =
+                  "translateY(-100%)";
+              } else {
+                document.getElementById("website-title").style.transform =
+                  "translateY(0)";
+              }
+            });
+
           break;
         case "experiments":
           let expID = document.body.getAttribute("projectid");
           navCTA = ["homepage"];
 
-          new Header(navCTA);
+          header = new Header(navCTA);
           //Send data from project to new Project Object
 
           for (let i = 0; i < data.experiments.length; i++) {
             if (data.experiments[i].id == expID) {
               new Project(
-                data.projects[i].title,
-                data.projects[i].subtitle,
-                data.projects[i].year,
-                data.projects[i].media,
-                data.projects[i].keywords,
-                data.projects[i].websiteLink,
-                data.projects[i].description,
-                data.projects[i].visual_documentation,
-                data.projects[i].link_documentation,
-                data.projects[i].accentColor,
-                data.projects[i].accentSaturation,
+                data.experiments[i].title,
+                data.experiments[i].subtitle,
+                data.experiments[i].year,
+                data.experiments[i].media,
+                data.experiments[i].keywords,
+                data.experiments[i].websiteLink,
+                data.experiments[i].description,
+                data.experiments[i].visual_documentation,
+                data.experiments[i].link_documentation,
+                data.experiments[i].accentColor,
+                data.experiments[i].accentSaturation,
                 data
               );
             }
@@ -75,35 +97,6 @@ window.onload = (event) => {
           break;
         default:
           console.log("404 teehee");
-      }
-
-      // If it's a project page:
-      // Depending on the ID of the project, send the new project object and its data to the class
-      if (document.getElementById("project-container")) {
-        let projectID = document
-          .getElementById("project-container")
-          .getAttribute("project");
-        let websiteHeader = document.getElementById("website-header");
-
-        //    Send all projects to a new project class, and in the class populate a
-        for (let i = 0; i < data.projects.length; i++) {
-          if (data.projects[i].id == projectID) {
-            new Project(
-              websiteHeader,
-              data.projects[i].title,
-              data.projects[i].subtitle,
-              data.projects[i].year,
-              data.projects[i].media,
-              data.projects[i].keywords,
-              data.projects[i].websiteLink,
-              data.projects[i].description,
-              data.projects[i].visual_documentation,
-              data.projects[i].link_documentation,
-              data.projects[i].accentColor,
-              data
-            );
-          }
-        }
       }
     })
     .catch((error) => console.error(error));
