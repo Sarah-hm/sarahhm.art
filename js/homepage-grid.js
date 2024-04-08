@@ -2,9 +2,19 @@ class HomepageGrid {
   constructor(data) {
     this.data = data;
 
-    this.menuCallback = "redirection";
     this.menu = document.getElementById("homepage-menu");
+    // project menu
+    this.menuCallback = "redirection";
     new Menu(this.data, this.menuCallback, this.menu);
+
+    // experiments menu
+    this.menuCallback = "submenu";
+    new MenuItem("Experiments", "", "#", "", this.menu, this.menuCallback);
+
+    this.experiments_menu = document.createElement("div");
+    this.experiments_menu.classList.add("menu__submenu");
+    this.experiments_menu.setAttribute("id", "homepage-experiments-menu");
+    this.menu.appendChild(this.experiments_menu);
 
     this.allthumbnails = [];
 

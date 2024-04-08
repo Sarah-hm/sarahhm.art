@@ -101,3 +101,19 @@ window.onload = (event) => {
     })
     .catch((error) => console.error(error));
 };
+
+window.addEventListener("click", toggleFullscreen);
+
+function toggleFullscreen() {
+  let elem = document.querySelector("img");
+
+  if (!document.fullscreenElement) {
+    elem.requestFullscreen().catch((err) => {
+      alert(
+        `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`
+      );
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}

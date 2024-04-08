@@ -30,8 +30,9 @@ class MenuItem {
         this.subtitle = document.createTextNode(this.year);
         this.superscript.appendChild(this.subtitle);
         break;
-      case "menu":
+      case "submenu":
         this.link = document.createElement("a");
+        this.link.setAttribute("onclick", "toggleMenu(this)");
         this.menu.appendChild(this.link);
 
         this.listItem = document.createElement("li");
@@ -47,7 +48,7 @@ class MenuItem {
         this.superscript.appendChild(this.subtitle);
 
         this.arrowContainer = document.createElement("p");
-        this.arrowContainer.setAttribute("id", "project-title-arrow");
+        this.arrowContainer.setAttribute("id", "submenu-arrow");
         this.link.appendChild(this.arrowContainer);
         this.arrow = document.createTextNode("∟");
         this.arrowContainer.appendChild(this.arrow);
@@ -55,15 +56,6 @@ class MenuItem {
         break;
       default:
         console.log("Not a supported callback");
-    }
-  }
-
-  toggleMenu() {
-    if (this.menuOpened) {
-      this.menuOpened = false;
-    } else {
-      this.menuOpened = true;
-      console.log("menu is toggled");
     }
   }
 }

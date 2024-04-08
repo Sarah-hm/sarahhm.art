@@ -114,20 +114,20 @@ class Project {
     this.menuContainer.setAttribute("id", "project-menu__container");
     container.appendChild(this.menuContainer);
 
-    this.titleMenu = document.createElement("menu");
-    this.titleMenu.setAttribute("id", "project-title");
-    this.menuContainer.appendChild(this.titleMenu);
-
     // create menu item for current project
-    this.callback = "menu";
+    this.callback = "submenu";
     this.project_title = new MenuItem(
       this.title,
       this.year,
       "#",
       this.id,
-      this.titleMenu,
+      this.menuContainer,
       this.callback
     );
+
+    this.menuContainer.firstChild.setAttribute("id", "project-title");
+
+    console.log(this.menuContainer);
 
     this.projectsContainer = document.createElement("div");
     this.projectsContainer.setAttribute(
@@ -141,16 +141,6 @@ class Project {
       "redirection",
       this.projectsContainer
     );
-
-    this.titleMenu.addEventListener("click", () => {
-      document
-        .getElementById("project-menu__projects-container")
-        .classList.toggle("projects-container-opened");
-
-      document
-        .getElementById("project-title-arrow")
-        .classList.toggle("project-title-arrow-opened");
-    });
   }
 
   createTitle(container) {

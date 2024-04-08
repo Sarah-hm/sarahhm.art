@@ -717,9 +717,17 @@ body[page="homepage"] menu li {
   align-items: flex-end;
 }
 
-#project-title-arrow {
+#project-title:hover {
+  text-decoration: none;
+}
+
+#submenu-arrow {
+  position: absolute;
+  right: 2rem;
   padding: 0;
-  margin: 0;
+  margin: auto;
+  height: min-content;
+  transform-origin: center center;
   transform: rotate(225deg);
   transition: var(--dynamic-grid-transition-time);
   color: var(--color-dark-medium);
