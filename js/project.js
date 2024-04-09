@@ -69,6 +69,8 @@ class Project {
 
     // Populate content in order, with specified container
     this.createTitleMenu(this.sidebar);
+    this.header = document.getElementsByTagName("header")[0];
+    this.createTitleMenu(this.header);
     // this.createSubtitle(this.sidebar);
 
     this.subsidebar = document.createElement("div");
@@ -111,7 +113,7 @@ class Project {
 
   createTitleMenu(container) {
     this.menuContainer = document.createElement("div");
-    this.menuContainer.setAttribute("id", "project-menu__container");
+    this.menuContainer.classList.add("project-menu__container");
     container.appendChild(this.menuContainer);
 
     // create menu item for current project
@@ -127,13 +129,8 @@ class Project {
 
     this.menuContainer.firstChild.setAttribute("id", "project-title");
 
-    console.log(this.menuContainer);
-
     this.projectsContainer = document.createElement("div");
-    this.projectsContainer.setAttribute(
-      "id",
-      "project-menu__projects-container"
-    );
+    this.projectsContainer.classList.add("project-menu__projects-container");
     this.menuContainer.appendChild(this.projectsContainer);
 
     this.projects_menu = new Menu(

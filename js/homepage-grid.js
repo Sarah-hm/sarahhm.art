@@ -71,15 +71,20 @@ class HomepageGrid {
     );
     this.thumbnails = document.getElementsByClassName("thumbnail-container");
 
+    // add animation if is thumbnail is false for too long
+    this.thumbnailsEntered = false;
+    setTimeout(this.checkThumbnails, 400);
+
     for (this.i = 0; this.i < this.thumbnails.length; this.i++) {
       this.thumbnails[this.i].addEventListener("mouseenter", (el) => {
+        this.thumbnailsEntered = true;
         this.thumbnailEnter(el);
       });
     }
 
     this.thumbnails_container.addEventListener("mouseleave", () => {
-      this.thumbnails_container.style.gridTemplateColumns = `${this.defaultFr} ${this.defaultFr} ${this.defaultFr} ${this.defaultFr} `;
-      this.thumbnails_container.style.gridTemplateRows = `${this.defaultHeight} ${this.defaultHeight} ${this.defaultHeight}  `;
+      this.thumbnails_container.style.gridTemplateColumns = `${this.defaultFr} ${this.defaultFr} ${this.defaultFr} ${this.defaultFr}`;
+      this.thumbnails_container.style.gridTemplateRows = `${this.defaultHeight} ${this.defaultHeight} ${this.defaultHeight}`;
     });
   }
 
@@ -127,6 +132,19 @@ class HomepageGrid {
 
         //which
       }
+    }
+  }
+
+  checkThumbnails() {
+    if (!this.thumbnailsEntered) {
+      //Get three random from thumbnails
+      this.noise1 = Math.floor(
+        Math.random() *
+          document.getElementsByClassName("thumbnail-container").length -
+          1
+      );
+      // this.thumbnailEnter(this.noise1);
+      console.log(this.noise1);
     }
   }
 

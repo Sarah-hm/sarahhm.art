@@ -51,20 +51,38 @@ window.onload = (event) => {
           document
             .getElementById("project-sidebar")
             .addEventListener("scroll", (el) => {
-              this.titleBottom = document
-                .getElementById("project-menu__container")
-                .getBoundingClientRect().bottom;
+              this.sidebarMenu = document
+                .getElementById("project-sidebar")
+                .getElementsByClassName("project-menu__container")[0];
+
+              this.headerMenu = document
+                .getElementsByTagName("header")[0]
+                .getElementsByClassName("project-menu__container")[0];
+
+              this.sidebarMenu = this.sidebarMenu.getBoundingClientRect();
 
               this.headerBottom = document
                 .getElementsByTagName("header")[0]
                 .getBoundingClientRect().bottom;
 
-              if (this.titleBottom === this.headerBottom) {
+              if (this.sidebarMenu.bottom === this.headerBottom) {
                 document.getElementById("website-title").style.transform =
-                  "translateY(-100%)";
+                  "translateY(-150%)";
+                // display the header projects menu
+                document
+                  .getElementsByTagName("header")[0]
+                  .getElementsByClassName(
+                    "project-menu__container"
+                  )[0].style.display = "fixed";
+
+                this.headerMenu.style.display = "block";
+                this.headerMenu.style.position = "absolute";
+                // this.headerMenu.style.top = `1rem`;
+                // this.headerMenu.style.left = `var(--section--gutter)`;
               } else {
                 document.getElementById("website-title").style.transform =
                   "translateY(0)";
+                this.headerMenu.style.display = "none";
               }
             });
 
@@ -102,10 +120,15 @@ window.onload = (event) => {
     .catch((error) => console.error(error));
 };
 
-window.addEventListener("click", toggleFullscreen);
+function toggleMenu(el) {
+  el.lastChild.classList.toggle("project-title-arrow-opened");
+  el.nextSibling.classList.toggle("projects-container-opened");
+}
+
+// window.addEventListener("click", toggleFullscreen);
 
 function toggleFullscreen() {
-  let elem = document.querySelector("img");
+  let elem = document.querySelector("video");
 
   if (!document.fullscreenElement) {
     elem.requestFullscreen().catch((err) => {
