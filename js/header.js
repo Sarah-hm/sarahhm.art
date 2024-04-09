@@ -5,7 +5,7 @@ class Header {
     this.websiteTitle = "SHM";
     this.titleUrl = "/";
 
-    this.headerGridClass = "grid-2-col-sidebar";
+    // this.headerGridClass = "grid-2-col-sidebar";
     this.websiteTitleID = "website-title";
 
     // create header section
