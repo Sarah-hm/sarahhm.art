@@ -96,17 +96,16 @@ window.onload = (event) => {
 
           for (let i = 0; i < data.experiments.length; i++) {
             if (data.experiments[i].id == expID) {
-              new Project(
+              new Experiment(
                 data.experiments[i].title,
                 data.experiments[i].subtitle,
                 data.experiments[i].year,
-                data.experiments[i].media,
                 data.experiments[i].keywords,
                 data.experiments[i].websiteLink,
                 data.experiments[i].description,
-                data.experiments[i].visual_documentation,
+                data.experiments[i].iterations,
                 data.experiments[i].link_documentation,
-                data.experiments[i].accentColor,
+                data.experiments[i].accentHue,
                 data.experiments[i].accentSaturation,
                 data
               );

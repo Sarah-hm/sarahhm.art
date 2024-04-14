@@ -1,20 +1,25 @@
 class HomepageGrid {
   constructor(data) {
     this.data = data;
+    console.log(this.data);
 
     this.menu = document.getElementById("homepage-menu");
     // project menu
-    this.menuCallback = "redirection";
-    new Menu(this.data, this.menuCallback, this.menu);
+
+    new Menu(this.data.projects, "redirection", this.menu);
+
+    // experiments menu title
+    new MenuItem("Experiments", "", "#", "", this.menu, "submenu");
 
     // experiments menu
-    this.menuCallback = "submenu";
-    new MenuItem("Experiments", "", "#", "", this.menu, this.menuCallback);
-
     this.experiments_menu = document.createElement("div");
     this.experiments_menu.classList.add("menu__submenu");
     this.experiments_menu.setAttribute("id", "homepage-experiments-menu");
     this.menu.appendChild(this.experiments_menu);
+
+    console.log(this.data.experiments);
+
+    new Menu(this.data.experiments, "redirection", this.experiments_menu);
 
     this.allthumbnails = [];
 
@@ -126,11 +131,11 @@ class HomepageGrid {
           this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.largeHeight} `;
         } else if (this.row < 4) {
           // console.log("fourth row");
+          // this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.smallHeight} ${this.largeHeight} `;
         } else if (this.row < 5) {
           // console.log("fifth row");
+          // this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.smallHeight} ${this.smallHeight} ${this.largeHeight}  `;
         }
-
-        //which
       }
     }
   }

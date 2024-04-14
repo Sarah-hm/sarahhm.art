@@ -168,7 +168,8 @@ body[page="project"] header:hover {
   overflow: visible;
 }
 
-#project-container:has(#project-sidebar:hover) {
+#project-container:has(#project-sidebar:hover),
+.experiment-section:has(.sidebar:hover) {
   grid-template-columns: 3fr 2fr;
 }
 
@@ -702,7 +703,17 @@ body[page="homepage"] menu li {
   transition: var(--dynamic-grid-transition-time);
 }
 
-#project-sidebar {
+.experiment-section {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  transition: var(--dynamic-grid-transition-time);
+  scroll-snap-type: y mandatory;
+}
+
+#project-sidebar,
+.sidebar {
   display: grid;
   grid-template-columns: 1fr;
   padding-top: var(--header-height);
@@ -759,6 +770,15 @@ body[page="homepage"] menu li {
   /* margin-bottom: var(--block-grid-gap); */
 }
 
+.menu__submenu {
+  max-height: 0vh;
+  overflow: hidden;
+  transition: var(--dynamic-grid-transition-time);
+  text-indent: 2rem;
+  height: min-content;
+  font-size: 80%;
+}
+
 .project-menu__projects-container li {
   border-bottom: var(--box-border);
   padding: 0;
@@ -782,7 +802,8 @@ body[page="homepage"] menu li {
   margin-top: var(--block-grid-gap);
 }
 
-#project-main {
+#project-main,
+.main {
   padding-inline: var(--section-gutter);
   outline: var(--box-border);
   margin-left: 1px;
@@ -793,19 +814,23 @@ body[page="homepage"] menu li {
   overflow: scroll;
 }
 
-#project-container:has(#project-sidebar:hover) {
+#project-container:has(#project-sidebar:hover),
+.experiment-section:has(#project-sidebar:hover) {
   grid-template-columns: 3fr 2fr;
 }
 
-body:has(#project-sidebar:hover) header {
+body:has(#project-sidebar:hover) header,
+body:has(.sidebar:hover) header {
   grid-template-columns: 3fr 2fr;
 }
 
-#project-container:has(#project-main:hover) {
+#project-container:has(#project-main:hover),
+.experiment-section:has(#project-main:hover) {
   grid-template-columns: 2fr 3fr;
 }
 
-#project-main figure {
+#project-main figure,
+.main figure {
   padding-top: var(--header-height);
   max-width: 100%;
   height: 100vh;
@@ -813,7 +838,8 @@ body:has(#project-sidebar:hover) header {
   margin: auto;
 }
 
-#project-main figure img {
+#project-main figure img,
+.main figure img {
   max-height: 90%;
   height: auto;
 }

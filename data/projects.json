@@ -558,12 +558,18 @@
     {
       "id": "shm-exp-touchdesigner",
       "url": "touchdesigner-experiments.html",
-      "title": "TouchDesigner Experiments",
+      "title": "TouchDesigner",
       "subtitle": "Subtitle",
-      "year": "year",
-      "media": ["medium", "medium", "medium", "medium"],
-      "keywords": ["keyword", "keyword", "keyword", "keyword", "keyword"],
-      "description": ["desc"],
+      "year": "2024",
+      "accentHue": 320,
+      "accentSaturation": 93,
+      "keywords": [
+        "TouchDesigner",
+        "Noise",
+        "Computer Vision",
+        "Radio frequencies"
+      ],
+      "description": ["These are a few of my TouchDesigner experiments"],
       "iterations": [
         {
           "title": "Noise",
@@ -572,8 +578,8 @@
           "visual_documentation": [
             {
               "type": "image",
-              "source": "",
-              "caption": ""
+              "source": "projects/touchDesigner-experiments/PSK-31-waterfall-optimize.gif",
+              "caption": "PSK-31 Waterfall display (x = frequency band, y = time, z/alpha/ramp = spectrographe"
             },
             {
               "type": "video",
@@ -585,13 +591,8 @@
       ],
       "link_documentation": [
         {
-          "type": "final report",
-          "source": "src",
-          "caption": ""
-        },
-        {
-          "type": "artefact presentation",
-          "source": "src",
+          "type": "Github Repository",
+          "source": "https://github.com/Sarah-hm/CART-456",
           "caption": ""
         }
       ]
