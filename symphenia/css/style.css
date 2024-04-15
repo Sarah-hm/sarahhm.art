@@ -1,0 +1,39 @@
+:root {
+  --dot-size: 15px;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+nav {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 10vw;
+  /* background-color: aliceblue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav div {
+  height: var(--dot-size);
+  width: var(--dot-size);
+  border-radius: var(--dot-size);
+  background-color: #7b8c6c;
+  margin: 1rem;
+  /* box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.3); */
+  transition: all 0.2s;
+  cursor: pointer;
+  outline: black solid 1px;
+  outline-offset: -9px;
+}
+
+nav div:hover {
+  outline: black solid 1px;
+  outline-offset: 3px;
+}
