@@ -561,39 +561,156 @@
       "title": "TouchDesigner",
       "subtitle": "Subtitle",
       "year": "2024",
-      "accentHue": 320,
-      "accentSaturation": 93,
+      "accentHue": 264,
+      "accentSaturation": 34,
       "keywords": [
+        "Real-time Interactive media",
+        "Human-Computer Interaction (HCI)",
         "TouchDesigner",
-        "Noise",
-        "Computer Vision",
-        "Radio frequencies"
+        "DCART Computation Lab Internship"
       ],
-      "description": ["These are a few of my TouchDesigner experiments"],
-      "iterations": [
+      "description": [
+        " As I complete my internship (CART-456) at the Computation Lab, and with it my BFA in Computation Arts, I must archive the steps that lead me here, doing the library that I am starting. I first want to reiterate my initial goals, and how they morphed into what I achieved. I will then further explain what notions of TouchDesigner I explored and why. I will conclude by positioning the foundations of my project with my final reflections."
+      ],
+      "thumbnail": "projects/touchDesigner-experiments/symphenia_gif.gif",
+      "visual_documentation": [
         {
-          "title": "Noise",
-          "description": "TouchDesigner experiments with a main focus on the Noise Operator (and palette operator)",
-          "thumbnail": "projects/touchDesigner-experiments/PSK-31-waterfall-optimize.gif",
-          "visual_documentation": [
-            {
-              "type": "image",
-              "source": "projects/touchDesigner-experiments/PSK-31-waterfall-optimize.gif",
-              "caption": "PSK-31 Waterfall display (x = frequency band, y = time, z/alpha/ramp = spectrographe"
-            },
-            {
-              "type": "video",
-              "source": "",
-              "caption": ""
-            }
-          ]
+          "type": "video",
+          "source": "projects/touchDesigner-experiments/Symphenia_preview_prototype_2024.mp4",
+          "caption": "Symphenia (2024) preview prototype on TouchDesigner",
+          "videoType": "video/mp4"
         }
       ],
       "link_documentation": [
         {
-          "type": "Github Repository",
+          "type": "Internship Repository",
           "source": "https://github.com/Sarah-hm/CART-456",
           "caption": ""
+        },
+        {
+          "type": "TD_snippets library",
+          "source": "https://github.com/Sarah-hm/TD-snippets",
+          "caption": ""
+        }
+      ],
+      "iterations": [
+        {
+          "title": "Goals and Beginnings",
+          "description": [
+            "What I wanted from an internship at the Computation Lab was first and foremost mentorship from Sabine Rosenberg. I appreciate her pedagogical skills a lot, and her meaningful feedback has always propelled my practice where it needed to be, and myself towards questions I needed to ask. After completing both Networks courses with her and having HCI become an (unexpected) interest of mine, I knew I could not leave it at that. Although those courses showed me more new tools than perhaps the rest of my degree combined, I still felt I needed to learn something else; a framework that would wrap all my skills together and allow “trans” disciplinary, interactive, and real-time experimentations. ",
+            "Inspired to take my creative coding skills further, I aimed to learn a lower-level creative framework that would allow me granular control over functions. I first thought of OpenFrameWorks, as I am somewhat more comfortable with C++, aside from the HTML/CSS/JS (php) holy trinity. TouchDesigner’s Python base intimidated me at first, as I overestimated its usage in simpler networks (although it does pick up when you are trying to make OSC work properly). The framework’s node system also appeared more constraining than a conventional coding structure. After more research and conversation with Sabine, I nevertheless opted to learn TouchDesigner instead of OpenFrameWorks. I was still not entirely sold (still not sure I am), but the infinite online resources and community, its current relevance in new media art, and my goals of learning a comprehensive interactive creative coding tool made it the most compelling framework to learn.",
+            "As part of my internship, I also wanted to practice teaching by giving workshops. I love assisting folks with their own projects and ideas, figuring out how others think through their challenges and bugs, and helping them figuring it out along the way. Preparing and teaching a workshop on P5 made me realize how much more work than anticipated this portion of my internship would produce. When teaching, I not only need to know the technology thoroughly, but I also need to create projects with it that are easily explainable and replicable. Explaining JS notions to first- and second-year CART students helped me recognize I knew more than I thought I did about coding (there’s always so much more to learn, it’s hard to see what has already been achieved). Although I feel comfortable challenging myself with large-scale creative coding projects, programming something for yourself to understand is very different from programming something for learners to understand. After pulling off one workshop at the beginning of the semester, I recognized that doing more than that would largely impact how much resources I could put into my own project, so I decided to leave it at that. I still learned a lot, especially from Sabine’s feedback, and I am looking forward to being able to put those skills into practice at a later point in my career."
+          ]
+        },
+        {
+          "title": "TouchDesigner",
+          "description": [
+            "I started TouchDesigner from absolute scratch, having completed one (1) student-led Python workshop and assuming the Node system was going to be like Blender’s. Wrong, wrong, wrong. I am thankful to Sabine for forcing me to complete the 100 series before falling into unnecessary rabbit holes I could not understand the depths of yet. With those bite sized tutorials, I was able to understand what and where the most used operators were. Without building any complex networks (which was boring, I must admit), I got to understand the context of TD’s node system. Apart from familiarizing myself with nodes and operators, I also slowly learned Python expressions for TD (TScript). Other than some browser-based protocols like PHP, I did not have a broad understanding of networked data transmission like OSC, DMX, etc. Spending some time documenting myself on the terminology of most things made the research process much more efficient when came time to build bigger (more complex) networks."
+          ],
+          "visual_documentation": [
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Noise_Lava-lamp.gif",
+              "caption": "Noise/Lava_lamp"
+            },
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Noise_joy-division.gif",
+              "caption": "Noise/Joy-division"
+            }
+          ]
+        },
+        {
+          "title": "TD / instancing",
+          "description": [
+            "Aiming to find parallels I could understand between this new framework and ones I knew, I started learning about the Instancing parameters of the Geo Component from TD as a (far-fetched) mirror to JS’s OOP notions. The Geo Component’s instancing parameters allow Surface Operators (3D objects) a similar behaviour as JS OOP’s constructor method, in the way it creates individual instances of an object given programmed (and variable) parameters. Learning to program is a steep learning curve at first, but once you understand the syntax of one language, it is often simpler to learn a new one. I assumed a similar thing would happen while teaching myself TD, and that forcing JS behaviour unto TD functionalities would ultimately output the desired effect. However, if JS functionalities are what would be preferable in a given context, why would I ever go towards a TD network? Instead of forcing my understanding of creative (‘linear’) programming into my experiments, I took a step back, trusted the process with a few more tutorials, and tried to approach TD as the node-based framework it is, using the advantages it had over my beloved JS. "
+          ],
+          "thumbnail": "projects/touchDesigner-experiments/Instancing_texture-map.gif",
+          "visual_documentation": [
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Instancing_basic_grid.gif",
+              "caption": "Instancing/basic_grid"
+            },
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Instancing_texture-map.gif",
+              "caption": "Instancing/texture-map"
+            }
+          ]
+        },
+        {
+          "title": "TD / noise",
+          "description": [
+            "Randomness and chaos (theory) are big interests of mine, and TD’s Noise operators can create very interesting effects using these concepts. They were an intuitive first step for me to learn about some operators’ effects without being constrained to complex changing data input (like human interaction, sound input, etc.). However, TD’s high-level functionality, which makes prototyping qualitative interactive audio-visual renditions with little programming knowledge, also comes at a cost. More nuanced approach to interaction, noise, and HCI must be taken to avoid falling in a commercially leaning (and oversaturated) aesthetic. Noise operators are a great tool for quickly prototyping lower fidelity ideas and can be nicely layered with other interactions and effects, but I have found they would likely not be the end goal of my TD based projects. I had to find more. "
+          ],
+          "thumbnail": "projects/touchDesigner-experiments/Noise_feedback-loop.gif",
+          "visual_documentation": [
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Noise_feedback-loop.gif",
+              "caption": "Noise/feedback-loop"
+            },
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Noise_Alpha_ramp_colored.gif",
+              "caption": "Noise/Alpha-Ramp_colored"
+            },
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Noise_cellular.gif",
+              "caption": "Noise/Cellular"
+            }
+          ]
+        },
+        {
+          "title": "TD /  I/O & CV",
+          "description": [
+            "Two of TD’s strengths are its range of supported data transmission, and Computer Vision (CV) and other video processing models. I aim for my projects to create embodied experiences, while remaining accessible and un-intrusive. I am personally more attuned to electronics and interactive artistic experiences, but I create for audiences that do not have to be. For me, this means that a participant needs to feel welcomed into an interaction without ever feeling trapped in it. I started exploring camera input as I felt this was a good way of letting an audience interact as passively or actively as they wanted. By creating a sliding scale of afforded experiences, my goal is always to introduce some chaos, and TD’s (actual) sliding system and exportable parameter expressions allow for such serendipity to occur.",
+            "Going through a few options, I completed simple networks using the Sim Zig app and the Iphone’s front camera depth and alpha map, as well as its face skeleton using OSC UDP transmission. Sim Zig is a great prototyping tool I will go back to, as it allows comprehensive and simple models (especially the full body skeleton and face) input to TouchDesigner in no time. It is however not accessible enough to be a final prototype’s input, as it is only usable with iPhone sensors and OS. I then explored TD’s native Blob Track (TOP) Operator, that tracks blobs with a subtracted background (or not). Working on TD’s free version limited the blob limit to 2, which is realistically 1 jittering blob. Without a consistent and known background to subtract the possible blobs from, the operator failed to provide enough usable information on embodied events.",
+            "I then switched to Torinmd’s MediaPipe external TD plugin, available as an open-source downloadable patch from his Github. The plugin, given a camera input, outputs MediaPipe’s human and object tracking, as well as image classification, and several image segmentation models on specific CHOP and TOP output operators. The free add-on is surprisingly reliable and allowed a ton of easy experimentations with a simple standard quality webcam. There are a ton of ‘embodied’ tools for TD I could pull from open-sources, and I hope to discover a lot more.  For the current needs however, MediaPipe felt more than sufficient, and I still wanted to explore other data inputs and their plausible visual inference. I kept going. "
+          ],
+          "thumbnail": "projects/touchDesigner-experiments/Instancing_Camera-input_rotated-grid-output.gif",
+          "visual_documentation": [
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Instancing_Camera-input_rotated-grid-output.gif",
+              "caption": "Instancing/camera-input_rotated-grid-output"
+            }
+          ]
+        },
+        {
+          "title": "TD / Radio Digital Signal Processing",
+          "description": [
+            "As my interest for electromagnetic waves, radio frequencies, and the information-filled noise they carry, grew, I dived into Channel Operators (CHOPs). I do not consider myself a sound person at all, and I was struggling to know how most useful this (huge) part of TD could be to my practice. I researched Digital Signal Processing software programs like FLDigi that could visualize and archive radio’s digital modes’ waterfall display (a 3D map of a spectrograph (z) of a range of frequencies (x) over time (y)). I then succeeded at emulating an accurate waterfall DSP display on TD. These TD waterfalls are not more or less informative than FLDigi’s or another modem’s one, although the modem does allow an accurate decoding of the frequency into its (humanly) intelligible data, which TD is not capable of. What TD is good at doing however, is mapping otherwise unrelated data together through expressions, making them behave in relation to one another. This opens the affordances of inference from a single audio file (of electromagnetic frequencies) to many output, like 3D objects and environment, movement and animations. These reinterpretations of digital signal processing into speculative audio-visual renditions can inform new ways of perceiving otherwise ‘invisible’ data, which I find absolutely fascinating! "
+          ],
+          "thumbnail": "projects/touchDesigner-experiments/PSK-31-waterfall-optimize.gif",
+          "visual_documentation": [
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/Instancing_basic-spectrogram.gif",
+              "caption": "Instancing/basic-spectrogram (audio in)"
+            },
+            {
+              "type": "image",
+              "source": "projects/touchDesigner-experiments/PSK-31-waterfall-optimize.gif",
+              "caption": "Audio_reactive/DSP_Waterfall display (audio in)"
+            }
+          ]
+        },
+        {
+          "title": "TD_snippets library implementation",
+          "description": [
+            "Understanding the high-level to low-level shifts that TD allows helped me develop an efficient prototyping methodology with the framework. The node system enabled me to prototype small experiments quickly, and tweak all components to specific details needed by my projects. As opposed to a conventional and ‘linear’ approach to programming, where I need a clear end goal in mind when I start coding, I have learned to explore and modify parameters, and see where it takes me. If coding feels like painting, TD feels like sketching. Once satisfied, one can take their black marker and immortalize a good enough sketch. However, it will probably always be best to recreate the sketch on another, more elegant, medium. Most of what TD is capable of can be achieved outside of the software, with better and more efficient protocols. It would just take an unrealistic amount of R&D to achieve the smallest prototype for limited production teams. Using TD, I was able to prototype a preview of our interactive Symphenia (2024) project and modify it weeks before we were able to render the final output on LED matrices. It saved our team a lot of resources in time and money, as well as tears, probably. ",
+            "TD has a lot of limitations, however. They act as middleware for many technologies they house (like MediaPipe, Python (libraries), to name a few), which can again be very powerful while prototyping and experimenting, but frustrating in the production phase when all elements need to be stabilized and optimized. TD is especially finicky for importing external Python libraries, making more complex programming a headache within a patch. Communication anomalies also seemed to occur when communicating to edge devices like Raspberry Pi by OSC over ethernet, which did not appear to cause issues in vanilla python scripts. Though I was able to work through the issues this time around, it still seems to be a safer bet to transpose the production network in another, more stable, environment if possible. TD’s versatility is probably its best and most challenging quality. As a jack of all trade, it allows prototyping between many devices and parameters’ mapping in a fraction of the time that hard-coding a stable version would take. Perhaps a master’s of none, TD is a framework I will dive more in-depth with, especially to create quick sketches and ideas, moving forward. ",
+            "I wanted my internship at the CLAB to be a culmination of all of my time, with the skills I already had mixed with the ones I acquired, in my Computation Arts degree at Concordia. I learned a new framework that compliments my own transdisciplinary, quirky (and sometimes unstable) practice. TD’s crux relies in how easy layering and tweaking smaller chunks of operators into complex networks is. While learning, creating and feeding a library of TD snippets has already made prototyping projects that much more streamlined and efficient. As opposed to a full-fledged production size project, I will use TD for what I have learned it is the best at, (you guessed it) prototyping. By creating this library, I am building the foundations of an open-source toolbox of my own TD snippets and patches, which will eventually gain in complexity as my comfort with the framework increases. My practice has always centered community-driven approaches to innovation and knowledge sharing. I believe an important and natural next time for my creative coding journey is to build onto that idea of learning as much as I can, and sharing what I know. This internship has offered me the opportunity to start this TD_snippets library, which I will keep feeding on my own. I hope it will become a resource future students of the CLAB find useful. The link to github repository of this library can be found at the top of this page (TD_snippets library button). "
+          ]
+        },
+        {
+          "title": "Final reflections",
+          "description": [
+            "As my interest for electromagnetic waves, radio frequencies, and the information-filled noise they carry, grew, I dived into Channel Operators (CHOPs). I do not consider myself a sound person at all, and I was struggling to know how most useful this (huge) part of TD could be to my practice. I researched Digital Signal Processing software programs like FLDigi that could visualize and archive radio’s digital modes’ waterfall display (a 3D map of a spectrograph (z) of a range of frequencies (x) over time (y)). I then succeeded at emulating an accurate waterfall DSP display on TD. These TD waterfalls are not more or less informative than FLDigi’s or another modem’s one, although the modem does allow an accurate decoding of the frequency into its (humanly) intelligible data, which TD is not capable of. What TD is good at doing however, is mapping otherwise unrelated data together through expressions, making them behave in relation to one another. This opens the affordances of inference from a single audio file (of electromagnetic frequencies) to many output, like 3D objects and environment, movement and animations. These reinterpretations of digital signal processing into speculative audio-visual renditions can inform new ways of perceiving otherwise ‘invisible’ data, which I find absolutely fascinating! "
+          ]
         }
       ]
     },
@@ -602,6 +719,13 @@
       "url": "name.html",
       "title": "Experiment",
       "subtitle": "Subtitle",
+      "visual_documentation": [
+        {
+          "type": "image",
+          "source": "projects/touchDesigner-experiments/symphenia_gif.gif",
+          "caption": "Symphenia (2024) preview prototype on TouchDesigner"
+        }
+      ],
       "year": "year",
       "media": ["medium", "medium", "medium", "medium"],
       "keywords": ["keyword", "keyword", "keyword", "keyword", "keyword"],

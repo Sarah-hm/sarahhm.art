@@ -35,18 +35,26 @@ class HomepageGrid {
     }
     // get all experiments' thumbnails
     for (this.i = 0; this.i < this.data.experiments.length; this.i++) {
+      this.allthumbnails.push({
+        thumbnail: this.data.experiments[this.i].thumbnail,
+        url: this.data.experiments[this.i].url,
+        id: this.data.experiments[this.i].id,
+      });
+
       for (
         this.j = 0;
         this.j < this.data.experiments[this.i].iterations.length;
         this.j++
       ) {
-        console.log(this.data.experiments[this.i].iterations[this.j].thumbnail);
-        this.temp = {
-          thumbnail: this.data.experiments[this.i].iterations[this.j].thumbnail,
-          url: this.data.experiments[this.i].url,
-          id: this.data.experiments[this.i].id,
-        };
-        this.allthumbnails.push(this.temp);
+        if (this.data.experiments[this.i].iterations[this.j].thumbnail) {
+          this.temp = {
+            thumbnail:
+              this.data.experiments[this.i].iterations[this.j].thumbnail,
+            url: this.data.experiments[this.i].url,
+            id: this.data.experiments[this.i].id[this.j],
+          };
+          this.allthumbnails.push(this.temp);
+        }
       }
     }
 
@@ -89,7 +97,7 @@ class HomepageGrid {
 
     this.thumbnails_container.addEventListener("mouseleave", () => {
       this.thumbnails_container.style.gridTemplateColumns = `${this.defaultFr} ${this.defaultFr} ${this.defaultFr} ${this.defaultFr}`;
-      this.thumbnails_container.style.gridTemplateRows = `${this.defaultHeight} ${this.defaultHeight} ${this.defaultHeight}`;
+      this.thumbnails_container.style.gridTemplateRows = `${this.defaultHeight} ${this.defaultHeight} ${this.defaultHeight} ${this.defaultHeight}`;
     });
   }
 
@@ -122,16 +130,16 @@ class HomepageGrid {
         this.row = this.i / 4;
         if (this.row < 1) {
           // console.log("first row");
-          this.thumbnails_container.style.gridTemplateRows = `${this.largeHeight} ${this.smallHeight} ${this.smallHeight} `;
+          this.thumbnails_container.style.gridTemplateRows = `${this.largeHeight} ${this.smallHeight} ${this.smallHeight} ${this.smallHeight}`;
         } else if (this.row < 2) {
           // console.log("second row");
-          this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.largeHeight} ${this.smallHeight} `;
+          this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.largeHeight} ${this.smallHeight} ${this.smallHeight}`;
         } else if (this.row < 3) {
           // console.log("third row");
-          this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.largeHeight} `;
+          this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.largeHeight} ${this.smallHeight}`;
         } else if (this.row < 4) {
           // console.log("fourth row");
-          // this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.smallHeight} ${this.largeHeight} `;
+          this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.smallHeight} ${this.largeHeight} `;
         } else if (this.row < 5) {
           // console.log("fifth row");
           // this.thumbnails_container.style.gridTemplateRows = `${this.smallHeight} ${this.smallHeight} ${this.smallHeight} ${this.smallHeight} ${this.largeHeight}  `;

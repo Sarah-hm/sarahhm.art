@@ -6,6 +6,7 @@ class Experiment {
     keywords,
     websiteLink,
     desc,
+    visDoc,
     iterations,
     linkDoc,
     accentHue,
@@ -18,6 +19,7 @@ class Experiment {
     this.keywords = keywords;
     this.websiteLink = websiteLink;
     this.desc = desc;
+    this.visDoc = visDoc;
     this.iterations = iterations;
     this.linkDoc = linkDoc;
 
@@ -56,11 +58,11 @@ class Experiment {
     document.body.appendChild(this.container);
 
     this.sidebar = document.createElement("div");
-    this.sidebar.setAttribute("id", "project-sidebar");
+    this.sidebar.classList.add("sidebar");
     this.container.appendChild(this.sidebar);
 
     this.main = document.createElement("div");
-    this.main.setAttribute("id", "project-main");
+    this.main.classList.add("main");
     this.container.appendChild(this.main);
 
     // Populate content in order, with specified container
@@ -75,6 +77,7 @@ class Experiment {
 
     this.createKeywords(this.keywords, this.subsidebar);
     this.createDescription(this.desc, this.sidebar);
+    this.createVisualDocumentation(this.visDoc, this.main);
 
     console.log(this.iterations);
     if (this.iterations) {
@@ -197,18 +200,27 @@ class Experiment {
     this.iterationContainer.classList.add("experiment-section");
     document.body.appendChild(this.iterationContainer);
 
-    this.iterationSidebar = document.createElement("div");
-    this.iterationSidebar.classList.add("sidebar");
-    this.iterationContainer.appendChild(this.iterationSidebar);
-
-    this.iterationMain = document.createElement("div");
-    this.iterationMain.classList.add("main");
-    this.iterationContainer.appendChild(this.iterationMain);
-
-    this.createTitle(title, this.iterationSidebar);
-    // this.createDescription(desc, this.iterationSidebar);
     console.log(doc);
-    this.createVisualDocumentation(doc, this.iterationMain);
+    if (doc) {
+      this.iterationSidebar = document.createElement("div");
+      this.iterationSidebar.classList.add("sidebar");
+      this.iterationContainer.appendChild(this.iterationSidebar);
+
+      this.iterationMain = document.createElement("div");
+      this.iterationMain.classList.add("main");
+      this.iterationContainer.appendChild(this.iterationMain);
+
+      this.createTitle(title, this.iterationSidebar);
+      this.createDescription(desc, this.iterationSidebar);
+      console.log(doc);
+      this.createVisualDocumentation(doc, this.iterationMain);
+    } else {
+      this.iterationMain = document.createElement("div");
+      this.iterationMain.classList.add("main-fullwidth");
+      this.iterationContainer.appendChild(this.iterationMain);
+      this.createTitle(title, this.iterationMain);
+      this.createDescription(desc, this.iterationMain);
+    }
   }
 
   createVisualDocumentation(doc, container) {
@@ -216,32 +228,28 @@ class Experiment {
     for (this.i = 0; this.i < doc.length; this.i++) {
       switch (doc[this.i].type) {
         case "image":
+          console.log("image");
           // Create figure with caption
           this.figure = document.createElement("figure");
           container.appendChild(this.figure);
 
-          if (doc.caption) {
+          this.img = document.createElement("img");
+          this.img.src = `${doc[this.i].source}`;
+          this.figure.appendChild(this.img);
+
+          if (doc[this.i].caption) {
             this.caption = document.createElement("figcaption");
             this.caption.classList.add("prj-visualDoc-figcaption");
             this.figure.appendChild(this.caption);
-            this.caption.appendChild(document.createTextNode(doc.caption));
+            this.caption.appendChild(
+              document.createTextNode(doc[this.i].caption)
+            );
           }
-
-          this.img = document.createElement("img");
-          this.img.src = `${doc.source}`;
-          this.figure.appendChild(this.img);
 
           break;
         case "video":
           this.figure = document.createElement("figure");
           container.appendChild(this.figure);
-
-          if (doc.caption) {
-            this.caption = document.createElement("figcaption");
-            this.caption.classList.add("prj-visualDoc-figcaption");
-            this.figure.appendChild(this.caption);
-            this.caption.appendChild(document.createTextNode(doc.caption));
-          }
 
           this.video = document.createElement("video");
           this.video.setAttribute("controls", "controls");
@@ -251,9 +259,18 @@ class Experiment {
           this.figure.appendChild(this.video);
 
           this.source = document.createElement("source");
-          this.source.src = `${doc.source}`;
-          this.source.type = `${doc.videoType}`;
+          this.source.src = `${doc[this.i].source}`;
+          this.source.type = `${doc[this.i].videoType}`;
           this.video.appendChild(this.source);
+
+          if (doc[this.i].caption) {
+            this.caption = document.createElement("figcaption");
+            this.caption.classList.add("prj-visualDoc-figcaption");
+            this.figure.appendChild(this.caption);
+            this.caption.appendChild(
+              document.createTextNode(doc[this.i].caption)
+            );
+          }
           break;
         default:
           console.log("Not a supported format");

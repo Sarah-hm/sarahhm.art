@@ -213,28 +213,21 @@ class Project {
           this.figure = document.createElement("figure");
           container.appendChild(this.figure);
 
+          this.img = document.createElement("img");
+          this.img.src = `${doc.source}`;
+          this.figure.appendChild(this.img);
+
           if (doc.caption) {
             this.caption = document.createElement("figcaption");
             this.caption.classList.add("prj-visualDoc-figcaption");
             this.figure.appendChild(this.caption);
             this.caption.appendChild(document.createTextNode(doc.caption));
           }
-
-          this.img = document.createElement("img");
-          this.img.src = `${doc.source}`;
-          this.figure.appendChild(this.img);
 
           break;
         case "video":
           this.figure = document.createElement("figure");
           container.appendChild(this.figure);
-
-          if (doc.caption) {
-            this.caption = document.createElement("figcaption");
-            this.caption.classList.add("prj-visualDoc-figcaption");
-            this.figure.appendChild(this.caption);
-            this.caption.appendChild(document.createTextNode(doc.caption));
-          }
 
           this.video = document.createElement("video");
           this.video.setAttribute("controls", "controls");
@@ -247,6 +240,13 @@ class Project {
           this.source.src = `${doc.source}`;
           this.source.type = `${doc.videoType}`;
           this.video.appendChild(this.source);
+
+          if (doc.caption) {
+            this.caption = document.createElement("figcaption");
+            this.caption.classList.add("prj-visualDoc-figcaption");
+            this.figure.appendChild(this.caption);
+            this.caption.appendChild(document.createTextNode(doc.caption));
+          }
           break;
         default:
           console.log("Not a supported format");

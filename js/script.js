@@ -103,6 +103,7 @@ window.onload = (event) => {
                 data.experiments[i].keywords,
                 data.experiments[i].websiteLink,
                 data.experiments[i].description,
+                data.experiments[i].visual_documentation,
                 data.experiments[i].iterations,
                 data.experiments[i].link_documentation,
                 data.experiments[i].accentHue,

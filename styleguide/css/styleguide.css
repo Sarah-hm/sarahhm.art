@@ -706,10 +706,16 @@ body[page="homepage"] menu li {
 .experiment-section {
   margin: 0;
   height: 100vh;
-  display: grid;
+  display: flex;
   grid-template-columns: 2fr 3fr;
   transition: var(--dynamic-grid-transition-time);
   scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
+}
+
+.experiment-section main {
+  display: flex;
+  align-items: center;
 }
 
 #project-sidebar,
@@ -725,6 +731,44 @@ body[page="homepage"] menu li {
   overflow: scroll;
   position: sticky;
   top: var(--header-height);
+}
+
+#project-main,
+.main {
+  padding-inline: var(--section-gutter);
+  padding-top: var(--header-height);
+  outline: var(--box-border);
+  margin-left: 1px;
+  transition: 300ms;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: 100%;
+}
+
+.main-fullwidth {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-top: var(--header-height);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  transition: var(--dynamic-grid-transition-time);
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
+  padding-inline: var(--section-gutter);
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  justify-content: space-around;
+}
+
+.main-fullwidth div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .project-menu__container {
@@ -802,20 +846,8 @@ body[page="homepage"] menu li {
   margin-top: var(--block-grid-gap);
 }
 
-#project-main,
-.main {
-  padding-inline: var(--section-gutter);
-  outline: var(--box-border);
-  margin-left: 1px;
-  transition: 300ms;
-  scroll-snap-type: y mandatory;
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-}
-
 #project-container:has(#project-sidebar:hover),
-.experiment-section:has(#project-sidebar:hover) {
+.experiment-section:has(.sidebar:hover) {
   grid-template-columns: 3fr 2fr;
 }
 
@@ -825,17 +857,21 @@ body:has(.sidebar:hover) header {
 }
 
 #project-container:has(#project-main:hover),
-.experiment-section:has(#project-main:hover) {
+.experiment-section:has(.main:hover) {
   grid-template-columns: 2fr 3fr;
 }
 
 #project-main figure,
 .main figure {
-  padding-top: var(--header-height);
   max-width: 100%;
-  height: 100vh;
+  height: max-content;
+  max-height: 90vh;
   scroll-snap-align: start;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align: right;
 }
 
 #project-main figure img,
