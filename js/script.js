@@ -17,7 +17,7 @@ window.onload = (event) => {
           new HomepageGrid(data);
           break;
         case "about":
-          navCTA = ["homepage", "cv", "instagram", "email"];
+          navCTA = ["homepage", "instagram", "email"];
           header = new Header(navCTA);
           break;
         case "project":
