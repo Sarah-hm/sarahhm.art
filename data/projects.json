@@ -588,6 +588,11 @@
           "caption": ""
         },
         {
+          "type": "Internship report",
+          "source": "projects/touchDesigner-experiments/CLAB-internship-reportW24.pdf",
+          "caption": ""
+        },
+        {
           "type": "TD_snippets library",
           "source": "https://github.com/Sarah-hm/TD-snippets",
           "caption": ""
